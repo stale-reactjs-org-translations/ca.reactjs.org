@@ -1,6 +1,6 @@
 # reactjs.org
 
-Aquest repositori conté tant el codi font com la documentació necessaris per a impulsar [reactjs.org](https://reactjs.org/).
+Aquest repositori conté tant el codi font com la documentació necessària per a impulsar [reactjs.org](https://reactjs.org/).
 
 ## Per a començar
 
