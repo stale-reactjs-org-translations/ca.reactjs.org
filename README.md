@@ -38,7 +38,7 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 1. Seguir les instruccions "Executant localment"
 2. Guarda els fitxers i comprova el navegador
-  1. Canvis de components de React dins de el directori `src` s'aplicaran automàticament
+  1. Canvis de components de React dins del directori `src` s'aplicaran automàticament
   2. Cavnis de fitxers de markdowndins el directori `content` s'aplicaran automàticament
   3. Si treballa amb plugins, pot ser que hagi d'eliminar el directori `.cache` i reiniciar el servidor de desenvolupament
 
