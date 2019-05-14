@@ -8,7 +8,7 @@ Aquest repositori conté tant el codi font com la documentació necessaris per a
 
 1. Git
 2. Node: qualsevol versió 8.x començant per 8.4.0 o superior
-3. Yarn: Veure [Lloc web de Yarn amb instructions d'instal·lació](https://yarnpkg.com/lang/en/docs/install/)
+3. Yarn: Veure [Lloc web de Yarn amb instruccions d'instal·lació](https://yarnpkg.com/lang/en/docs/install/)
 4. Un fork del repositori (per a contribucions)
 5. Un clon de [reactjs.org repo](https://github.com/reactjs/reactjs.org) a la teva màquina local
 
