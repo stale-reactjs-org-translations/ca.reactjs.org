@@ -20,7 +20,7 @@ Aquest repositori conté tant el codi font com la documentació necessaris per a
 ### Executant localment
 
 1. `yarn dev` per a iniciar el servidor hot-reloading de desenvolupament (per [Gatsby](https://www.gatsbyjs.org))
-2. `open http://localhost:8000` per a obrir el lloc web en el teu navegador
+2. `open http://localhost:8000` per a obrir el lloc web al teu navegador
 
 ## Contribuïnt
 
