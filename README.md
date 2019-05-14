@@ -30,7 +30,7 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 ### Crear una branca
 
-1. `git checkout master` desde qualsevol directori dins del teu repositori local de `reactjs.org`
+1. `git checkout master` des de qualsevol directori dins del teu repositori local de `reactjs.org`
 2. `git pull origin master` per a assegurar que el codi està actualitzat amb els canvis mes recents
 3. `git checkout -b nom-de-la-meva-branca` (reemplaça `nom-de-la-meva-branca` amb el nom adient) per a crear una nova branca
 
