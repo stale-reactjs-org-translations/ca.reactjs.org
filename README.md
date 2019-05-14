@@ -53,7 +53,7 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 2. `git push el-meu-fork nom-de-la-meva-branca`
 3. Vagi a [reactjs.org repo](https://github.com/reactjs/reactjs.org) i podrà veure els canvis mes recents a qualsevol de les branques actualitzades.
 4. Segueixi les instruccions de GitHub.
-5. If possible, include screenshots of visual changes. A Netlify build will also be automatically created once you make your PR so other people can see your change.
+5. A ser possible, inclogui captures de pantalla dels canvis visuals. Una build de Netlify es crearà automàticament quan enviï la PR per tal que altra gent pugui visualitzar els canvis.
 
 ## Traduccions
 
