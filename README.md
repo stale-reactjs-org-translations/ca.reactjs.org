@@ -57,7 +57,7 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 ## Traduccions
 
-Si estàs interessat en traduïr `reactjs.org`, siusplau, comprova l'estat actual de la traducció a [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/).
+Si està interessat a traduir `reactjs.org`, si us plau, comprovi l'estat actual de la traducció a [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/).
 
 ## Resolució de problemes
 
