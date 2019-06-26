@@ -122,7 +122,7 @@ const Header = ({location}: {location: Location}) => (
           }}>
           <HeaderLink
             isActive={location.pathname.includes('/docs/')}
-            title="Docs"
+            title="Documentació"
             to="/docs/getting-started.html"
           />
           <HeaderLink
@@ -137,7 +137,7 @@ const Header = ({location}: {location: Location}) => (
           />
           <HeaderLink
             isActive={location.pathname.includes('/community/')}
-            title="Community"
+            title="Comunitat"
             to="/community/support.html"
           />
         </nav>
@@ -209,7 +209,7 @@ const Header = ({location}: {location: Location}) => (
                   display: 'none',
                 },
               }}>
-              Languages
+              Idiomes
             </span>
           </Link>
           <a
