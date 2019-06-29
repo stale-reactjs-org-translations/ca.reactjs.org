@@ -1,5 +1,5 @@
 - title: Tutorial
-  ítems:
+  items:
     - id: before-we-start-the-tutorial
       title: Abans de començar el tutorial
       href: /tutorial/tutorial.html#before-we-start-the-tutorial
@@ -108,4 +108,4 @@
         - id: wrapping-up
           title: Concloent
           href: /tutorial/tutorial.html#wrapping-up
-          forceInternal: tru
+          forceInternal: true
