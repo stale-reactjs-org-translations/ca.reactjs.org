@@ -5,11 +5,11 @@ layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
 redirect_from:
-  - "docs/tutorial.html"
-  - "docs/why-react.html"
-  - "docs/tutorial-ja-JP.html"
-  - "docs/tutorial-ko-KR.html"
-  - "docs/tutorial-zh-CN.html"
+  - "docs/tutorial.html"
+  - "docs/why-react.html"
+  - "docs/tutorial-ja-JP.html"
+  - "docs/tutorial-ko-KR.html"
+  - "docs/tutorial-zh-CN.html"
 ---
 
 Aquest tutorial no assumeix cap coneixement previ sobre React.
@@ -26,7 +26,7 @@ Aquest tutorial està dividit en diverses seccions:
 
 * [Configuració per a l'tutorial](#setup-for-the-tutorial) et donarà un punt de partida per seguir el tutorial.
 * [Visió general](#overview) t'ensenyarà **els fonaments** de React: components, props i estat.
-* [Completant el joc](#Completing-the-game) t'ensenyarà **les tècniques més comuns** en desenvolupament de React.
+* [Completant el joc](#completing-the-game) t'ensenyarà **les tècniques més comuns** en desenvolupament de React.
 * [Afegint viatge en el temps](#adding-time-travel) et donarà una **visió més profunda** de les fortaleses úniques de React.
 
 No has de completar totes les seccions alhora per obtenir el valor d'aquest tutorial. Prova arribar tan lluny com puguis, fins i tot si és una o dues seccions.
@@ -45,7 +45,7 @@ Pots tancar el joc de tic-tac-toe una vegada que et familiarizaste amb ell. Come
 
 Assumim que tens certa familiaritat amb HTML i javaScript, però hauries de ser capaç de seguir endavant fins i tot si véns d'un llenguatge de programació diferent. També suposem que estàs familiaritzat amb conceptes de programació com a funcions, objectes, arrays, i en menor mesura, classes.
 
-Si necessites revisar javaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/javaScript/A_re-introduction_to_javaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de javaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://ES5-syntax-example) per revisar a quin codi compila ES6.
+Si necessites revisar javaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_javaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de javaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://ES5-syntax-example) per revisar a quin codi compila ES6.
 
 ## Configuració per a l'tutorial {#setup-for-the-tutorial}
 
@@ -106,7 +106,7 @@ cd ..
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dg';
+import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
@@ -164,11 +164,12 @@ return React.createElement('div', {className: 'shopping-list'},
 
 [Veure la versió completa estesa.](babel://tutorial-expanded-version)
 
-Si tens curiositat, `createElement()` està descrit en més detall en la [referència de l'API](/docs/react-api.html#createElement), però no ho farem servir en aquest tutorial. En canvi, seguirem fent servir JSX.
+Si tens curiositat, `createElement()` està descrit en més detall en la [referència de l'API](/docs/react-api.html#createelement), però no ho farem servir en aquest tutorial. En canvi, seguirem fent servir JSX.
 
 JSX ve amb tot el poder de javaScript. Pots posar *qualsevol* expressió de javaScript en l'interior de les claus dins de JSX. Cada element d'React és un objecte de javaScript que pots emmagatzemar en una variable o passar al voltant del teu programa.
 
 El component anterior `ShoppingList` només renderitza components pre-construïts de la DOM com `<div />` i `<li />`. Però, també pots compondre i renderitzar components personalitzats de React. Per exemple, ara podem referirmos al llistat de compres complet escrivint `<ShoppingList />`. Cada compoent de React està encapsulat i pot operar independentment; això et permet construir ius omplexes des de components simples.
+
 ## Inspeccionant el codi inicial {#inspecting-the-starter-code}
 
 Si vas a treballar el tutorial **al navegador,** obre aquest codi en un nou tab: **[Codi inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Si vas a treballar el tutorial **localment**, obre `src/index.js` a la carpeta del teu projecte (ja has tocat aquest arxiu durant la [configuració](#setup-option-2-local-development-environment)).
@@ -198,15 +199,15 @@ class Board extends React.Component {
   }
 ```
 
-Canvia el mètode `render` de Square per mostrar aquest valor, reemplaçant `{/* TDOO */}` amb `{this.props.value}`:
+Canvia el mètode `render` de Square per mostrar aquest valor, reemplaçant `{/* TODO */}` amb `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
   render() {
     return (
-      <Button className="square">
+      <button className="square">
         {this.props.value}
-      </Button>
+      </button>
     );
   }
 }
@@ -214,11 +215,11 @@ class Square extends React.Component {
 
 abans:
 
-![React Devtools Library](../images/tutorial/tic-tac-empty.png)
+![React Devtools Library](../images/tutorial/tictac-empty.png)
 
 Després: Hauries de veure un número a cada quadrat del resultat renderitzat.
 
-![React Devtools Library](../images/tutorial/tic-tac-numbers.png)
+![React Devtools Library](../images/tutorial/tictac-numbers.png)
 
 **[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
@@ -233,9 +234,9 @@ Primer, canvia l'etiqueta button que és retornada del mètode `render()` del co
 class Square extends React.Component {
   render() {
     return (
-      <Button className="square" onClick={function() {alert('clic'); }}>
+      <button className="square" onClick={function() {alert('clic'); }}>
         {this.props.value}
-      </Button>
+      </button>
     );
   }
 }
@@ -245,7 +246,7 @@ Si fas clic en un quadrat ara, hauries veure un avís al teu navegador.
 
 > Nota
 >
-> Per continuar escrivint codi sense problemes i evitar el [confús comportament de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), farem servir la [sintaxi de funcions fletxa](https://developer.mozilla.org/es/docs/Web/javaScript/Reference/Functions/Arrow_functions) per manejar esdeveniments aquí i més avall:
+> Per continuar escrivint codi sense problemes i evitar el [confús comportament de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), farem servir la [sintaxi de funcions fletxa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions) per manejar esdeveniments aquí i més avall:
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -288,7 +289,7 @@ class Square extends React.Component {
 
 > Nota
 >
-> A les [classes de javaScript](https://developer.mozilla.org/es/docs/Web/javaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a` super (props) `.
+> A les [classes de javaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a` super (props) `.
 
 Ara canviarem el mètode `render` de Square per mostrar el valor de l'estat actual quan és clickeado:
 
@@ -328,9 +329,9 @@ Quan crides `setState` en un component, React actualitza automàticament els com
 
 ### Eines de desenvolupament {#developer-tools}
 
-L'extensió de React Devtools Library per [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) i [Firefox](https://addons.mozilla.org/a-uS/firefox/addon/react-DevTools/) et permet inspeccionar l'arbre de components de React amb les teves eines de desenvolupament del navegador.
+L'extensió de React Devtools Library per [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) i [Firefox](https://addons.mozilla.org/a-uS/firefox/addon/react-devtools/) et permet inspeccionar l'arbre de components de React amb les teves eines de desenvolupament del navegador.
 
-<img src="../ images/tutorial/devtools.png" alt="React Devtools Library" style="max-width: 100%">
+<img src="../images/tutorial/devtools.png" alt="React Devtools Library" style="max-width: 100%">
 
 React DevTools et permet revisar els props i l'estat de les teves components de React.
 
@@ -347,7 +348,7 @@ Després d'instal·lar React DevTools, pots fer clic dret en qualsevol element d
 
 Ara tenim els blocs de construcció bàsics per al nostre joc tic-tac-toe. Per completar el joc, necessitem alternar col·locant "X" i "O" en el tauler, i necessites una manera de determinar el guanyador.
 
-### Elevant l'estat {#lífting-state-up}
+### Elevant l'estat {#lifting-state-up}
 
 Actualment, cada component Square manté l'estat del joc. Per determinar un guanyador, necessitem mantenir el valor de cada un dels 9 quadrats en un sol lloc.
 
@@ -457,7 +458,7 @@ Quan un quadrat és clickeado, la funció `onClick` proveïda pel component Boar
 
 > Nota
 >
-> L'atribut `onClick` de l'element `<button> `del DOM té un significat especial per React perquè és un component pre-construït. Per components personalitzats com Square, la nomenclatura la decideixes tu. Podríem donar-li qualsevol nom al prop `onClick` de Square o al mètode` handleClick` de Board, i el codi funcionaria de la mateixa forma. En React, però, és una convenció usar els noms `on [Esdeveniment]` per props que representen esdeveniments i `handle [Event]` per als mètodes que manegen els esdeveniments.
+> L'atribut `onClick` de l'element `<button> `del DOM té un significat especial per React perquè és un component pre-construït. Per components personalitzats com Square, la nomenclatura la decideixes tu. Podríem donar-li qualsevol nom al prop `onClick` de Square o al mètode` handleClick` de Board, i el codi funcionaria de la mateixa forma. En React, però, és una convenció usar els noms `on[Event]` per props que representen esdeveniments i `handle[Event]` per als mètodes que manegen els esdeveniments.
 
 Quan intentem clicar un quadrat, hauríem d'obtenir un error perquè no hem definit `handleClick` encara. Anem ara a afegir `handleClick` a la classe Board:
 
@@ -801,7 +802,7 @@ Ara ens cal decidir quin component ha de ser l'amo de l'estat `history`.
 
 Volem que el component de nivell superior, Game, mostri una llista dels moviments passats. Us cal accés al `historial` per fer-ho, així que col·locarem l'estat` history` en el component Game.
 
-Col·locant l'estat `history` en el component Game et permet eliminar l'estat` squares` del seu component fill Board. Tal com [ "elevem l'estat"](#lífting-state-up) del component Square al component Board, ara elevarem del Board al component Game. Això donarà al component Game complet control sobre les dades d'Board, i permetrà instruir el tauler que renderitzi els torns previs des del `history`.
+Col·locant l'estat `history` en el component Game et permet eliminar l'estat` squares` del seu component fill Board. Tal com [ "elevem l'estat"](#lifting-state-up) del component Square al component Board, ara elevarem del Board al component Game. Això donarà al component Game complet control sobre les dades d'Board, i permetrà instruir el tauler que renderitzi els torns previs des del `history`.
 
 Primer, anem a establir l'estat inicial per al component Game en el seu constructor:
 
@@ -989,7 +990,7 @@ Des que vam gravar l'historial del joc tic-tac-toe, ara podem mostrar-lo al juga
 
 Vam aprendre abans que els elements de React són objectes de primera classe en javaScript; així que podem passar-ho al voltant de les nostres aplicacions. Per renderitzar múltiples elements en React, podem usar una matriu d'elements de React.
 
-En javaScript, els arrays tenen un [mètode `map()`](https://developer.mozilla.org/es/docs/Web/javaScript/Reference/Global_Objects/Array/map) que és comunament usat per mapejar dades a altres dades, per exemple:
+En javaScript, els arrays tenen un [mètode `map()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que és comunament usat per mapejar dades a altres dades, per exemple:
 
 ```js
 const numbers = [1, 2, 3];
@@ -1090,7 +1091,7 @@ Els keys no necessiten ser globalment únics; només necessiten ser únics entre
 
 En l'historial del joc de tic-tac-toe, cada moviment anterior té un ID únic associat; és el nombre seqüencial del moviment. Els moviments mai són reordenats, eliminats, o inserits en el medi, així que és segur usar els índexs del moviment com un key.
 
-En el mètode `render` del component Game, podem afegir el key com` <li key={moure} `l'advertiment React hauria de desaparèixer:
+En el mètode `render` del component Game, podem afegir el key com `<li key={moure}` l'advertiment React hauria de desaparèixer:
 
 ```js{6}
     const moves = history.map((step, move) => {
