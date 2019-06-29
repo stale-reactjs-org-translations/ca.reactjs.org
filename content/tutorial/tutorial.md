@@ -1,141 +1,141 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Tutorial: Introducció a React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
 redirect_from:
-  - "docs/tutorial.html"
-  - "docs/why-react.html"
-  - "docs/tutorial-ja-JP.html"
-  - "docs/tutorial-ko-KR.html"
-  - "docs/tutorial-zh-CN.html"
+  - "docs/tutorial.html"
+  - "docs/why-react.html"
+  - "docs/tutorial-ja-JP.html"
+  - "docs/tutorial-ko-KR.html"
+  - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Aquest tutorial no assumeix cap coneixement previ sobre React.
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## Abans de començar el tutorial {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+Anem a construir un petit joc durant aquest tutorial. **Hauràs estar temptat a obviar-perquè tu no estàs construint jocs en el dia a dia, però dóna-li una oportunitat.** Les tècniques que aprendràs en el tutorial són fonamentals per a construir qualsevol aplicació de React, i dominar-et donarà una entesa profunda de React.
 
 >Tip
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>Aquest tutorial està dissenyat per a persones que prefereixen **aprendre fent**. Si tu prefereixes aprendre els conceptes des del principi, revisa la nostra [guia pas a pas](/docs/hello-world.html). Podries trobar aquest tutorial i la guia, complementàries entre si.
 
-The tutorial is divided into several sections:
+Aquest tutorial està dividit en diverses seccions:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Configuració per a l'tutorial](#setup-for-the-tutorial) et donarà un punt de partida per seguir el tutorial.
+* [Visió general](#overview) t'ensenyarà **els fonaments** de React: components, props i estat.
+* [Completant el joc](#Completing-the-game) t'ensenyarà **les tècniques més comuns** en desenvolupament de React.
+* [Afegint viatge en el temps](#adding-time-travel) et donarà una **visió més profunda** de les fortaleses úniques de React.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+No has de completar totes les seccions alhora per obtenir el valor d'aquest tutorial. Prova arribar tan lluny com puguis, fins i tot si és una o dues seccions.
 
-### What Are We Building? {#what-are-we-building}
+### Què estem construint? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+En aquest tutorial, et mostrarem com construir un joc de tic-tac-toe interactiu amb React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Pots veure el que construirem aquí: **[Resultat Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Si el codi no et fa sentit, o si no estàs familiaritzat amb la sintaxi de codi, no et preocupis! L'objectiu d'aquest tutorial és ajudar-te a entendre React i la seva sintaxi.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Recomanem que revisis el joc de tic-tac-toe abans de continuar amb el tutorial. Una de les característiques que notaràs és que hi ha una llista enumerada a la dreta del tauler del jugador. Aquesta llista dóna una història de tots els moviments que han ocorregut en el joc, i es va actualitzant conforme el joc progressa.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Pots tancar el joc de tic-tac-toe una vegada que et familiarizaste amb ell. Començarem des d'una plantilla més simple en aquest tutorial. El nostre següent pas és configurar de tal manera que puguis començar a construir el joc.
 
-### Prerequisites {#prerequisites}
+### Prerequisits {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+Assumim que tens certa familiaritat amb HTML i javaScript, però hauries de ser capaç de seguir endavant fins i tot si véns d'un llenguatge de programació diferent. També suposem que estàs familiaritzat amb conceptes de programació com a funcions, objectes, arrays, i en menor mesura, classes.
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+Si necessites revisar javaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/javaScript/A_re-introduction_to_javaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de javaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/javaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://ES5-syntax-example) per revisar a quin codi compila ES6.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Configuració per a l'tutorial {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Hi ha dues maneres de completar aquest tutorial: pots escriure el codi al teu navegador, o pots configurar el teu entorn de desenvolupament local en el teu ordinador.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Opció de configuració 1: Escriu codi al navegador {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Aquesta és la forma més ràpida de començar!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Primer, obre aquest **[codi inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** en una nova pestanya. La nova pestanya haurà de mostrar un tauler buit del joc de tic-tac-toe i codi de React. Estarem editant el codi d'React en aquest tutorial.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Ara pots saltar a la segona opció de configuració o anar a la secció de [visió general](#overview) per obtenir una idea general de React.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Opció de configuració 2: Entorn de desenvolupament local {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Aquesta és completament opcional i no és requerida per aquest tutorial!
 
 <br>
 
-<details>
+<setails>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Opcional: Instruccions per seguir endavant localment utilitzant el teu editor de text preferit</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Aquesta configuració requereix més feina però et permet completar el tutorial usant un editor de la teva elecció. Aquí els passos a seguir:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Assegura't de tenir una versió recent de [NODE.JS](https://nodejs.org/en/) instal·lada.
+2. Segueix les [instruccions d'instal·lació de Create React App](/docs/create-a-new-react-app.html#create-react-app) per fer un nou projecte.
 
 ```bash
-npx create-react-app my-app
+npx create-react-app mi-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Elimina tots els arxius a la carpeta `src/` del nou projecte.
 
-> Note:
+> Nota:
 >
->**Don't delete the entire `src` folder, just the original source files inside it.** We'll replace the default source files with examples for this project in the next step.
+> **No eliminis la carpeta `src` per complet, només els arxius de codi font originals dins d'ella**. Reemplaçarem els arxius de codi font per defecte amb exemples per a aquest projecte en el següent pas.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Si fas servir Mac o Linux:
 rm -f *
 
-# Or, if you're on Windows:
+# O, si fas servir Windows:
 del *
 
-# Then, switch back to the project folder
+# Després, torna a la carpeta del projecte
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. Afegeix un fitxer anomenat `index.css` a la carpeta `src/` amb [aquest codi CSS](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. Afegeix un fitxer anomenat `index.js` a la carpeta `src/` amb [aquest codi JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. Afegeix aquestes 3 línies a la part superior de l'arxiu `index.js` a la carpeta `src/`:
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dg';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+Ara, si el teu executes `npm start` a la carpeta del projecte i obres `http://localhost:3000` al navegador, hauries de veure un camp de tic-tac-toe buit.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Recomanem seguir [aquestes instruccions](https://babeljs.io/docs/editors/) per configurar el ressaltat de sintaxi per al teu editor.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### Ajuda, estic encallat! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Si et atoras, revisa els [recursos de suport de la comunitat](/community/support.html). En particular, [xat de Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) és una gran manera d'obtenir ajuda ràpidament. Si no reps una resposta, o segueixes encallat, si us plau crea 1 issue, i t'ajudarem.
 
-## Overview {#overview}
+## Visió general {#overview}
 
-Now that you're set up, let's get an overview of React!
+Ara que està el teu entorn configurat, anem a obtenir una visió general de React!
 
-### What Is React? {#what-is-react}
+### Què és React? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+React és una llibreria de javaScript declarativa, eficient i flexible per construir interfícies d'usuari. Permet compondre IUS complexes de petites i aïllades peces de codi anomenades "components".
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React té pocs tipus diferents de components, però anem a començar amb la subclasse `React.Component`:
 
 ```javascript
 class ShoppingList extends React.Component {
   render() {
     return (
       <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
+        <h1>Llista de compres per {this.props.name}</h1>
         <ul>
           <li>Instagram</li>
           <li>WhatsApp</li>
@@ -146,14 +146,14 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// Ús d'exemple: <ShoppingList name="Mark" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+Anem a veure les etiquetes divertides que semblen XML aviat. Fem servir components per dir-li a React el que volem que es vegi a la pantalla. Quan els nostres dades canvien, React actualitzarà eficientment i tornarà a renderitzar (re-render) els nostres components.
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+Aquí, ShoppingList és una **classe de component de React**, o **tipus de component de React**. Un component accepta paràmetres, anomenats `props` (abreviatura de "propietats"), i retorna una jerarquia de vistes a mostrar a través del mètode` render`.
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+El mètode `render` retorna una *descripció* del que vols veure a la pantalla. React pren la descripció i mostra el resultat. En particular, `render` retorna 1 **element de React**, el quin és una lleugera descripció del que cal renderitzar. La majoria de desenvolupadors de React usen una sintaxi especial anomenada "JSX" que facilita l'escriptura d'aquestes estructures. La sintaxi `<div />` és transformada en temps de construcció a `React.createElement('div')`. L'exemple anterior és equivalent a:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -162,35 +162,34 @@ return React.createElement('div', {className: 'shopping-list'},
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[Veure la versió completa estesa.](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+Si tens curiositat, `createElement()` està descrit en més detall en la [referència de l'API](/docs/react-api.html#createElement), però no ho farem servir en aquest tutorial. En canvi, seguirem fent servir JSX.
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+JSX ve amb tot el poder de javaScript. Pots posar *qualsevol* expressió de javaScript en l'interior de les claus dins de JSX. Cada element d'React és un objecte de javaScript que pots emmagatzemar en una variable o passar al voltant del teu programa.
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+El component anterior `ShoppingList` només renderitza components pre-construïts de la DOM com `<div />` i `<li />`. Però, també pots compondre i renderitzar components personalitzats de React. Per exemple, ara podem referirmos al llistat de compres complet escrivint `<ShoppingList />`. Cada compoent de React està encapsulat i pot operar independentment; això et permet construir ius omplexes des de components simples.
+## Inspeccionant el codi inicial {#inspecting-the-starter-code}
 
-## Inspecting the Starter Code {#inspecting-the-starter-code}
+Si vas a treballar el tutorial **al navegador,** obre aquest codi en un nou tab: **[Codi inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Si vas a treballar el tutorial **localment**, obre `src/index.js` a la carpeta del teu projecte (ja has tocat aquest arxiu durant la [configuració](#setup-option-2-local-development-environment)).
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+Aquest codi inicial és la base del que estàs construint. Ens han proveït els estils de CSS així que només necessites enfocar-te en aprendre React i programar el joc tic-tac-toe.
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
-
-By inspecting the code, you'll notice that we have three React components:
+Inspeccionant el codi, notaràs que tenim 3 components de React:
 
 * Square
 * Board
 * Game
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+El component Square renderitza un simple `<button>` i el Board renderitza 9 quadrats. El component Game renderitza 1 table amb valors de posició per defecte que modificarem després. Actualment no hi ha components interactius.
 
-### Passing Data Through Props {#passing-data-through-props}
+### Passant dades a través de props {#passing-data-through-props}
 
-To get our feet wet, let's try passing some data from our Board component to our Square component.
+Només per embrutar-nos les mans, anem a passar una mica de dades del nostre component Board al nostre component Square.
 
-We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
+Recomanem fermament escriure el codi a mà mentre segueixes el tutorial sense copiar i enganxar. Això t'ajudarà a desenvolupar una memòria muscular i una entesa més sòlid.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+En el mètode `renderSquare` de Board, canvia el codi per a passar una prop anomenada` value` a Square:
 
 ```js{3}
 class Board extends React.Component {
@@ -199,60 +198,60 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+Canvia el mètode `render` de Square per mostrar aquest valor, reemplaçant `{/* TDOO */}` amb `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
   render() {
     return (
-      <button className="square">
+      <Button className="square">
         {this.props.value}
-      </button>
+      </Button>
     );
   }
 }
 ```
 
-Before:
+abans:
 
-![React Devtools](../images/tutorial/tictac-empty.png)
+![React Devtools Library](../images/tutorial/tic-tac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+Després: Hauries de veure un número a cada quadrat del resultat renderitzat.
 
-![React Devtools](../images/tutorial/tictac-numbers.png)
+![React Devtools Library](../images/tutorial/tic-tac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+Felicitats! Acabes de "passar un prop" d'un component pare Board a un component fill Square. Passant props és com la informació flueix en apps de React, de pares a fills.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### Fent un component interactiu {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it.
-First, change the button tag that is returned from the Square component's `render()` function to this:
+Anem a omplir el component de Square amb una "X" quan donem clic en ell.
+Primer, canvia l'etiqueta button que és retornada del mètode `render()` del component Square a això:
 
 ```javascript{4}
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <Button className="square" onClick={function() {alert('clic'); }}>
         {this.props.value}
-      </button>
+      </Button>
     );
   }
 }
 ```
 
-If you click on a Square now, you should see an alert in your browser.
+Si fas clic en un quadrat ara, hauries veure un avís al teu navegador.
 
->Note
+> Nota
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+> Per continuar escrivint codi sense problemes i evitar el [confús comportament de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), farem servir la [sintaxi de funcions fletxa](https://developer.mozilla.org/es/docs/Web/javaScript/Reference/Functions/Arrow_functions) per manejar esdeveniments aquí i més avall:
 >
 >```javascript{4}
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => alert('clic')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -260,13 +259,13 @@ If you click on a Square now, you should see an alert in your browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+> Tingues en compte com amb `onClick={() => alert('clic')}`, estem passant *una funció* com a valor del prop `onClick`. React només cridarà a aquesta funció després d'un clic. Oblidar `() =>` i escriure `onClick={alert('clic')}` és un error comú, i executaria l'alerta cada vegada que el component es re-renderitzi.
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+Com un següent pas, volem que el component Square "recordi" que va ser clickeado, i es ompli amb una marca de "X". Per a "recordar" coses, els component usen **estat**.
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+Els components de React poden tenir estat establint `this.state` en els seus constructors. `this.state` ha de ser considerat com privat per a un component de React en què és definit. Anem a emmagatzemar el valor actual d'un quadrat en `this.state`, i canviar-lo quan el quadrat és clickeado.
 
-First, we'll add a constructor to the class to initialize the state:
+Primer, anem a afegir el constructor a la classe per inicialitzar l'estat:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -287,17 +286,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+> Nota
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+> A les [classes de javaScript](https://developer.mozilla.org/es/docs/Web/javaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a` super (props) `.
 
-Now we'll change the Square's `render` method to display the current state's value when clicked:
+Ara canviarem el mètode `render` de Square per mostrar el valor de l'estat actual quan és clickeado:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* Reemplaça `this.props.value` per` this.state.value` dins de l'etiqueta `<button>`.
+* Reemplaça el gestor d'esdeveniment `onClick={...}` per `onClick={() => this.setState ({value: 'X'})}`.
+* Posa els props `className` i` onClick` en línies separades per millor llegibilitat.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+Després d'aquests canvis, l'etiqueta `<button>` que és retornada del mètode `render` de Square es veu així:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -321,44 +320,44 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Cridant a `this.setState` des del gestor` onClick` en el mètode `render` de Square, diem a React que re-renderitzi el quadrat sempre que la seva` <button> `és clickeado. Després de l'actualització, el `this.state.value` del quadrat serà` 'X'`, així que veurem `X` al tauler de joc. Si tu fas clic en qualsevol quadrat, un `X` hauria de mostrar en el mateix.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+Quan crides `setState` en un component, React actualitza automàticament els components fills dins el mateix també.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
-### Developer Tools {#developer-tools}
+### Eines de desenvolupament {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+L'extensió de React Devtools Library per [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) i [Firefox](https://addons.mozilla.org/a-uS/firefox/addon/react-DevTools/) et permet inspeccionar l'arbre de components de React amb les teves eines de desenvolupament del navegador.
 
-<img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
+<img src="../ images/tutorial/devtools.png" alt="React Devtools Library" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+React DevTools et permet revisar els props i l'estat de les teves components de React.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+Després d'instal·lar React DevTools, pots fer clic dret en qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixerà com l'última pestanya a la dreta.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+**No obstant això, notar que hi ha uns quants passos extres per fer-lo funcionar amb CodePen:**
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Entra o registra't i confirma la teva correu electrònic (requerit per prevenir spam).
+2. Clic en el botó "Fork".
+3. Click a "Change View" i després selecciona "Debug mode".
+4. En la nova pestanya que s'obre, el DevTools hauria ara tenir una pestanya de React.
 
-## Completing the Game {#completing-the-game}
+## Completant el joc {#completing-the-game}
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+Ara tenim els blocs de construcció bàsics per al nostre joc tic-tac-toe. Per completar el joc, necessitem alternar col·locant "X" i "O" en el tauler, i necessites una manera de determinar el guanyador.
 
-### Lifting State Up {#lifting-state-up}
+### Elevant l'estat {#lífting-state-up}
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+Actualment, cada component Square manté l'estat del joc. Per determinar un guanyador, necessitem mantenir el valor de cada un dels 9 quadrats en un sol lloc.
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+Podem pensar que el tauler hauria només preguntar a cada quadrat pel seu estat. Encara que aquest enfocament és possible en React, et incentivem a que no ho facis servir perquè el codi es torna difícil de ententer, susceptible a errors, i difícil de refactorizar. En el seu lloc, el millor enfocament és emmagatzemar l'estat del joc en el component pare Board en comptes de cada component Square. El component Board pot dir-li a cada quadrat de mostrar passant-li 1 prop [tal qual vam fer quan vam passar un número a cada quadrat](#passing-data-through-props).
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+**Per recopilar dades de múltiples fills, o tenir dos components fills comunicats entre si, necessites declarar l'estat compartit en el seu component pare. El component pare pot passar l'estat cap als fills usant props; això manté els components fills sincronitzats entre ells i amb el seu component pare.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+Elevar l'estat al component pare és comú quan components de React són refactorizados, anem a prendre aquesta oportunitat per intentar-ho.
 
-Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
+Afegeix un constructor al Board i estableix l'estat inicial de Board per contenir un arranjament amb 9 valors null. Aquests 9 nulls corresponen als 9 quadrats:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -374,7 +373,7 @@ class Board extends React.Component {
   }
 ```
 
-When we fill the board in later, the `this.state.squares` array will look something like this:
+Quan omplim el tauler després, l'arranjament `this.state.squares` es veurà alguna cosa així:
 
 ```javascript
 [
@@ -384,7 +383,7 @@ When we fill the board in later, the `this.state.squares` array will look someth
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+El mètode `renderSquare` del component Board actualment es veu així:
 
 ```javascript
   renderSquare(i) {
@@ -392,9 +391,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+Al principi, [passem el prop `value`](#passing-data-through-props) des del Board per mostrar els números de 0 a 8 en cada quadrat. En un pas previ, reemplacem els números amb una marca "X" [determinat per l'estat del propi Square](#making-an-interactive-component). Això és perquè el quadrat actualment ignora el prop `value` passat pel Board.
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+Ara farem servir el prop passant el mecanisme altra vegada. Modificarem el Board per instruir cada Square sobre el seu valor actual (`'X'`,`'O'`, o `null`). Ja tenim definit l'arranjament `squares` al constructor del Board, i modificarem el mètode` renderSquare` perquè el llegeixi des d'allà:
 
 ```javascript{2}
   renderSquare(i) {
@@ -402,13 +401,13 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+Cada Square ara rebrà un prop `value` que serà `'X'`, `'O'`, o `null` per quadrats buits.
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+Després, ens cal canviar el que passa quan un quadrat és clickeado. El component Board ara manté què quadrats estan farcits. Necessitem crear un mètode perquè el quadrat actualitza l'estat del component Board. A causa de que l'estat és considerat privat al component que el defineix, no podem actualitzar l'estat de Board directament des Square.
 
-Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
+En canvi, passarem una funció com prop des Board a Square i farem que Square truqui a aquesta funció quan un quadrat sigui clickeado. Canviarem el mètode `renderSquare` a Board a:
 
 ```javascript{5}
   renderSquare(i) {
@@ -421,17 +420,17 @@ Instead, we'll pass down a function from the Board to the Square, and we'll have
   }
 ```
 
->Note
+> Nota
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+> Dividim l'element retornat en múltiples línies per llegibilitat, i afegim parèntesi perquè javaScript no inseriu un punt i coma després del `return` i trenqui el nostre codi.
 
-Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+Ara estem passant dues props des Board a Square: `value` i `onClick`. El prop `onClick` és una funció que Square pot trucar quan sigui clickeado. Farem els següents canvis a Square:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* Substitueix `this.state.value` per `this.props.value` en el mètode `render` de Square
+* Substituir `this.setState()` per `this.props.onClick()` en el mètode `render` de Square
+* Eliminar el `constructor` de Square perquè el component ja no fa seguiment de l'estat del joc
 
-After these changes, the Square component looks like this:
+Després d'aquests canvis, el component Square es veu alguna cosa així:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -448,19 +447,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+Quan un quadrat és clickeado, la funció `onClick` proveïda pel component Board és cridada. Aquí un repàs de com això va ser aconseguit:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+1. El prop `onClick` en el component pre-construït del DOM` <button> `li diu a React per establir un escoltador de l'esdeveniment clic.
+2. Quan el botó és clickeado, React trucarà al gestor d'esdeveniment `onClick` que està definit en el mètode` render() `de Square.
+3. Aquest gestor d'esdeveniment crida a `this.props.onClick()`. El prop `onClick` del component Square va ser especificat pel component Board.
+4. Com que el Board va passar `onClick={() => this.handleClick (i)}` a Square, el component Square crida a `this.handleClick (i)` quan és clickeado.
+5. No tenim definit el mètode `handleClick()` tot, així que el nostre codi falla. Si fas clic ara veuràs una pantalla vermella d'error que diu alguna cosa com *"this.handleClick is not a function"* (this.handleClick no és una funció).
 
->Note
+> Nota
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+> L'atribut `onClick` de l'element `<button> `del DOM té un significat especial per React perquè és un component pre-construït. Per components personalitzats com Square, la nomenclatura la decideixes tu. Podríem donar-li qualsevol nom al prop `onClick` de Square o al mètode` handleClick` de Board, i el codi funcionaria de la mateixa forma. En React, però, és una convenció usar els noms `on [Esdeveniment]` per props que representen esdeveniments i `handle [Event]` per als mètodes que manegen els esdeveniments.
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+Quan intentem clicar un quadrat, hauríem d'obtenir un error perquè no hem definit `handleClick` encara. Anem ara a afegir `handleClick` a la classe Board:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -513,63 +512,63 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+Després d'aquests canvis, podem novament clicar en els quadrats per omplir-los de la mateixa manera que ho vam fer abans. No obstant això, ara l'estat està emmagatzemat en el component Board en lloc de cada component Square. Quan l'estat del Board canvia, els components Square es re-renderitza automàticament. Mantenir l'estat de tots els quadrats en el component Board ens permetrà determinar el guanyador en el futur.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+A causa de que el component Square ara no manté estat, els components Square reben valors del component Board i informen al mateix quan són clickeados. En termes de React, els components Square ara són **components controlats**. El component Board té control complet sobre ells.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+Notar com a `handleClick`, anomenem `.slice() `per crear una còpia de l'array de `squares` per modificar-lo en comptes de modificar l'array existent. Ara explicareomos per què crear una còpia de l'array `squares` en la següent secció.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### Per què és important la immutabilitat? {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` method to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+En l'exemple de codi anterior, vam suggerir que usessis el mètode `.slice()` per crear una còpia de l'array de `squares` per modificar-lo en comptes de modificar l'array existent. Ara discutirem la immutabilitat i per què és important aprendre-la.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+Hi ha generalment dos enfocaments per canviar dades. El primer enfocament és * mutar * les dades directament canviant els seus valors. El segon enfocament és reemplaçar les dades amb una nova còpia que té els canvis desitjats.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Canvi de dades amb mutació {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+// Ara `player` és {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Canvi de dades sense mutació {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+// Ara `player` no ha canviat, però` newPlayer` és {score: 2, name: 'Jeff'}
 
-// Or if you are using object spread syntax proposal, you can write:
-// var newPlayer = {...player, score: 2};
+// O si fas servir la sintaxi proposta de propagació d'objecte, pots escriure:
+// var newPlayer={... player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+El resultat final és el mateix, però al no mutar (o canviar les dades subjacents) directament, obtenim molts beneficis descrits a continuació
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Funcionalitats complexes es tornen simples {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+La immutabilitat fa que funcionalitats complexes siguin molt més fàcil d'implementar. Després en aquest tutorial, implementarem una funcionalitat de "viatge en el temps" que ens permet repassar l'historial del joc tic-tac-toe i "tornar" a moviments previs. Aquesta funcionalitat no és específica de jocs, una habilitat de desfer i refer certes accions és un requeriment comú en aplicacions. Evitar la mutació de dades directament ens permet mantenir intacte versions prèvies de l'historial del joc, i reusar després.
 
-#### Detecting Changes {#detecting-changes}
+#### Detectar canvis {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Detectar canvis en objectes mutables és difícil perquè són modificats directmante. Aquesta detecció requereix que els objectes mutables siguin comparats a la còpia prèvia del mateix i que l'arbre sencer de l'objecte sigui recorregut.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Detectar canvis en objectes immutables és considerablement més senzill. Si l'objecte immutable que està sent referenciat és diferent de l'anterior, vol dir que l'objecte ha canviat.
 
-#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
+#### Determinar quan re-renderitzar en React {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+El benefici principal d'immutabilitat és que t'ajuda a construir _componentes puros_ en React. Dades immutables poden determinar fàcilment si s'han realitzat canvis, que ajuda també a determinar quan un component requereix ser re-renderitzat.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+Pots aprendre més sobre `shouldComponentUpdate()` i com pots construir *components purs* llegint [Optimitzant el rendiment](/docs/Optimizing-performance.html#examples).
 
-### Function Components {#function-components}
+### Components de funció {#function-components}
 
-We'll now change the Square to be a **function component**.
+Ara canviarem el component Square a ser un **component de funció**.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+En React, **components de funció** són una forma més simple d'escriure components que només contenen un mètode `render` i no té estat propi. En lloc de definir una classe que estén `React.Component`, podem escriure una funció que pren` props` com a paràmetres i retorna el que s'ha de renderitzar. Components de funció són menys tediosos d'escriure que classes, i molts components poden ser expressats d'aquesta manera.
 
-Replace the Square class with this function:
+Reemplaça la classe Square per aquesta funció:
 
 ```javascript
 function Square(props) {
@@ -581,19 +580,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+Hem canviat `this.props` a` props` en les dues vegades que apareix.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+> Nota
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+> Quan modifiquem el component Square a ser un component de funció, també vam canviar `onClick={() => this.props.onClick()}` a una més curta `onClick={props.onClick}` (notar la manca de parèntesi en *amdós* costats).
 
-### Taking Turns {#taking-turns}
+### Prenent torns {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+Ara ens cal corregir un defecte obvi en el nostre joc tic-tac-toe: les "O" no poden ser marcades al tauler.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+Establirem el primer moviment a ser una "X" per defecte. Podem establir el valor per defecte modificant l'estat inicial en el nostre constructor del component Board:
 
 ```javascript{6}
 class Board extends React.Component {
@@ -606,7 +605,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+Cada vegada que el jugador faci un moviment, `xIsNext` (un booleà) seran invertits per determinar quin jugador segueix i l'estat del joc serà desat. Actualitzarem la funció `handleClick` del component Board per invertir el valor de `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -619,19 +618,19 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Try it!
+Amb aquest canvi, "X"s i "O"s poden prendre torns. ¡Intenta-ho!
 
-Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+També canviarem el text de "status" al `render` del Board perquè mostri quin jugador té el següent torn:
 
 ```javascript{2}
   render() {
     const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // la resta no ha canviat
 ```
 
-After applying these changes, you should have this Board component:
+Després d'aplicar aquests canvis, hauríem de tenir aquest component Board:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -688,11 +687,11 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Veure el codi complert en aquest punt](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### Declarant un guanyador {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+Ara que vam mostrar de quin jugador és el següent torn, també hem de mostrar quan algú va guanyar el joc i si no hi ha més moviments que fer. Còpia aquesta funció de suport i enganxa-al final de l'arxiu.
 
 ```javascript
 function calculateWinner(squares) {
@@ -716,9 +715,9 @@ function calculateWinner(squares) {
 }
 ```
 
-Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+Donat un arranjament de 9 quadrats, aquesta funció comprovarà si hi ha un guanyador i retornarà `'X'`, `'O'` o `null` segons correspongui.
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+Anomenarem a `calculateWinner (squares)` en el mètode `render` del component Board per revisar si un jugador ha guanyat. Si un jugador ha guanyat, podem mostrar un text com: "Winner: X" o "Winner: O". Reemplaçarem la declaració de l' `status` en el mètode` render` d'Board amb aquest codi:
 
 ```javascript{2-8}
   render() {
@@ -731,10 +730,10 @@ We will call `calculateWinner(squares)` in the Board's `render` function to chec
     }
 
     return (
-      // the rest has not changed
+      // la resta del codi no ha canviat
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+Ara podem canviar la funció `handleClick` del component Board per retornar ràpidament ignorant un clic si algú ha guanyat el joc o si un quadrat està ja emplenat:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -750,25 +749,25 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+Felicitats! Ara tens un joc tic-tac-toe funcionant. I també acabes d'aprendre el bàsic de React. Així que *ets* probablement el reial guanyador aquí.
 
-## Adding Time Travel {#adding-time-travel}
+## Afegint viatge en el temps {#adding-time-travel}
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+Com a exercici final, farem possible "retrocedir en el temps" al moviment previ al joc.
 
-### Storing a History of Moves {#storing-a-history-of-moves}
+### Emmagatzemar un historial de moviments {#storing-a-history-of-moves}
 
-If we mutated the `squares` array, implementing time travel would be very difficult.
+Si mutamos l'array de `squares`, implementar viatge en el temps seria molt difícil.
 
-However, we used `slice()` to create a new copy of the `squares` array after every move, and [treated it as immutable](#why-immutability-is-important). This will allow us to store every past version of the `squares` array, and navigate between the turns that have already happened.
+No obstant això, fem servir `slice()` per crear una còpia nova de l'array de `squares` després de cada moviment, i [el tractem com immutable](#why-immutability-is-important). Això ens permet emmagatzemar cada versió prèvia de l'array de `squares`, i navegar entre els torns que ja han passat.
 
-We'll store the past `squares` arrays in another array called `history`. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+Emmagatzemarem els passats arrays de `squares` en un altre array anomenat `history`. La matriu `history` representa tots els estats del tauler, des del primer moviment fins a l'últim, i té una forma com aquesta:
 
 ```javascript
 history = [
-  // Before first move
+  // Abans del primer moviment
   {
     squares: [
       null, null, null,
@@ -776,7 +775,7 @@ history = [
       null, null, null,
     ]
   },
-  // After first move
+  // Després del primer moviment
   {
     squares: [
       null, null, null,
@@ -784,7 +783,7 @@ history = [
       null, null, null,
     ]
   },
-  // After second move
+  // Després del segon moviment
   {
     squares: [
       null, null, null,
@@ -796,15 +795,15 @@ history = [
 ]
 ```
 
-Now we need to decide which component should own the `history` state.
+Ara ens cal decidir quin component ha de ser l'amo de l'estat `history`.
 
-### Lifting State Up, Again {#lifting-state-up-again}
+### Elevant l'estat, una altra vegada {#lifting-state-up-again}
 
-We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
+Volem que el component de nivell superior, Game, mostri una llista dels moviments passats. Us cal accés al `historial` per fer-ho, així que col·locarem l'estat` history` en el component Game.
 
-Placing the `history` state into the Game component lets us remove the `squares` state from its child Board component. Just like we ["lifted state up"](#lifting-state-up) from the Square component into the Board component, we are now lifting it up from the Board into the top-level Game component. This gives the Game component full control over the Board's data, and lets it instruct the Board to render previous turns from the `history`.
+Col·locant l'estat `history` en el component Game et permet eliminar l'estat` squares` del seu component fill Board. Tal com [ "elevem l'estat"](#lífting-state-up) del component Square al component Board, ara elevarem del Board al component Game. Això donarà al component Game complet control sobre les dades d'Board, i permetrà instruir el tauler que renderitzi els torns previs des del `history`.
 
-First, we'll set up the initial state for the Game component within its constructor:
+Primer, anem a establir l'estat inicial per al component Game en el seu constructor:
 
 ```javascript{2-10}
 class Game extends React.Component {
@@ -834,13 +833,13 @@ class Game extends React.Component {
 }
 ```
 
-Next, we'll have the Board component receive `squares` and `onClick` props from the Game component. Since we now have a single click handler in Board for many Squares, we'll need to pass the location of each Square into the `onClick` handler to indicate which Square was clicked. Here are the required steps to transform the Board component:
+Després, tenim que el component Board rep els props `squares` i `onClick` del component Game. Des que ara tenim un sol gestor de clic en Board per a molts Squares, necessitem passar la ubicació de cada Square al gestor `onClick` per indicar què quadrat va ser clickedo. Aquí hi ha els passos requerits per transformar el component Board:
 
-* Delete the `constructor` in Board.
-* Replace `this.state.squares[i]` with `this.props.squares[i]` in Board's `renderSquare`.
-* Replace `this.handleClick(i)` with `this.props.onClick(i)` in Board's `renderSquare`.
+* Eliminar el `constructor` en Board.
+* Substituir `this.state.squares[i]` per `this.props.squares[i]` en el mètode `renderSquare` del component Board.
+* Substituir `this.handleClick(i)` per `this.props.onClick(i)` en el mètode `renderSquare` del component Board.
 
-The Board component now looks like this:
+El component Board ara es veu així:
 
 ```javascript{17,18}
 class Board extends React.Component {
@@ -898,7 +897,7 @@ class Board extends React.Component {
 }
 ```
 
-We'll update the Game component's `render` function to use the most recent history entry to determine and display the game's status:
+Actualitzarem el mètode `render` del component Game per utilitzar l'entrada més recent de l'historial per determinar i mostrar l'estat del joc:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -930,7 +929,7 @@ We'll update the Game component's `render` function to use the most recent histo
   }
 ```
 
-Since the Game component is now rendering the game's status, we can remove the corresponding code from the Board's `render` method. After refactoring, the Board's `render` function looks like this:
+Atès que el component ara està renderitzant l'estat del joc, podem eliminar el codi corresponent del mètode `render` del Board. Després de refactorizar, el mètode `render` es veu així:
 
 ```js{1-4}
   render() {
@@ -956,7 +955,7 @@ Since the Game component is now rendering the game's status, we can remove the c
   }
 ```
 
-Finally, we need to move the `handleClick` method from the Board component to the Game component. We also need to modify `handleClick` because the Game component's state is structured differently. Within the Game's `handleClick` method, we concatenate new history entries onto `history`.
+Finalment, ens cal moure el mètode `handleClick` del component Board al component Game. També encesitamos modificar `handleClick` perquè l'estat del component Game està estructurat diferent. En el mètode `handleClick` de Game, concatenamos la nova entrada de l'historial en `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -976,30 +975,30 @@ Finally, we need to move the `handleClick` method from the Board component to th
   }
 ```
 
->Note
+> Nota
 >
->Unlike the array `push()` method you might be more familiar with, the `concat()` method doesn't mutate the original array, so we prefer it.
+> A diferència del mètode `push()` dels arrays que has d'estar més familiaritzat, el mètode `concat()` no Mutal l'array original, per això ho preferim.
 
-At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
+En aquest punt, el component Board només necessita els mètodes `renderSquare` i` render`. L'estat del joc i el mètode `handleClick` haurien d'estar en el component Game.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves {#showing-the-past-moves}
+### Ara es mostren els moviments anteriors {#showing-the-past-moves}
 
-Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
+Des que vam gravar l'historial del joc tic-tac-toe, ara podem mostrar-lo al jugador com una llista de moviments anteriors.
 
-We learned earlier that React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.
+Vam aprendre abans que els elements de React són objectes de primera classe en javaScript; així que podem passar-ho al voltant de les nostres aplicacions. Per renderitzar múltiples elements en React, podem usar una matriu d'elements de React.
 
-In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) that is commonly used for mapping data to other data, for example:
+En javaScript, els arrays tenen un [mètode `map()`](https://developer.mozilla.org/es/docs/Web/javaScript/Reference/Global_Objects/Array/map) que és comunament usat per mapejar dades a altres dades, per exemple:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
+Usant el mètode `map`, podem mapejar el nostre historial de moviments a elements de React representant botons a la pantalla, i mostrant una llista de potones per "saldar" a moviments anteriors.
 
-Let's `map` over the `history` in the Game's `render` method:
+Anem a `mapejar` sobre el` historial` en el mètode `render` del component Game:
 
 ```javascript{6-15,34}
   render() {
@@ -1042,27 +1041,27 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+Per cada moviment en l'historial del joc de tic-tac-toe, vam crear un element de llista `<li>` que conté un botó `<button>`. El botó té un gestor `onClick` que invoca un mètode anomenat` this.jumpTo()`. No hem implementat el mètode `jumpTo()` encara. Per ara, hem de veure una llista dels moviments que han ocorregut en el joc i un advertiment a la consola de les eines de desenvolupador que diu:
 
->  Warning:
->  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
+> Warning:
+> Each child in an array or Iterator should have a unique "key" prop. Check the render method of "Game".
 
-Let's discuss what the above warning means.
+Anem a discutir que significa l'advertència anterior.
 
-### Picking a Key {#picking-a-key}
+### Triant una key {#picking-a-key}
 
-When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
+Quan renderizamos una llista, React emmagatzema informació sobre cada element de la llista renderitzat. Quan actualitzem una llista, React necessita determinar que ha canviat. Podríem haver afegit, eliminat, reacomodado, o actualitzat els elements de la llista.
 
-Imagine transitioning from
+Imagina canviar de
 
 ```html
 <li>Alexa: 7 tasks left</li>
 <li>Ben: 5 tasks left</li>
 ```
 
-to
+a
 
 ```html
 <li>Ben: 9 tasks left</li>
@@ -1070,28 +1069,28 @@ to
 <li>Alexa: 5 tasks left</li>
 ```
 
-In addition to the updated counts, a human reading this would probably say that we swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what we intended. Because React cannot know our intentions, we need to specify a *key* property for each list item to differentiate each list item from its siblings. One option would be to use the strings `alexa`, `ben`, `claudia`. If we were displaying data from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+A més dels comptadors actualitzats, un humà llegint això probablement diria que es van intercanviar l'ordre d'Alexa i Ben i van inserir Claudia entre ells. No obstant això, React és un programa d'ordinador i no sap el que intentem. Perquè React no pot saber les nostres intencions, ens cal especificar una propietat *key* per a cada element de la llista per diferenciar cada un dels seus germans. Una opció seria fer servir els strings `alexa`,` ben`, `claudia`. Si anéssim a mostrar dades d'una base de dades, els ids de base de dades d'Alexa, Ben i Claudia podrien ser usats com keys.
 
 ```html
 <li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+Quan una llista és re-renderitzada, React pren cada key l'element de la llista i busca l'element de la llista anterior que coincideixi l'key. Si la llista actual té un key que no existia abans, React crea un component. Si a la llista actual li cal un key que existia en la llista anterior, React destrueix el component previ. Si dos keys coincideixen, el component corresponent és mogut. Els keys li diuen a React sobre la identitat de cada component la qual cosa permet als React mantenir el seu estat entre re-renderitzats. Si l'key d'un component canvia, el component serà destruït i re-creat amb un nou estat.
 
-`key` is a special and reserved property in React (along with `ref`, a more advanced feature). When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it belongs in `props`, `key` cannot be referenced using `this.props.key`. React automatically uses `key` to decide which components to update. A component cannot inquire about its `key`.
+`key` és una propietat especial i reservada a React (igual que amb` ref`, una característica més avançada). Quan un elementoes creat, React extreu la propietat `key` i l'emmagatzema directament en l'element retornat. Tot i que el `key` es pot veure que pertany a les `props`, `key` no pot ser referenciat usant `this.props.key`. React automàticament fa servir `key` per decidir quins components actualitzar. Un component no pot esbrinar sobre la seva `key`.
 
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
+**Es recomana fortament que facis servir keys apropiat quan construeixis llistes dinàmiques**. Si no tens un key apropiat, potser vulguis considerar reestruturar les teves dades perquè puguis tenir-la.
 
-If no key is specified, React will present a warning and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the warning but has the same problems as array indices and is not recommended in most cases.
+Si la key no està especificat, React presentarà un advertiment i farà servir l'índex de l'array com a índex per defecte. Usant l'índex de l'array com un key és problemàtic quan intentes reordenar els elements d'una llista o inserir/eliminar elements de la llista. Passar explícitament `key={i}` silencia l'advertència però té els mateixos problemes que els índexs de l'array i no és recomanat en la majoria dels casos.
 
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+Els keys no necessiten ser globalment únics; només necessiten ser únics entre components i els seus germans.
 
 
-### Implementing Time Travel {#implementing-time-travel}
+### Implementant viatge en el temps {#implementing-time-travel}
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
+En l'historial del joc de tic-tac-toe, cada moviment anterior té un ID únic associat; és el nombre seqüencial del moviment. Els moviments mai són reordenats, eliminats, o inserits en el medi, així que és segur usar els índexs del moviment com un key.
 
-In the Game component's `render` method, we can add the key as `<li key={move}>` and React's warning about keys should disappear:
+En el mètode `render` del component Game, podem afegir el key com` <li key={moure} `l'advertiment React hauria de desaparèixer:
 
 ```js{6}
     const moves = history.map((step, move) => {
@@ -1106,11 +1105,11 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
+Fent clic en qualsevol dels botons de la llista llança un error perquè el mètode `jumpTo` no està definit. Abans d'implementar `jumpTo`, afegirem `stepNumber` a l'estat del component Game per indicar quin pas estem veient actualment.
 
-First, add `stepNumber: 0` to the initial state in Game's `constructor`:
+Primer, afegeix `stepNumber: 0` a l'estat inicial en el constructor de Game:
 
 ```js{8}
 class Game extends React.Component {
@@ -1126,11 +1125,11 @@ class Game extends React.Component {
   }
 ```
 
-Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We also set `xIsNext` to true if the number that we're changing `stepNumber` to is even:
+Després, definirem el mètode `jumpTo` en el component Game per actualitzar el `stepNumber`. També establirem `xIsNext` a veritable si el nombre que estem canviant en` stepNumber` és parell:
 
 ```javascript{5-10}
   handleClick(i) {
-    // this method has not changed
+    // aquest mètode no ha canviat
   }
 
   jumpTo(step) {
@@ -1141,15 +1140,15 @@ Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We a
   }
 
   render() {
-    // this method has not changed
+    // aquest mètode no ha canviat
   }
 ```
 
-We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+Ara farem uns petits canvis al mètode `handleClick` de Game, el quin es dispara quan fas clic en un quadrat.
 
-The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+L'estat `stepNumber` que hem afegit ara reflecteix el moviment mostrat a l'usuari. Després de fer un nou moviment, necessitem actualitzar `stepNumber` afegint` stepNumber: history.length` com a part de l'argument de `this.setState`. Això assegura que no ens estanquem mostrant el mateix moviment després d'un nou realitzat.
 
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now become incorrect.
+També reemplaçarem `this.state.history` per` this.state.history.slice (0, this.state.stepNumber + 1) `. Això assegura que si "tornem en el temps" i després fem un nou moviment des d'aquest punt, vam tirar tot la història "futura" que ara seria incorrecta.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1170,7 +1169,7 @@ We will also replace reading `this.state.history` with `this.state.history.slice
   }
 ```
 
-Finally, we will modify the Game component's `render` method from always rendering the last move to rendering the currently selected move according to `stepNumber`:
+Finalment, modificarem el mètode `render` del component Game de sempre renderitzar l'últim moviment a renderitzar el moviment seleccionat actualment d'acord a` stepNumber`:
 
 ```javascript{3}
   render() {
@@ -1178,33 +1177,33 @@ Finally, we will modify the Game component's `render` method from always renderi
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    // the rest has not changed
+    // la resta no ha canviat
 ```
 
-If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+Si clickeamos en qualsevol pas de la història del joc, el tauler tic-tac-toe hauria d'actualitzar immediatament per mostrar el tauler com es veia després que el pas va ocórrer.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up {#wrapping-up}
+### En conclusió {#wrapping-up}
 
-Congratulations! You've created a tic-tac-toe game that:
+Felicitacions! Has creat un joc de tic-tac-toe que:
 
-* Lets you play tic-tac-toe,
-* Indicates when a player has won the game,
-* Stores a game's history as a game progresses,
-* Allows players to review a game's history and see previous versions of a game's board.
+* Et permet jugar tic-tac-toe,
+* Indica quan un jugador ha guanyat el joc,
+* Emmagatzema l'historial del joc com va progressant,
+* Permet als jugadors revisar l'historial del joc i veure versions anteriors del tauler de joc.
 
-Nice work! We hope you now feel like you have a decent grasp on how React works.
+Bon treball! Esperem que ara et sentis que tens una entesa descente sobre com funciona React.
 
-Check out the final result here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+Revisa el resultat final aquí: **[Resultat final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
+Si tens un temps extra o vols practicar les teves noves habilitats de React, aquí algunes idees de millores que pots fer al joc de tic-tac-toe, les quals estan llistades en ordre de dificultat creixent:
 
-1. Display the location for each move in the format (col, row) in the move history list.
-2. Bold the currently selected item in the move list.
-3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-5. When someone wins, highlight the three squares that caused the win.
-6. When no one wins, display a message about the result being a draw.
+1. Mostra la ubicació per a cada moviment en el format (columna, fila) a la llista de l'historial de moviments.
+2. Converteix en negreta l'element actualment seleccionat a la llista de moviments.
+3. Reescriu el Board per utilitzar 2 cicles per fer els quadrats en comptes d'escriure'ls a mà.
+4. Afegeix un botó de switch que et permeti ordenar els moviments en ordre ascendent o descendent.
+5. Quan algú guanya, ressalta els 3 quadrats que van fer que guanyi.
+6. Quan ningú guanya, mostra un missatge sobre que el resultat és un empat.
 
-Throughout this tutorial, we touched on React concepts including elements, components, props, and state. For a more detailed explanation of each of these topics, check out [the rest of the documentation](/docs/hello-world.html). To learn more about defining components, check out the [`React.Component` API reference](/docs/react-component.html).
+Al llarg d'aquest tutorial, hem abordat conceptes de React incloent elements, components, props, i estat. Per a una explicació més detallada de cada un d'aquests temes, revisa [la resta de la documentació](/docs/hello-world.html). Per aprendre més sobre definir components, revisa la [referència de l'API de `React.Component`](/docs/react-component.html).
