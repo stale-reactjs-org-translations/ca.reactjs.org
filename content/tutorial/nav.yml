@@ -1,111 +1,111 @@
 - title: Tutorial
-  ítems:
-    - id: before-we-start-the-tutorial
-      title: Abans de començar el tutorial
-      href: /tutorial/tutorial.html#before-we-start-the-tutorial
-      forceInternal: true
-      subitems:
-        - id: what-are-we-building
-          title: Què estem construint?
-          href: /tutorial/tutorial.html#what-are-we-building
-          forceInternal: true
-        - id: prerequisites
-          title: Prerequisits
-          href: /tutorial/tutorial.html#prerequisites
-          forceInternal: true
-    - id: setup-for-the-tutorial
-      title: Configuració per a l'tutorial
-      href: /tutorial/tutorial.html#setup-for-the-tutorial
-      forceInternal: true
-      subitems:
-        - id: setup-option-1-write-code-in-the-browser
-          title: "Opció de configuració 1: Escriu codi al navegador"
-          href: /tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
-          forceInternal: true
-        - id: setup-option-2-local-development-environment
-          title: "Opció de configuració 2: Entorn de desenvolupament local"
-          href: /tutorial/tutorial.html#setup-option-2-local-development-environment
-          forceInternal: true
-        - id: help-im-stuck
-          title: Ajuda, estic encallat!
-          href: /tutorial/tutorial.html#help-im-stuck
-          forceInternal: true
-    - id: overview
-      title: Visió General
-      href: /tutorial/tutorial.html#overview
-      forceInternal: true
-      subitems:
-        - id: what-is-react
-          title: Què és React?
-          href: /tutorial/tutorial.html#what-is-react
-          forceInternal: true
-        - id: inspecting-the-starter-code
-          title: Inspeccionant el codi inicial
-          href: /tutorial/tutorial.html#inspecting-the-starter-code
-          forceInternal: true
-        - id: passing-data-through-props
-          title: Passant dades a través de props
-          href: /tutorial/tutorial.html#passing-data-through-props
-          forceInternal: true
-        - id: making-an-interactive-component
-          title: Fent un component interactiu
-          href: /tutorial/tutorial.html#making-an-interactive-component
-          forceInternal: true
-        - id: developer-tools
-          title: Eines de desenvolupament
-          href: /tutorial/tutorial.html#developer-tools
-          forceInternal: true
-    - id: Completing-the-game
-      title: Completant el joc
-      href: /tutorial/tutorial.html#completing-the-game
-      forceInternal: true
-      subitems:
-        - id: lifting-state-up
-          title: Elevant l'estat
-          href: /tutorial/tutorial.html#lifting-state-up
-          forceInternal: true
-        - id: why-immutability-is-important
-          title: Per què és important la immutabilitat?
-          href: /tutorial/tutorial.html#why-immutability-is-important
-          forceInternal: true
-        - id: function-components
-          title: Components de funció
-          href: /tutorial/tutorial.html#function-components
-          forceInternal: true
-        - id: taking-turns
-          title: Prenent torns
-          href: /tutorial/tutorial.html#taking-turns
-          forceInternal: true
-        - id: declaring-a-winner
-          title: Declarant un guanyador
-          href: /tutorial/tutorial.html#declaring-a-winner
-          forceInternal: true
-    - id: adding-time-travel
-      title: Afegint viatge en el temps
-      href: /tutorial/tutorial.html#adding-time-travel
-      forceInternal: true
-      subitems:
-        - id: storing-a-history-of-moves
-          title: Emmagatzemar un historial de moviments
-          href: /tutorial/tutorial.html#storing-a-history-of-moves
-          forceInternal: true
-        - id: lifting-state-up-again
-          title: Elevant l'estat, una altra vegada
-          href: /tutorial/tutorial.html#lifting-state-up-again
-          forceInternal: true
-        - id: showing-the-past-moves
-          title: Ara es mostren els moviments anteriors
-          href: /tutorial/tutorial.html#showing-the-past-moves
-          forceInternal: true
-        - id: picking-a-key
-          title: Triant una key
-          href: /tutorial/tutorial.html#picking-a-key
-          forceInternal: true
-        - id: implementing-time-travel
-          title: Implementant viatge en el temps
-          href: /tutorial/tutorial.html#implementing-time-travel
-          forceInternal: true
-        - id: wrapping-up
-          title: Concloent
-          href: /tutorial/tutorial.html#wrapping-up
-          forceInternal: tru
+  ítems:
+    - id: before-we-start-the-tutorial
+      title: Abans de començar el tutorial
+      href: /tutorial/tutorial.html#before-we-start-the-tutorial
+      forceInternal: true
+      subitems:
+        - id: what-are-we-building
+          title: Què estem construint?
+          href: /tutorial/tutorial.html#what-are-we-building
+          forceInternal: true
+        - id: prerequisites
+          title: Prerequisits
+          href: /tutorial/tutorial.html#prerequisites
+          forceInternal: true
+    - id: setup-for-the-tutorial
+      title: Configuració per a l'tutorial
+      href: /tutorial/tutorial.html#setup-for-the-tutorial
+      forceInternal: true
+      subitems:
+        - id: setup-option-1-write-code-in-the-browser
+          title: "Opció de configuració 1: Escriu codi al navegador"
+          href: /tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
+          forceInternal: true
+        - id: setup-option-2-local-development-environment
+          title: "Opció de configuració 2: Entorn de desenvolupament local"
+          href: /tutorial/tutorial.html#setup-option-2-local-development-environment
+          forceInternal: true
+        - id: help-im-stuck
+          title: Ajuda, estic encallat!
+          href: /tutorial/tutorial.html#help-im-stuck
+          forceInternal: true
+    - id: overview
+      title: Visió General
+      href: /tutorial/tutorial.html#overview
+      forceInternal: true
+      subitems:
+        - id: what-is-react
+          title: Què és React?
+          href: /tutorial/tutorial.html#what-is-react
+          forceInternal: true
+        - id: inspecting-the-starter-code
+          title: Inspeccionant el codi inicial
+          href: /tutorial/tutorial.html#inspecting-the-starter-code
+          forceInternal: true
+        - id: passing-data-through-props
+          title: Passant dades a través de props
+          href: /tutorial/tutorial.html#passing-data-through-props
+          forceInternal: true
+        - id: making-an-interactive-component
+          title: Fent un component interactiu
+          href: /tutorial/tutorial.html#making-an-interactive-component
+          forceInternal: true
+        - id: developer-tools
+          title: Eines de desenvolupament
+          href: /tutorial/tutorial.html#developer-tools
+          forceInternal: true
+    - id: completing-the-game
+      title: Completant el joc
+      href: /tutorial/tutorial.html#completing-the-game
+      forceInternal: true
+      subitems:
+        - id: lifting-state-up
+          title: Elevant l'estat
+          href: /tutorial/tutorial.html#lifting-state-up
+          forceInternal: true
+        - id: why-immutability-is-important
+          title: Per què és important la immutabilitat?
+          href: /tutorial/tutorial.html#why-immutability-is-important
+          forceInternal: true
+        - id: function-components
+          title: Components de funció
+          href: /tutorial/tutorial.html#function-components
+          forceInternal: true
+        - id: taking-turns
+          title: Prenent torns
+          href: /tutorial/tutorial.html#taking-turns
+          forceInternal: true
+        - id: declaring-a-winner
+          title: Declarant un guanyador
+          href: /tutorial/tutorial.html#declaring-a-winner
+          forceInternal: true
+    - id: adding-time-travel
+      title: Afegint viatge en el temps
+      href: /tutorial/tutorial.html#adding-time-travel
+      forceInternal: true
+      subitems:
+        - id: storing-a-history-of-moves
+          title: Emmagatzemar un historial de moviments
+          href: /tutorial/tutorial.html#storing-a-history-of-moves
+          forceInternal: true
+        - id: lifting-state-up-again
+          title: Elevant l'estat, una altra vegada
+          href: /tutorial/tutorial.html#lifting-state-up-again
+          forceInternal: true
+        - id: showing-the-past-moves
+          title: Ara es mostren els moviments anteriors
+          href: /tutorial/tutorial.html#showing-the-past-moves
+          forceInternal: true
+        - id: picking-a-key
+          title: Triant una key
+          href: /tutorial/tutorial.html#picking-a-key
+          forceInternal: true
+        - id: implementing-time-travel
+          title: Implementant viatge en el temps
+          href: /tutorial/tutorial.html#implementing-time-travel
+          forceInternal: true
+        - id: wrapping-up
+          title: Concloent
+          href: /tutorial/tutorial.html#wrapping-up
+          forceInternal: tru
