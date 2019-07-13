@@ -35,7 +35,7 @@ Cada capítol en aquesta guia es construeix sobre la base del coneixement presen
 
 ## Suposicions del nivell de coneixement {#knowledge-level-assumptions}
 
-React és una biblioteca JavaScript, i assumim que tens un enteniment bàsic del llenguatge JavaScript. **Si no et sents molt segur, et recomanem [fer un tutorial de JavaScript](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript) per comprovar el teu nivell de coneixement** i permetre't seguir endavant amb aquesta guia sense perdre't. Hauries de tardar entre 30 minuts i una hora, com a benefici, no sentiràs que estàs aprenent React i JavaScript al mateix temps.
+React és una biblioteca JavaScript, i assumim que tens un coneixement bàsic del llenguatge JavaScript. **Si no et sents molt segur, et recomanem [fer un tutorial de JavaScript](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript) per comprovar el teu nivell de coneixement** i permetre't seguir endavant amb aquesta guia sense perdre't. Hauries de tardar entre 30 minuts i una hora, com a benefici, no sentiràs que estàs aprenent React i JavaScript al mateix temps.
 
 > Nota
 >
