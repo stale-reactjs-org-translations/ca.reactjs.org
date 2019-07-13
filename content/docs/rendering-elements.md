@@ -38,7 +38,7 @@ Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos 
 
 `embed:rendering-elements/render-an-element.js`
 
-[](Codepen://rendering-elements/render-an-element)
+[](codepen://rendering-elements/render-an-element)
 
 Això mostra "Hello, world" a la pàgina.
 
