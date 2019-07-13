@@ -14,16 +14,16 @@
           href: /tutorial/tutorial.html#prerequisites
           forceInternal: true
     - id: setup-for-the-tutorial
-      title: Configuració per a l'tutorial
+      title: Configuració pel tutorial
       href: /tutorial/tutorial.html#setup-for-the-tutorial
       forceInternal: true
       subitems:
         - id: setup-option-1-write-code-in-the-browser
-          title: "Opció de configuració 1: Escriu codi al navegador"
+          title: "Opció 1: Escriu codi al navegador"
           href: /tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
           forceInternal: true
         - id: setup-option-2-local-development-environment
-          title: "Opció de configuració 2: Entorn de desenvolupament local"
+          title: "Opció 2: Entorn de desenvolupament local"
           href: /tutorial/tutorial.html#setup-option-2-local-development-environment
           forceInternal: true
         - id: help-im-stuck
