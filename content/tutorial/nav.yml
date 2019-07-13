@@ -69,11 +69,11 @@
           href: /tutorial/tutorial.html#why-immutability-is-important
           forceInternal: true
         - id: function-components
-          title: Components de funció
+          title: Components functionals
           href: /tutorial/tutorial.html#function-components
           forceInternal: true
         - id: taking-turns
-          title: Prenent torns
+          title: Fent torns
           href: /tutorial/tutorial.html#taking-turns
           forceInternal: true
         - id: declaring-a-winner
