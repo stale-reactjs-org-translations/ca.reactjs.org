@@ -16,7 +16,7 @@ Aquest tutorial no assumeix cap coneixement previ sobre React.
 
 ## Abans de començar el tutorial {#before-we-start-the-tutorial}
 
-Anem a construir un petit joc durant aquest tutorial. **Hauràs estar temptat a obviar-perquè tu no estàs construint jocs en el dia a dia, però dóna-li una oportunitat.** Les tècniques que aprendràs en el tutorial són fonamentals per a construir qualsevol aplicació de React, i dominar-et donarà una entesa profunda de React.
+Construirem un petit joc durant aquest tutorial. **Podries estar temptat a obviar-lo perquè tu no estàs construint jocs al dia a dia, però dóna-li una oportunitat.** Les tècniques que aprendràs al tutorial són fonamentals per a construir qualsevol aplicació de React, i dominar-les et donarà una comprensió profunda de React.
 
 >Tip
 >
