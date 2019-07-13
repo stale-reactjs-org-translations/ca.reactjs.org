@@ -48,7 +48,7 @@ Les classes tenen algunes característiques addicionals que veurem en les [pròx
 
 ## Renderitzant un component {#rendering-a-component}
 
-Fins ara, només hem trobat elements de React que representen les etiquetes del DOM:
+Fins ara, només hem vist elements de React que representen etiquetes del DOM:
 
 ```js
 const element = <div />;
@@ -60,7 +60,7 @@ No obstant això, els elements també poden representar components definits per 
 const element = <Welcome name="Sara" />;
 ```
 
-Quan React veu un element representant un component definit per l'usuari, passa atributs JSX a aquest component com un sol objecte. Fem una crida a aquest objecte "props".
+Quan React veu un element representant un component definit per l'usuari, passa els atributs JSX a aquest component com un sol objecte. Anomenem a aquest objecte "props".
 
 Per exemple, aquest codi mostra "Hola, Sara" a la pàgina:
 
@@ -83,7 +83,7 @@ Recapitulem el que succeeix en aquest exemple:
 1. Fem una crida a `ReactDOM.render()` amb l'element `<Welcome name="Sara"/>`.
 2. React crida al component `Welcome` amb `{name: 'Sara'}` com "props".
 3. El nostre component `Welcome` retorna un element `<h1>Hola, Sara</h1>` com a resultat.
-4. React DOM actualitza eficientment DOM perquè coincideixi amb `<h1>Hola, Sara</h1>`.
+4. React DOM actualitza eficientment el DOM perquè coincideixi amb `<h1>Hola, Sara</h1>`.
 
 > **Nota:** Comença sempre els noms de components amb una lletra majúscula.
 >
@@ -120,7 +120,7 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-En general, les aplicacions de React noves tenen un únic component `App` al capdamunt. No obstant això, si s'integra React en una aplicació existent, es podria començar de baix a dalt amb un petit component com `Button` i a poc a poc fer camí cap al cim de la jerarquia de la vista.
+En general, les aplicacions de React noves tenen un únic component `App` al capdamunt. No obstant això, si s'integra React en una aplicació existent, es podria començar de baix cap a dalt amb un petit component com `Button` i a poc a poc fer camí cap al cim de la jerarquia de la vista.
 
 ## Extracció de components {#extracting-components}
 
@@ -173,7 +173,7 @@ function Avatar(props) {
 
 L'`Avatar` no necessita saber que està sent renderitzat dins d'un `Comment`. Aquest és el motiu pel qual li donem a la seva propietat un nom més genèric: `user` en comptes de `author`.
 
-Recomanem anomenar les props des del punt de vista del component, en comptes de la del context en què s'utilitza.
+Recomanem anomenar les props des del punt de vista del component, en comptes del context en què s'utilitza.
 
 Ara podem simplificar `Comment` una miqueta:
 
@@ -235,9 +235,9 @@ function Comment(props) {
 
 Extreure components pot semblar una feina pesada al principi, però tenir una paleta de components reutilitzables val la pena en aplicacions més grans. Una bona regla en general és que si una part de la interfície d'usuari es fa servir diverses vegades (`Button`, `Panel` o `Avatar`), o és prou complexa per si mateixa (`App`, `FeedStory`, `Comment`), és bon candidat per ser un component reutilitzable.
 
-## Les props són de només lectura {#props-are-read-only}
+## Les props són només de lectura {#props-are-read-only}
 
-Ja sigui que declaris un component [com una funció o com una classe](#function-and-class-components), aquest mai ha de modificar les seves props. Considera aquesta funció `sum`:
+Tant si declares un component, [com una funció o com una classe](#function-and-class-components), aquest mai ha de modificar les seves props. Considera aquesta funció `sum`:
 
 ```js
 function sum(a, b) {
@@ -245,7 +245,7 @@ function sum(a, b) {
 }
 ```
 
-Aquestes funcions són cridades ["pures"](https://en.wikipedia.org/wiki/Functional_programming#Pure_functions) perquè no tracten de canviar les seves entrades, i sempre tornen el mateix resultat per a les mateixes entrades.
+Aquestes funcions són anomenades ["pures"](https://en.wikipedia.org/wiki/Functional_programming#Pure_functions) perquè no intenten canviar les seves entrades, i sempre tornen el mateix resultat per a les mateixes entrades.
 
 En contrast, aquesta funció és impura perquè canvia la seva pròpia entrada:
 
