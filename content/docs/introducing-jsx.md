@@ -12,7 +12,7 @@ Considera la declaració d'aquesta variable:
 const element = <h1>Hello, world!</h1>;
 ```
 
-Aquesta divertida sintaxi d'etiquetes no es ni un string ni HTML.
+Aquesta divertida sintaxi d'etiquetes no és ni un string ni HTML.
 
 S'anomena JSX, i és una extensió de la sintaxi de JavaScript. Recomanem usar-lo amb React per a descriure com la interfície d'usuari hauria de ser. JSX podria recordar-te a un llenguatge de plantilles, però ve amb tot el poder de JavaScript. 
 
@@ -20,9 +20,9 @@ JSX produeix "elements" de React. Explorarem com renderitzar-los en el DOM a la 
 
 ### Per què JSX? {#why-jsx}
 
-React accepta el fet de que la lògica de renderització està inherentment unida a la lògica de la interfície d'usuari: com es gestionen els events, com cambia l'estat en el temps i com es preparen les dades per a la seva visualització.
+React accepta el fet que la lògica de renderització està inherentment unida a la lògica de la interfície d'usuari: com es gestionen els esdeveniments, com canvia l'estat en el temps i com es preparen les dades per a la seva visualització.
 
-Enlloc de separar artificalment *tecnologies* posant el maquetat i la lògica en arxius separats, React [separa *interesos*](https://en.wikipedia.org/wiki/Separation_of_concerns) amb unitats lleugerament acoblades que s'anomenen "components" i que contenen ambdues. Tornarem als components en una [altra secció](/docs/components-and-props.html), però si encara no estàs còmode maquetant en JS, [aquesta xerrada](https://www.youtube.com/watch?v=x7cQ3mrcKaY) et pot convèncer de lo contrari.
+En lloc de separar artificialment *tecnologies* posant el maquetat i la lògica en arxius separats, React [separa *interessos*](https://en.wikipedia.org/wiki/Separation_of_concerns) amb unitats lleugerament acoblades que s'anomenen "components" i que contenen ambdues. Tornarem als components en una [altra secció](/docs/components-and-props.html), però si encara no estàs còmode maquetant en JS, [aquesta xerrada](https://www.youtube.com/watch?v=x7cQ3mrcKaY) et pot convèncer del contrari.
 
 React [no requereix](/docs/react-without-jsx.html) usar JSX, però la majoria de la gent ho troba útil com una ajuda visual quan treballen amb la interfície d'usuari a dins el codi de JavaScript. Això també permet que React mostri missatges d'error i avís més útils.
 
@@ -44,7 +44,7 @@ ReactDOM.render(
 
 Pots posar qualsevol [expressió de JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) vàlida a dins les claus en JSX. Per exemple, `2 + 2`, `user.firstName`, o `formatName(user)` són tot expressions vàlides de JavaScript.
 
-A l'exemple que hi ha a continuació, inserim el resultat de cridar la funcció de JavaScript, `formatName(user)`, a dins un element `<h1>`.
+A l'exemple que hi ha a continuació, inserim el resultat de cridar la funció de JavaScript, `formatName(user)`, a dins un element `<h1>`.
 
 ```js{12}
 function formatName(user) {
@@ -68,13 +68,13 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://introducing-jsx)
+**[Prova-ho a CodePen](codepen://introducing-jsx)**
 
 Dividim JSX en diverses línies per a facilitar-ne la lectura. Tot i que no és necessari, quan es fa així també recomanem embolicar-lo entre parèntesis per a evitar errors causats per la [inserció automàtica del punt i coma](https://stackoverflow.com/q/2846283).
 
 ### JSX també és una expressió {#jsx-is-an-expression-too}
 
-Después de compilar-se, les expressions JSX es converteixen en cridades a funcions JavaScript regulars i s'evaluen a objectes de JavaScript.
+Després de compilar-se, les expressions JSX es converteixen en cridades a funcions JavaScript regulars i s'avaluen a objectes de JavaScript.
 
 Això significa que pots usar JSX a dins de declaracions `if` i bucles `for`, pots assignar-lo a variables, acceptar-lo com argument, i retornar-lo des de funcions.
 
@@ -105,7 +105,7 @@ No posis cometes al voltant de claus quan insereixis una expressió JavaScript e
 
 >**Advertiment:**
 >
->Com que JSX és més proper a JSX que HTML, React DOM usa la convenció de nomenclatura `camelCase` enlloc de noms d'atributs HTML.
+>Com que JSX és més proper a JSX que HTML, React DOM usa la convenció de nomenclatura `camelCase` en lloc de noms d'atributs HTML.
 >
 >Per exemple, `class` es converteix en [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) en JSX, i `tabindex` es converteix en [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
@@ -138,14 +138,13 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
-Per defecte, React DOM [escapa](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) qualsevol valor inserit en JSX abans de renderitzar-lo. Així s'assegura de que no es pugui inserir res que no hagi estat explícitament escrit a la teva aplicació. Tot es converteix a un string abans que es renderitzi. Això ajuda a prevenir atacs [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
+Per defecte, React DOM [escapa](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) qualsevol valor inserit en JSX abans de renderitzar-lo. Així s'assegura que no es pugui inserir res que no hagi estat explícitament escrit a la teva aplicació. Tot es converteix a un string abans que es renderitzi. Això ajuda a prevenir atacs [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
 ### JSX representa objectes {#jsx-represents-objects}
 
 Babel compila JSX a cridades `React.createElement()`.
 
-Aquests dos exmples són idèntics:
+Aquests dos exemples són idèntics:
 
 ```js
 const element = (
@@ -163,7 +162,7 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` realitza qualcunes comprobacions per a ajudar-te a escriure codi lliure d'errors, però essencialment crea objectes com aquest:
+`React.createElement()` realitza qualcunes comprovacions per a ajudar-te a escriure codi lliure d'errors, però essencialment crea objectes com aquest:
 
 ```js
 // Note: this structure is simplified
@@ -176,10 +175,10 @@ const element = {
 };
 ```
 
-Aquest objectes s'anomenen "elements de React". Pots pensar que són descripcions del que vols veure en la pantalla. React llegeix aquests objectes i els usa per a construir el DOM i mantenir-lo actualitzat.
+Aquests objectes s'anomenen "elements de React". Pots pensar que són descripcions del que vols veure en la pantalla. React llegeix aquests objectes i els usa per a construir el DOM i mantenir-lo actualitzat.
 
 Anem a explorar el renderitzat d'elements de React en el DOM a la següent secció.
 
->**Tip:**
+>**Consell:**
 >
->Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència per a que tan el codi en ES6 com JSX sigui emfatitzat correctament. Aquesta pàgina web utilitza l'esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) que és compatible amb això.
+>Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència perquè tant el codi en ES6 com JSX sigui emfatitzat correctament. Aquesta pàgina web utilitza l'esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) que és compatible amb això.
