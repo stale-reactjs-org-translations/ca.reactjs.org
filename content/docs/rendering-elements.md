@@ -16,7 +16,7 @@ Un element descriu el que voleu veure a la pantalla:
 const element = <h1>Hola, món</h1>;
 ```
 
-A diferència dels elements del DOM dels navegadors, els elements de React són objectes plans, i la seva creació és de baix cost. ReactDOM es cuida d'actualitzar el DOM per sincronitzar-se amb els elements de React.
+A diferència dels elements del DOM dels navegadors, els elements de React són objectes plans, i la seva creació és de baix cost. React DOM es cuida d'actualitzar el DOM per sincronitzar-se amb els elements de React.
 
 > **Nota:**
 >
