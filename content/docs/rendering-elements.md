@@ -3,7 +3,7 @@ id: rendering-elements
 title: Renderitzant elements
 permalink: docs/rendering-elements.html
 redirect_from:
-- "docs/displaying-data.html"
+  - "docs/displaying-data.html"
 prev: introducing-jsx.html
 next: components-and-props.html
 ---
@@ -12,9 +12,9 @@ Els elements són la unitat més petita de les aplicacions de React.
 
 Un element descriu el que voleu veure a la pantalla:
 
-'''js
+```js
 const element = <h1>Hola, món</h1>;
-'''
+```
 
 A diferència dels elements del DOM dels navegadors, els elements de React són objectes plans, i la seva creació és de baix cost. ReactDOM es cuida d'actualitzar el DOM per sincronitzar-se amb els elements de React.
 
@@ -24,19 +24,19 @@ A diferència dels elements del DOM dels navegadors, els elements de React són 
 
 ## Renderitzant un element en el DOM {#rendering-an-element-in-the-dom}
 
-Diguem que hi ha un '<div>' en alguna part del vostre fitxer HTML:
+Diguem que hi ha un `<div>` en alguna part del vostre fitxer HTML:
 
-'''html
+```html
 <div id="root"></div>
-'''
+```
 
 En diem un node "arrel" perquè tot el que estigui dins d'ell serà gestionat per React DOM.
 
 Les aplicacions construïdes solament amb React normalment tenen un únic node arrel al DOM. Si estàs integrant React en una aplicació existent, pots tenir tants nodes arrel del DOM aïllats com vulguis.
 
-Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos a 'ReactDOM.render()':
+Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos a `ReactDOM.render()`:
 
-'embed:rendering-elements/render-an-element.js'
+`embed:rendering-elements/render-an-element.js`
 
 [](Codepen://rendering-elements/render-an-element)
 
@@ -46,15 +46,15 @@ Això mostra "Hello, world" a la pàgina.
 
 Els elements de React són [immutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Un cop crees un element, no pots canviar els seus fills o atributs. Un element és com un fotograma solitari en una pel·lícula: aquest representa la interfície d'usuari en cert punt en el temps.
 
-Amb el nostre coneixement fins a aquest punt, l'única manera d'actualitzar la interfície d'usuari és creant un nou element, i passar-ho a 'ReactDOM.render()'.
+Amb el nostre coneixement fins a aquest punt, l'única manera d'actualitzar la interfície d'usuari és creant un nou element, i passar-ho a `ReactDOM.render()`.
 
 Considera aquest exemple d'un rellotge en marxa:
 
-'embed:rendering-elements/update-rendered-element.js'
+`embed:rendering-elements/update-rendered-element.js`
 
 [](Codepen://rendering-elements/update-rendered-element)
 
-Aquest crida a 'ReactDOM.render()' cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+Aquest crida a `ReactDOM.render()` cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
 > **Nota:**
 >
