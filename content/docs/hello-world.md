@@ -10,8 +10,8 @@ El més curt dels exemples de React té aquesta pinta:
 
 ```js
 ReactDOM.render(
-    <h1>Hola, món!</h1>,
-    document.getElementById('root')
+  <h1>Hola, món!</h1>,
+  document.getElementById('root')
 );
 ```
 
