@@ -44,7 +44,7 @@ Això mostra "Hello, world" a la pàgina.
 
 ## Actualitzant l'element renderitzat {#updating-the-rendered-element}
 
-Els elements de React són [immutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Un cop crees un element, no pots canviar els seus fills o atributs. Un element és com un fotograma solitari en una pel·lícula: aquest representa la interfície d'usuari en cert punt en el temps.
+Els elements de React són [immutables](https://en.wikipedia.org/wiki/Immutable_object). Un cop crees un element, no pots canviar els seus fills o atributs. Un element és com un fotograma solitari en una pel·lícula: aquest representa la interfície d'usuari en cert punt en el temps.
 
 Amb el nostre coneixement fins a aquest punt, l'única manera d'actualitzar la interfície d'usuari és creant un nou element, i passar-ho a `ReactDOM.render()`.
 
