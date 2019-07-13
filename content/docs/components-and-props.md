@@ -1,262 +1,262 @@
 ---
 id: components-and-props
-title: Components and Props
+title: Components i propietats
 permalink: docs/components-and-props.html
 redirect_from:
-  - "docs/reusable-components.html"
-  - "docs/reusable-components-zh-CN.html"
-  - "docs/transferring-props.html"
-  - "docs/transferring-props-it-IT.html"
-  - "docs/transferring-props-ja-JP.html"
-  - "docs/transferring-props-ko-KR.html"
-  - "docs/transferring-props-zh-CN.html"
-  - "tips/props-in-getInitialState-as-anti-pattern.html"
-  - "tips/communicate-between-components.html"
+- "docs/reusable-components.html"
+- "docs/reusable-components-zh-CN.html"
+- "docs/transferring-props.html"
+- "docs/transferring-props-it-IT.html"
+- "docs/transferring-props-ja-JP.html"
+- "docs/transferring-props-ko-KR.html"
+- "docs/transferring-props-zh-CN.html"
+- "tips/props-in-getInitialState-as-anti-pattern.html"
+- "tips/communicate-between-components.html"
 prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Els components permeten separar la interfície d'usuari en peces independents, reutilitzables i pensar en cada peça de forma aïllada. Aquesta pàgina proporciona una introducció a la idea de components. Pots trobar una [API detallada sobre components aquí](/docs/react-component.html).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Conceptualment, els components són com les funcions de JavaScript. Accepten entrades arbitràries (anomenades "props") i retornen a React elements que descriuen el que ha d'aparèixer a la pantalla.
 
-## Function and Class Components {#function-and-class-components}
+## Components funcionals i de classe {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+La forma més senzilla de definir un component és escriure una funció de JavaScript:
 
-```js
+'''js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+return <h1>Hola, {props.name}</h1>;
 }
-```
+'''
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Aquesta funció és un component de React vàlid perquè accepta un sol argument d'objecte "props" (que prové de propietats) amb dades i retorna un element de React. Anomenem aquests components "funcionals" perquè literalment són funcions JavaScript.
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+També pots utilitzar una [classe de ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes) per definir un component:
 
-```js
+'''js
 class Welcome extends React.Component {
-  render() {
-    return <h1>Hello, {this.props.name}</h1>;
-  }
+render() {
+return <h1>Hola, {this.props.name}</h1>;
 }
-```
+}
+'''
 
-The above two components are equivalent from React's point of view.
+Els dos components anteriors són equivalents des del punt de vista de React.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Les classes tenen algunes característiques addicionals que veurem en les [pròximes seccions](/docs/state-and-lifecycle.html). Fins llavors, farem servir components funcionals per la seva brevetat.
 
-## Rendering a Component {#rendering-a-component}
+## Renderitzant un component {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+Fins ara, només hem trobat elements de React que representen les etiquetes del DOM:
 
-```js
+'''js
 const element = <div />;
-```
+'''
 
-However, elements can also represent user-defined components:
+No obstant això, els elements també poden representar components definits per l'usuari:
 
-```js
+'''js
 const element = <Welcome name="Sara" />;
-```
+'''
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+Quan React veu un element representant un component definit per l'usuari, passa atributs JSX a aquest component com un sol objecte. Fem una crida a aquest objecte "props".
 
-For example, this code renders "Hello, Sara" on the page:
+Per exemple, aquest codi mostra "Hola, Sara" a la pàgina:
 
-```js{1,5}
+'''js{1,5}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+return <h1>Hola, {props.name}</h1>;
 }
 
 const element = <Welcome name="Sara" />;
 ReactDOM.render(
-  element,
-  document.getElementById('root')
+element,
+document.getElementById('root')
 );
-```
+'''
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Recapitulem el que succeeix en aquest exemple:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Fem una crida a 'ReactDOM.render()' amb l'element '<Welcome name="Sara"/>'.
+2. React crida al component 'Welcome' amb '{name: 'Sara'}' com "props".
+3. El nostre component 'Welcome' retorna un element '<h1>Hola, Sara</h1>' com a resultat.
+4. React DOM actualitza eficientment DOM perquè coincideixi amb '<h1>Hola, Sara</h1>'.
 
->**Note:** Always start component names with a capital letter.
+> **Nota:** Comença sempre els noms de components amb una lletra majúscula.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+> React tracta els components que comencen amb lletres minúscules com etiquetes del DOM. Per exemple, '<div />' representa una etiqueta div HTML però '<Welcome />' representa un component i requereix que 'Welcome' estigui definit.
 >
->To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+> Per saber més sobre el raonament darrere d'aquesta convenció, pots consultar [JSX en profunditat](/docs/JSX-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Composing Components {#composing-components}
+## Composició de components {#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Els components poden referir-se a altres components en el seu interior. Això ens permet utilitzar la mateixa abstracció de component per a qualsevol nivell de detall. Un botó, un quadre de diàleg, un formulari, una pantalla: en aplicacions de React, tots són expressats comunament com a components.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Per exemple, podem crear un component 'App' que renderitza 'Welcome' moltes vegades:
 
-```js{8-10}
+'''js{8-10}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+return <h1>Hola, {props.name}</h1>;
 }
 
 function App() {
-  return (
-    <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
-    </div>
-  );
+return (
+<div>
+<Welcome name="Sara" />
+<Welcome name="Cahal" />
+<Welcome name="Edite" />
+</div>
+);
 }
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+<App />,
+document.getElementById('root')
 );
-```
+'''
 
 [](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+En general, les aplicacions de React noves tenen un únic component 'App' al capdamunt. No obstant això, si s'integra React en una aplicació existent, es podria començar de baix a dalt amb un petit component com 'Button' i a poc a poc fer camí cap al cim de la jerarquia de la vista.
 
-## Extracting Components {#extracting-components}
+## Extracció de components {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+No tinguis por de dividir els components en altres més petits.
 
-For example, consider this `Comment` component:
+Per exemple, considera aquest component 'Comment':
 
-```js
+'''js
 function Comment(props) {
-  return (
-    <div className="Comment">
-      <div className="UserInfo">
-        <img className="Avatar"
-          src={props.author.avatarUrl}
-          alt={props.author.name}
-        />
-        <div className="UserInfo-name">
-          {props.author.name}
-        </div>
-      </div>
-      <div className="Comment-text">
-        {props.text}
-      </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
-      </div>
-    </div>
-  );
+return (
+<div className="Comment">
+<div className="UserInfo">
+<img className="Avatar"
+src={props.author.avatarUrl}
+alt={props.author.name}
+/>
+<div className="UserInfo-name">
+{props.author.name}
+</div>
+</div>
+<div className="Comment-text">
+{props.text}
+</div>
+<div className="Comment-date">
+{formatDate(props.date)}
+</div>
+</div>
+);
 }
-```
+'''
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Accepta 'author' (un objecte), 'text' (una cadena), i 'date' (una data) com props, i descriu un comentari en una web de xarxes socials.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Aquest component pot ser difícil de canviar a causa de tota la nidificació, i també és difícil reutilitzar parts individuals d'ell. Extraiem alguns components d'aquest.
 
-First, we will extract `Avatar`:
+Primer, extraiem 'Avatar':
 
-```js{3-6}
+'''js{3-6}
 function Avatar(props) {
-  return (
-    <img className="Avatar"
-      src={props.user.avatarUrl}
-      alt={props.user.name}
-    />
-  );
+return (
+<img className="Avatar"
+src={props.user.avatarUrl}
+alt={props.user.name}
+/>
+);
 }
-```
+'''
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+L''Avatar' no necessita saber que està sent renderitzat dins d'un 'Comment'. Aquest és el motiu pel qual li donem a la seva propietat un nom més genèric: 'user' en comptes de 'author'.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+Recomanem anomenar les props des del punt de vista del component, en comptes de la del context en què s'utilitza.
 
-We can now simplify `Comment` a tiny bit:
+Ara podem simplificar 'Comment' una miqueta:
 
-```js{5}
+'''js{5}
 function Comment(props) {
-  return (
-    <div className="Comment">
-      <div className="UserInfo">
-        <Avatar user={props.author} />
-        <div className="UserInfo-name">
-          {props.author.name}
-        </div>
-      </div>
-      <div className="Comment-text">
-        {props.text}
-      </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
-      </div>
-    </div>
-  );
+return (
+<div className="Comment">
+<div className="UserInfo">
+<Avatar user={props.author} />
+<div className="UserInfo-name">
+{props.author.name}
+</div>
+</div>
+<div className="Comment-text">
+{props.text}
+</div>
+<div className="Comment-date">
+{formatDate(props.date)}
+</div>
+</div>
+);
 }
-```
+'''
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+A continuació, extraurem el component 'UserInfo' que renderitza un 'Avatar' al costat del nom de l'usuari:
 
-```js{3-8}
+'''js{3-8}
 function UserInfo(props) {
-  return (
-    <div className="UserInfo">
-      <Avatar user={props.user} />
-      <div className="UserInfo-name">
-        {props.user.name}
-      </div>
-    </div>
-  );
+return (
+<div className="UserInfo">
+<Avatar user={props.user} />
+<div className="UserInfo-name">
+{props.user.name}
+</div>
+</div>
+);
 }
-```
+'''
 
-This lets us simplify `Comment` even further:
+Això ens permet simplificar 'Comment' encara més:
 
-```js{4}
+'''js{4}
 function Comment(props) {
-  return (
-    <div className="Comment">
-      <UserInfo user={props.author} />
-      <div className="Comment-text">
-        {props.text}
-      </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
-      </div>
-    </div>
-  );
+return (
+<div className="Comment">
+<UserInfo user={props.author} />
+<div className="Comment-text">
+{props.text}
+</div>
+<div className="Comment-date">
+{formatDate(props.date)}
+</div>
+</div>
+);
 }
-```
+'''
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Extreure components pot semblar una feina pesada al principi, però tenir una paleta de components reutilitzables val la pena en aplicacions més grans. Una bona regla en general és que si una part de la interfície d'usuari es fa servir diverses vegades ('Button', 'Panel' o 'Avatar'), o és prou complexa per si mateixa ('App', 'FeedStory', 'Comment'), és bon candidat per ser un component reutilitzable.
 
-## Props are Read-Only {#props-are-read-only}
+## Les props són de només lectura {#props-are-nomès lectura}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Ja sigui que declaris un component [com una funció o com una classe](#function-and-class-components), aquest mai ha de modificar les seves props. Considera aquesta funció 'sum':
 
-```js
+'''js
 function sum(a, b) {
-  return a + b;
+return a + b;
 }
-```
+'''
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Aquestes funcions són cridades ["pures"](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional#Funciones_puras) perquè no tracten de canviar les seves entrades, i sempre tornen el mateix resultat per a les mateixes entrades.
 
-In contrast, this function is impure because it changes its own input:
+En contrast, aquesta funció és impura perquè canvia la seva pròpia entrada:
 
-```js
+'''js
 function withdraw(account, amount) {
-  account.total -= amount;
+account.total -= amount;
 }
-```
+'''
 
-React is pretty flexible but it has a single strict rule:
+React és bastant flexible però té una sola regla estricta:
 
-**All React components must act like pure functions with respect to their props.**
+**Tots els components de React han d'actuar com a funcions pures pel que fa a les seves props.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Per descomptat, les interfícies d'usuari de les aplicacions són dinàmiques i canvien amb el temps. A la [següent secció](/docs/state-and-lifecycle.html), introduirem un nou concepte d'"estat". L'estat permet als components de React canviar la seva sortida al llarg del temps en resposta a accions de l'usuari, respostes de xarxa i qualsevol altra cosa, sense violar aquesta regla.
