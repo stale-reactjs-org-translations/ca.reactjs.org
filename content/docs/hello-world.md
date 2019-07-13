@@ -8,12 +8,12 @@ next: introducing-jsx.html
 
 El més curt dels exemples de React té aquesta pinta:
 
-'''js
+```js
 ReactDOM.render(
 <H1>Hola, món!</ H1>,
 document.getElementById('root')
 );
-'''
+```
 
 L'exemple mostra una capçalera amb el text "Hola, món!" a la pàgina.
 
