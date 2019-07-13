@@ -41,6 +41,6 @@ React és una biblioteca JavaScript, i assumim que tens un enteniment bàsic del
 >
 > Aquesta guia ocasionalment fa servir la nova sintaxi de JavaScript en els exemples. Si no has treballat amb JavaScript en els últims anys, [aquests tres punts](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) són un bon resum.
 
-## Comencem! {# Lets-get-started}
+## Comencem! {#lets-get-started}
 
 Segueix baixant, i trobaràs el link al [següent capítol d'aquesta guia](/docs/introducing-jsx.html) just abans del peu de la pàgina.
