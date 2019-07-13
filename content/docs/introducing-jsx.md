@@ -14,23 +14,23 @@ const element = <h1>Hello, world!</h1>;
 
 Aquesta divertida sintaxi d'etiquetes no és ni un string ni HTML.
 
-S'anomena JSX, i és una extensió de la sintaxi de JavaScript. Recomanem usar-lo amb React per a descriure com la interfície d'usuari hauria de ser. JSX podria recordar-te a un llenguatge de plantilles, però ve amb tot el poder de JavaScript. 
+S'anomena JSX, i és una extensió de la sintaxi de JavaScript. Recomanem usar-lo amb React per descriure com la interfície d'usuari hauria de ser. JSX podria recordar-te a un llenguatge de plantilles, però conté tot el poder de JavaScript. 
 
-JSX produeix "elements" de React. Explorarem com renderitzar-los en el DOM a la següent secció. A continuació pots trobar els fonaments de JSX per a poder començar.
+JSX produeix "elements" de React. Explorarem com renderitzar-los al DOM a la següent secció. A continuació pots trobar els fonaments de JSX per poder començar.
 
 ### Per què JSX? {#why-jsx}
 
-React accepta el fet que la lògica de renderització està inherentment unida a la lògica de la interfície d'usuari: com es gestionen els esdeveniments, com canvia l'estat en el temps i com es preparen les dades per a la seva visualització.
+React accepta el fet que la lògica de renderització està inherentment unida a la lògica de la interfície d'usuari: com es gestionen els esdeveniments, com canvia l'estat en el temps i com es preparen les dades per la seva visualització.
 
 En lloc de separar artificialment *tecnologies* posant el maquetat i la lògica en arxius separats, React [separa *interessos*](https://en.wikipedia.org/wiki/Separation_of_concerns) amb unitats lleugerament acoblades que s'anomenen "components" i que contenen ambdues. Tornarem als components en una [altra secció](/docs/components-and-props.html), però si encara no estàs còmode maquetant en JS, [aquesta xerrada](https://www.youtube.com/watch?v=x7cQ3mrcKaY) et pot convèncer del contrari.
 
-React [no requereix](/docs/react-without-jsx.html) usar JSX, però la majoria de la gent ho troba útil com una ajuda visual quan treballen amb la interfície d'usuari a dins el codi de JavaScript. Això també permet que React mostri missatges d'error i avís més útils.
+React [no requereix](/docs/react-without-jsx.html) usar JSX, però la majoria de gent ho troba útil com una ajuda visual quan treballen amb la interfície d'usuari a dins el codi de JavaScript. Això també permet que React mostri missatges d'error i avís més útils.
 
-Un cop dit això, anem a començar!
+Un cop dit això, comencem!
 
 ### Inserint expressions en JSX {#embedding-expressions-in-jsx}
 
-A l'exemple de sota, declarem una variable anomenada `name` i després l'usem a dins JSX embolicant-la entre claus:
+A l'exemple de sota, declarem una variable anomenada `name` i després l'usem a dins JSX col·locant-la entre claus:
 
 ```js{1,2}
 const name = 'Josh Perez';
@@ -70,11 +70,11 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-Dividim JSX en diverses línies per a facilitar-ne la lectura. Tot i que no és necessari, quan es fa així també recomanem embolicar-lo entre parèntesis per a evitar errors causats per la [inserció automàtica del punt i coma](https://stackoverflow.com/q/2846283).
+Dividim JSX en diverses línies per facilitar-ne la lectura. Tot i que no és necessari, quan es fa així també recomanem embolicar-lo entre parèntesis per evitar errors causats per la [inserció automàtica del punt i coma](https://stackoverflow.com/q/2846283).
 
 ### JSX també és una expressió {#jsx-is-an-expression-too}
 
-Després de compilar-se, les expressions JSX es converteixen en cridades a funcions JavaScript regulars i s'avaluen a objectes de JavaScript.
+Després de compilar-se, les expressions JSX es converteixen en crides a funcions JavaScript regulars i s'avaluen a objectes de JavaScript.
 
 Això significa que pots usar JSX a dins de declaracions `if` i bucles `for`, pots assignar-lo a variables, acceptar-lo com argument, i retornar-lo des de funcions.
 
@@ -89,19 +89,19 @@ function getGreeting(user) {
 
 ### Especificant atributs amb JSX {#specifying-attributes-with-jsx}
 
-Pots usar cometes per a especificar strings literals com atributs:
+Pots usar cometes per especificar strings literals com atributs:
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-També pots usar claus per a inserir una expressió JavaScript en un atribut:
+També pots usar claus per inserir una expressió JavaScript en un atribut:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-No posis cometes al voltant de claus quan insereixis una expressió JavaScript en un atribut. Hauries d'usar cometes (pels valors string) o claus (per les expressions), però no ambdues en el mateix atribut.
+No posis cometes al voltant de claus quan insereixis una expressió JavaScript en un atribut. Les cometes s'han de fer servir pels valors string i les claus per les expressions JavaScript, però no ambdues en el mateix atribut.
 
 >**Advertiment:**
 >
@@ -162,7 +162,7 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` realitza qualcunes comprovacions per a ajudar-te a escriure codi lliure d'errors, però essencialment crea objectes com aquest:
+`React.createElement()` realitza qualcunes comprovacions per ajudar-te a escriure codi lliure d'errors, però essencialment crea objectes com aquest:
 
 ```js
 // Note: this structure is simplified
@@ -175,10 +175,10 @@ const element = {
 };
 ```
 
-Aquests objectes s'anomenen "elements de React". Pots pensar que són descripcions del que vols veure en la pantalla. React llegeix aquests objectes i els usa per a construir el DOM i mantenir-lo actualitzat.
+Aquests objectes s'anomenen "elements de React". Pots pensar que són descripcions del que vols veure en la pantalla. React llegeix aquests objectes i els usa per construir el DOM i mantenir-lo actualitzat.
 
-Anem a explorar el renderitzat d'elements de React en el DOM a la següent secció.
+Explorem el renderitzat d'elements de React en el DOM a la següent secció.
 
 >**Consell:**
 >
->Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència perquè tant el codi en ES6 com JSX sigui emfatitzat correctament. Aquesta pàgina web utilitza l'esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) que és compatible amb això.
+>Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència perquè tant el codi en ES6 com JSX sigui emfatitzat correctament. Aquesta pàgina web utilitza l'esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) que hi és compatible.
