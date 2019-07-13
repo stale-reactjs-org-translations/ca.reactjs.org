@@ -52,7 +52,7 @@ Considera aquest exemple d'un rellotge en marxa:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](Codepen://rendering-elements/update-rendered-element)
+[](codepen://rendering-elements/update-rendered-element)
 
 Aquest crida a `ReactDOM.render()` cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
