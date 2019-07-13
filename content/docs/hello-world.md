@@ -1,50 +1,46 @@
 ---
 id: hello-world
-title: Hello World
+title: Hola món
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-The smallest React example looks like this:
+El més curt dels exemples de React té aquesta pinta:
 
 ```js
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <h1>Hola, món!</h1>,
   document.getElementById('root')
 );
 ```
 
-It displays a heading saying "Hello, world!" on the page.
+L'exemple mostra una capçalera amb el text "Hola, món!" a la pàgina.
 
 [](codepen://hello-world)
 
-Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. Most pages in this guide will have editable examples like this one.
+Fes clic a l'enllaç de dalt per obrir un editor en línia. Pren-te la llibertat de fer canvis, i mira com afecten el resultat. La majoria de pàgines en aquesta guia tindran exemples que pots editar en viu com aquest.
 
+## Com llegir aquesta guia? {#how-to-read-this-guide}
 
-## How to Read This Guide {#how-to-read-this-guide}
+En aquesta guia, examinarem els components bàsics de les aplicacions React: elements i components. Un cop els dominis, podràs crear aplicacions complexes a partir de petites peces reutilitzables.
 
-In this guide, we will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
-
->Tip
+> Consell
 >
->This guide is designed for people who prefer **learning concepts step by step**. If you prefer to learn by doing, check out our [practical tutorial](/tutorial/tutorial.html). You might find this guide and the tutorial complementary to each other.
+> Aquesta guia està dissenyada per a persones que prefereixen **aprendre els conceptes pas a pas**. Si prefereixes aprendre mitjançant pràctica, revisa el nostre [tutorial pràctic](/tutorial/tutorial.html). Trobaràs que aquesta guia i el tutorial es complementen l'un a l'altre.
 
-This is the first chapter in a step-by-step guide about main React concepts. You can find a list of all its chapters in the navigation sidebar. If you're reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.
+Aquest és el primer capítol d'una guia pas a pas sobre els principals conceptes de React. Pots trobar una llista de tots els capítols a la barra de navegació lateral. Si estàs llegint això des d'un dispositiu mòbil, pots accedir a la navegació prement el botó a la part inferior dreta de la pantalla.
 
-Every chapter in this guide builds on the knowledge introduced in earlier chapters. **You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the sidebar.** For example, [“Introducing JSX”](/docs/introducing-jsx.html) is the next chapter after this one.
+Cada capítol en aquesta guia es construeix sobre la base del coneixement presentat en capítols anteriors. **Pots aprendre la majoria de React llegint la guia de conceptes "Conceptes Principals" en l'ordre que apareixen a la barra lateral.** Per exemple, ["Introducció a JSX"](/docs/introducing-jsx.html) és el següent capítol després d'aquest.
 
-## Knowledge Level Assumptions {#knowledge-level-assumptions}
+## Suposicions del nivell de coneixement {#knowledge-level-assumptions}
 
-React is a JavaScript library, and so we'll assume you have a basic understanding of the JavaScript language. **If you don't feel very confident, we recommend [going through a JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level** and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won't have to feel like you're learning both React and JavaScript at the same time.
+React és una biblioteca JavaScript, i assumim que tens un coneixement bàsic del llenguatge JavaScript. **Si no et sents molt segur, et recomanem [fer un tutorial de JavaScript](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript) per comprovar el teu nivell de coneixement** i permetre't seguir endavant amb aquesta guia sense perdre't. Hauries de tardar entre 30 minuts i una hora, com a benefici, no sentiràs que estàs aprenent React i JavaScript al mateix temps.
 
->Note
+> Nota
 >
->This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+> Aquesta guia ocasionalment fa servir la nova sintaxi de JavaScript en els exemples. Si no has treballat amb JavaScript en els últims anys, [aquests tres punts](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) són un bon resum.
 
+## Comencem! {#lets-get-started}
 
-## Let's Get Started! {#lets-get-started}
-
-Keep scrolling down, and you'll find the link to the [next chapter of this guide](/docs/introducing-jsx.html) right before the website footer.
-
-
+Segueix baixant, i trobaràs el link al [següent capítol d'aquesta guia](/docs/introducing-jsx.html) just abans del peu de la pàgina.
