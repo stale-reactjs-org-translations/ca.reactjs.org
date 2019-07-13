@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-**[Prova-ho a CodePen](codepen://introducing-jsx)**
+[](codepen://introducing-jsx)
 
 Dividim JSX en diverses línies per a facilitar-ne la lectura. Tot i que no és necessari, quan es fa així també recomanem embolicar-lo entre parèntesis per a evitar errors causats per la [inserció automàtica del punt i coma](https://stackoverflow.com/q/2846283).
 
