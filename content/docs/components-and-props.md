@@ -18,7 +18,7 @@ next: state-and-lifecycle.html
 
 Els components permeten separar la interfície d'usuari en peces independents, reutilitzables i pensar en cada peça de forma aïllada. Aquesta pàgina proporciona una introducció a la idea de components. Pots trobar una [API detallada sobre components aquí](/docs/react-component.html).
 
-Conceptualment, els components són com les funcions de JavaScript. Accepten entrades arbitràries (anomenades "props") i retornen a React elements que descriuen el que ha d'aparèixer a la pantalla.
+Conceptualment, els components són com les funcions de JavaScript. Accepten entrades arbitràries (anomenades "props") i retornen elements React que descriuen el que ha d'aparèixer a la pantalla.
 
 ## Components funcionals i de classe {#function-and-class-components}
 
