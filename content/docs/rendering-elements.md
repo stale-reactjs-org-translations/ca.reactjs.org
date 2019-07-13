@@ -24,7 +24,7 @@ A diferència dels elements del DOM dels navegadors, els elements de React són 
 
 ## Renderitzant un element en el DOM {#rendering-an-element-in-the-dom}
 
-Diguem que hi ha un `<div>` en alguna part del vostre fitxer HTML:
+Suposem que hi ha un `<div>` en alguna part del vostre fitxer HTML:
 
 ```html
 <div id="root"></div>
@@ -68,8 +68,8 @@ React DOM compara l'element i els seus fills amb l'element anterior, i només ap
 
 Pots fer això inspeccionant l'[últim exemple](codepen://rendering-elements/update-rendered-element) amb les eines del navegador:
 
-![Inspector del DOM mostrant actualitzacions diminutes](../images/docs/granular-dg-updates.gif)
+![Inspector del DOM mostrant actualitzacions diminutes](../images/docs/granular-dom-updates.gif)
 
 Tot i que hem creat un element que descriu completament l'arbre de la interfície d'usuari en cada instant, React DOM només actualitza el node del qual el contingut ha canviat.
 
-En la nostra experiència, pensar en la interfície d'usuari com s'hauria de veure en un moment donat i no en com canviar-la en el temps elimina tota classe d'errors.
+En la nostra experiència, pensar com s'hauria de veure en un moment donat la interfície d'usuari i no en com canviar-la en el temps elimina tota classe d'errors.
