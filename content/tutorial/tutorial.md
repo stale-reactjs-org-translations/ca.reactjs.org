@@ -45,7 +45,7 @@ Pots tancar el joc de tres en ratlla una vegada que et familiaritzis amb ell. Co
 
 Assumim que tens certa familiaritat amb HTML i JavaScript, de totes maneres hauries de ser capaç d'entendre-ho tot fins i tot si véns d'un llenguatge de programació diferent. També suposem que estàs familiaritzat amb conceptes de programació com a funcions, objectes, arrays, i en menor mesura, classes.
 
-Si necessites revisar JavaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de JavaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://ES5-syntax-example) per revisar a quin codi compila ES6.
+Si necessites revisar JavaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de JavaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://es5-syntax-example) per revisar a quin codi compila ES6.
 
 ## Configuració per al tutorial {#setup-for-the-tutorial}
 
@@ -289,13 +289,13 @@ class Square extends React.Component {
 
 > Nota
 >
-> A les [classes de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a` super (props) `.
+> A les [classes de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a ` super(props) `.
 
 Ara canviarem el mètode `render` de Square per mostrar el valor de l'estat actual quan és clicat:
 
-* Canvia `this.props.value` per` this.state.value` dins de l'etiqueta `<button>`.
+* Canvia `this.props.value` per `this.state.value` dins de l'etiqueta `<button>`.
 * Canvia el gestor d'esdeveniment `onClick={...}` per `onClick={() => this.setState ({value: 'X'})}`.
-* Posa les props `className` i` onClick` en línies separades per millor llegibilitat.
+* Posa les props `className` i `onClick` en línies separades per millor llegibilitat.
 
 Després d'aquests canvis, l'etiqueta `<button>` que és retornada del mètode `render` de Square es veu així:
 
@@ -321,7 +321,7 @@ class Square extends React.Component {
 }
 ```
 
-Cridant a `this.setState` des del gestor `onClick` al mètode `render` de Square, diem a React que rerenderitzi el quadrat sempre que la seva `<button>` és clicat. Després de l'actualització, el `this.state.value` del quadrat serà` 'X'`, així que veurem `X` al tauler de joc. Si tu fas clic a qualsevol quadrat, una `X` s'hauria de mostrar al mateix.
+Cridant a `this.setState` des del gestor `onClick` al mètode `render` de Square, diem a React que rerenderitzi el quadrat sempre que la seva `<button>` és clicat. Després de l'actualització, el `this.state.value` del quadrat serà `'X'`, així que veurem `X` al tauler de joc. Si tu fas clic a qualsevol quadrat, una `X` s'hauria de mostrar al mateix.
 
 Quan crides `setState` a un component, React actualitza automàticament els components fills dins el mateix també.
 
@@ -352,7 +352,7 @@ Ara tenim els blocs de construcció bàsics per al nostre joc tres en ratlla. Pe
 
 Actualment, cada component Square manté l'estat del joc. Per determinar un guanyador, necessitem mantenir el valor de cada un dels 9 quadrats a un sol lloc.
 
-Podríem pensar que el tauler simplement hauria de preguntar a cada quadrat pel seu estat. Encara que aquest enfocament és possible en React, t'incentivem a què no ho facis servir perquè el codi es torna difícil d'entendre, susceptible a errors, i difícil de refactorizar. Enlloc seu, el millor enfocament és emmagatzemar l'estat del joc al component pare Board en comptes de cada component Square. El component Board pot dir-li a cada quadrat què mostrar passant-li un prop [tal com vam fer quan vam passar un número a cada quadrat](#passing-data-through-props).
+Podríem pensar que el tauler simplement hauria de preguntar a cada quadrat pel seu estat. Encara que aquest enfocament és possible en React, t'incentivem a què no ho facis servir perquè el codi es torna difícil d'entendre, susceptible a errors, i difícil de refactorizar. Enlloc seu, el millor enfocament és emmagatzemar l'estat del joc al component pare Board en comptes de cada component Square. El component Board pot dir-li a cada quadrat què mostrar passant-li un prop [tal com hem fet quan hem passat un número a cada quadrat](#passing-data-through-props).
 
 **Per recopilar dades de múltiples fills, o tenir dos components fills comunicats entre si, necessites declarar l'estat compartit al seu component pare. El component pare pot passar l'estat cap als fills usant props; això manté els components fills sincronitzats entre ells i amb el seu component pare.**
 
@@ -523,7 +523,7 @@ Notar com a `handleClick`, cridem `.slice()` per crear una còpia de l'array de 
 
 ### Per què és important la immutabilitat? {#why-immutability-is-important}
 
-A l'exemple de codi anterior, vam suggerir que usessis el mètode `.slice()` per crear una còpia de l'array de `squares` per modificar-lo en comptes de modificar l'array existent. Ara discutirem la immutabilitat i per què és important aprendre-la.
+A l'exemple de codi anterior, hem suggerit que usessis el mètode `.slice()` per crear una còpia de l'array de `squares` per modificar-lo en comptes de modificar l'array existent. Ara discutirem la immutabilitat i per què és important aprendre-la.
 
 Hi ha generalment dos enfocaments per canviar dades. El primer enfocament és *mutar* les dades directament canviant els seus valors. El segon enfocament és reemplaçar les dades amb una nova còpia que té els canvis desitjats.
 
@@ -587,7 +587,7 @@ Hem canviat `this.props` per `props` les dues vegades que apareix.
 
 > Nota
 >
-> Quan modifiquem el component Square a ser un component de funció, també vam canviar `onClick={() => this.props.onClick()}` a una més curta `onClick={props.onClick}` (notar la manca de parèntesi en *amdós* costats).
+> Quan modifiquem el component Square a ser un component de funció, també hem canviat `onClick={() => this.props.onClick()}` a una més curta `onClick={props.onClick}` (notar la manca de parèntesi en *amdós* costats).
 
 ### Prenent torns {#taking-turns}
 
@@ -1187,7 +1187,7 @@ Si cliquem en qualsevol pas de la història del joc, el tauler tres en ratlla ha
 
 ### En conclusió {#wrapping-up}
 
-Felicitacions! Has creat un joc de tres en ratlla que:
+Felicitats! Has creat un joc de tres en ratlla que:
 
 * Et permet jugar al tres en ratlla,
 * Indica quan un jugador ha guanyat el joc,
