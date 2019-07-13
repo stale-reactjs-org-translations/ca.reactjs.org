@@ -1,75 +1,75 @@
 ---
 id: rendering-elements
-title: Rendering Elements
+title: Renderitzant elements
 permalink: docs/rendering-elements.html
 redirect_from:
-  - "docs/displaying-data.html"
+- "docs/displaying-data.html"
 prev: introducing-jsx.html
 next: components-and-props.html
 ---
 
-Elements are the smallest building blocks of React apps.
+Els elements són la unitat més petita de les aplicacions de React.
 
-An element describes what you want to see on the screen:
+Un element descriu el que voleu veure a la pantalla:
 
-```js
-const element = <h1>Hello, world</h1>;
-```
+'''js
+const element = <h1>Hola, món</h1>;
+'''
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+A diferència dels elements del DOM dels navegadors, els elements de React són objectes plans, i la seva creació és de baix cost. ReactDOM es cuida d'actualitzar el DOM per sincronitzar-se amb els elements de React.
 
->**Note:**
+> **Nota:**
 >
->One might confuse elements with a more widely known concept of "components". We will introduce components in the [next section](/docs/components-and-props.html). Elements are what components are "made of", and we encourage you to read this section before jumping ahead.
+> Un podria confondre els elements amb un altre concepte anomenat "components". En la [següent secció](/docs/components-and-props.html) parlarem de components. Els elements formen els components. Us recomanem aquesta secció abans de continuar.
 
-## Rendering an Element into the DOM {#rendering-an-element-into-the-dom}
+## Renderitzant un element en el DOM {#rendering-an-element-in-the-dom}
 
-Let's say there is a `<div>` somewhere in your HTML file:
+Diguem que hi ha un '<div>' en alguna part del vostre fitxer HTML:
 
-```html
+'''html
 <div id="root"></div>
-```
+'''
 
-We call this a "root" DOM node because everything inside it will be managed by React DOM.
+En diem un node "arrel" perquè tot el que estigui dins d'ell serà gestionat per React DOM.
 
-Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+Les aplicacions construïdes solament amb React normalment tenen un únic node arrel al DOM. Si estàs integrant React en una aplicació existent, pots tenir tants nodes arrel del DOM aïllats com vulguis.
 
-To render a React element into a root DOM node, pass both to `ReactDOM.render()`:
+Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos a 'ReactDOM.render()':
 
-`embed:rendering-elements/render-an-element.js`
+'embed:rendering-elements/render-an-element.js'
 
-[](codepen://rendering-elements/render-an-element)
+[](Codepen://rendering-elements/render-an-element)
 
-It displays "Hello, world" on the page.
+Això mostra "Hello, world" a la pàgina.
 
-## Updating the Rendered Element {#updating-the-rendered-element}
+## Actualitzant l'element renderitzat {#updating-the-rendered-element}
 
-React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object). Once you create an element, you can't change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+Els elements de React són [immutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Un cop crees un element, no pots canviar els seus fills o atributs. Un element és com un fotograma solitari en una pel·lícula: aquest representa la interfície d'usuari en cert punt en el temps.
 
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `ReactDOM.render()`.
+Amb el nostre coneixement fins a aquest punt, l'única manera d'actualitzar la interfície d'usuari és creant un nou element, i passar-ho a 'ReactDOM.render()'.
 
-Consider this ticking clock example:
+Considera aquest exemple d'un rellotge en marxa:
 
-`embed:rendering-elements/update-rendered-element.js`
+'embed:rendering-elements/update-rendered-element.js'
 
-[](codepen://rendering-elements/update-rendered-element)
+[](Codepen://rendering-elements/update-rendered-element)
 
-It calls `ReactDOM.render()` every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+Aquest crida a 'ReactDOM.render()' cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
->**Note:**
+> **Nota:**
 >
->In practice, most React apps only call `ReactDOM.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+> A la pràctica, a la majoria de les aplicacions de React només es crida 'ReactDOM.render()' una vegada. En les següents seccions aprendrem com el codi es pot encapsular en [components amb estat](/docs/state-and-lifecycle.html).
 >
->We recommend that you don't skip topics because they build on each other.
+> Recomanem que no et saltis cap tema perquè aquests es relacionen entre ells.
 
-## React Only Updates What's Necessary {#react-only-updates-whats-necessary}
+## React només actualitza el que cal {#react-only-updates-whats-necessary}
 
-React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
+React DOM compara l'element i els seus fills amb l'element anterior, i només aplica les actualitzacions del DOM que són necessàries perquè el DOM estigui en l'estat desitjat.
 
-You can verify by inspecting the [last example](codepen://rendering-elements/update-rendered-element) with the browser tools:
+Pots fer això inspeccionant l'[últim exemple](codepen://rendering-elements/update-rendered-element) amb les eines del navegador:
 
-![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
+![Inspector de l'DOM mostrant actualitzacions diminutes](../images/docs/granular-dg-updates.gif)
 
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.
+Tot i que hem creat un element que descriu completament l'arbre de la interfície d'usuari en cada instant, React DOM només actualitza el node del qual el contingut ha canviat.
 
-In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.
+En la nostra experiència, pensar en la interfície d'usuari com s'hauria de veure en un moment donat i no en com canviar-la en el temps elimina tota classe d'errors.
