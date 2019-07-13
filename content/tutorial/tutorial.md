@@ -24,30 +24,30 @@ Construirem un petit joc durant aquest tutorial. **Podries estar temptat a obvia
 
 Aquest tutorial està dividit en diverses seccions:
 
-* [Configuració per a l'tutorial](#setup-for-the-tutorial) et donarà un punt de partida per seguir el tutorial.
+* [Configuració per al tutorial](#setup-for-the-tutorial) et donarà un punt de partida per seguir el tutorial.
 * [Visió general](#overview) t'ensenyarà **els fonaments** de React: components, props i estat.
 * [Completant el joc](#completing-the-game) t'ensenyarà **les tècniques més comuns** en desenvolupament de React.
 * [Afegint viatge en el temps](#adding-time-travel) et donarà una **visió més profunda** de les fortaleses úniques de React.
 
-No has de completar totes les seccions alhora per obtenir el valor d'aquest tutorial. Prova arribar tan lluny com puguis, fins i tot si és una o dues seccions.
+No has de completar totes les seccions alhora per a poder treure partit del tutorial. Prova d'arribar tan lluny com puguis, fins i tot si nomes són una o dues seccions.
 
 ### Què estem construint? {#what-are-we-building}
 
 En aquest tutorial, et mostrarem com construir un joc de tic-tac-toe interactiu amb React.
 
-Pots veure el que construirem aquí: **[Resultat Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Si el codi no et fa sentit, o si no estàs familiaritzat amb la sintaxi de codi, no et preocupis! L'objectiu d'aquest tutorial és ajudar-te a entendre React i la seva sintaxi.
+Pots veure el que construirem aquí: **[Resultat Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Si creus que el codi no té sentit, o si no estàs familiaritzat amb la sintaxi de codi, no et preocupis! L'objectiu d'aquest tutorial és ajudar-te a entendre React i la seva sintaxi.
 
-Recomanem que revisis el joc de tic-tac-toe abans de continuar amb el tutorial. Una de les característiques que notaràs és que hi ha una llista enumerada a la dreta del tauler del jugador. Aquesta llista dóna una història de tots els moviments que han ocorregut en el joc, i es va actualitzant conforme el joc progressa.
+Recomanem que revisis el joc de tic-tac-toe abans de continuar amb el tutorial. Una de les característiques que notaràs és que hi ha una llista enumerada a la dreta del tauler del jugador. Aquesta llista dóna un historial de tots els moviments que han ocorregut en el joc, i es va actualitzant conforme el joc progressa.
 
-Pots tancar el joc de tic-tac-toe una vegada que et familiarizaste amb ell. Començarem des d'una plantilla més simple en aquest tutorial. El nostre següent pas és configurar de tal manera que puguis començar a construir el joc.
+Pots tancar el joc de tic-tac-toe una vegada que et familiaritzis amb ell. Començarem des d'una plantilla més simple en aquest tutorial. El següent pas és preparar-te per a que puguis començar a construir el joc.
 
 ### Prerequisits {#prerequisites}
 
-Assumim que tens certa familiaritat amb HTML i javaScript, però hauries de ser capaç de seguir endavant fins i tot si véns d'un llenguatge de programació diferent. També suposem que estàs familiaritzat amb conceptes de programació com a funcions, objectes, arrays, i en menor mesura, classes.
+Assumim que tens certa familiaritat amb HTML i JavaScript, però hauries de ser capaç d'entendre-ho tot fins i tot si véns d'un llenguatge de programació diferent. També suposem que estàs familiaritzat amb conceptes de programació com a funcions, objectes, arrays, i en menor mesura, classes.
 
-Si necessites revisar javaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_javaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de javaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://ES5-syntax-example) per revisar a quin codi compila ES6.
+Si necessites revisar JavaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de JavaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://ES5-syntax-example) per revisar a quin codi compila ES6.
 
-## Configuració per a l'tutorial {#setup-for-the-tutorial}
+## Configuració per al tutorial {#setup-for-the-tutorial}
 
 Hi ha dues maneres de completar aquest tutorial: pots escriure el codi al teu navegador, o pots configurar el teu entorn de desenvolupament local en el teu ordinador.
 
@@ -126,7 +126,7 @@ Ara que està el teu entorn configurat, anem a obtenir una visió general de Rea
 
 ### Què és React? {#what-is-react}
 
-React és una llibreria de javaScript declarativa, eficient i flexible per construir interfícies d'usuari. Permet compondre IUS complexes de petites i aïllades peces de codi anomenades "components".
+React és una llibreria de JavaScript declarativa, eficient i flexible per construir interfícies d'usuari. Permet compondre IUS complexes de petites i aïllades peces de codi anomenades "components".
 
 React té pocs tipus diferents de components, però anem a començar amb la subclasse `React.Component`:
 
@@ -166,7 +166,7 @@ return React.createElement('div', {className: 'shopping-list'},
 
 Si tens curiositat, `createElement()` està descrit en més detall en la [referència de l'API](/docs/react-api.html#createelement), però no ho farem servir en aquest tutorial. En canvi, seguirem fent servir JSX.
 
-JSX ve amb tot el poder de javaScript. Pots posar *qualsevol* expressió de javaScript en l'interior de les claus dins de JSX. Cada element d'React és un objecte de javaScript que pots emmagatzemar en una variable o passar al voltant del teu programa.
+JSX ve amb tot el poder de JavaScript. Pots posar *qualsevol* expressió de JavaScript en l'interior de les claus dins de JSX. Cada element d'React és un objecte de JavaScript que pots emmagatzemar en una variable o passar al voltant del teu programa.
 
 El component anterior `ShoppingList` només renderitza components pre-construïts de la DOM com `<div />` i `<li />`. Però, també pots compondre i renderitzar components personalitzats de React. Per exemple, ara podem referirmos al llistat de compres complet escrivint `<ShoppingList />`. Cada compoent de React està encapsulat i pot operar independentment; això et permet construir ius omplexes des de components simples.
 
@@ -289,7 +289,7 @@ class Square extends React.Component {
 
 > Nota
 >
-> A les [classes de javaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a` super (props) `.
+> A les [classes de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a` super (props) `.
 
 Ara canviarem el mètode `render` de Square per mostrar el valor de l'estat actual quan és clickeado:
 
@@ -423,7 +423,7 @@ En canvi, passarem una funció com prop des Board a Square i farem que Square tr
 
 > Nota
 >
-> Dividim l'element retornat en múltiples línies per llegibilitat, i afegim parèntesi perquè javaScript no inseriu un punt i coma després del `return` i trenqui el nostre codi.
+> Dividim l'element retornat en múltiples línies per llegibilitat, i afegim parèntesi perquè JavaScript no inseriu un punt i coma després del `return` i trenqui el nostre codi.
 
 Ara estem passant dues props des Board a Square: `value` i `onClick`. El prop `onClick` és una funció que Square pot trucar quan sigui clickeado. Farem els següents canvis a Square:
 
@@ -988,9 +988,9 @@ En aquest punt, el component Board només necessita els mètodes `renderSquare` 
 
 Des que vam gravar l'historial del joc tic-tac-toe, ara podem mostrar-lo al jugador com una llista de moviments anteriors.
 
-Vam aprendre abans que els elements de React són objectes de primera classe en javaScript; així que podem passar-ho al voltant de les nostres aplicacions. Per renderitzar múltiples elements en React, podem usar una matriu d'elements de React.
+Vam aprendre abans que els elements de React són objectes de primera classe en JavaScript; així que podem passar-ho al voltant de les nostres aplicacions. Per renderitzar múltiples elements en React, podem usar una matriu d'elements de React.
 
-En javaScript, els arrays tenen un [mètode `map()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que és comunament usat per mapejar dades a altres dades, per exemple:
+En JavaScript, els arrays tenen un [mètode `map()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que és comunament usat per mapejar dades a altres dades, per exemple:
 
 ```js
 const numbers = [1, 2, 3];
