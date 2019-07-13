@@ -31,7 +31,7 @@
           href: /tutorial/tutorial.html#help-im-stuck
           forceInternal: true
     - id: overview
-      title: Visió General
+      title: Visió general
       href: /tutorial/tutorial.html#overview
       forceInternal: true
       subitems:
