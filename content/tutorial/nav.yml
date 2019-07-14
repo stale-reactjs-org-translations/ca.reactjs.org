@@ -14,7 +14,7 @@
           href: /tutorial/tutorial.html#prerequisites
           forceInternal: true
     - id: setup-for-the-tutorial
-      title: Configuració pel tutorial
+      title: Configuració per al tutorial
       href: /tutorial/tutorial.html#setup-for-the-tutorial
       forceInternal: true
       subitems:
@@ -69,11 +69,11 @@
           href: /tutorial/tutorial.html#why-immutability-is-important
           forceInternal: true
         - id: function-components
-          title: Components functionals
+          title: Funcions com a components
           href: /tutorial/tutorial.html#function-components
           forceInternal: true
         - id: taking-turns
-          title: Fent torns
+          title: Prenent torns
           href: /tutorial/tutorial.html#taking-turns
           forceInternal: true
         - id: declaring-a-winner
@@ -81,7 +81,7 @@
           href: /tutorial/tutorial.html#declaring-a-winner
           forceInternal: true
     - id: adding-time-travel
-      title: Afegint viatge en el temps
+      title: Afegint viatge a través del temps
       href: /tutorial/tutorial.html#adding-time-travel
       forceInternal: true
       subitems:
@@ -102,7 +102,7 @@
           href: /tutorial/tutorial.html#picking-a-key
           forceInternal: true
         - id: implementing-time-travel
-          title: Implementant viatge en el temps
+          title: Implementant viatge a través del temps
           href: /tutorial/tutorial.html#implementing-time-travel
           forceInternal: true
         - id: wrapping-up

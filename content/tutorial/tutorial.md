@@ -18,7 +18,7 @@ Aquest tutorial no assumeix cap coneixement previ sobre React.
 
 Construirem un petit joc durant aquest tutorial. **Podries estar temptat a obviar-lo perquè tu no estàs construint jocs al dia a dia, però dóna-li una oportunitat.** Les tècniques que aprendràs al tutorial són fonamentals per a construir qualsevol aplicació de React, i dominar-les et donarà una comprensió profunda de React.
 
->Tip
+>Consell
 >
 >Aquest tutorial està dissenyat per a persones que prefereixen **aprendre fent**. Si tu prefereixes aprendre els conceptes des del principi, revisa la nostra [guia pas a pas](/docs/hello-world.html). Podries trobar aquest tutorial i la guia, complementàries entre si.
 
@@ -45,13 +45,13 @@ Pots tancar el joc de tres en ratlla una vegada que et familiaritzis amb ell. Co
 
 Assumim que tens certa familiaritat amb HTML i JavaScript, de totes maneres hauries de ser capaç d'entendre-ho tot fins i tot si véns d'un llenguatge de programació diferent. També suposem que estàs familiaritzat amb conceptes de programació com a funcions, objectes, arrays, i en menor mesura, classes.
 
-Si necessites revisar JavaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Tingues en compte que també fem servir algunes característiques de ES6, una versió recent de JavaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir el [Babel REPL](babel://es5-syntax-example) per revisar a quin codi compila ES6.
+Si necessites revisar JavaScript, et recomanem llegir [aquesta guia](https://developer.mozilla.org/ca/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Tingues en compte que també fem servir algunes característiques d'ES6, una versió recent de JavaScript. En aquest tutorial, estem fent servir [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), sentències [`let`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/const). Pots fer servir [Babel REPL](babel://es5-syntax-example) per revisar a quin codi compila ES6.
 
 ## Configuració per al tutorial {#setup-for-the-tutorial}
 
 Hi ha dues maneres de completar aquest tutorial: pots escriure el codi al teu navegador, o pots configurar el teu entorn de desenvolupament local en el teu ordinador.
 
-### Opció de configuració 1: Escriu codi al navegador {#setup-option-1-write-code-in-the-browser}
+### Opció 1: Escriu codi al navegador {#setup-option-1-write-code-in-the-browser}
 
 Aquesta és la manera més ràpida de començar!
 
@@ -59,13 +59,13 @@ Primer, obre aquest **[codi inicial](https://codepen.io/gaearon/pen/oWWQNa?edito
 
 Ara pots saltar a la segona opció de configuració o anar a la secció de [visió general](#overview) per obtenir una idea general de React.
 
-### Opció de configuració 2: Entorn de desenvolupament local {#setup-option-2-local-development-environment}
+### Opció 2: Entorn de desenvolupament local {#setup-option-2-local-development-environment}
 
-Aquesta és completament opcional i no és requerida per aquest tutorial!
+Aquesta és completament opcional i no és requerida per a aquest tutorial!
 
 <br>
 
-<setails>
+<details>
 
 <summary><b>Opcional: Instruccions per seguir endavant localment utilitzant el teu editor de text preferit</b></summary>
 
@@ -110,7 +110,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Ara, si el teu executes `npm start` a la carpeta del projecte i obres `http://localhost:3000` al navegador, hauries de veure un camp de tres en ratlla buit.
+Ara, si executes `npm start` a la carpeta del projecte i obres `http://localhost:3000` al navegador, hauries de veure un camp de tres en ratlla buit.
 
 Recomanem seguir [aquestes instruccions](https://babeljs.io/docs/editors/) per configurar el ressaltat de sintaxi per al teu editor.
 
@@ -122,7 +122,7 @@ Si t'encalles, revisa els [recursos de suport de la comunitat](/community/suppor
 
 ## Visió general {#overview}
 
-Ara que està al teu entorn configurat, t'ensenyarem una visió general de React!
+Ara que està el teu entorn configurat, t'ensenyarem una visió general de React!
 
 ### Què és React? {#what-is-react}
 
@@ -149,7 +149,7 @@ class ShoppingList extends React.Component {
 // Ús d'exemple: <ShoppingList name="Mark" />
 ```
 
-Aviat pararem atenció a les etiquetes que semblen XML. Fem servir components per dir-li a React el que volem que es vegi a la pantalla. Quan les nostres dades canvien, React actualitzarà eficientment i tornarà a renderitzar els nostres components.
+Aviat pararem atenció a les etiquetes que semblen XML. Fem servir components per dir-li a React el que volem que es vegi a la pantalla. Quan les nostres dades canviïn, React actualitzarà eficientment i tornarà a renderitzar els nostres components.
 
 Aquí, ShoppingList és una **classe de component de React**, o **tipus de component de React**. Un component accepta paràmetres, anomenats `props` (abreviatura de "propietats"), i retorna una jerarquia de vistes a mostrar a través del mètode `render`.
 
@@ -223,7 +223,7 @@ Després: Hauries de veure un número a cada quadrat del resultat renderitzat.
 
 **[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Felicitats! Acabes de "passar un prop" d'un component pare Board a un component fill Square. Passant props és com la informació flueix en apps de React, de pares a fills.
+Felicitats! Acabes de "passar una prop" d'un component pare Board a un component fill Square. Passant props és com la informació flueix en apps de React, de pares a fills.
 
 ### Fent un component interactiu {#making-an-interactive-component}
 
@@ -246,7 +246,7 @@ Si fas clic a un quadrat ara, hauries de veure un avís al teu navegador.
 
 > Nota
 >
-> Per continuar escrivint codi sense problemes i evitar el [confús comportament de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), farem servir la [sintaxi de funcions fletxa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions) per manejar esdeveniments aquí i més avall:
+> Per continuar escrivint codi sense problemes i evitar el [confús comportament de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), farem servir la [sintaxi de funcions fletxa](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) per manejar esdeveniments aquí i més avall:
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -260,11 +260,11 @@ Si fas clic a un quadrat ara, hauries de veure un avís al teu navegador.
 >}
 >```
 >
-> Tingues en compte com amb `onClick={() => alert('clic')}`, estem passant *una funció* com a valor del prop `onClick`. React només cridarà a aquesta funció després d'un clic. Oblidar `() =>` i escriure `onClick={alert('clic')}` és un error comú, i executaria l'alerta cada vegada que el component es rerenderitzi.
+> Tingues en compte com amb `onClick={() => alert('clic')}`, estem passant *una funció* com a valor de la prop `onClick`. React només cridarà aquesta funció després d'un clic. Oblidar `() =>` i escriure `onClick={alert('clic')}` és un error comú, i executaria l'alerta cada vegada que el component es rerenderitzi.
 
 Com un següent pas, volem que el component Square "recordi" que va ser clicat, i s'ompli amb una "X". Per "recordar" coses, els components fan servir l'**estat**.
 
-Els components de React poden tenir estat establint `this.state` als seus constructors. `this.state` ha de ser considerat com privat pel component de React en què és definit. Emmagatzemarem el valor actual d'un quadrat a `this.state`, i el canviarem quan el quadrat sigui clicat.
+Els components de React poden tenir estat establint `this.state` als seus constructors. `this.state` ha de ser considerat com privat pel component de React en que és definit. Emmagatzemarem el valor actual d'un quadrat a `this.state`, i el canviarem quan el quadrat sigui clicat.
 
 Primer, afegim el constructor a la classe per inicialitzar l'estat:
 
@@ -321,7 +321,7 @@ class Square extends React.Component {
 }
 ```
 
-Cridant a `this.setState` des del gestor `onClick` al mètode `render` de Square, diem a React que rerenderitzi el quadrat sempre que la seva `<button>` és clicat. Després de l'actualització, el `this.state.value` del quadrat serà `'X'`, així que veurem `X` al tauler de joc. Si tu fas clic a qualsevol quadrat, una `X` s'hauria de mostrar al mateix.
+Cridant a `this.setState` des del gestor `onClick` al mètode `render` de Square, diem a React que rerenderitzi el quadrat sempre que la seva `<button>` és clicada. Després de l'actualització, el `this.state.value` del quadrat serà `'X'`, així que veurem `X` al tauler de joc. Si tu fas clic a qualsevol quadrat, una `X` s'hauria de mostrar al mateix.
 
 Quan crides `setState` a un component, React actualitza automàticament els components fills dins el mateix també.
 
@@ -329,11 +329,11 @@ Quan crides `setState` a un component, React actualitza automàticament els comp
 
 ### Eines de desenvolupament {#developer-tools}
 
-L'extensió de React Devtools Library per [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) i [Firefox](https://addons.mozilla.org/a-uS/firefox/addon/react-devtools/) et permet inspeccionar l'arbre de components de React amb les teves eines de desenvolupament del navegador.
+L'extensió de React DevTools Library per [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) i [Firefox](https://addons.mozilla.org/a-uS/firefox/addon/react-devtools/) et permet inspeccionar l'arbre de components de React amb les teves eines de desenvolupament del navegador.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools Library" style="max-width: 100%">
 
-React DevTools et permet revisar les props i l'estat de les teves components de React.
+React DevTools et permet revisar les props i l'estat dels teus components de React.
 
 Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixerà com l'última pestanya a la dreta.
 
@@ -342,11 +342,11 @@ Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de
 1. Entra o registra't i confirma el teu correu electrònic (requerit per prevenir spam).
 2. Clic al botó "Fork".
 3. Click a "Change View" i després selecciona "Debug mode".
-4. A la nova pestanya que s'obre, els DevTools ara haurien de tenir una pestanya de React.
+4. A la nova pestanya que s'obre, les DevTools ara haurien de tenir una pestanya de React.
 
 ## Completant el joc {#completing-the-game}
 
-Ara tenim els blocs de construcció bàsics per al nostre joc tres en ratlla. Per completar el joc, necessitem alternar col·locant "X" i "O" al tauler, i necessites una manera de determinar el guanyador.
+Ara tenim els blocs de construcció bàsics per al nostre joc de tres en ratlla. Per completar el joc, necessitem alternar col·locant "X" i "O" al tauler, i necessites una manera de determinar el guanyador.
 
 ### Elevant l'estat {#lifting-state-up}
 
@@ -358,7 +358,7 @@ Podríem pensar que el tauler simplement hauria de preguntar a cada quadrat pel 
 
 Elevar l'estat al component pare és comú quan components de React són refactoritzats, fem servir aquesta oportunitat per intentar-ho.
 
-Afegeix un constructor al Board i estableix l'estat inicial de Board per contenir una array amb 9 valors null. Aquests 9 nulls corresponen als 9 quadrats:
+Afegeix un constructor al Board i estableix l'estat inicial de Board per contenir un array amb 9 valors null. Aquests 9 nulls corresponen als 9 quadrats:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -423,7 +423,7 @@ En canvi, passarem una funció com prop des del Board a Square i farem que Squar
 
 > Nota
 >
-> Dividim l'element retornat en múltiples línies per llegibilitat, i afegim parèntesi perquè JavaScript no inseriu un punt i coma després del `return` i trenqui el nostre codi.
+> Dividim l'element retornat en múltiples línies per llegibilitat, i afegim parèntesi perquè JavaScript no insereixi un punt i coma després del `return` i trenqui el nostre codi.
 
 Ara estem passant dues props des Board a Square: `value` i `onClick`. El prop `onClick` és una funció que Square pot cridar quan sigui clicat. Farem els següents canvis a Square:
 
@@ -454,11 +454,11 @@ Quan un quadrat és clicat, la funció `onClick` proveïda pel component Board �
 2. Quan el botó és clicat, React trucarà al gestor d'esdeveniment `onClick` que està definit al mètode `render()` de Square.
 3. Aquest gestor d'esdeveniment crida a `this.props.onClick()`. El prop `onClick` del component Square va ser especificat pel component Board.
 4. Com que el Board va passar `onClick={() => this.handleClick(i)}` a Square, el component Square crida a `this.handleClick(i)` quan és clicat.
-5. No tenim definit el mètode `handleClick()` tot, així que el nostre codi falla. Si fas clic ara veuràs una pantalla vermella d'error que diu alguna cosa com *"this.handleClick is not a function"* (this.handleClick no és una funció).
+5. No tenim definit el mètode `handleClick()`, així que el nostre codi falla. Si fas clic ara veuràs una pantalla vermella d'error que diu alguna cosa com *"this.handleClick is not a function"* (this.handleClick no és una funció).
 
 > Nota
 >
-> L'atribut `onClick` de l'element `<button>` del DOM té un significat especial per React perquè és un component preconstruït. Per components personalitzats com Square, la nomenclatura la decideixes tu. Podríem donar-li qualsevol nom al prop `onClick` de Square o al mètode `handleClick` de Board, i el codi funcionaria de la mateixa forma. En React, però, és una convenció usar els noms `on[Event]` per props que representen esdeveniments i `handle[Event]` per als mètodes que manegen els esdeveniments.
+> L'atribut `onClick` de l'element `<button>` del DOM té un significat especial per a React perquè és un component preconstruït. Per components personalitzats com Square, la nomenclatura la decideixes tu. Podríem donar-li qualsevol nom al prop `onClick` de Square o al mètode `handleClick` de Board, i el codi funcionaria de la mateixa forma. En React, però, és una convenció usar els noms `on[Event]` per props que representen esdeveniments i `handle[Event]` per als mètodes que manegen els esdeveniments.
 
 Quan intentem clicar un quadrat, hauríem d'obtenir un error perquè no hem definit `handleClick` encara. Ara afegirem `handleClick` a la classe Board:
 
@@ -541,7 +541,7 @@ var player = {score: 1, name: 'Jeff'};
 var newPlayer = Object.assign({}, player, {score: 2});
 // Ara `player` no ha canviat, però` newPlayer` és {score: 2, name: 'Jeff'}
 
-// O si fas servir la sintaxi proposta de propagació d'objecte, pots escriure:
+// O si fas servir la sintaxi proposada de propagació d'objecte, pots escriure:
 // var newPlayer={... player, score: 2};
 ```
 
@@ -561,7 +561,7 @@ Detectar canvis en objectes immutables és considerablement més senzill. Si l'o
 
 El benefici principal d'immutabilitat és que t'ajuda a construir _components purs_ a React. Dades immutables poden determinar fàcilment si s'han realitzat canvis, que ajuda també a determinar quan un component requereix ser rerenderitzat.
 
-Pots aprendre més sobre `shouldComponentUpdate()` i com pots construir *components purs* llegint [Optimitzant el rendiment](/docs/Optimizing-performance.html#examples).
+Pots aprendre més sobre `shouldComponentUpdate()` i com pots construir *components purs* llegint [Optimitzant el rendiment](/docs/optimizing-performance.html#examples).
 
 ### Funcions com a components {#function-components}
 
@@ -606,7 +606,7 @@ class Board extends React.Component {
   }
 ```
 
-Cada vegada que el jugador faci un moviment, `xIsNext` (un booleà) seran invertit per determinar quin jugador segueix i l'estat del joc serà desat. Actualitzarem la funció `handleClick` del component Board per invertir el valor de `xIsNext`:
+Cada vegada que el jugador faci un moviment, `xIsNext` (un booleà) serà invertit per determinar quin jugador segueix i l'estat del joc serà desat. Actualitzarem la funció `handleClick` del component Board per invertir el valor de `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -692,7 +692,7 @@ class Board extends React.Component {
 
 ### Declarant un guanyador {#declaring-a-winner}
 
-Ara que hem mostrat quin jugador té el següent torn, també hem de mostrar quan algú ha guanyat el joc i si no hi ha més moviments a fer. Còpia aquesta funció de suport i enganxa-al final de l'arxiu.
+Ara que hem mostrat quin jugador té el següent torn, també hem de mostrar quan algú ha guanyat el joc i si no hi ha més moviments a fer. Copia aquesta funció de suport i enganxa-la al final de l'arxiu.
 
 ```javascript
 function calculateWinner(squares) {
@@ -760,7 +760,7 @@ Com a exercici final, farem possible "retrocedir a través del temps" al movimen
 
 ### Emmagatzemar un historial de moviments {#storing-a-history-of-moves}
 
-Si mutessim l'array de `squares`, implementar viatge a través del temps seria molt difícil.
+Si mutéssim l'array de `squares`, implementar viatge a través del temps seria molt difícil.
 
 No obstant això, fem servir `slice()` per crear una còpia nova de l'array de `squares` després de cada moviment, i [el tractem com immutable](#why-immutability-is-important). Això ens permet emmagatzemar cada versió prèvia de l'array de `squares`, i navegar entre els torns que ja han passat.
 
@@ -800,7 +800,7 @@ Ara ens cal decidir quin component ha de ser el propietari de l'estat `history`.
 
 ### Elevant l'estat, una altra vegada {#lifting-state-up-again}
 
-Volem que el component de nivell superior, Game, mostri una llista dels moviments passats. Us cal accés al historial per fer-ho, així que col·locarem l'estat `history` al component Game.
+Volem que el component de nivell superior, Game, mostri una llista dels moviments passats. Us cal accés a l'historial per fer-ho, així que col·locarem l'estat `history` al component Game.
 
 Col·locant l'estat `history` al component Game et permet eliminar l'estat `squares` del seu component fill Board. Tal com hem ["elevat l'estat"](#lifting-state-up) del component Square al component Board, ara elevarem del Board al component Game. Això donarà al component Game complet control sobre les dades de Board, i permetrà instruir el tauler que renderitzi els torns previs des del `history`.
 
@@ -978,7 +978,7 @@ Finalment, ens cal moure el mètode `handleClick` del component Board al compone
 
 > Nota
 >
-> A diferència del mètode `push()` dels arrays que has d'estar més familiaritzat, el mètode `concat()` no Mutal l'array original, per això ho preferim.
+> A diferència del mètode `push()` dels arrays que has d'estar més familiaritzat, el mètode `concat()` no muta l'array original, per això ho preferim.
 
 En aquest punt, el component Board només necessita els mètodes `renderSquare` i `render`. L'estat del joc i el mètode `handleClick` haurien d'estar al component Game.
 
@@ -988,7 +988,7 @@ En aquest punt, el component Board només necessita els mètodes `renderSquare` 
 
 Com que hem guardat l'historial del joc tres en ratlla, ara podem mostrar-lo al jugador com una llista de moviments anteriors.
 
-Abans hem aprendrès que els elements de React són objectes de primera classe a JavaScript; així que podem passar-los d'un lloc a l'altre dins de les nostres aplicacions. Per renderitzar múltiples elements a React podem usar una matriu d'elements de React.
+Abans hem après que els elements de React són objectes de primera classe a JavaScript; així que podem passar-los d'un lloc a l'altre dins de les nostres aplicacions. Per renderitzar múltiples elements a React podem usar una matriu d'elements de React.
 
 A JavaScript, els arrays tenen un [mètode `map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Referencia/Objectes_globals/Array/map) que és comunament usat per mapejar dades a altres dades, per exemple:
 
@@ -1053,7 +1053,7 @@ Ara explicarem que significa l'advertència anterior.
 
 ### Triant una key {#picking-a-key}
 
-Quan renderitzem una llista, React emmagatzema informació sobre cada element de la llista renderitzat. Quan actualitzem una llista, React necessita determinar que ha canviat. Podríem haver afegit, eliminat, reorganitzat, o actualitzat els elements de la llista.
+Quan renderitzem una llista, React emmagatzema informació sobre cada element de la llista renderitzat. Quan actualitzem una llista, React necessita determinar què ha canviat. Podríem haver afegit, eliminat, reorganitzat, o actualitzat els elements de la llista.
 
 Imagina canviar de
 
@@ -1076,15 +1076,15 @@ A més dels comptadors actualitzats, un humà llegint això probablement diria q
 <li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
 ```
 
-Quan una llista és rerenderitzada, React pren cada key de l'element de la llista i busca l'element de la llista anterior que coincideixi la key. Si la llista actual té un key que no existia abans, React crea un component. Si a la llista actual li falta un key que existia en la llista anterior, React destrueix el component previ. Si dos keys coincideixen, el component corresponent és mogut. Els keys li diuen a React sobre la identitat de cada component la qual cosa permet als React mantenir el seu estat entre rerenderitzats. Si la key d'un component canvia, el component serà destruït i recreat amb un nou estat.
+Quan una llista és rerenderitzada, React pren cada key de l'element de la llista i busca l'element de la llista anterior que coincideixi la key. Si la llista actual té un key que no existia abans, React crea un component. Si a la llista actual li falta un key que existia en la llista anterior, React destrueix el component previ. Si dos keys coincideixen, el component corresponent és mogut. Els keys li diuen a React sobre la identitat de cada component la qual cosa permet a React mantenir el seu estat entre rerenderitzats. Si la key d'un component canvia, el component serà destruït i recreat amb un nou estat.
 
-`key` és una propietat especial i reservada a React (igual que amb `ref`, una característica més avançada). Quan un element és creat, React extreu la propietat `key` i l'emmagatzema directament a l'element retornat. Tot i que el `key` es pot veure que pertany a les `props`, `key` no pot ser referenciat usant `this.props.key`. React automàticament fa servir `key` per decidir quins components actualitzar. Un component no pot esbrinar sobre la seva `key`.
+`key` és una propietat especial i reservada a React (igual que amb `ref`, una característica més avançada). Quan un element és creat, React extreu la propietat `key` i l'emmagatzema directament a l'element retornat. Tot i que el `key` es pot veure que pertany a les `props`, `key` no pot ser referenciada usant `this.props.key`. React automàticament fa servir `key` per decidir quins components actualitzar. Un component no pot esbrinar sobre la seva `key`.
 
-**Es recomana fortament que facis servir el key apropiat quan construeixis llistes dinàmiques**. Si no tens una key apropiat, potser vols considerar reestructurar les teves dades perquè puguis tenir-la.
+**Es recomana fortament que facis servir la key apropiada quan construeixis llistes dinàmiques**. Si no tens una key apropiada, potser vols considerar reestructurar les teves dades perquè puguis tenir-la.
 
-Si la key no està especificada, React presentarà una advertència i farà servir l'índex de l'array com a índex per defecte. Usant l'índex de l'array com un key és problemàtic quan intentes reordenar els elements d'una llista o inserir/eliminar elements de la llista. Passar explícitament `key={i}` silencia l'advertència però té els mateixos problemes que els índexs de l'array i no és recomanat en la majoria dels casos.
+Si la key no està especificada, React presentarà una advertència i farà servir l'índex de l'array com a índex per defecte. Usant l'índex de l'array com una key és problemàtic quan intentes reordenar els elements d'una llista o inserir/eliminar elements de la llista. Passar explícitament `key={i}` silencia l'advertència però té els mateixos problemes que els índexs de l'array i no és recomanat en la majoria dels casos.
 
-Els keys no necessiten ser globalment únics; només necessiten ser únics entre components i els seus germans.
+Les keys no necessiten ser globalment úniques; només necessiten ser úniques entre components i els seus germans.
 
 
 ### Implementant viatge a través del temps {#implementing-time-travel}
@@ -1126,7 +1126,7 @@ class Game extends React.Component {
   }
 ```
 
-Després, definirem el mètode `jumpTo` al component Game per actualitzar el `stepNumber`. També establirem `xIsNext` a veritable si el nombre que estem canviant en` stepNumber` és parell:
+Després, definirem el mètode `jumpTo` al component Game per actualitzar el `stepNumber`. També establirem `xIsNext` a veritable si el nombre que estem canviant a `stepNumber` és parell:
 
 ```javascript{5-10}
   handleClick(i) {
@@ -1145,9 +1145,9 @@ Després, definirem el mètode `jumpTo` al component Game per actualitzar el `st
   }
 ```
 
-Ara farem uns petits canvis al mètode `handleClick` de Game, el quin es dispara quan fas clic sobre un quadrat.
+Ara farem uns petits canvis al mètode `handleClick` de Game, el qui es dispara quan fas clic sobre un quadrat.
 
-L'estat `stepNumber` que hem afegit ara reflecteix el moviment mostrat a l'usuari. Després de fer un nou moviment, necessitem actualitzar `stepNumber` afegint `stepNumber: history.length` com a part de l'argument de `this.setState`. Això assegura que no ens estanquem mostrant el mateix moviment després d'un nou realitzat.
+L'estat `stepNumber` que hem afegit ara reflecteix el moviment mostrat a l'usuari. Després de fer un nou moviment, necessitem actualitzar `stepNumber` afegint `stepNumber: history.length` com a part de l'argument de `this.setState`. Això assegura que no ens estanquem mostrant el mateix moviment després d'un de nou realitzat.
 
 També reemplaçarem `this.state.history` per `this.state.history.slice(0, this.state.stepNumber + 1)`. Això assegura que si "tornem a través del temps" i després fem un nou moviment des d'aquest punt, llançarem tota la història "futura" que ara seria incorrecta.
 
@@ -1181,7 +1181,7 @@ Finalment, modificarem el mètode `render` del component Game de sempre renderit
     // la resta no ha canviat
 ```
 
-Si cliquem en qualsevol pas de la història del joc, el tauler tres en ratlla hauria d'actualitzar immediatament per mostrar el tauler com es veia després que el pas va ocórrer.
+Si cliquem en qualsevol pas de la història del joc, el tauler tres en ratlla s'hauria d'actualitzar immediatament per mostrar el tauler com es veia després que el pas va ocórrer.
 
 **[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
@@ -1194,11 +1194,11 @@ Felicitats! Has creat un joc de tres en ratlla que:
 * Emmagatzema l'historial del joc com va progressant,
 * Permet als jugadors revisar l'historial del joc i veure versions anteriors del tauler de joc.
 
-Bona feina! Esperem que ara sentis que tens una comprensió descent sobre com funciona React.
+Bona feina! Esperem que ara sentis que tens una comprensió decent sobre com funciona React.
 
 Revisa el resultat final aquí: **[Resultat final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-Si tens temps addicional o vols practicar les teves noves habilitats de React, aquí algunes idees de millores que pots fer al joc de tres en ratlla, les quals estan llistades en ordre de dificultat creixent:
+Si tens temps addicional o vols practicar les teves noves habilitats de React, aquí hi ha algunes idees de millores que pots fer al joc de tres en ratlla, les quals estan llistades en ordre de dificultat creixent:
 
 1. Mostra la ubicació per a cada moviment en el format (columna, fila) a la llista de l'historial de moviments.
 2. Converteix en negreta l'element actualment seleccionat a la llista de moviments.
