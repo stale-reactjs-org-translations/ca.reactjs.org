@@ -31,7 +31,7 @@ setInterval(tick, 1000);
 
 [**Prova-ho a codepen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-En aquesta secció, aprendrem com fer al component `Clock` veritablement reutilitzable i encapsulat. Configuraràs teu propi temporitzador i s'actualitzarà cada segon.
+En aquesta secció, aprendrem com fer el component `Clock` veritablement reutilitzable i encapsulat. Configuraràs teu propi temporitzador i s'actualitzarà cada segon.
 
 Podem començar per encapsular com es veu el rellotge:
 
