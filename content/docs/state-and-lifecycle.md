@@ -407,7 +407,7 @@ Després pots actualitzar-les independentment amb invocacions separades a `setSt
   }
 ```
 
-La fusió és superficial, així que `this.setState({comments})` deixa intacte a `this.state.posts`, però substitueix completament `this.state.comments`.
+La fusió és superficial, així que `this.setState({comments})` deixa intacte `this.state.posts`, però substitueix completament `this.state.comments`.
 
 ## Les dades flueixen cap avall {#the-data-flows-down}
 
