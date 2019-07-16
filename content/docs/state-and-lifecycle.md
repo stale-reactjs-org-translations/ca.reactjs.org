@@ -439,7 +439,7 @@ function FormattedDate(props) {
 
 A això comunament se l'anomena flux de dades "descendent" o "unidireccional"  Qualsevol estat sempre és propietat d'algun component específic, i qualsevol dada o interfície d'usuari derivats d'aquest estat només poden afectar els components "sota" d'ells en l'arbre.
 
-Si imagines un arbre de components com una cascada de props, l'estat de cada component és com una font d'aigua addicional que se li uneix en un punt arbitrari, però també flueix cap avall.
+Si imagineu un arbre de components com una cascada de props, l'estat de cada component és com una font d'aigua addicional que se li uneix en un punt arbitrari, però també flueix cap avall.
 
 Per mostrar que tots els components estan veritablement aïllats, podem crear un component `App` que representi tres components `<Clock>`:
 
