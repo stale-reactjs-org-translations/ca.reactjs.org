@@ -411,7 +411,7 @@ La fusió és superficial, així que `this.setState({comments})` deixa intacte `
 
 ## Les dades flueixen cap avall {#the-data-flows-down}
 
-Ni els components pares o fills poden saber si un determinat component té o no té estat i no els hauria d'importar si es defineix com una funció o una classe.
+Ni els components pares ni els fills poden saber si un determinat component té o no té estat i no els hauria d'importar si es defineix com una funció o una classe.
 
 És per això que a l'estat sovint se l'anomena local o encapsulat. No és accessible des d'un altre component excepte d'aquell que el posseeix i l'assigna.
 
