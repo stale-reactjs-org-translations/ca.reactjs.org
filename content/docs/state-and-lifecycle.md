@@ -353,7 +353,7 @@ this.setState({
 });
 ```
 
-Per arreglar-ho, fa servir una segona forma de `setState()` que accepta una funció en lloc d'un objecte. Aquesta funció rebrà l'estat previ com a primer argument, i les props en el moment en què s'aplica l'actualització com a segon argument:
+Per arreglar-ho, fes servir una segona forma de `setState()` que accepti una funció en lloc d'un objecte. Aquesta funció rebrà l'estat previ com a primer argument, i les props en el moment en què s'aplica l'actualització com a segon argument:
 
 ```js
 // Correcte
