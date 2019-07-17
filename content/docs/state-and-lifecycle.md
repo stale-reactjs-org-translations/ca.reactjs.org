@@ -375,7 +375,7 @@ this.setState(function(state, props) {
 
 ### Les actualitzacions d'estat es fusionen {#state-updates-are-merged}
 
-Quan invoques a `setState()`, React combina l'objecte que vas proporcionar amb l'estat actual.
+Quan invoques a `setState()`, React combina l'objecte que proporciones amb l'estat actual.
 
 Per exemple, el teu estat pot contenir diverses variables independents:
 
