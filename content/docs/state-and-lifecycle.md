@@ -197,7 +197,7 @@ A continuació, farem que `Clock` configuri el seu propi temporitzador i s'actua
 
 ## Afegir mètodes de cicle de vida a una classe {#adding-lifecycle-methods-to-a-class}
 
-En aplicacions amb molts components, és molt important alliberar recursos presos pels components quan es destrueixen.
+En aplicacions amb molts components, és molt important alliberar recursos destinats als components quan aquestos es destrueixen.
 
 Volem [configurar un temporitzador](https://developer.mozilla.org/es/docs/Web/API/WindowTimers/setInterval) cada vegada que `Clock` es renderitzi al DOM per primera vegada. Això a React es diu "muntatge".
 
