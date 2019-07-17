@@ -362,7 +362,7 @@ this.setState((state, props) => ({
 }));
 ```
 
-En l'exemple hem usat una [funció fletxa](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Funciones/Arrow_functions), però es podria haver fet igualment amb funcions comunes:
+En l'exemple hem usat una [funció fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions), però es podria haver fet igualment amb funcions comunes:
 
 ```js
 // Correcte
