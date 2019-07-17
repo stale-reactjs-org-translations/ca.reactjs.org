@@ -78,9 +78,9 @@ Es pot convertir un component de funció com `Clock` en una classe en cinc passo
 
 1. Crea una [classe ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes) amb el mateix nom que hereti de `React.Component`.
 
-2. Afegir un únic mètode buit anomenat `render()`.
+2. Afegeix un únic mètode buit anomenat `render()`.
 
-3. Moure el cos de la funció al mètode `render()`.
+3. Mou el cos de la funció al mètode `render()`.
 
 4. Substitueix `props` amb `this.props` en el cos de `render()`.
 
@@ -109,7 +109,7 @@ El mètode `render` s'invocarà cada vegada que ocorre una actualització; però
 
 Mourem la data des de les props cap a l'estat en tres passos:
 
-1) Substituir `this.props.date` per `this.state.date` al mètode `render()`:
+1) Substitueix `this.props.date` per `this.state.date` al mètode `render()`:
 
 ```js{6}
 class Clock extends React.Component {
@@ -124,7 +124,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) Afegir un [constructor de classe](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes#Constructor) que assigni el `this.state` inicial:
+2) Afegeix un [constructor de classe](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes#Constructor) que assigni el `this.state` inicial:
 
 ```js{4}
 class Clock extends React.Component {
@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Nota com vam passar `props` al constructor base:
+Nota com passem `props` al constructor base:
 
 ```js{2}
   constructor(props) {
@@ -155,7 +155,7 @@ Nota com vam passar `props` al constructor base:
 
 Els components de classe sempre han d'invocar al constructor base amb `props`.
 
-3) Eliminar la prop `date` de l'element `<Clock />`:
+3) Elimina la prop `date` de l'element `<Clock />`:
 
 ```js{2}
 ReactDOM.render(
