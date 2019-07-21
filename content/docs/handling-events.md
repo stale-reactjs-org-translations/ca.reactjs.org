@@ -1,6 +1,6 @@
 ---
 id: handling-events
-title: Handling Events
+title: Controlant esdeveniments
 permalink: docs/handling-events.html
 prev: state-and-lifecycle.html
 next: conditional-rendering.html
@@ -8,12 +8,12 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:
+Controlar esdeveniments amb elements de React és molt similar a controlar esdeveniments amb elements del DOM. Hi ha algunes diferències sintàctiques:
 
-* React events are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* Esdeveniments de React s'anomenen usant camelCase, en lloc de minúscules.
+* Amb JSX es passa una funció com el controlador de l'esdeveniment, en lloc d'un string.
 
-For example, the HTML:
+Per exemple, en HTML:
 
 ```html
 <button onclick="activateLasers()">
@@ -21,7 +21,7 @@ For example, the HTML:
 </button>
 ```
 
-is slightly different in React:
+és una mica diferent amb React:
 
 ```js{1}
 <button onClick={activateLasers}>
@@ -29,7 +29,7 @@ is slightly different in React:
 </button>
 ```
 
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+Una altra diferència és que no pots retornar `false` per prevenir el comportament per defecte a React. Has de cridar `preventDefault` explícitament. Per exemple, amb HTML pur, per prevenir el comportament per defecte dels links quan s'obre una pàgina nova, pots escriure:
 
 ```html
 <a href="#" onclick="console.log('The link was clicked.'); return false">
@@ -37,7 +37,7 @@ Another difference is that you cannot return `false` to prevent default behavior
 </a>
 ```
 
-In React, this could instead be:
+Però a React, això seria:
 
 ```js{2-5,8}
 function ActionLink() {
@@ -54,11 +54,11 @@ function ActionLink() {
 }
 ```
 
-Here, `e` is a synthetic event. React defines these synthetic events according to the [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), so you don't need to worry about cross-browser compatibility. See the [`SyntheticEvent`](/docs/events.html) reference guide to learn more.
+Aquí, `e` és un esdeveniment sintètic. React defineix aquests esdeveniments sintètics d'acord amb [l'especificaió W3C](https://www.w3.org/TR/DOM-Level-3-Events/), així que no necessites preocupar-te de la compatibilitat amb diferents navegadors. Llegeix la referència [`SyntheticEvent`](/docs/events.html) per aprendrer més.
 
-When using React you should generally not need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+Quan usis React no hauries de necessitar cridar `addEventListener` per afegir oients a un element del DOM després que sigui creat. Contrariament, només proveeix un oient quan l'element sigui renderitzar inicialment.
 
-When you define a component using an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), a common pattern is for an event handler to be a method on the class. For example, this `Toggle` component renders a button that lets the user toggle between "ON" and "OFF" states:
+Quan defineixis un compoenent usant una [classe ES6](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), un patró comú per un controlador d'esdeveniments és que aquest sigui un mètode de la classe. Per exemple, aquest component `Toggle` renderitza un botó que permet a l'usuari escollir entre els estats "ON" i "OFF":
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -91,13 +91,14 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-You have to be careful about the meaning of `this` in JSX callbacks. In JavaScript, class methods are not [bound](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) by default. If you forget to bind `this.handleClick` and pass it to `onClick`, `this` will be `undefined` when the function is actually called.
+Has d'anar amb compte amb el significat de `this` a callbacks de JSX. A JavaScript,
+els mètodes de classes no estan [lligats](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_objects/Function/bind) per defecte. Si t'oblides de lligar `this.handleClick` i passar-lo a `onClick`, `this` serà `undefined` quan la funció sigui relament cridada.
 
-This is not React-specific behavior; it is a part of [how functions work in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generally, if you refer to a method without `()` after it, such as `onClick={this.handleClick}`, you should bind that method.
+Aquest comportament no és específic de React; forma part de [com funcionen les funcions a JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalment, si refereixes un mètode sense `()` després d'ell, com `onClick={this.handleClick}`, hauries de lligar aquell mètode.
 
-If calling `bind` annoys you, there are two ways you can get around this. If you are using the experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), you can use class fields to correctly bind callbacks:
+Si cridar `bind` et molesta, hi ha dues formes d'evitar-ho. Si uses la sintaxi experimental de [camps públics de classes](https://babeljs.io/docs/plugins/transform-class-properties/), pots usar els camps de classes per lligar els callbacks correctament:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
@@ -117,9 +118,9 @@ class LoggingButton extends React.Component {
 }
 ```
 
-This syntax is enabled by default in [Create React App](https://github.com/facebookincubator/create-react-app).
+Aquesta sintaxi està habilitada per defecte a [Create React App](https://github.com/facebookincubator/create-react-app).
 
-If you aren't using class fields syntax, you can use an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in the callback:
+Si no estàs usant la sintaxi de camps de classes, pots usar una [funció fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions) al callback:
 
 ```js{7-9}
 class LoggingButton extends React.Component {
@@ -138,17 +139,17 @@ class LoggingButton extends React.Component {
 }
 ```
 
-The problem with this syntax is that a different callback is created each time the `LoggingButton` renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the class fields syntax, to avoid this sort of performance problem.
+El problema amb aquesta sintaxi és que un callback diferent és creat cada cop que `LoggingButton` és renderitzat. En la majoria dels casos, això ja està bé. No obstant això, si aquest callback és passat com a prop a components inferiors, aquests components podrien dur a terme renderitzats extra. Normalment recomanem lligar en el constructor o usar la sintaxi de camps de classes, per evitar aquest tipus de problemes.
 
-## Passing Arguments to Event Handlers {#passing-arguments-to-event-handlers}
+## Passant arguments a controladors d'esdeveniments {#passing-arguments-to-event-handlers}
 
-Inside a loop it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
+A dins un bucle és comú voler passar un paràmetre extra a un controlador d'esdeveniments. Per exemple, si `id` és l'ID fila, qualsevol dels següents funcionaria:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
 
-The above two lines are equivalent, and use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) respectively.
+Les dues línies anteriors són equivalents, i usen [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions) i [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) respectivament.
 
-In both cases, the `e` argument representing the React event will be passed as a second argument after the ID. With an arrow function, we have to pass it explicitly, but with `bind` any further arguments are automatically forwarded.
+En els dos casos, l'argument `e` que representa l'esdeveniment de React serà passat com a segon argument després de l'ID. Amb una funció fletxa, hem de passar-lo explícitament, però amb `bind` tots els arguments següents són passats automàticament.
