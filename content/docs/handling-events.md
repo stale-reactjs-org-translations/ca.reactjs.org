@@ -93,8 +93,7 @@ ReactDOM.render(
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-Has d'anar amb compte amb el significat de `this` a callbacks de JSX. A JavaScript,
-els mètodes de classes no estan [lligats](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_objects/Function/bind) per defecte. Si t'oblides de lligar `this.handleClick` i passar-lo a `onClick`, `this` serà `undefined` quan la funció sigui relament cridada.
+Has d'anar amb compte amb el significat de `this` a callbacks de JSX. A JavaScript, els mètodes de classes no estan [lligats](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_objects/Function/bind) per defecte. Si t'oblides de lligar `this.handleClick` i passar-lo a `onClick`, `this` serà `undefined` quan la funció sigui relament cridada.
 
 Aquest comportament no és específic de React; forma part de [com funcionen les funcions a JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalment, si refereixes un mètode sense `()` després d'ell, com `onClick={this.handleClick}`, hauries de lligar aquell mètode.
 
