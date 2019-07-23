@@ -10,7 +10,7 @@ redirect_from:
 
 Controlar esdeveniments amb elements de React és molt similar a controlar esdeveniments amb elements del DOM. Hi ha algunes diferències sintàctiques:
 
-* Esdeveniments de React s'anomenen usant camelCase, en lloc de minúscules.
+* Els esdeveniments de React s'anomenen usant camelCase, en lloc de minúscules.
 * Amb JSX es passa una funció com el controlador de l'esdeveniment, en lloc d'un string.
 
 Per exemple, en HTML:
