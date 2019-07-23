@@ -54,9 +54,9 @@ function ActionLink() {
 }
 ```
 
-Aquí, `e` és un esdeveniment sintètic. React defineix aquests esdeveniments sintètics d'acord amb [l'especificaió W3C](https://www.w3.org/TR/DOM-Level-3-Events/), així que no necessites preocupar-te de la compatibilitat amb diferents navegadors. Llegeix la referència [`SyntheticEvent`](/docs/events.html) per aprendrer més.
+Aquí, `e` és un esdeveniment sintètic. React defineix aquests esdeveniments sintètics d'acord amb [l'especificaió W3C](https://www.w3.org/TR/DOM-Level-3-Events/), així que no necessites preocupar-te de la compatibilitat amb diferents navegadors. Llegeix la referència [`SyntheticEvent`](/docs/events.html) per aprendre'n més.
 
-Quan usis React no hauries de necessitar cridar `addEventListener` per afegir oients a un element del DOM després que sigui creat. Contrariament, només proveeix un oient quan l'element sigui renderitzar inicialment.
+Quan usis React no hauries de necessitar cridar `addEventListener` per afegir oients a un element del DOM després que sigui creat. Contràriament, només proveeix un oient quan l'element sigui renderitzar inicialment.
 
 Quan defineixis un compoenent usant una [classe ES6](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), un patró comú per un controlador d'esdeveniments és que aquest sigui un mètode de la classe. Per exemple, aquest component `Toggle` renderitza un botó que permet a l'usuari escollir entre els estats "ON" i "OFF":
 
@@ -139,7 +139,7 @@ class LoggingButton extends React.Component {
 }
 ```
 
-El problema amb aquesta sintaxi és que un callback diferent és creat cada cop que `LoggingButton` és renderitzat. En la majoria dels casos, això ja està bé. No obstant això, si aquest callback és passat com a prop a components inferiors, aquests components podrien dur a terme renderitzats extra. Normalment recomanem lligar en el constructor o usar la sintaxi de camps de classes, per evitar aquest tipus de problemes.
+El problema amb aquesta sintaxi és que un callback diferent és creat cada cop que `LoggingButton` és renderitzat. En la majoria dels casos, això ja està bé. No obstant això, si aquest callback es passa com a prop a components inferiors, aquests components podrien dur a terme renderitzats extra. Normalment recomanem lligar en el constructor o usar la sintaxi de camps de classes, per evitar aquest tipus de problemes.
 
 ## Passant arguments a controladors d'esdeveniments {#passing-arguments-to-event-handlers}
 
@@ -152,4 +152,4 @@ A dins un bucle és comú voler passar un paràmetre extra a un controlador d'es
 
 Les dues línies anteriors són equivalents, i usen [funcions fletxa](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Functions/Arrow_functions) i [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) respectivament.
 
-En els dos casos, l'argument `e` que representa l'esdeveniment de React serà passat com a segon argument després de l'ID. Amb una funció fletxa, hem de passar-lo explícitament, però amb `bind` tots els arguments següents són passats automàticament.
+En els dos casos, l'argument `e` que representa l'esdeveniment de React es passa com a segon argument després de l'ID. Amb una funció fletxa, hem de passar-lo explícitament, però amb `bind` tots els arguments següents es passen automàticament.
