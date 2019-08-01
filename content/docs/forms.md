@@ -25,7 +25,7 @@ Aquest formulari té el comportament predeterminat d'HTML que consisteix a naveg
 
 ## Components controlats {#controlled-components}
 
-En HTML, els elements de formularis com els `<input>`, `<textarea>` i el `<select>` normalment mantenen els seus propis estats i els actualitzen d'acord amb la interacció de l'usuari. A React, l'estat mutable s'emmagatzema normalment a la propietat `state` dels components, i només s'actualitza amb [`setState ()`](/docs/react-component.html#setstate).
+En HTML, els elements de formularis com `<input>`, `<textarea>` i `<select>` normalment mantenen el seu propi estat i l'actualitzen d'acord amb la interacció de l'usuari. A React, l'estat mutable s'emmagatzema normalment a la propietat `state` dels components, i només s'actualitza amb [`setState()`](/docs/react-component.html#setstate).
 
 Podem combinar-los tots dos fent que l'estat de React sigui l'única "font de veritat". D'aquesta manera, els components React que renderitzin un formulari també controlen el que passa en aquest formulari amb les subsegüents entrades de l'usuari. Un camp de formulari on els valors són controlats per React d'aquesta manera es denomina "component controlat".
 
