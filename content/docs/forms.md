@@ -21,7 +21,7 @@ Els elements de formularis HTML funcionen una mica diferent d'altres elements de
 </form>
 ```
 
-Aquest formulari té el comportament predeterminat d'HTML que consisteix a navegar a una nova pàgina quan l'usuari envia el formulari. Per tenir el mateix comportament a React no cal fer cap modificació. Però en la majoria de casos, és convenient tenir una funció de Javascript que s'encarregui de la tramesa del formulari, i que tingui accés a les dades que l'usuari ha introduït en el formulari. La manera per defecte per aconseguir-ho és una tècnica anomenada "components controlats".
+Aquest formulari té el comportament predeterminat d'HTML que consisteix a navegar a una nova pàgina quan l'usuari envia el formulari. Per tenir el mateix comportament a React no cal fer cap modificació. Però en la majoria de casos, és convenient tenir una funció de JavaScript que s'encarregui de la tramesa del formulari, i que tingui accés a les dades que l'usuari ha introduït en el formulari. La manera per defecte per aconseguir-ho és una tècnica anomenada "components controlats".
 
 ## Components controlats {#controlled-components}
 
