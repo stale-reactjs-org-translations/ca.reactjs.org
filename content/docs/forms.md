@@ -68,7 +68,7 @@ class NameForm extends React.Component {
 
 Ja que l'atribut `value` és afegit al nostre element del formulari, el valor mostrat sempre serà el de `this.state.value`, fent que l'estat de React sigui la font de la veritat. Ja que `handleChange` corre cada vegada que una tecla és oprimida per actualitzar l'estat de React, el valor mostrat serà actualitzat mentre l'usuari escriu.
 
-Amb un component controlat, tota mutació de l'estat tindrà associada una funció controlador. Això fa més directe modificar o validar l'entrada de l'usuari. Per exemple, si volguéssim assegurar que els noms siguin escrits amb totes les lletres en majúscula, podríem escriure el `handleChange` com:
+Amb un component controlat, tota mutació de l'estat tindrà associada una funció controladora. Això fa que modificar o validar l'entrada de l'usuari sigui més directe. Per exemple, si volguéssim assegurar que els noms fossin escrits amb totes les lletres en majúscula, podríem escriure el `handleChange` com:
 
 ```javascript{2}
 handleChange(event) {
