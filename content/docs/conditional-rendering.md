@@ -24,7 +24,7 @@ function GuestGreeting(props) {
 }
 ```
 
-Crearem un component `Greeting` que mostra qualsevol d'aquests dos components depenent de si un usuari ha iniciat sessió:
+Crearem un component `Greeting` que mostri qualsevol d'aquests dos components depenent de si un usuari ha iniciat sessió:
 
 ```javascript{3-7,11,12}
 function Greeting(props) {
