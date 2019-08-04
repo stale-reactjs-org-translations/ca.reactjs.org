@@ -10,7 +10,7 @@ redirect_from:
 
 A React, pots crear diferents components que encapsulin el comportament que necessitis. Llavors, pots renderitzar-ne només alguns, depenent de l'estat de la teva aplicació.
 
-El renderitzat condicional a React funciona de la mateixa forma que les condicions funcionen a JavaScript. Usa operadors de JavaScript com [`if`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/if...else) o l'[operador condicional](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) per crear elements que representin l'estat actual, i deixa que React actualitzi la interfície d'usuari per emparellar-los.
+El renderitzat condicional a React funciona de la mateixa manera que les condicions funcionen a JavaScript. Usa operadors de JavaScript com [`if`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Statements/if...else) o l'[operador condicional](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) per crear elements que representin l'estat actual, i deixa que React actualitzi la interfície d'usuari per emparellar-los.
 
 Considera aquests dos components:
 
