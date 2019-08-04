@@ -118,7 +118,7 @@ ReactDOM.render(
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Tot i que declarar una variable i usar una sentència `if` és una bona forma de renderitzar condicionalment un component, a vegades pot ser que vulguis usar una altra sintaxi. Hi ha unes quantes formes de fer condicions en línia amb JSX, explicades a sota.
+Tot i que declarar una variable i usar una sentència `if` és una bona manera de renderitzar condicionalment un component, a vegades pot ser que vulguis fer servir una altra sintaxi. Hi ha unes quantes formes de fer condicions en línia amb JSX, explicades a continuació.
 
 ### If en una línia amb l'operador lògic && {#inline-if-with-logical--operator}
 
