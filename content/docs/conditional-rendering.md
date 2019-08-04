@@ -186,7 +186,7 @@ render() {
 }
 ```
 
-De la mateixa forma que a JavaScript, tu ets qui decideixes usar un estil apropiat basat en el qual tu i el teu equip considereu més llegible. També recorda que sempre que les condicions es tornen massa complexes, pot ser un bon moment per [extreure un component](/docs/components-and-props.html#extracting-components).
+De la mateixa forma que a JavaScript, tu ets qui decideixes usar un estil apropiat basat en el qual tu i el teu equip considereu més llegible. Recorda que quan les condicions es tornin massa complexes, pot ser un bon moment per [extreure un component](/docs/components-and-props.html#extracting-components).
 
 ### Prevenir que un component es renderitzi {#preventing-component-from-rendering}
 
