@@ -335,7 +335,11 @@ L'extensió de React DevTools Library per [Chrome](https://chrome.google.com/web
 
 React DevTools et permet revisar les props i l'estat dels teus components de React.
 
+<<<<<<< HEAD
 Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixerà com l'última pestanya a la dreta.
+=======
+After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
+>>>>>>> 8b30ae43439818009213da86eca872a3d869c5eb
 
 **No obstant això, notar que hi ha uns quants passos extres per fer-lo funcionar amb CodePen:**
 
