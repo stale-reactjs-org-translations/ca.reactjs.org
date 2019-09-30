@@ -114,7 +114,6 @@ class Calculator extends React.Component {
 
 Ara tenim dues entrades, però quan insereixes la temperatura en una d'elles, l'altra no s'actualitza. Això contradiu el nostre requeriment: volem mantenir-les sincronitzades.
 
-We also can't display the `BoilingVerdict` from `Calculator`. The `Calculator` doesn't know the current temperature because it is hidden inside the `TemperatureInput`.
 Tampoc podem mostrar el component `BoilingVerdict` de `Calculator`. `Calculator` no coneix la temperatura actual perquè està amagada a dins `TemperatureInput`.
 
 ## Escrivint funcions de conversió {#writing-conversion-functions}
@@ -147,11 +146,11 @@ function tryConvert(temperature, convert) {
 }
 ```
 
-For example, `tryConvert('abc', toCelsius)` returns an empty string, and `tryConvert('10.22', toFahrenheit)` returns `'50.396'`.
+Per exemple, `tryConvert('abc', toCelsius)` retorna un string buit, i `tryConvert('10.22', toFahrenheit)` retorna `'50.396'`.
 
-## Lifting State Up {#lifting-state-up}
+## Pujant l'estat {#lifting-state-up}
 
-Currently, both `TemperatureInput` components independently keep their values in the local state:
+Actualment, els dos components `TemperatureInput` mantenen els seus valors a l'estat local de manera independent:
 
 ```js{5,9,13}
 class TemperatureInput extends React.Component {
@@ -170,15 +169,15 @@ class TemperatureInput extends React.Component {
     // ...  
 ```
 
-However, we want these two inputs to be in sync with each other. When we update the Celsius input, the Fahrenheit input should reflect the converted temperature, and vice versa.
+No obstant, volem que aquestes dues entrades estiguin en sincronització. Quan actualitzem l'entrada en Celsius, l'entrada en Fahrenheit hauria de relexar la conversió de temperatura, i viceversa.
 
-In React, sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called "lifting state up". We will remove the local state from the `TemperatureInput` and move it into the `Calculator` instead.
+A React, compartir l'estat es pot aconseguir movent-lo cap a d'alt fins a l'avantpassat comú més proper dels components que el necessiten. Això s'anomena "pujar l'estat". Eliminarem l'estat local de `TemperatureInput` i el mourem a `Calculator`.
 
-If the `Calculator` owns the shared state, it becomes the "source of truth" for the current temperature in both inputs. It can instruct them both to have values that are consistent with each other. Since the props of both `TemperatureInput` components are coming from the same parent `Calculator` component, the two inputs will always be in sync.
+Si `Calculator` té l'estat compartit, llavors es converteix en "la font de veritat" per la temperatura actual a les dues entrades. Aquest pot intruir a les dues a tenir valors consistents entre si. Ja que les propietat dels components `TemperatureInput` vénen des del mateix avantpassat `Calculator`, les dues entrades estaran sempre sincronitzades.
 
-Let's see how this works step by step.
+Anem a veure com funciona pas per pas.
 
-First, we will replace `this.state.temperature` with `this.props.temperature` in the `TemperatureInput` component. For now, let's pretend `this.props.temperature` already exists, although we will need to pass it from the `Calculator` in the future:
+Primer, cambiarem `this.state.temperature` amb `this.props.temperature` en el component `TemperatureInput`. Per ara, podem pretendre que `this.props.temperature` ja existeix, encara que l'haurem de passar des del component `Calculator` en el futur:
 
 ```js{3}
   render() {
