@@ -1,6 +1,6 @@
 ---
 id: lifting-state-up
-title: Lifting State Up
+title: Pujant l'estat
 permalink: docs/lifting-state-up.html
 prev: forms.html
 next: composition-vs-inheritance.html
@@ -9,11 +9,11 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
-Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. Let's see how this works in action.
+Alguns cops, diversos components necessiten reflexar les mateixes dades canviants. Recomanem pujar l'estat cap a l'avanpassat comú més proper. Anem a veure com funciona.
 
-In this section, we will create a temperature calculator that calculates whether the water would boil at a given temperature.
+En aquesta secció, crearem una calculadora de temperatura que calcularà si l'aigua bollirà a una certa temperatura.
 
-We will start with a component called `BoilingVerdict`. It accepts the `celsius` temperature as a prop, and prints whether it is enough to boil the water:
+Començarem amb un component anomenat `BoilingVerdict`. Aquest accepta la temperatura en `celsius` com una propietat, i imprimeix si és suficient per bollir l'aigua:
 
 ```js{3,5}
 function BoilingVerdict(props) {
@@ -24,9 +24,9 @@ function BoilingVerdict(props) {
 }
 ```
 
-Next, we will create a component called `Calculator`. It renders an `<input>` that lets you enter the temperature, and keeps its value in `this.state.temperature`.
+A continuació, crearem un component anomenat `Calculator`. Aquest renderitza un `<input>` que permet inserir la temperatura, i guarda el seu valor a `this.state.temperature`.
 
-Additionally, it renders the `BoilingVerdict` for the current input value.
+Addicionalment, renderitza el `BoilingVerdict` per al valor inserit.
 
 ```js{5,9,13,17-21}
 class Calculator extends React.Component {
@@ -56,13 +56,13 @@ class Calculator extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZXeOBm?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/ZXeOBm?editors=0010)
 
-## Adding a Second Input {#adding-a-second-input}
+## Afegint una segona entrada {#adding-a-second-input}
 
-Our new requirement is that, in addition to a Celsius input, we provide a Fahrenheit input, and they are kept in sync.
+El nostre nou requeriment és que, a més de la temperatura en Celsius, donem la temperatura en Fahrenheit, i aquestes es mantenen sincronitzades.
 
-We can start by extracting a `TemperatureInput` component from `Calculator`. We will add a new `scale` prop to it that can either be `"c"` or `"f"`:
+Podem començar extraient el component `TemperatureInput` de `Calculator`. Li afegirem una nova propietat anomenada `scale` que podrà ser tan `"c"` com `"f"`:
 
 ```js{1-4,19,22}
 const scaleNames = {
@@ -95,7 +95,7 @@ class TemperatureInput extends React.Component {
 }
 ```
 
-We can now change the `Calculator` to render two separate temperature inputs:
+Ara podem cambiar `Calculator` per renderitzar dues entrades separades per a la temperatura:
 
 ```js{5,6}
 class Calculator extends React.Component {
@@ -110,15 +110,16 @@ class Calculator extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/jGBryx?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/jGBryx?editors=0010)
 
-We have two inputs now, but when you enter the temperature in one of them, the other doesn't update. This contradicts our requirement: we want to keep them in sync.
+Ara tenim dues entrades, però quan insereixes la temperatura en una d'elles, l'altra no s'actualitza. Això contradiu el nostre requeriment: volem mantenir-les sincronitzades.
 
 We also can't display the `BoilingVerdict` from `Calculator`. The `Calculator` doesn't know the current temperature because it is hidden inside the `TemperatureInput`.
+Tampoc podem mostrar el component `BoilingVerdict` de `Calculator`. `Calculator` no coneix la temperatura actual perquè està amagada a dins `TemperatureInput`.
 
-## Writing Conversion Functions {#writing-conversion-functions}
+## Escrivint funcions de conversió {#writing-conversion-functions}
 
-First, we will write two functions to convert from Celsius to Fahrenheit and back:
+Primer, escriurem dues funcions per convertir de Celsius a Fahrenheit i viceversa:
 
 ```js
 function toCelsius(fahrenheit) {
@@ -130,9 +131,9 @@ function toFahrenheit(celsius) {
 }
 ```
 
-These two functions convert numbers. We will write another function that takes a string `temperature` and a converter function as arguments and returns a string. We will use it to calculate the value of one input based on the other input.
+Aquestes dues funcions converteixen nombres. Escriurem una altra funció que agafa un string `temperature` i una funció de conversió com arguments i retorna un string. La usarem per calcular el valor d'una entrada basat en el de l'altra entrada.
 
-It returns an empty string on an invalid `temperature`, and it keeps the output rounded to the third decimal place:
+Retorna un string buit si `temperature` és invàlida, i manté la sortida arrodonida al tercer decimal:
 
 ```js
 function tryConvert(temperature, convert) {
