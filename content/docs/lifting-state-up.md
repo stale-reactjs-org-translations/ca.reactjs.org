@@ -186,11 +186,11 @@ Primer, cambiarem `this.state.temperature` amb `this.props.temperature` en el co
     // ...
 ```
 
-We know that [props are read-only](/docs/components-and-props.html#props-are-read-only). When the `temperature` was in the local state, the `TemperatureInput` could just call `this.setState()` to change it. However, now that the `temperature` is coming from the parent as a prop, the `TemperatureInput` has no control over it.
+Sabem que les [props són només de lectura](/docs/components-and-props.html#props-are-read-only). Quan la `temperature` estava a l'estat local, `TemperatureInput` només podia cridar `this.setState()` per canviar-la. No obstant, ara que la `temperature` ve des de l'avantpassat com a prop, `TemperatureInput` no té cap control sobre ella.
 
-In React, this is usually solved by making a component "controlled". Just like the DOM `<input>` accepts both a `value` and an `onChange` prop, so can the custom `TemperatureInput` accept both `temperature` and `onTemperatureChange` props from its parent `Calculator`.
+A React, això normalment es soluciona fent el component "controlat". Així com l'`<input>` del DOM accepta un `value` i una `onChange` prop, també `TemperatureInput` accepta les propietats `temperature` i `onTemperatureChange` de l'avantpassat `Calculator`.
 
-Now, when the `TemperatureInput` wants to update its temperature, it calls `this.props.onTemperatureChange`:
+Ara, quan `TemperatureInput` vol actualitzar la seva temperatura, crida `this.props.onTemperatureChange`:
 
 ```js{3}
   handleChange(e) {
@@ -199,13 +199,13 @@ Now, when the `TemperatureInput` wants to update its temperature, it calls `this
     // ...
 ```
 
->Note:
+>Nota:
 >
->There is no special meaning to either `temperature` or `onTemperatureChange` prop names in custom components. We could have called them anything else, like name them `value` and `onChange` which is a common convention.
+>No hi ha cap significat especial en els noms `temperature` o `onTemperatureChange` en els components. Podríem haver-los anomenat qualsevol cosa, com `value` i `onChange` que són una convenció comú.
 
-The `onTemperatureChange` prop will be provided together with the `temperature` prop by the parent `Calculator` component. It will handle the change by modifying its own local state, thus re-rendering both inputs with the new values. We will look at the new `Calculator` implementation very soon.
+La propietat `onTemperatureChange` serà proveïda amb la propietat `temperature` per l'avantpassat `Calculator`. Controlarà el canvi modificant el seu estat local, així tornant a renderitzar les dues entrades amb els nous valors. Analitzarem a la nova implementació de `Calculator` ben prest.
 
-Before diving into the changes in the `Calculator`, let's recap our changes to the `TemperatureInput` component. We have removed the local state from it, and instead of reading `this.state.temperature`, we now read `this.props.temperature`. Instead of calling `this.setState()` when we want to make a change, we now call `this.props.onTemperatureChange()`, which will be provided by the `Calculator`:
+Abans de començar a canviar `Calculator`, tornem a mirar els nostres canvis a `TemperatureInput`. Hem eliminat el seu estat local, i en lloc de llegit `this.state.temperature`, ara llegim `this.props.temperature`. En lloc de cridar `this.setState()` quan volem fer un canvi, ara cridem `this.props.onTemperatureChange()`, que serà proveïda per `Calculator`:
 
 ```js{8,12}
 class TemperatureInput extends React.Component {
