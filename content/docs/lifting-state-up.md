@@ -9,11 +9,11 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
-Alguns cops, diversos components necessiten reflexar les mateixes dades canviants. Recomanem pujar l'estat cap a l'avanpassat comú més proper. Anem a veure com funciona.
+Alguns cops, diversos components necessiten reflectir les mateixes dades canviants. Recomanem pujar l'estat cap a l'avantpassat comú més proper. Anem a veure com funciona.
 
-En aquesta secció, crearem una calculadora de temperatura que calcularà si l'aigua bollirà a una certa temperatura.
+En aquesta secció, crearem una calculadora de temperatura que calcularà si l'aigua bullirà a una certa temperatura.
 
-Començarem amb un component anomenat `BoilingVerdict`. Aquest accepta la temperatura en `celsius` com una propietat, i imprimeix si és suficient per bollir l'aigua:
+Començarem amb un component anomenat `BoilingVerdict`. Aquest accepta la temperatura en `celsius` com una propietat, i imprimeix si és suficient per bullir l'aigua:
 
 ```js{3,5}
 function BoilingVerdict(props) {
@@ -95,7 +95,7 @@ class TemperatureInput extends React.Component {
 }
 ```
 
-Ara podem cambiar `Calculator` per renderitzar dues entrades separades per a la temperatura:
+Ara podem canviar `Calculator` per renderitzar dues entrades separades per a la temperatura:
 
 ```js{5,6}
 class Calculator extends React.Component {
@@ -169,15 +169,15 @@ class TemperatureInput extends React.Component {
     // ...  
 ```
 
-No obstant, volem que aquestes dues entrades estiguin en sincronització. Quan actualitzem l'entrada en Celsius, l'entrada en Fahrenheit hauria de relexar la conversió de temperatura, i viceversa.
+Malgrat això, volem que aquestes dues entrades estiguin en sincronització. Quan actualitzem l'entrada en Celsius, l'entrada en Fahrenheit hauria de relexar la conversió de temperatura, i viceversa.
 
-A React, compartir l'estat es pot aconseguir movent-lo cap a d'alt fins a l'avantpassat comú més proper dels components que el necessiten. Això s'anomena "pujar l'estat". Eliminarem l'estat local de `TemperatureInput` i el mourem a `Calculator`.
+A React, compartir l'estat es pot aconseguir movent-lo cap d'alt fins a l'avantpassat comú més proper dels components que el necessiten. Això s'anomena "pujar l'estat". Eliminarem l'estat local de `TemperatureInput` i el mourem a `Calculator`.
 
-Si `Calculator` té l'estat compartit, llavors es converteix en "la font de veritat" per la temperatura actual a les dues entrades. Aquest pot intruir a les dues a tenir valors consistents entre si. Ja que les propietat dels components `TemperatureInput` vénen des del mateix avantpassat `Calculator`, les dues entrades estaran sempre sincronitzades.
+Si `Calculator` té l'estat compartit, llavors es converteix en "la font de veritat" per la temperatura actual a les dues entrades. Aquest pot intruir a les dues a tenir valors consistents entre si. Ja que les propietats dels components `TemperatureInput` vénen des del mateix avantpassat `Calculator`, les dues entrades estaran sempre sincronitzades.
 
 Anem a veure com funciona pas per pas.
 
-Primer, cambiarem `this.state.temperature` amb `this.props.temperature` en el component `TemperatureInput`. Per ara, podem pretendre que `this.props.temperature` ja existeix, encara que l'haurem de passar des del component `Calculator` en el futur:
+Primer, canviarem `this.state.temperature` amb `this.props.temperature` en el component `TemperatureInput`. Per ara, podem pretendre que `this.props.temperature` ja existeix, encara que l'haurem de passar des del component `Calculator` en el futur:
 
 ```js{3}
   render() {
@@ -186,7 +186,7 @@ Primer, cambiarem `this.state.temperature` amb `this.props.temperature` en el co
     // ...
 ```
 
-Sabem que les [props són només de lectura](/docs/components-and-props.html#props-are-read-only). Quan la `temperature` estava a l'estat local, `TemperatureInput` només podia cridar `this.setState()` per canviar-la. No obstant, ara que la `temperature` ve des de l'avantpassat com a prop, `TemperatureInput` no té cap control sobre ella.
+Sabem que les [props són només de lectura](/docs/components-and-props.html#props-are-read-only). Quan la `temperature` estava a l'estat local, `TemperatureInput` només podia cridar `this.setState()` per canviar-la. No obstant això, ara que la `temperature` ve des de l'avantpassat com a prop, `TemperatureInput` no té cap control sobre ella.
 
 A React, això normalment es soluciona fent el component "controlat". Així com l'`<input>` del DOM accepta un `value` i una `onChange` prop, també `TemperatureInput` accepta les propietats `temperature` i `onTemperatureChange` de l'avantpassat `Calculator`.
 
@@ -201,7 +201,7 @@ Ara, quan `TemperatureInput` vol actualitzar la seva temperatura, crida `this.pr
 
 >Nota:
 >
->No hi ha cap significat especial en els noms `temperature` o `onTemperatureChange` en els components. Podríem haver-los anomenat qualsevol cosa, com `value` i `onChange` que són una convenció comú.
+>No hi ha cap significat especial en els noms `temperature` o `onTemperatureChange` en els components. Podríem haver-los anomenat qualsevol cosa, com `value` i `onChange` que són una convenció comuna.
 
 La propietat `onTemperatureChange` serà proveïda amb la propietat `temperature` per l'avantpassat `Calculator`. Controlarà el canvi modificant el seu estat local, així tornant a renderitzar les dues entrades amb els nous valors. Analitzarem a la nova implementació de `Calculator` ben prest.
 
@@ -236,7 +236,7 @@ Ara anem a mirar el component `Calculator`.
 
 Guardarem l'entrada actual de `temperature` i `scale` en el seu estat local. Això és l'estat que hem "pujat" de les entrades, i servirà com a "font de veritat" per a les dues. És la mínima representació de totes les dades que necessitem per poder renderitzar les dues entrades.
 
-Per exemple, si introduim 37 a l'entrada en Celsius, l'estat de `Calculator` serà:
+Per exemple, si introduïm 37 a l'entrada en Celsius, l'estat de `Calculator` serà:
 
 ```js
 {
@@ -254,7 +254,7 @@ Si després editem el camp en Fahrenheit per a que sigui 212, l'estat de `Calcul
 }
 ```
 
-Podríem haver guardat el valor de les dues entrades però resulta ser innecessari. És suficient guardar el valor de l'entrada que ha estat modificada més recentment, i l'escala que representa. Així podem extreure el valor de l'altra entrada des del valor actual de `temperature` i `scale` tot sols.
+Podríem haver guardat el valor de les dues entrades però resulta ser innecessari. És suficient guardar el valor de l'entrada que ha estat modificada més recentment, i l'escala que representa. Així podem extreure el valor de l'altra entrada des del valor actual de `temperature` i `scale` tots sols.
 
 Les entrades estan en sincronització perquè els seus valor estan computats des del mateix estat:
 
@@ -301,30 +301,30 @@ class Calculator extends React.Component {
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/WZpxpz?editors=0010)
 
-Ara, no importa quina entrada editis, que `this.state.temperature` i `this.state.scale` a `Calculator` són actualitzats. Una de les entrades té el valor introduit, de tal manera que qualsevol entrada de l'usuari és preservada, i l'altra entrada és sempre recalculada depenent d'aquesta.
+Ara, no importa quina entrada editis, que `this.state.temperature` i `this.state.scale` a `Calculator` són actualitzats. Una de les entrades té el valor introduït, de tal manera que qualsevol entrada de l'usuari és preservada, i l'altra entrada és sempre recalculada depenent d'aquesta.
 
-Anem a recordar què passa quan edites una entrada:
+Recordem què passa quan edites una entrada:
 
 * React crida la funció especificada com `onChange` en el DOM `<input>`. En el nostre cas, això és el mètode `handleChange` en el component `TemperatureInput`.
-* El mètode `handleChange` en el component `TemperatureInput` crida `this.props.onTemperatureChange()` amb el nou valor desitjat. Les seves propietats, incloent `onTemperatureChange`, han estat proporcionades per el component avantpassat, `Calculator`.
+* El mètode `handleChange` en el component `TemperatureInput` crida `this.props.onTemperatureChange()` amb el nou valor desitjat. Les seves propietats, inclosa `onTemperatureChange`, han estat proporcionades pel component avantpassat, `Calculator`.
 * Quan prèviament s'ha renderitzat, `Calculator` ha especificat que `onTemperatureChange` del `TemperatureInput` en Celsius és el mètode de `handleCelsiusChange` de `Calculator`, i `onTemperatureChange` del `TemperatureInput` en Fahrenheit és el mètode `handleFahrenheitChange` de `Calculator`. Així que qualsevol dels dos mètodes de `Calculator` és cridat depenent de quina entrada hem editat.
 * A dins aquests mètodes, el component `Calculator` demana a React que torni a renderitzar-se cridant `this.setState()` amb la nova entrada i l'escala actual de l'entrada que acabem d'editar.
-* React crida el mètode `render` del component `Calculator` per veure com la interfície d'usuari hauria de mostrar-se. Els valors de les dues entrades són recomputats depenent dels valors actuals de temperatura i escala. La conversió de temperatura succeeix aquí.
+* React crida el mètode `render` del component `Calculator` per veure com la interfície d'usuari hauria de mostrar-se. Els valors de les dues entrades són computats un altre cop depenent dels valors actuals de temperatura i escala. La conversió de temperatura succeeix aquí.
 * React crida els mètodes `render` dels components individuals `TemperatureInput` amb les seves noves props especificades per `Calculator`. Aprèn com les seves interfícies d'usuari haurien de mostrar-se.
 * React crida el mètode `render` del component `BoilingVerdict`, passant la temperatura en Celsius com a prop.
-* React DOM actualitza el DOM amb el veredicte d'ebullició i depenent de les entrades desitjades. L'entrada que just hem editat reb el seu valor actual, i l'altra entrada és actualitzada després de la conversió.
+* React DOM actualitza el DOM amb el veredicte d'ebullició i depenent de les entrades desitjades. L'entrada que just hem editat rep el seu valor actual, i l'altra entrada és actualitzada després de la conversió.
 
 Cada actualització passa pels mateixos passos perquè les entrades estiguin en sincronització.
 
 ## Lliçons apreses {#lessons-learned}
 
-Hi hauria d'have una sola "font de veritat" per qualsevol dada que canvïi en una aplicació de React. Usualment, l'estat és primer afegit al component que el necessita per renderitzar-se. Llavors, si un altre component també el necessita, es pot pujar cap a l'avantpassat comú més proper. En lloc d'intentar sincronitzar l'estat entre distints components, hauries de basar-te en el [fluxe de dades de dalt a baix](/docs/state-and-lifecycle.html#the-data-flows-down).
+Hi hauria d'haver una sola "font de veritat" per qualsevol dada que canviï en una aplicació de React. Usualment, l'estat és primer afegit al component que el necessita per renderitzar-se. Llavors, si un altre component també el necessita, es pot pujar cap a l'avantpassat comú més proper. En lloc d'intentar sincronitzar l'estat entre distints components, hauries de basar-te en el [flux de dades de dalt a baix](/docs/state-and-lifecycle.html#the-data-flows-down).
 
 Pujar l'estat suposa escriure més codi que en casos "two-way binding", però com a benefici, es tarda menys en trobar errors. Com que cada estat "viu" en algun component i només aquell component sol pot canviar-lo, l'àrea per cometre errors és molt reduïda. Addicionalment, pots implementar qualsevol lògica per rebutjar o transformar les entrades de l'usuari.
 
-Si alguna cosa podria estar derivada tan de props com d'estat, probablemnent no hauria de trobar-se a l'estat. Per exemple, en lloc de guardar `celsiusValue` i `fahrenheitValue`, només guardem la darrera `temperature` i la seva `scale`. Amb això, el valor de l'altra entrada sempre es pot calcular en el mètode `render()`. Això ens permet no perdre cap precisió en els decimals de les entrades de l'usuari.
+Si alguna cosa podria estar derivada tan de props com d'estat, probablement no hauria de trobar-se a l'estat. Per exemple, en lloc de guardar `celsiusValue` i `fahrenheitValue`, només guardem la darrera `temperature` i la seva `scale`. Amb això, el valor de l'altra entrada sempre es pot calcular en el mètode `render()`. Això ens permet no perdre cap precisió en els decimals de les entrades de l'usuari.
 
-Quan veus alguna cosa incorrecta en l'interfície d'usuari, pots usar [React Developer Tools](https://github.com/facebook/react-devtools) per inspeccionar les props i l'arbre fins que trobis el component responsable d'actualitzar l'estat. Això permet seguir error fins la seva font:
+Quan veus alguna cosa incorrecta en la interfície d'usuari, pots usar [React Developer Tools](https://github.com/facebook/react-devtools) per inspeccionar les props i l'arbre fins que trobis el component responsable d'actualitzar l'estat. Això permet seguir error fins a la seva font:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 
