@@ -1,6 +1,6 @@
 ---
 id: composition-vs-inheritance
-title: Composition vs Inheritance
+title: Composició vs. herència
 permalink: docs/composition-vs-inheritance.html
 redirect_from:
   - "docs/multiple-components.html"
@@ -8,15 +8,15 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
-React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components.
+React té un model potent de composició, i recomanem usar composició en lloc d'herència per reusar codi entre components.
 
-In this section, we will consider a few problems where developers new to React often reach for inheritance, and show how we can solve them with composition.
+En aquesta secció, considerem alguns problemes que desenvolupadors nous a React solucionen amb herència, i mostrem com podem resoldre-los amb composició.
 
-## Containment {#containment}
+## Contenció {#containment}
 
-Some components don't know their children ahead of time. This is especially common for components like `Sidebar` or `Dialog` that represent generic "boxes".
+Alguns components no conèixen els seus fills d'avantmà. Això és especialment comú per components com `Sidebar` o `Dialog` que representen "capces" genèriques.
 
-We recommend that such components use the special `children` prop to pass children elements directly into their output:
+Recomanem que aquests components emprin la prop especial `children` per passar elements fill directament al seu resultat:
 
 ```js{4}
 function FancyBorder(props) {
@@ -28,7 +28,7 @@ function FancyBorder(props) {
 }
 ```
 
-This lets other components pass arbitrary children to them by nesting the JSX:
+Això permet que altres components els hi passin fills arbitraris anidant JSX:
 
 ```js{4-9}
 function WelcomeDialog() {
@@ -45,11 +45,11 @@ function WelcomeDialog() {
 }
 ```
 
-**[Try it on CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
+**[Prova-ho a CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
 
-Anything inside the `<FancyBorder>` JSX tag gets passed into the `FancyBorder` component as a `children` prop. Since `FancyBorder` renders `{props.children}` inside a `<div>`, the passed elements appear in the final output.
+Qualsevol cosa a dins l'etiqueta JSX `<FancyBorder>` és passat a dins el component `FancyBorder` com una propietat `children`. Com que `FancyBorder` renderitza `{props.children}` a dins un `<div>`, els elements que han estat passats aparèixen en el resultat final.
 
-While this is less common, sometimes you might need multiple "holes" in a component. In such cases you may come up with your own convention instead of using `children`:
+Mentre que això és menys comú, a vegades pot ser que necessitis diversos "buits" en un component. En aquests casos pots inventar-te la teva convenció en lloc d'usar `children`:
 
 ```js{5,8,18,21}
 function SplitPane(props) {
@@ -78,9 +78,9 @@ function App() {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
 
-React elements like `<Contacts />` and `<Chat />` are just objects, so you can pass them as props like any other data. This approach may remind you of "slots" in other libraries but there are no limitations on what you can pass as props in React.
+Elements de React com `<Contacts />` i `<Chat />` són només objectes, així que pots passar-los com props com qualsevol altra dada. Aquesta forma pot recordar-te a "forats" en altres llibreries però no hi ha limitacions en el que pots passar com props a React.
 
 ## Specialization {#specialization}
 
