@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Thinking in React
+title: Pensant en React
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -8,17 +8,17 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+React és, en la nostra opinió, la millor forma de contruir grans i ràpides aplicacions web amb JavaScript. Ha escalat molt bé per a nosaltres a Facebook i Instagram.
 
-One of the many great parts of React is how it makes you think about apps as you build them. In this document, we'll walk you through the thought process of building a searchable product data table using React.
+Una de les parts més grans de React és com et fa pensar de les aplicacions mentres les construeixes. En aquest document, t'ensenyarem el procés de contruir una taula de productes amb una funcionalitat de cerca emprant React.
 
-## Start With A Mock {#start-with-a-mock}
+## Comença amb una maqueta {#start-with-a-mock}
 
-Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:
+Imagina que ja tenim una API JSON i una maqueta del nostre dissenyador. La maqueta té aquesta pinta:
 
 ![Mockup](../images/blog/thinking-in-react-mock.png)
 
-Our JSON API returns some data that looks like this:
+La nostra JSON API retorna dades que són així:
 
 ```
 [
@@ -31,27 +31,27 @@ Our JSON API returns some data that looks like this:
 ];
 ```
 
-## Step 1: Break The UI Into A Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
+## Pas 1: Partir l'interfície d'usuari en una jerarquia de components {#step-1-break-the-ui-into-a-component-hierarchy}
 
-The first thing you'll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you're working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!
+La primera cosa que hauries de fer és dibuixar capces al voltant de cada component (i subcomponent) a la maqueta i donar-lis noms a tots. Si estàs treballant amb un equip de disseny, pot ser ja ha fet això, així que ves a comentar-ho! Les capes de Photoshop que hagin usat poden acabar sent els teus components de React!
 
-But how do you know what should be its own component? Use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+Però com saps què hauria de ser el seu propi component? Usa la mateixa tècnica per decidir si hauries de crear una nova funció o objecte. Una tècnica és la del [principi de responsabilitat única](https://en.wikipedia.org/wiki/Single_responsibility_principle), que és, un component només hauria de fer idealment una sola cosa. Si acaba creixent, hauria de descomposar-se en components més petits.
 
-Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
+Com que normalment mostres un model de dades JSON a l'usuari, veuràs que si el teu model ha estat construit de manera adequada, la teva interfície d'usuari (i llavors la teva estructura de components) encaixarà perfectament. Això passa perquè les interfícies d'usuari i els models de dades tendeixen a seguir la mateixa *arquitectura d'informació*. Separa la teva interfície d'usuari en components, on cada component representa una part del teu model de dades.
 
 ![Component diagram](../images/blog/thinking-in-react-components.png)
 
-You'll see here that we have five components in our app. We've italicized the data each component represents.
+Veuràs aquí que tenim cinc components a la nostra aplicació. Hem escrit en itàlica les dades que cada component representa.
 
-  1. **`FilterableProductTable` (orange):** contains the entirety of the example
-  2. **`SearchBar` (blue):** receives all *user input*
-  3. **`ProductTable` (green):** displays and filters the *data collection* based on *user input*
-  4. **`ProductCategoryRow` (turquoise):** displays a heading for each *category*
-  5. **`ProductRow` (red):** displays a row for each *product*
+  1. **`FilterableProductTable` (taronja):** conté tot l'exemple
+  2. **`SearchBar` (blau):** rep totes *les entrades de l'usuari*
+  3. **`ProductTable` (verd):** mostra i filtra la *colecció de dades* basades en *les entrades de l'usuari*
+  4. **`ProductCategoryRow` (turquesa):** mostra una capçalera per a cada *categoria*
+  5. **`ProductRow` (vermell):** mostra una fila per cada *producte*
 
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
+Si mires `ProductTable`, veuràs que la capçalera de la taula (contenint les etiquetes "Name" i "Price") no és el seu propi component. Això és qüestió de preferència, i hi ha una raons per fer-ho de distintes formes. Per a aquest exemple, l'hem deixat com a part de `ProductTable` perquè forma part de renderitzar la *colecció de dades* que és la responsabilitat de `ProductTable`. Malgrat això, si aquesta capçalera es torna complexa (per exemple, si volguéssim afegir una forma d'ordenar-la), tendria sentit que `ProductTableHeader` fos el seu propi component.
 
-Now that we've identified the components in our mock, let's arrange them into a hierarchy. Components that appear within another component in the mock should appear as a child in the hierarchy:
+Ara que hem identificat els components a la maqueta, posem-los en jerarquia. Els components que apareixin a dins altres components a la maqueta haurien d'aparèixer com a fills a la jerarquia:
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -59,14 +59,14 @@ Now that we've identified the components in our mock, let's arrange them into a 
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Step 2: Build A Static Version in React {#step-2-build-a-static-version-in-react}
+## Pas 2: Contruir una versió estàtica amb React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Mira el Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> a <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-Now that you have your component hierarchy, it's time to implement your app. The easiest way is to build a version that takes your data model and renders the UI but has no interactivity. It's best to decouple these processes because building a static version requires a lot of typing and no thinking, and adding interactivity requires a lot of thinking and not a lot of typing. We'll see why.
+Ara que tens la jerarquia de components, és el moment d'implementar la teva aplicació. La forma més fàcil és construir una versió que agafa el teu model de dades i renderitza la interfície d'usuari però no té cap interactivitat. És millor separar aquests processos perquè contruir una versió estàtica requereix molta escriptura i no pensar, i afegir interactivitat requereix molt de pensar i poca escriptura. Veurem per què.
 
-To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using *props*. *props* are a way of passing data from parent to child. If you're familiar with the concept of *state*, **don't use state at all** to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.
+Per construir una versió estàtica de la teva aplicació que renderitzi el teu model de dades, voldràs crear components que reusin altres components i passin dades usant *props*. *props* són una forma de passar dades de pares a fills. Si ets familiar amb el concepte d'*estat*, **no usis estat de cap manera** per construir aquesta versió estàtica. L'estat està reservat només per a la interactivitat, que és, dades que canvien al llarg del temps. Com que això és una versió estàtica de l'aplicació, no el necessites.
 
 You can build top-down or bottom-up. That is, you can either start with building the components higher up in the hierarchy (i.e. starting with `FilterableProductTable`) or with the ones lower in it (`ProductRow`). In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up and write tests as you build.
 
