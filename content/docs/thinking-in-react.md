@@ -68,56 +68,56 @@ Ara que tens la jerarquia de components, és el moment d'implementar la teva apl
 
 Per construir una versió estàtica de la teva aplicació que renderitzi el teu model de dades, voldràs crear components que reusin altres components i passin dades usant *props*. *props* són una forma de passar dades de pares a fills. Si ets familiar amb el concepte d'*estat*, **no usis estat de cap manera** per construir aquesta versió estàtica. L'estat està reservat només per a la interactivitat, que és, dades que canvien al llarg del temps. Com que això és una versió estàtica de l'aplicació, no el necessites.
 
-You can build top-down or bottom-up. That is, you can either start with building the components higher up in the hierarchy (i.e. starting with `FilterableProductTable`) or with the ones lower in it (`ProductRow`). In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up and write tests as you build.
+Pots construir de dalt a baix o de baix a dalt. És a dir, pots començar amb la construcció dels components més amunt en la jerarquia (per exemple començant amb `FilterableProductTable`) o amb els inferiors en ell (`ProductRow`). En exemples més senzills, en general és més fàcil anar de dalt a baix, i en projectes més grans, és més fàcil anar de baix a dalt i escriure proves a mesura que vas construint.
 
-At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `ReactDOM.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+Al final d'aquest pas, tindràs una biblioteca de components reutilitzables que renderitzen el teu model de dades. Els components només tindran mètodes `render()` ja que es tracta d'una versió estàtica de l'aplicació. El component a la part superior de la jerarquia (`FilterableProductTable`) prendrà el teu model de dades com a prop. Si fas un canvi al model de dades subjacent i crides a `ReactDOM.render()`, s'actualitzarà la interfície d'usuari. Pots veure com està actualitzada la teva IU i on fer els canvis. **El flux de dades en un sentit** de React (també anomenat *one-way binding*) ho manté tot modular i ràpid.
 
-Refer to the [React docs](/docs/) if you need help executing this step.
+Revisa la [documentació de React](/docs/) si necessites ajuda amb aquest pas.
 
-### A Brief Interlude: Props vs State {#a-brief-interlude-props-vs-state}
+### Una petita pausa: Props vs. estat {#a-brief-interlude-props-vs-state}
 
-There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/docs/state-and-lifecycle.html) if you aren't sure what the difference is. See also [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
+Hi ha dos tipus de dades "model" a React: props i estat. És important entendre la distinció entre les dues; dóna una ullada a [la documentació oficial de React](/docs/state-and-lifecycle.html) si no estàs segur de quina és la diferència. Mira també [Quina és la diferència entre l'estat i les props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
-## Step 3: Identify The Minimal (but complete) Representation Of UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
+## Pas 3: identifica la representació mínima (però completa) de l'estat de la IU {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with **state**.
+Per fer que la teva UI sigui interactiva, has de poder activar els canvis al model de dades subjacent. React aconsegueix això amb l'**estat**.
 
-To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, take the length of the TODO items array.
+Per crear la teva aplicació correctament, primer has de pensar en la mínima quantitat d'estat mutable que necessita l'aplicació. La clau aquí és que [*no et repeteixis*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (DRY: Don't Repeat Yourself). Esbrina la mínima representació absoluta de l'estat que necessita la teva aplicació i calcula tot el que necessitis sota demanda. Per exemple, si estàs construint una llista de tasques, només mantingues un array de les tasques; no mantinguis una variable d'estat separada per al contador. En canvi, quan vulgues renderitzar el compte de tasques, agafa la llargada de l'array de tasques.
 
-Think of all of the pieces of data in our example application. We have:
+Pensa en totes les peces de dades en el nostre exemple d'aplicació. Disposem de:
 
-  * The original list of products
-  * The search text the user has entered
-  * The value of the checkbox
-  * The filtered list of products
+  * La llista original de productes
+  * El text de cerca que l'usuari ha introduït
+  * El valor de la checkbox
+  * La llista filtrada de productes
 
-Let's go through each one and figure out which one is state. Ask three questions about each piece of data:
+Anem a través de cada un i esbrinem quin és l'estat. Fes tres preguntes sobre cada peça de dades:
 
-  1. Is it passed in from a parent via props? If so, it probably isn't state.
-  2. Does it remain unchanged over time? If so, it probably isn't state.
-  3. Can you compute it based on any other state or props in your component? If so, it isn't state.
+  1. És passat d'un pare a través de props? Si és així, probablement no és estat.
+  2. Es manté inalterat en el temps? Si és així, probablement no és estat.
+  3. Es pot calcular a partir d'un altre estat o props en el teu component? Si és així, no és estat.
 
-The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
+La llista original de productes es transmet com a props, de manera que no és estat. El text de cerca i la checkbox sembla que siguin estat ja que canvien en el temps i no es poden computar de qualsevol cosa. I finalment, la llista filtrada de productes no és estat perquè es pot calcular combinant la llista original de productes amb el text de cerca i el valor de la checkbox.
 
-So finally, our state is:
+Així que finalment, el nostre estat és:
 
-  * The search text the user has entered
-  * The value of the checkbox
+  * El text de cerca que l'usuari ha introduït
+  * El valor de la checkbox
 
-## Step 4: Identify Where Your State Should Live {#step-4-identify-where-your-state-should-live}
+## Pas 4: Identifica on ha de viure el teu estat {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Mira el Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> a <a href="https://codepen.io">CodePen</a>.</p>
 
-OK, so we've identified what the minimal set of app state is. Next, we need to identify which component mutates, or *owns*, this state.
+OK, així que hem identificat quin és el conjunt mínim d'estat de l'aplicació. A continuació, necessitem identificar quin component muta, o *posseeix*, aquest estat.
 
-Remember: React is all about one-way data flow down the component hierarchy. It may not be immediately clear which component should own what state. **This is often the most challenging part for newcomers to understand,** so follow these steps to figure it out:
+Recorda: React és tot sobre flux de dades d'un sentit a la jerarquia de components. Pot ser no sigui immediatament clar quin component hauria de posseir l'estat. **Això és sovint la part més difícil d'entendre per als nouvinguts,** així que segueix aquests passos per esbrinar-ho:
 
-For each piece of state in your application:
+Per a cada peça d'estat en la teva aplicació:
 
-  * Identify every component that renders something based on that state.
-  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
-  * Either the common owner or another component higher up in the hierarchy should own the state.
-  * If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+  * Identifica cada component que renderitza alguna cosa basada en aquell estat.
+  * Troba un component comú a aquests (un component per sobre de tots els components que necessiten l'estat en la jerarquia).
+  * Aquest o un altre component més a dalt en la jerarquia haurien de posseir l'estat.
+  * Si no pots trobar un component on tingui sentit posseir l'estat, crea un nou component únicament per tenir l'estat i afegeix-lo en algun lloc de la jerarquia per sobre dels component que el necessitin.
 
 Let's run through this strategy for our application:
 
@@ -125,22 +125,28 @@ Let's run through this strategy for our application:
   * The common owner component is `FilterableProductTable`.
   * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
 
-Cool, so we've decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`'s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
+Anem a veure aquesta estratègia per a la nostra aplicació:
 
-You can start seeing how your application will behave: set `filterText` to `"ball"` and refresh your app. You'll see that the data table is updated correctly.
+  * `ProductTable` necessita filtrar la llista de producte basat en l'estat i `SearchBar` necessita mostrar el text de cerca i l'estat de la checkbox.
+  * El component pare comú és `FilterableProductTable`.
+  * Conceptualment té sentit per al text de cerca i el valor de la checkbox que visquin a `FilterableProductTable`
 
-## Step 5: Add Inverse Data Flow {#step-5-add-inverse-data-flow}
+Bé, així que hem decidit que el nostre estat viu a `FilterableProductTable`. En primer lloc, afegeix una propietat d'instància `this.state = {filterText: '', inStockOnly: false}` al `constructor` de `FilterableProductTable` per reflectir l'estat inicial de la teva aplicació. Llavors, passa `filterText` i `inStockOnly` a `ProductTable` i `SearchBar` com a prop. Finalment, utilitza aquestes props per filtrar les files a `ProductTable` i establir els valors dels camps de formulari a `SearchBar`.
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> on <a href="https://codepen.io">CodePen</a>.</p>
+Pots començar a veure com es comportarà la teva aplicació: posa `filterText` a `"ball"` i recarrega la teva aplicació. Veuràs que la taula de dades s'ha actualitzat correctament.
 
-So far, we've built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it's time to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+## Pas 5: Afegeix flux de dades invers {#step-5-add-inverse-data-flow}
 
-React makes this data flow explicit to help you understand how your program works, but it does require a little more typing than traditional two-way data binding.
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Mira el Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> a <a href="https://codepen.io">CodePen</a>.</p>
 
-If you try to type or check the box in the current version of the example, you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+Fins ara, hem construït una aplicació que renderitza correctament com una funció de props i estat que flueix cap avall de la jerarquia. Ara és el moment de tractar les dades que flueixen de l'altra manera: els components de formulari profunds en la jerarquia necessiten actualitzar l'estat a `FilterableProductTable`.
 
-Let's think about what we want to happen. We want to make sure that whenever the user changes the form, we update the state to reflect the user input. Since components should only update their own state, `FilterableProductTable` will pass callbacks to `SearchBar` that will fire whenever the state should be updated. We can use the `onChange` event on the inputs to be notified of it. The callbacks passed by `FilterableProductTable` will call `setState()`, and the app will be updated.
+React fa que aquest flux de dades explícit per ajudar a entendre com funciona el teu programa, però requereix una mica més d'escriptura que el tradicional flux en dos sentits.
 
-## And That's It {#and-thats-it}
+Si intentes escriure o marques la checkbox en la versió actual de l'exemple, veuràs que React ignora la teva entrada. Això és intencional, com que hem fixat la prop `value` de l'`input` perquè sempre sigui igual a l'`estat` passat de `FilterableProductTable`.
 
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+Anem a pensar en el que volem que succeeixi. Volem assegurar-nos que cada vegada que l'usuari canviï el formulari, actualitzem l'estat per reflectir l'entrada de l'usuari. Ja que els components només haurien d'actualitzar el seu propi estat, `FilterableProductTable` passarà callbacks a `SearchBar` que es cridaran quan l'estat s'hagi d'actualitzar. Podem utilitzar l'esdeveniment `onChange` en les entrades per això. Les callbacks passades per `FilterableProductTable` cridaran `setState()`, i l'aplicació s'actualitzarà.
+
+## I això és tot {#and-thats-it}
+
+Tan de bo, això et doni una idea de com pensar construir components i aplicacions amb React. Tot i que pot ser una mica més d'escriptura del que estàs acostumat, recorda que el codi es llegeix molt més del que s'escriu, i és menys difícil de llegir aquest codi si és modular i explícit. A mesura que comencis a construir grans biblioteques de components, apreciaràs això, i amb la reutilització de codi, les línies de codi començaran a reduir-se. :)
