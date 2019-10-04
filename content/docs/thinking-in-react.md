@@ -119,12 +119,6 @@ Per a cada peça d'estat en la teva aplicació:
   * Aquest o un altre component més a dalt en la jerarquia haurien de posseir l'estat.
   * Si no pots trobar un component on tingui sentit posseir l'estat, crea un nou component únicament per tenir l'estat i afegeix-lo en algun lloc de la jerarquia per sobre dels component que el necessitin.
 
-Let's run through this strategy for our application:
-
-  * `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
-  * The common owner component is `FilterableProductTable`.
-  * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
-
 Anem a veure aquesta estratègia per a la nostra aplicació:
 
   * `ProductTable` necessita filtrar la llista de producte basat en l'estat i `SearchBar` necessita mostrar el text de cerca i l'estat de la checkbox.
