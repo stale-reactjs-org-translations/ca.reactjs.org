@@ -118,7 +118,11 @@ Recomanem seguir [aquestes instruccions](https://babeljs.io/docs/editors/) per c
 
 ### Ajuda, estic encallat! {#help-im-stuck}
 
+<<<<<<< HEAD
 Si t'encalles, revisa els [recursos de suport de la comunitat](/community/support.html). En particular, [xat de React i flux](https://discord.gg/0ZcbPKXt5bZjGY5n) és una gran manera d'obtenir ajuda ràpidament. Si no reps una resposta, o segueixes encallat, si us plau crea un issue, i t'ajudarem.
+=======
+If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 ## Visió general {#overview}
 
@@ -335,7 +339,11 @@ L'extensió de React DevTools Library per [Chrome](https://chrome.google.com/web
 
 React DevTools et permet revisar les props i l'estat dels teus components de React.
 
+<<<<<<< HEAD
 Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixerà com l'última pestanya a la dreta.
+=======
+After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 **No obstant això, notar que hi ha uns quants passos extres per fer-lo funcionar amb CodePen:**
 
