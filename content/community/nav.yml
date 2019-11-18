@@ -18,6 +18,7 @@
       title: Videos
     - id: external-resources
       title: External Resources
+<<<<<<< HEAD
 - title: Eines
   items:
     - id: debugging-tools
@@ -38,3 +39,5 @@
       title: UI Components
     - id: misc
       title: Miscellaneous
+=======
+>>>>>>> 72775e97f9a5f26d93153f58e650eb8c604d207f
