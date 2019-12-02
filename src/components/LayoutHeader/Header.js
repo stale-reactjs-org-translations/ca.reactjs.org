@@ -14,6 +14,9 @@ import {version} from 'site-constants';
 import ExternalLinkSvg from 'templates/components/ExternalLinkSvg';
 import DocSearch from './DocSearch';
 
+// $FlowFixMe
+import navHeader from '../../../content/headerNav.yml';
+
 import logoSvg from 'icons/logo.svg';
 
 const Header = ({location}: {location: Location}) => (
@@ -26,6 +29,9 @@ const Header = ({location}: {location: Location}) => (
       width: '100%',
       top: 0,
       left: 0,
+      '@media print': {
+        display: 'none',
+      },
     }}>
     <Container>
       <div
@@ -120,6 +126,7 @@ const Header = ({location}: {location: Location}) => (
                 'linear-gradient(to right, transparent, black 20px, black 90%, transparent)',
             },
           }}>
+<<<<<<< HEAD
           <HeaderLink
             isActive={location.pathname.includes('/docs/')}
             title="Documentació"
@@ -140,6 +147,16 @@ const Header = ({location}: {location: Location}) => (
             title="Comunitat"
             to="/community/support.html"
           />
+=======
+          {navHeader.items.map(link => (
+            <HeaderLink
+              key={link.title}
+              isActive={location.pathname.includes(link.activeSelector)}
+              title={link.title}
+              to={link.to}
+            />
+          ))}
+>>>>>>> e0a0ec3dad47804d0b41d4a7bb81841638dc79dd
         </nav>
 
         <DocSearch />

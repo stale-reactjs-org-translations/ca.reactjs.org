@@ -10,9 +10,13 @@ import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
 import FooterNav from './FooterNav';
 import MetaTitle from 'templates/components/MetaTitle';
+import SectionLinks from './SectionLinks';
 import React from 'react';
 import {colors, media} from 'theme';
 import {sectionListCommunity, sectionListDocs} from 'utils/sectionList';
+
+// $FlowFixMe
+import navFooter from '../../../content/footerNav.yml';
 
 import ossLogoPng from 'images/oss_logo.png';
 
@@ -26,6 +30,9 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
 
       [media.size('sidebarFixed')]: {
         paddingTop: 40,
+      },
+      '@media print': {
+        display: 'none',
       },
     }}>
     <Container>
@@ -60,7 +67,11 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             },
           }}>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Documentació</MetaTitle>
+=======
+            <MetaTitle onDark={true}>{navFooter.docs.title}</MetaTitle>
+>>>>>>> e0a0ec3dad47804d0b41d4a7bb81841638dc79dd
             {sectionListDocs.map(section => {
               const defaultItem = section.items[0];
               return (
@@ -73,6 +84,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             })}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Canals</MetaTitle>
             <ExternalFooterLink
               href="https://github.com/facebook/react"
@@ -119,6 +131,17 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>Comunitat</MetaTitle>
+=======
+            <MetaTitle onDark={true}>{navFooter.channels.title}</MetaTitle>
+            <SectionLinks links={navFooter.channels.items} />
+          </FooterNav>
+          <FooterNav layoutHasSidebar={layoutHasSidebar}>
+            <MetaTitle onDark={true}>{navFooter.community.title}</MetaTitle>
+            <ExternalFooterLink
+              href={`https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md`}>
+              Code of Conduct
+            </ExternalFooterLink>
+>>>>>>> e0a0ec3dad47804d0b41d4a7bb81841638dc79dd
             {sectionListCommunity.map(section => (
               <FooterLink
                 to={`/community/${section.items[0].id}.html`}
@@ -128,6 +151,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             ))}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Més</MetaTitle>
             <FooterLink to="/tutorial/tutorial.html">Tutorial</FooterLink>
             <FooterLink to="/blog/">Blog</FooterLink>
@@ -140,6 +164,10 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               rel="noopener">
               React Native
             </ExternalFooterLink>
+=======
+            <MetaTitle onDark={true}>{navFooter.more.title}</MetaTitle>
+            <SectionLinks links={navFooter.more.items} />
+>>>>>>> e0a0ec3dad47804d0b41d4a7bb81841638dc79dd
           </FooterNav>
         </div>
         <section
