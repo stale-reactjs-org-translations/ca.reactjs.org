@@ -2,6 +2,8 @@
   items:
     - id: support
       title: Support
+    - id: team
+      title: Team
     - id: courses
       title: Courses
     - id: examples
@@ -18,6 +20,7 @@
       title: Videos
     - id: external-resources
       title: External Resources
+<<<<<<< HEAD
 - title: Eines
   items:
     - id: debugging-tools
@@ -38,3 +41,5 @@
       title: UI Components
     - id: misc
       title: Miscellaneous
+=======
+>>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
