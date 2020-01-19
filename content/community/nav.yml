@@ -1,45 +1,22 @@
 - title: Recursos de la comunitat
   items:
     - id: support
-      title: Support
+      title: Suport
     - id: team
-      title: Team
+      title: Equip
     - id: courses
-      title: Courses
+      title: Cursos
     - id: examples
-      title: Examples
+      title: Exemples
     - id: meetups
-      title: Meetups
+      title: Trobades
     - id: conferences
-      title: Conferences
+      title: Conferències
     - id: articles
       title: Articles
     - id: podcasts
       title: Podcasts
     - id: videos
-      title: Videos
+      title: Vídeos
     - id: external-resources
-      title: External Resources
-<<<<<<< HEAD
-- title: Eines
-  items:
-    - id: debugging-tools
-      title: Debugging
-    - id: component-workbenches
-      title: Component Workbenches
-    - id: jsx-integrations
-      title: JSX Integrations
-    - id: starter-kits
-      title: Starter Kits
-    - id: routing
-      title: Routing
-    - id: model-management
-      title: Model Management
-    - id: data-fetching
-      title: Data Fetching
-    - id: ui-components
-      title: UI Components
-    - id: misc
-      title: Miscellaneous
-=======
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
+      title: Recursos externs

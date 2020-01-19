@@ -67,11 +67,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             },
           }}>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-<<<<<<< HEAD
-            <MetaTitle onDark={true}>Documentació</MetaTitle>
-=======
             <MetaTitle onDark={true}>{navFooter.docs.title}</MetaTitle>
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
             {sectionListDocs.map(section => {
               const defaultItem = section.items[0];
               return (
@@ -84,54 +80,6 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             })}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-<<<<<<< HEAD
-            <MetaTitle onDark={true}>Canals</MetaTitle>
-            <ExternalFooterLink
-              href="https://github.com/facebook/react"
-              target="_blank"
-              rel="noopener">
-              GitHub
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://stackoverflow.com/questions/tagged/reactjs"
-              target="_blank"
-              rel="noopener">
-              Stack Overflow
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://reactjs.org/community/support.html#popular-discussion-forums"
-              target="_blank"
-              rel="noopener">
-              Fòrums de discussió
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://discord.gg/0ZcbPKXt5bZjGY5n"
-              target="_blank"
-              rel="noopener">
-              Xat Reactiflux
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://dev.to/t/react"
-              target="_blank"
-              rel="noopener">
-              Comunitat DEV
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://www.facebook.com/react"
-              target="_blank"
-              rel="noopener">
-              Facebook
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://twitter.com/reactjs"
-              target="_blank"
-              rel="noopener">
-              Twitter
-            </ExternalFooterLink>
-          </FooterNav>
-          <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>Comunitat</MetaTitle>
-=======
             <MetaTitle onDark={true}>{navFooter.channels.title}</MetaTitle>
             <SectionLinks links={navFooter.channels.items} />
           </FooterNav>
@@ -141,7 +89,6 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               href={`https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md`}>
               Code of Conduct
             </ExternalFooterLink>
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
             {sectionListCommunity.map(section => (
               <FooterLink
                 to={`/community/${section.items[0].id}.html`}
@@ -151,23 +98,8 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             ))}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-<<<<<<< HEAD
-            <MetaTitle onDark={true}>Més</MetaTitle>
-            <FooterLink to="/tutorial/tutorial.html">Tutorial</FooterLink>
-            <FooterLink to="/blog/">Blog</FooterLink>
-            <FooterLink to="/acknowledgements.html">
-              Agraïments
-            </FooterLink>
-            <ExternalFooterLink
-              href="https://facebook.github.io/react-native/"
-              target="_blank"
-              rel="noopener">
-              React Native
-            </ExternalFooterLink>
-=======
             <MetaTitle onDark={true}>{navFooter.more.title}</MetaTitle>
             <SectionLinks links={navFooter.more.items} />
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
           </FooterNav>
         </div>
         <section

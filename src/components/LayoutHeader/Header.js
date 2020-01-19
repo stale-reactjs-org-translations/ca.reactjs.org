@@ -126,28 +126,6 @@ const Header = ({location}: {location: Location}) => (
                 'linear-gradient(to right, transparent, black 20px, black 90%, transparent)',
             },
           }}>
-<<<<<<< HEAD
-          <HeaderLink
-            isActive={location.pathname.includes('/docs/')}
-            title="Documentació"
-            to="/docs/getting-started.html"
-          />
-          <HeaderLink
-            isActive={location.pathname.includes('/tutorial/')}
-            title="Tutorial"
-            to="/tutorial/tutorial.html"
-          />
-          <HeaderLink
-            isActive={location.pathname.includes('/blog')}
-            title="Blog"
-            to="/blog/"
-          />
-          <HeaderLink
-            isActive={location.pathname.includes('/community/')}
-            title="Comunitat"
-            to="/community/support.html"
-          />
-=======
           {navHeader.items.map(link => (
             <HeaderLink
               key={link.title}
@@ -156,7 +134,6 @@ const Header = ({location}: {location: Location}) => (
               to={link.to}
             />
           ))}
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
         </nav>
 
         <DocSearch />
