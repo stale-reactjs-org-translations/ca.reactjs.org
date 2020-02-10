@@ -56,7 +56,11 @@ function ActionLink() {
 
 Aquí, `e` és un esdeveniment sintètic. React defineix aquests esdeveniments sintètics d'acord amb [l'especificaió W3C](https://www.w3.org/TR/DOM-Level-3-Events/), així que no necessites preocupar-te de la compatibilitat amb diferents navegadors. Llegeix la referència [`SyntheticEvent`](/docs/events.html) per aprendre'n més.
 
+<<<<<<< HEAD
 Quan usis React no hauries de necessitar cridar `addEventListener` per afegir oients a un element del DOM després que sigui creat. Contràriament, només proveeix un oient quan l'element sigui renderitzar inicialment.
+=======
+When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 Quan defineixis un compoenent usant una [classe ES6](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), un patró comú per un controlador d'esdeveniments és que aquest sigui un mètode de la classe. Per exemple, aquest component `Toggle` renderitza un botó que permet a l'usuari escollir entre els estats "ON" i "OFF":
 
@@ -142,7 +146,11 @@ El problema amb aquesta sintaxi és que un callback diferent és creat cada cop 
 
 ## Passant arguments a controladors d'esdeveniments {#passing-arguments-to-event-handlers}
 
+<<<<<<< HEAD
 A dins un bucle és comú voler passar un paràmetre extra a un controlador d'esdeveniments. Per exemple, si `id` és l'ID fila, qualsevol dels següents funcionaria:
+=======
+Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
