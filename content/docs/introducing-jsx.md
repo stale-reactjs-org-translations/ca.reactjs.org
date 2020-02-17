@@ -181,4 +181,8 @@ Explorem el renderitzat d'elements de React en el DOM a la següent secció.
 
 >**Consell:**
 >
+<<<<<<< HEAD
 >Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència perquè tant el codi en ES6 com JSX sigui emfatitzat correctament. Aquesta pàgina web utilitza l'esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) que hi és compatible.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> 5af5fba65a7e9570a4d00c85d8a17b6cdc166bb6

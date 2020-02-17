@@ -324,7 +324,11 @@ Pujar l'estat suposa escriure més codi que en casos "two-way binding", però co
 
 Si alguna cosa podria estar derivada tan de props com d'estat, probablement no hauria de trobar-se a l'estat. Per exemple, en lloc de guardar `celsiusValue` i `fahrenheitValue`, només guardem la darrera `temperature` i la seva `scale`. Amb això, el valor de l'altra entrada sempre es pot calcular en el mètode `render()`. Això ens permet no perdre cap precisió en els decimals de les entrades de l'usuari.
 
+<<<<<<< HEAD
 Quan veus alguna cosa incorrecta en la interfície d'usuari, pots usar [React Developer Tools](https://github.com/facebook/react-devtools) per inspeccionar les props i l'arbre fins que trobis el component responsable d'actualitzar l'estat. Això permet seguir error fins a la seva font:
+=======
+When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+>>>>>>> 5af5fba65a7e9570a4d00c85d8a17b6cdc166bb6
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 
