@@ -70,6 +70,10 @@ Pots fer això inspeccionant l'[últim exemple](codepen://rendering-elements/upd
 
 ![Inspector del DOM mostrant actualitzacions diminutes](../images/docs/granular-dom-updates.gif)
 
+<<<<<<< HEAD
 Tot i que hem creat un element que descriu completament l'arbre de la interfície d'usuari en cada instant, React DOM només actualitza el node del qual el contingut ha canviat.
+=======
+Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 En la nostra experiència, pensar com s'hauria de veure en un moment donat la interfície d'usuari i no en com canviar-la en el temps elimina tota classe d'errors.
