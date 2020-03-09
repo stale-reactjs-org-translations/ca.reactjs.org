@@ -177,8 +177,16 @@ const element = {
 
 Aquests objectes s'anomenen "elements de React". Pots pensar que són descripcions del que vols veure en la pantalla. React llegeix aquests objectes i els usa per construir el DOM i mantenir-lo actualitzat.
 
+<<<<<<< HEAD
 Explorem el renderitzat d'elements de React en el DOM a la següent secció.
+=======
+We will explore rendering React elements to the DOM in the [next section](/docs/rendering-elements.html).
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 >**Consell:**
 >
+<<<<<<< HEAD
 >Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència perquè tant el codi en ES6 com JSX sigui emfatitzat correctament. Aquesta pàgina web utilitza l'esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) que hi és compatible.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
