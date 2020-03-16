@@ -36,11 +36,19 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 ### Fer canvis
 
+<<<<<<< HEAD
 1. Seguir les instruccions "Executant localment"
 2. Guarda els fitxers i comprova el navegador
   1. Canvis de components de React dins del directori `src` s'aplicaran automàticament
   2. Cavnis de fitxers de markdowndins el directori `content` s'aplicaran automàticament
   3. Si treballa amb plugins, pot ser que hagi d'eliminar el directori `.cache` i reiniciar el servidor de desenvolupament
+=======
+1. Follow the ["Running locally"](#running-locally) instructions
+1. Save the files and check in the browser
+  1. Changes to React components in `src` will hot-reload
+  1. Changes to markdown files in `content` will hot-reload
+  1. If working with plugins, you may need to remove the `.cache` directory and restart the server
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ### Provar els canvis
 

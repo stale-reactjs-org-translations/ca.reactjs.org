@@ -8,7 +8,11 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<<<<<<< HEAD
 Controlar esdeveniments amb elements de React és molt similar a controlar esdeveniments amb elements del DOM. Hi ha algunes diferències sintàctiques:
+=======
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 * Els esdeveniments de React s'anomenen usant camelCase, en lloc de minúscules.
 * Amb JSX es passa una funció com el controlador de l'esdeveniment, en lloc d'un string.
@@ -56,7 +60,11 @@ function ActionLink() {
 
 Aquí, `e` és un esdeveniment sintètic. React defineix aquests esdeveniments sintètics d'acord amb [l'especificaió W3C](https://www.w3.org/TR/DOM-Level-3-Events/), així que no necessites preocupar-te de la compatibilitat amb diferents navegadors. Llegeix la referència [`SyntheticEvent`](/docs/events.html) per aprendre'n més.
 
+<<<<<<< HEAD
 Quan usis React no hauries de necessitar cridar `addEventListener` per afegir oients a un element del DOM després que sigui creat. Contràriament, només proveeix un oient quan l'element sigui renderitzar inicialment.
+=======
+When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Quan defineixis un compoenent usant una [classe ES6](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Classes), un patró comú per un controlador d'esdeveniments és que aquest sigui un mètode de la classe. Per exemple, aquest component `Toggle` renderitza un botó que permet a l'usuari escollir entre els estats "ON" i "OFF":
 
@@ -130,7 +138,7 @@ class LoggingButton extends React.Component {
   render() {
     // This syntax ensures `this` is bound within handleClick
     return (
-      <button onClick={(e) => this.handleClick(e)}>
+      <button onClick={() => this.handleClick()}>
         Click me
       </button>
     );
@@ -142,7 +150,11 @@ El problema amb aquesta sintaxi és que un callback diferent és creat cada cop 
 
 ## Passant arguments a controladors d'esdeveniments {#passing-arguments-to-event-handlers}
 
+<<<<<<< HEAD
 A dins un bucle és comú voler passar un paràmetre extra a un controlador d'esdeveniments. Per exemple, si `id` és l'ID fila, qualsevol dels següents funcionaria:
+=======
+Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
