@@ -7,10 +7,17 @@ Aquest repositori conté tant el codi font com la documentació necessària per 
 ### Requisits previs
 
 1. Git
+<<<<<<< HEAD
 2. Node: qualsevol versió 8.x començant per 8.4.0 o superior
 3. Yarn: Veure [Lloc web de Yarn amb instruccions d'instal·lació](https://yarnpkg.com/lang/en/docs/install/)
 4. Un fork del repositori (per a contribucions)
 5. Un clon de [reactjs.org repo](https://github.com/reactjs/reactjs.org) a la teva màquina local
+=======
+1. Node: any 12.x version starting with v12.0.0 or greater
+1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
+1. A fork of the repo (for any contributions)
+1. A clone of the [reactjs.org repo](https://github.com/reactjs/reactjs.org) on your local machine
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 ### Instal·lació
 
@@ -36,11 +43,19 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 ### Fer canvis
 
+<<<<<<< HEAD
 1. Seguir les instruccions "Executant localment"
 2. Guarda els fitxers i comprova el navegador
   1. Canvis de components de React dins del directori `src` s'aplicaran automàticament
   2. Cavnis de fitxers de markdowndins el directori `content` s'aplicaran automàticament
   3. Si treballa amb plugins, pot ser que hagi d'eliminar el directori `.cache` i reiniciar el servidor de desenvolupament
+=======
+1. Follow the ["Running locally"](#running-locally) instructions
+1. Save the files and check in the browser
+  1. Changes to React components in `src` will hot-reload
+  1. Changes to markdown files in `content` will hot-reload
+  1. If working with plugins, you may need to remove the `.cache` directory and restart the server
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 ### Provar els canvis
 

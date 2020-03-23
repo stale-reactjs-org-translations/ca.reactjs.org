@@ -37,7 +37,11 @@ En aquest tutorial, et mostrarem com construir un joc de tres en ratlla interact
 
 Pots veure el que construirem aquí: **[Resultat Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Si creus que el codi no té sentit, o si no estàs familiaritzat amb la sintaxi de codi, no et preocupis! L'objectiu d'aquest tutorial és ajudar-te a entendre React i la seva sintaxi.
 
+<<<<<<< HEAD
 Recomanem que revisis el joc de tres en ratlla abans de continuar amb el tutorial. Una de les característiques que notaràs és que hi ha una llista enumerada a la dreta del tauler del jugador. Aquesta llista dóna un historial de tots els moviments que han ocorregut en el joc, i es va actualitzant a mesura que el joc progressa.
+=======
+We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 Pots tancar el joc de tres en ratlla una vegada que et familiaritzis amb ell. Començarem des d'una plantilla més simple en aquest tutorial. El següent pas és preparar-te perquè puguis començar a construir el joc.
 
@@ -118,7 +122,11 @@ Recomanem seguir [aquestes instruccions](https://babeljs.io/docs/editors/) per c
 
 ### Ajuda, estic encallat! {#help-im-stuck}
 
+<<<<<<< HEAD
 Si t'encalles, revisa els [recursos de suport de la comunitat](/community/support.html). En particular, [xat de React i flux](https://discord.gg/0ZcbPKXt5bZjGY5n) és una gran manera d'obtenir ajuda ràpidament. Si no reps una resposta, o segueixes encallat, si us plau crea un issue, i t'ajudarem.
+=======
+If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 ## Visió general {#overview}
 
@@ -197,6 +205,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+}
 ```
 
 Canvia el mètode `render` de Square per mostrar aquest valor, reemplaçant `{/* TODO */}` amb `{this.props.value}`:
@@ -289,7 +298,11 @@ class Square extends React.Component {
 
 > Nota
 >
+<<<<<<< HEAD
 > A les [classes de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a ` super(props) `.
+=======
+>In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start with a `super(props)` call.
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 Ara canviarem el mètode `render` de Square per mostrar el valor de l'estat actual quan és clicat:
 
@@ -335,7 +348,11 @@ L'extensió de React DevTools Library per [Chrome](https://chrome.google.com/web
 
 React DevTools et permet revisar les props i l'estat dels teus components de React.
 
+<<<<<<< HEAD
 Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixerà com l'última pestanya a la dreta.
+=======
+After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 **No obstant això, notar que hi ha uns quants passos extres per fer-lo funcionar amb CodePen:**
 

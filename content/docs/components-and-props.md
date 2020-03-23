@@ -44,7 +44,11 @@ class Welcome extends React.Component {
 
 Els dos components anteriors són equivalents des del punt de vista de React.
 
+<<<<<<< HEAD
 Les classes tenen algunes característiques addicionals que veurem en les [pròximes seccions](/docs/state-and-lifecycle.html). Fins llavors, farem servir components funcionals per la seva brevetat.
+=======
+Function and Class components both have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html).
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 ## Renderitzant un component {#rendering-a-component}
 
@@ -60,7 +64,11 @@ No obstant això, els elements també poden representar components definits per 
 const element = <Welcome name="Sara" />;
 ```
 
+<<<<<<< HEAD
 Quan React veu un element representant un component definit per l'usuari, passa els atributs JSX a aquest component com un sol objecte. Anomenem a aquest objecte "props".
+=======
+When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object "props".
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 Per exemple, aquest codi mostra "Hola, Sara" a la pàgina:
 
