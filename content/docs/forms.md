@@ -68,6 +68,7 @@ class NameForm extends React.Component {
 
 Ja que l'atribut `value` és assignat al nostre element del formulari, el valor mostrat sempre serà `this.state.value`, fent que l'estat de React sigui la font de veritat. Ja que `handleChange` corre cada vegada que una tecla és oprimida per actualitzar l'estat de React, el valor mostrat serà actualitzat mentre l'usuari escriu.
 
+<<<<<<< HEAD
 Amb un component controlat, tota mutació de l'estat tindrà associada una funció controladora. Això fa que modificar o validar l'entrada de l'usuari sigui més directe. Per exemple, si volguéssim assegurar que els noms fossin escrits amb totes les lletres en majúscula, podríem escriure el `handleChange` com:
 
 ```javascript{2}
@@ -75,6 +76,9 @@ handleChange(event) {
   this.setState({value: event.target.value.toUpperCase()});
 }
 ```
+=======
+With a controlled component, the input's value is always driven by the React state. While this means you have to type a bit more code, you can now pass the value to other UI elements too, or reset it from other event handlers.
+>>>>>>> fa5e6e7a988b4cb465601e4c3beece321edeb812
 
 ## L'etiqueta textarea {#the-textarea-tag}
 
@@ -220,7 +224,7 @@ class Reservation extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.name === 'isGoing' ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
