@@ -305,6 +305,7 @@ Ara, no importa quina entrada editis, que `this.state.temperature` i `this.state
 
 Recordem què passa quan edites una entrada:
 
+<<<<<<< HEAD
 * React crida la funció especificada com `onChange` en el DOM `<input>`. En el nostre cas, això és el mètode `handleChange` en el component `TemperatureInput`.
 * El mètode `handleChange` en el component `TemperatureInput` crida `this.props.onTemperatureChange()` amb el nou valor desitjat. Les seves propietats, inclosa `onTemperatureChange`, han estat proporcionades pel component avantpassat, `Calculator`.
 * Quan prèviament s'ha renderitzat, `Calculator` ha especificat que `onTemperatureChange` del `TemperatureInput` en Celsius és el mètode de `handleCelsiusChange` de `Calculator`, i `onTemperatureChange` del `TemperatureInput` en Fahrenheit és el mètode `handleFahrenheitChange` de `Calculator`. Així que qualsevol dels dos mètodes de `Calculator` és cridat depenent de quina entrada hem editat.
@@ -313,6 +314,16 @@ Recordem què passa quan edites una entrada:
 * React crida els mètodes `render` dels components individuals `TemperatureInput` amb les seves noves props especificades per `Calculator`. Aprèn com les seves interfícies d'usuari haurien de mostrar-se.
 * React crida el mètode `render` del component `BoilingVerdict`, passant la temperatura en Celsius com a prop.
 * React DOM actualitza el DOM amb el veredicte d'ebullició i depenent de les entrades desitjades. L'entrada que just hem editat rep el seu valor actual, i l'altra entrada és actualitzada després de la conversió.
+=======
+* React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in the `TemperatureInput` component.
+* The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
+* When it previously rendered, the `Calculator` had specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator`'s `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator`'s `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
+* Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
+* React calls the `Calculator` component's `render` method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
+* React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
+* React calls the `render` method of the `BoilingVerdict` component, passing the temperature in Celsius as its props.
+* React DOM updates the DOM with the boiling verdict and to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
+>>>>>>> dea4f329ea3a7bba116e07adf67eb5c8b6c528cd
 
 Cada actualització passa pels mateixos passos perquè les entrades estiguin en sincronització.
 
@@ -324,7 +335,11 @@ Pujar l'estat suposa escriure més codi que en casos "two-way binding", però co
 
 Si alguna cosa podria estar derivada tan de props com d'estat, probablement no hauria de trobar-se a l'estat. Per exemple, en lloc de guardar `celsiusValue` i `fahrenheitValue`, només guardem la darrera `temperature` i la seva `scale`. Amb això, el valor de l'altra entrada sempre es pot calcular en el mètode `render()`. Això ens permet no perdre cap precisió en els decimals de les entrades de l'usuari.
 
+<<<<<<< HEAD
 Quan veus alguna cosa incorrecta en la interfície d'usuari, pots usar [React Developer Tools](https://github.com/facebook/react-devtools) per inspeccionar les props i l'arbre fins que trobis el component responsable d'actualitzar l'estat. Això permet seguir error fins a la seva font:
+=======
+When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+>>>>>>> dea4f329ea3a7bba116e07adf67eb5c8b6c528cd
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 
