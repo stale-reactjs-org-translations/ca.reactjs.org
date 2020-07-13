@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * @emails react-core
  * @flow
@@ -10,9 +10,13 @@ import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
 import FooterNav from './FooterNav';
 import MetaTitle from 'templates/components/MetaTitle';
+import SectionLinks from './SectionLinks';
 import React from 'react';
 import {colors, media} from 'theme';
 import {sectionListCommunity, sectionListDocs} from 'utils/sectionList';
+
+// $FlowFixMe
+import navFooter from '../../../content/footerNav.yml';
 
 import ossLogoPng from 'images/oss_logo.png';
 
@@ -26,6 +30,9 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
 
       [media.size('sidebarFixed')]: {
         paddingTop: 40,
+      },
+      '@media print': {
+        display: 'none',
       },
     }}>
     <Container>
@@ -60,7 +67,11 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             },
           }}>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Documentació</MetaTitle>
+=======
+            <MetaTitle onDark={true}>{navFooter.docs.title}</MetaTitle>
+>>>>>>> dea363ed7d8ce06b7ecc1ccfe43c888217827a64
             {sectionListDocs.map(section => {
               const defaultItem = section.items[0];
               return (
@@ -73,6 +84,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             })}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Canals</MetaTitle>
             <ExternalFooterLink
               href="https://github.com/facebook/react"
@@ -119,6 +131,17 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>Comunitat</MetaTitle>
+=======
+            <MetaTitle onDark={true}>{navFooter.channels.title}</MetaTitle>
+            <SectionLinks links={navFooter.channels.items} />
+          </FooterNav>
+          <FooterNav layoutHasSidebar={layoutHasSidebar}>
+            <MetaTitle onDark={true}>{navFooter.community.title}</MetaTitle>
+            <ExternalFooterLink
+              href={`https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md`}>
+              Code of Conduct
+            </ExternalFooterLink>
+>>>>>>> dea363ed7d8ce06b7ecc1ccfe43c888217827a64
             {sectionListCommunity.map(section => (
               <FooterLink
                 to={`/community/${section.items[0].id}.html`}
@@ -128,6 +151,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             ))}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Més</MetaTitle>
             <FooterLink to="/tutorial/tutorial.html">Tutorial</FooterLink>
             <FooterLink to="/blog/">Blog</FooterLink>
@@ -139,6 +163,15 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               target="_blank"
               rel="noopener">
               React Native
+=======
+            <MetaTitle onDark={true}>{navFooter.more.title}</MetaTitle>
+            <SectionLinks links={navFooter.more.items} />
+            <ExternalFooterLink href="https://opensource.facebook.com/legal/privacy">
+              Privacy
+            </ExternalFooterLink>
+            <ExternalFooterLink href="https://opensource.facebook.com/legal/terms">
+              Terms
+>>>>>>> dea363ed7d8ce06b7ecc1ccfe43c888217827a64
             </ExternalFooterLink>
           </FooterNav>
         </div>
@@ -162,7 +195,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             },
           }}>
           <a
-            href="https://code.facebook.com/projects/"
+            href="https://opensource.facebook.com/projects/"
             target="_blank"
             rel="noopener">
             <img
