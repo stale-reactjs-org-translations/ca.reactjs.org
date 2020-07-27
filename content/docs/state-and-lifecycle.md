@@ -418,12 +418,15 @@ Ni els components pares ni els fills poden saber si un determinat component té 
 Un component pot triar passar el seu estat com props als seus components fills:
 
 ```js
+<<<<<<< HEAD
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 ```
 
 Això també funciona per a components definits per l'usuari:
 
 ```js
+=======
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 <FormattedDate date={this.state.date} />
 ```
 
