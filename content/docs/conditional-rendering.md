@@ -122,7 +122,11 @@ Tot i que declarar una variable i usar una sentència `if` és una bona manera d
 
 ### If en una línia amb l'operador lògic && {#inline-if-with-logical--operator}
 
+<<<<<<< HEAD
 Pots [introduir qualsevol expressió amb JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) embolicant-la entre claus. Això inclou l'operador lògic `&&` de JavaScript. Aquest pot ser útil per incloure un element condicionalment:
+=======
+You may [embed expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+>>>>>>> c89c38241278804b48bf34b1d8d9ee0b9f1b6e8c
 
 ```js{6-10}
 function Mailbox(props) {
@@ -176,11 +180,10 @@ render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      {isLoggedIn ? (
-        <LogoutButton onClick={this.handleLogoutClick} />
-      ) : (
-        <LoginButton onClick={this.handleLoginClick} />
-      )}
+      {isLoggedIn
+        ? <LogoutButton onClick={this.handleLogoutClick} />
+        : <LoginButton onClick={this.handleLoginClick} />
+      }
     </div>
   );
 }
