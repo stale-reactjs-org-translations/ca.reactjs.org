@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * @emails react-core
  * @flow
@@ -14,6 +14,9 @@ import {version} from 'site-constants';
 import ExternalLinkSvg from 'templates/components/ExternalLinkSvg';
 import DocSearch from './DocSearch';
 
+// $FlowFixMe
+import navHeader from '../../../content/headerNav.yml';
+
 import logoSvg from 'icons/logo.svg';
 
 const Header = ({location}: {location: Location}) => (
@@ -26,7 +29,38 @@ const Header = ({location}: {location: Location}) => (
       width: '100%',
       top: 0,
       left: 0,
+      '@media print': {
+        display: 'none',
+      },
     }}>
+    <Container>
+      <div
+        css={{
+          height: 60,
+          fontSize: 20,
+          padding: 20,
+          textAlign: 'center',
+          [media.between('small', 'large')]: {
+            fontSize: 22,
+            height: 60,
+          },
+          [media.lessThan('small')]: {
+            height: 80,
+          },
+          [media.greaterThan('medium')]: {
+            fontSize: 25,
+          },
+        }}>
+        Black Lives Matter.{' '}
+        <a
+          style={{color: colors.brand}}
+          target="_blank"
+          rel="noopener"
+          href="https://support.eji.org/give/153413/#!/donation/checkout">
+          Support&nbsp;the&nbsp;Equal&nbsp;Justice&nbsp;Initiative.
+        </a>
+      </div>
+    </Container>
     <Container>
       <div
         css={{
@@ -120,6 +154,7 @@ const Header = ({location}: {location: Location}) => (
                 'linear-gradient(to right, transparent, black 20px, black 90%, transparent)',
             },
           }}>
+<<<<<<< HEAD
           <HeaderLink
             isActive={location.pathname.includes('/docs/')}
             title="Documentació"
@@ -140,6 +175,16 @@ const Header = ({location}: {location: Location}) => (
             title="Comunitat"
             to="/community/support.html"
           />
+=======
+          {navHeader.items.map(link => (
+            <HeaderLink
+              key={link.title}
+              isActive={location.pathname.includes(link.activeSelector)}
+              title={link.title}
+              to={link.to}
+            />
+          ))}
+>>>>>>> 87dcdbedc36b8d53b4d0d0d36f078924582357f0
         </nav>
 
         <DocSearch />
