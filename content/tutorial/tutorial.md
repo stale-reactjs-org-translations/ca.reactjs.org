@@ -197,6 +197,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+}
 ```
 
 Canvia el mètode `render` de Square per mostrar aquest valor, reemplaçant `{/* TODO */}` amb `{this.props.value}`:
@@ -335,7 +336,7 @@ L'extensió de React DevTools Library per [Chrome](https://chrome.google.com/web
 
 React DevTools et permet revisar les props i l'estat dels teus components de React.
 
-Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixerà com l'última pestanya a la dreta.
+Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixeràn les pestanyes ("⚛️ Components" i "⚛️ Profiler") al final a la dreta. Fes servir "⚛️ Components" per inspeccionar l'arbre de components.
 
 **No obstant això, notar que hi ha uns quants passos extres per fer-lo funcionar amb CodePen:**
 

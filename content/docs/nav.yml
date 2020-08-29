@@ -8,6 +8,8 @@
       title: Create a New React App
     - id: cdn-links
       title: CDN Links
+    - id: release-channels
+      title: Canals de llançament
 - title: Conceptes fonamentals
   isOrdered: true
   items:
@@ -106,33 +108,46 @@
       title: JS Environment Requirements
     - id: glossary
       title: Glossary
-- title: Hooks (Nou)
+- title: Hooks
   isOrdered: true
   items:
-      - id: hooks-intro
-        title: Introducing Hooks
-      - id: hooks-overview
-        title: Hooks at a Glance
-      - id: hooks-state
-        title: Using the State Hook
-      - id: hooks-effect
-        title: Using the Effect Hook
-      - id: hooks-rules
-        title: Rules of Hooks
-      - id: hooks-custom
-        title: Building Your Own Hooks
-      - id: hooks-reference
-        title: Hooks API Reference
-      - id: hooks-faq
-        title: Hooks FAQ
+    - id: hooks-intro
+      title: Introducing Hooks
+    - id: hooks-overview
+      title: Hooks at a Glance
+    - id: hooks-state
+      title: Using the State Hook
+    - id: hooks-effect
+      title: Using the Effect Hook
+    - id: hooks-rules
+      title: Rules of Hooks
+    - id: hooks-custom
+      title: Building Your Own Hooks
+    - id: hooks-reference
+      title: Hooks API Reference
+    - id: hooks-faq
+      title: Hooks FAQ
 - title: Testing
   items:
-    - id: testing 
+    - id: testing
       title: Testing Overview
     - id: testing-recipes
       title: Testing Recipes
     - id: testing-environments
       title: Testing Environments
+- title: Mode Concurrent (Experimental)
+  isOrdered: true
+  items:
+    - id: concurrent-mode-intro
+      title: Introducció al mode concurrent
+    - id: concurrent-mode-suspense
+      title: Suspense pel requeriment de dades
+    - id: concurrent-mode-patterns
+      title: Patrons d'interfície concurrents
+    - id: concurrent-mode-adoption
+      title: Fent servir el mode concurrent
+    - id: concurrent-mode-reference
+      title: Referència de la API del mode concurrent
 - title: Contribuïu
   items:
   - id: how-to-contribute
