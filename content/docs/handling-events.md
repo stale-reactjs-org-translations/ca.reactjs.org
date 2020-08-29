@@ -142,11 +142,7 @@ El problema amb aquesta sintaxi és que un callback diferent és creat cada cop 
 
 ## Passant arguments a controladors d'esdeveniments {#passing-arguments-to-event-handlers}
 
-<<<<<<< HEAD
 A dins un bucle és comú voler passar un paràmetre extra a un controlador d'esdeveniments. Per exemple, si `id` és l'ID fila, qualsevol dels següents funcionaria:
-=======
-Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
