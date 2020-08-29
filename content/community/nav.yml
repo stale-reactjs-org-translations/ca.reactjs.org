@@ -20,26 +20,3 @@
       title: Videos
     - id: external-resources
       title: External Resources
-<<<<<<< HEAD
-- title: Eines
-  items:
-    - id: debugging-tools
-      title: Debugging
-    - id: component-workbenches
-      title: Component Workbenches
-    - id: jsx-integrations
-      title: JSX Integrations
-    - id: starter-kits
-      title: Starter Kits
-    - id: routing
-      title: Routing
-    - id: model-management
-      title: Model Management
-    - id: data-fetching
-      title: Data Fetching
-    - id: ui-components
-      title: UI Components
-    - id: misc
-      title: Miscellaneous
-=======
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6

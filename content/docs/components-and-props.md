@@ -44,11 +44,7 @@ class Welcome extends React.Component {
 
 Els dos components anteriors són equivalents des del punt de vista de React.
 
-<<<<<<< HEAD
-Les classes tenen algunes característiques addicionals que veurem en les [pròximes seccions](/docs/state-and-lifecycle.html). Fins llavors, farem servir components funcionals per la seva brevetat.
-=======
-Function and Class components both have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html).
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+Tant les classes com les funcions tenen algunes característiques addicionals que veurem en les [pròximes seccions](/docs/state-and-lifecycle.html).
 
 ## Renderitzant un component {#rendering-a-component}
 
@@ -64,11 +60,7 @@ No obstant això, els elements també poden representar components definits per 
 const element = <Welcome name="Sara" />;
 ```
 
-<<<<<<< HEAD
 Quan React veu un element representant un component definit per l'usuari, passa els atributs JSX a aquest component com un sol objecte. Anomenem a aquest objecte "props".
-=======
-When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object "props".
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 Per exemple, aquest codi mostra "Hola, Sara" a la pàgina:
 
@@ -241,11 +233,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-<<<<<<< HEAD
-Extreure components pot semblar una feina pesada al principi, però tenir una paleta de components reutilitzables val la pena en aplicacions més grans. Una bona regla en general és que si una part de la interfície d'usuari es fa servir diverses vegades (`Button`, `Panel` o `Avatar`), o és prou complexa per si mateixa (`App`, `FeedStory`, `Comment`), és bon candidat per ser un component reutilitzable.
-=======
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be extracted to a separate component.
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+Extreure components pot semblar una feina pesada al principi, però tenir una paleta de components reutilitzables val la pena en aplicacions més grans. Una bona regla general és que si una part de la interfície d'usuari es fa servir diverses vegades (`Button`, `Panel` o `Avatar`), o és prou complexa per si mateixa (`App`, `FeedStory`, `Comment`), és bon candidat per ser un component reutilitzable.
 
 ## Les props són només de lectura {#props-are-read-only}
 
