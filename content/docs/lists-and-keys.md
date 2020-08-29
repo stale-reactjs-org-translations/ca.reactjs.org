@@ -8,9 +8,7 @@ next: forms.html
 
 Primer, revisem com es transformen les llistes en JavaScript.
 
-Donat el codi de sota, utilitzem la funció "mapa" per prendre una matriu de `nombres ` i duplicar els seus valors. S'assigna la nova matriu retornada per `map()` a la variable `doubled` i registreu-la:
-
-Donat el codi de sota, utilitzem la funció [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar els seus valors. S'assigna la nova matriu retornada per `map()` a la variable `doblat` i mostrar-la a la consola:
+En el codi que hi ha a sota, utilitzem el mètode [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar els seus valors. Assignem la nova matriu retornada per `map()` a la variable `doblat` i fem que es mostri a la consola:
 
 ```javascript{2}
 const numeros = [1, 2, 3, 4, 5];
@@ -20,15 +18,13 @@ console.log(doblat);
 
 Aquest codi mostra `[2, 4, 6, 8, 10]` a la consola.
 
-En React, transformar matrius en llistes d'elements (/docs/rendering-elements). html) és gairebé idèntic.
-
-En React, transformar matrius en llistes d' [elements](/docs/rendering-elements.html) és gairebé idèntic.
+En React, transformar matrius en llistes [d'elements](/docs/rendering-elements.html) és gairebé idèntic.
 
 ### Renderització de múltiples components {#rendering-multiple-components}
 
 Pots construir col·leccions d'elements i [incloure-les a JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) fent servir claus `{}`.
 
-A continuació, farem servir el mètode de Javascript [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) a l'array `numeros`. Aquest ens retornarà un element `<li>` per a cada element de l'array. Per últim, assignarem l'array resultant a la constant `llistaDElements`
+Per començar, farem servir el mètode de Javascript [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) a l'array `numeros`. Aquest ens retornarà un element `<li>` per a cada element de l'array. Per últim, li assignarem l'array resultant a la variable `llistaDElements`
 
 ```javascript{2-4}
 const numeros = [1, 2, 3, 4, 5];
@@ -37,8 +33,7 @@ const llistaDElements = numeros.map((numero) =>
 );
 ```
 
-Incluim tota la llista sencera dins un element `<ul>`, i [la renderitzem al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
-
+Finalment Incluim tota la llista sencera dins un element `<ul>`, i [la renderitzem al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
 ReactDOM.render(
@@ -74,6 +69,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 Quan executis aquest codi rebràs un avís que diu que s'ha de donat una 'clau' a cada elements de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
 
 Assignem doncs, una clau (`key`) als elements de la nostra llista dins de `numeros. map()` que corregeixi el problema de la clau que falta.
@@ -102,7 +98,6 @@ ReactDOM.render(
 
 ## Claus {#keys}
 
-
 Les claus ajuden React a identificar quins elements han canviat. O bé s'han afegit, o bé s'han eliminat. Les claus s'han de donar als elements de dins de la matriu per donar-los una identitat estable:
 
 ```js{3}
@@ -113,6 +108,7 @@ const llistaDElements = numeros.map((numero) =>
   </li>
 );
 ```
+
 La millor manera de triar una clau és fer servir una cadena que identifiqui de manera única un element de la llista d'entre tots els altres elements d'aquesta mateixa llista. Molt sovint faràs servir la ID de les dades com a claus:
 
 ```js{2}
@@ -122,8 +118,8 @@ const todoItems = todos.map((todo) =>
   </li>
 );
 ```
-Quan no tinguis més remei perque no tens un ID estable per a cada elements de la llista, pots fer servir l'índex de l'element com a clau :
 
+Quan no tinguis més remei perque no tens un ID estable per a cada elements de la llista, pots fer servir l'índex de l'element com a clau :
 
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
@@ -133,7 +129,7 @@ const todoItems = todos.map((todo, index) =>
   </li>
 );
 ```
-(https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). 
+ 
 No et recomanem que facis servir els índexs per a les claus si l'ordre dels elements pot canviar. Això pot afectar negativament el rendiment i pot causar problemes amb l'estat del component. Comprova l'article de Robin Pokorny per a una [explicació en profunditat sobre els impactes negatius d'utilitzar un índex com a clau](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si tries no assignar una clau explícita als elements de la llista llavors React farà servir els índexs com a claus per defecte.
 
 Aquí hi ha una [explicació en profunditat sobre per què les claus són necessàries](/docs/reconciliation.html#recursing-on-children) si estàs interessat en saber-ne més.
@@ -207,11 +203,11 @@ ReactDOM.render(
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-Una bona regla d'or que pots fer servir, es que saber que els elements inclosos dins del mètode `map()` necessiten una clau.
+Una bona regla d'or és saber que els elements inclosos dins del mètode `map()` necessiten una clau.
 
-### Les claus han de ser úniques entre només entre els elements de la mateixa array {#keys-must-only-be-unique-among-siblings}
+### Les claus han de ser úniques només entre els elements de la mateixa array {#keys-must-only-be-unique-among-siblings}
 
-Les claus que es fan servir dins de les matrius han de ser úniques entre els seus germans. No obstant això, no necessiten ser globalment úniques. Podem fer servir les mateixes claus quan produïm dos arrays diferents:
+Les claus que es fan servir dins de les matrius han de ser úniques entre els seus "germans". No obstant això, no necessiten ser globalment úniques. Podem fer servir les mateixes claus quan produïm dos arrays diferents:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -251,7 +247,7 @@ ReactDOM.render(
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Les claus serveixen com a una ajuda per a React però no es passen als components. Si necessites el mateix valor en el teu component, passa'l explícitament com un atribut amb un nom diferent:
+Les claus serveixen d'ajuda per a React però no es passen als components. Si necessites el mateix valor que el de la clau en el teu component, passa'l explícitament com un atribut amb un nom diferent:
 
 ```js{3,4}
 const contingut = posts.map((post) =>
@@ -284,7 +280,7 @@ function LListaDeNumeros(props) {
 }
 ```
 
-JSX permet [incrustar expressions](/docs/introducing-jsx.html#embedding-expressions-in-jsx) tancades dins claus de manera que podem tenir-hi el resultat de `map()` :
+JSX permet [incrustar expressions](/docs/introducing-jsx.html#embedding-expressions-in-jsx) tancades entre claus de manera que podem tenir-hi el resultat de `map()` :
 
 ```js{5-8}
 function LListaDeNumeros(props) {
@@ -302,4 +298,4 @@ function LListaDeNumeros(props) {
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
- A vegades amb això queda en un codi més clar, però mira de no fer-ne un abús. Com a JavaScript, depèn de tu decidir si val la pena extreure una variable per a la llegibilitat del codi. Tingues en compte que si el cos de `map()` és massa imbricat, pot ser un bon moment per [extreure un component](/docs/components-and-props.html#extracting-components).
+ A vegades amb això queda en un codi més clar, però mira de no fer-ne un abús. Com a JavaScript, depèn de tu decidir si val la pena extreure una variable per a la llegibilitat del codi. Tingues en compte que si el cos de `map()` és massa imbricat, potser és un bon moment per [extreure un component](/docs/components-and-props.html#extracting-components).
