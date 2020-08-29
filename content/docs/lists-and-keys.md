@@ -1,115 +1,119 @@
 ---
 id: lists-and-keys
-title: Lists and Keys
+title: LListes i Claus
 permalink: docs/lists-and-keys.html
 prev: conditional-rendering.html
 next: forms.html
 ---
 
-First, let's review how you transform lists in JavaScript.
+Primer, revisem com es transformen les llistes en JavaScript.
 
-Given the code below, we use the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function to take an array of `numbers` and double their values. We assign the new array returned by `map()` to the variable `doubled` and log it:
+Donat el codi de sota, utilitzem la funció "mapa" per prendre una matriu de `nombres ` i duplicar els seus valors. S'assigna la nova matriu retornada per `map()` a la variable `doubled` i registreu-la:
+
+Donat el codi de sota, utilitzem la funció [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar els seus valors. S'assigna la nova matriu retornada per `map()` a la variable `doblat` i mostrar-la a la consola:
 
 ```javascript{2}
-const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map((number) => number * 2);
-console.log(doubled);
+const numeros = [1, 2, 3, 4, 5];
+const doblat = numeros.map((num) => num * 2);
+console.log(doblat);
 ```
 
-This code logs `[2, 4, 6, 8, 10]` to the console.
+Aquest codi mostra `[2, 4, 6, 8, 10]` a la consola.
 
-In React, transforming arrays into lists of [elements](/docs/rendering-elements.html) is nearly identical.
+En React, transformar matrius en llistes d'elements (/docs/rendering-elements). html) és gairebé idèntic.
 
-### Rendering Multiple Components {#rendering-multiple-components}
+En React, transformar matrius en llistes d' [elements](/docs/rendering-elements.html) és gairebé idèntic.
 
-You can build collections of elements and [include them in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) using curly braces `{}`.
+### Renderització de múltiples components {#rendering-multiple-components}
 
-Below, we loop through the `numbers` array using the JavaScript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. We return a `<li>` element for each item. Finally, we assign the resulting array of elements to `listItems`:
+Pots construir col·leccions d'elements i [incloure-les a JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) fent servir claus `{}`.
+
+A continuació, farem servir el mètode de Javascript [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) a l'array `numeros`. Aquest ens retornarà un element `<li>` per a cada element de l'array. Per últim, assignarem l'array resultant a la constant `llistaDElements`
 
 ```javascript{2-4}
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-  <li>{number}</li>
+const numeros = [1, 2, 3, 4, 5];
+const llistaDElements = numeros.map((numero) =>
+  <li>{numero}</li>
 );
 ```
 
-We include the entire `listItems` array inside a `<ul>` element, and [render it to the DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+Incluim tota la llista sencera dins un element `<ul>`, i [la renderitzem al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+
 
 ```javascript{2}
 ReactDOM.render(
-  <ul>{listItems}</ul>,
+  <ul>{llistaDElements}</ul>,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
 
-This code displays a bullet list of numbers between 1 and 5.
+Aquest codi mostra una llista de números entre 1 i 5.
 
-### Basic List Component {#basic-list-component}
+### Component bàsic de la llista {#basic-list-component}
 
-Usually you would render lists inside a [component](/docs/components-and-props.html).
+Normalment renderitzaràs les llistes dins d'un [component](/docs/components-and-props.html).
 
-We can refactor the previous example into a component that accepts an array of `numbers` and outputs a list of elements.
+Podem refer l'exemple anterior fent un component que accepti una array de `numeros` i generi una llista d'elements.
 
 ```javascript{3-5,7,13}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <li>{number}</li>
+function LListaNumeros(props) {
+  const numeros = props.numeros;
+  const llistaDElements = numeros.map((numero) =>
+    <li>{numero}</li>
   );
   return (
-    <ul>{listItems}</ul>
+    <ul>{llistaDElements}</ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <LListaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
 ```
+Quan executis aquest codi rebràs un avís que diu que s'ha de donat una 'clau' a cada elements de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
 
-When you run this code, you'll be given a warning that a key should be provided for list items. A "key" is a special string attribute you need to include when creating lists of elements. We'll discuss why it's important in the next section.
-
-Let's assign a `key` to our list items inside `numbers.map()` and fix the missing key issue.
+Assignem doncs, una clau (`key`) als elements de la nostra llista dins de `numeros. map()` que corregeixi el problema de la clau que falta.
 
 ```javascript{4}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <li key={number.toString()}>
-      {number}
+function LListaNumeros(props) {
+  const numeros = props.numeros;
+  const llistaDElements = numeros.map((numero) =>
+    <li key={numero.toString()}>
+      {numero}
     </li>
   );
   return (
-    <ul>{listItems}</ul>
+    <ul>{llistaDElements}</ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <LListaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
 
-## Keys {#keys}
+## Claus {#keys}
 
-Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+
+Les claus ajuden React a identificar quins elements han canviat. O bé s'han afegit, o bé s'han eliminat. Les claus s'han de donar als elements de dins de la matriu per donar-los una identitat estable:
 
 ```js{3}
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-  <li key={number.toString()}>
-    {number}
+const numeros = [1, 2, 3, 4, 5];
+const llistaDElements = numeros.map((numero) =>
+  <li key={numero.toString()}>
+    {numero}
   </li>
 );
 ```
-
-The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys:
+La millor manera de triar una clau és fer servir una cadena que identifiqui de manera única un element de la llista d'entre tots els altres elements d'aquesta mateixa llista. Molt sovint faràs servir la ID de les dades com a claus:
 
 ```js{2}
 const todoItems = todos.map((todo) =>
@@ -118,127 +122,126 @@ const todoItems = todos.map((todo) =>
   </li>
 );
 ```
+Quan no tinguis més remei perque no tens un ID estable per a cada elements de la llista, pots fer servir l'índex de l'element com a clau :
 
-When you don't have stable IDs for rendered items, you may use the item index as a key as a last resort:
 
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
-  // Only do this if items have no stable IDs
+  // Fes-ho només quan els elements no tinguin una ID estable
   <li key={index}>
     {todo.text}
   </li>
 );
 ```
+(https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). 
+No et recomanem que facis servir els índexs per a les claus si l'ordre dels elements pot canviar. Això pot afectar negativament el rendiment i pot causar problemes amb l'estat del component. Comprova l'article de Robin Pokorny per a una [explicació en profunditat sobre els impactes negatius d'utilitzar un índex com a clau](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si tries no assignar una clau explícita als elements de la llista llavors React farà servir els índexs com a claus per defecte.
 
-We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+Aquí hi ha una [explicació en profunditat sobre per què les claus són necessàries](/docs/reconciliation.html#recursing-on-children) si estàs interessat en saber-ne més.
 
-Here is an [in-depth explanation about why keys are necessary](/docs/reconciliation.html#recursing-on-children) if you're interested in learning more.
+### Identificant components amb claus {#extracting-components-with-keys}
 
-### Extracting Components with Keys {#extracting-components-with-keys}
+Les claus només tenen sentit en el context de l'array a la que pertanyen.
 
-Keys only make sense in the context of the surrounding array.
+Per exemple, si [extreus](/docs/components-and-props.html#extracting-components) un component  `ElementDeLaLLista`, hauràs de donar la clau a l'element `<ElementDeLaLLista />` de l'array enlloc de a l'element `<li>` de la pròpia llista `LListaDElemets`.
 
-For example, if you [extract](/docs/components-and-props.html#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the `<li>` element in the `ListItem` itself.
-
-**Example: Incorrect Key Usage**
+**Exemple: ÚS INCORRECTE de 'key'**
 
 ```javascript{4,5,14,15}
-function ListItem(props) {
-  const value = props.value;
+function LListaDElemets(props) {
+  const valor = props.valor;
   return (
-    // Wrong! There is no need to specify the key here:
-    <li key={value.toString()}>
-      {value}
+    //Malament!. No hi ha cap necessitat d'especificar una clau ('key') aquí:
+    <li key={valor.toString()}>
+      {valor}
     </li>
   );
 }
 
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    // Wrong! The key should have been specified here:
-    <ListItem value={number} />
+function LListaDeNumeros(props) {
+  const numeros = props.numeros;
+  const LListaDElemets = numeros.map((numeros) =>
+    //Malament!. La clau hauria d'haver sigut especificada aquí:
+    <ElementDeLaLLista valor={numero} />
   );
   return (
     <ul>
-      {listItems}
+      {LListaDElemets}
     </ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <LListaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
 ```
 
-**Example: Correct Key Usage**
+**Exemple: ÚS CORRECTE de 'key'**
 
 ```javascript{2,3,9,10}
-function ListItem(props) {
-  // Correct! There is no need to specify the key here:
-  return <li>{props.value}</li>;
+function ElementDeLaLLista(props) {
+  // Correcte! No cal especificar la clau aquí:
+  return <li>{props.valor}</li>;
 }
 
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    // Correct! Key should be specified inside the array.
-    <ListItem key={number.toString()}
-              value={number} />
+function LListaDeNumeros(props) {
+  const numeros = props.numeros;
+  const LListaDElemets = numeros.map((numeros) =>
+    // Correcte! La clau ha de ser especificada dins de l'array.
+    <ElementDeLaLLista key={numero.toString()} valor={numero} />
   );
   return (
     <ul>
-      {listItems}
+      {LListaDElemets}
     </ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <LListaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-A good rule of thumb is that elements inside the `map()` call need keys.
+Una bona regla d'or que pots fer servir, es que saber que els elements inclosos dins del mètode `map()` necessiten una clau.
 
-### Keys Must Only Be Unique Among Siblings {#keys-must-only-be-unique-among-siblings}
+### Les claus han de ser úniques entre només entre els elements de la mateixa array {#keys-must-only-be-unique-among-siblings}
 
-Keys used within arrays should be unique among their siblings. However they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+Les claus que es fan servir dins de les matrius han de ser úniques entre els seus germans. No obstant això, no necessiten ser globalment úniques. Podem fer servir les mateixes claus quan produïm dos arrays diferents:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
-  const sidebar = (
+  const barraLateral = (
     <ul>
       {props.posts.map((post) =>
         <li key={post.id}>
-          {post.title}
+          {post.titol}
         </li>
       )}
     </ul>
   );
-  const content = props.posts.map((post) =>
+  const contingut = props.posts.map((post) =>
     <div key={post.id}>
-      <h3>{post.title}</h3>
-      <p>{post.content}</p>
+      <h3>{post.titol}</h3>
+      <p>{post.contingut}</p>
     </div>
   );
   return (
     <div>
-      {sidebar}
+      {barraLateral}
       <hr />
-      {content}
+      {contingut}
     </div>
   );
 }
 
 const posts = [
-  {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
-  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+  {id: 1, titol: 'Hola Món', contingut: "Benvinguts a l'aprenentatge de React!"},
+  {id: 2, titol: 'Instal·lació', contingut: 'Pots instal·lar React des de npm.'}
 ];
 ReactDOM.render(
   <Blog posts={posts} />,
@@ -246,56 +249,57 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Keys serve as a hint to React but they don't get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name:
+Les claus serveixen com a una ajuda per a React però no es passen als components. Si necessites el mateix valor en el teu component, passa'l explícitament com un atribut amb un nom diferent:
 
 ```js{3,4}
-const content = posts.map((post) =>
+const contingut = posts.map((post) =>
   <Post
     key={post.id}
     id={post.id}
-    title={post.title} />
+    titol={post.titol} />
 );
 ```
 
-With the example above, the `Post` component can read `props.id`, but not `props.key`.
+A l'exemple anterior, el component `Post` pot llegir `props.id`, però no `props.key`
 
-### Embedding map() in JSX {#embedding-map-in-jsx}
 
-In the examples above we declared a separate `listItems` variable and included it in JSX:
+### Incrustant map() dins de JSX {#embedding-map-in-jsx}
+
+En els exemples anteriors hem declarat una variable `listItems` separada i l'hem inclòs dins el JSX:
 
 ```js{3-6}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <ListItem key={number.toString()}
-              value={number} />
+function LListaDeNumeros(props) {
+  const numeros = props.numeros;
+  const llistaDElements = numeros.map((numero) =>
+    <ElementDeLaLLista key={numero.toString()}
+              valor={numero} />
   );
   return (
     <ul>
-      {listItems}
+      {llistaDElements}
     </ul>
   );
 }
 ```
 
-JSX allows [embedding any expression](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in curly braces so we could inline the `map()` result:
+JSX permet [incrustar expressions](/docs/introducing-jsx.html#embedding-expressions-in-jsx) tancades dins claus de manera que podem tenir-hi el resultat de `map()` :
 
 ```js{5-8}
-function NumberList(props) {
-  const numbers = props.numbers;
+function LListaDeNumeros(props) {
+  const numeros = props.numeros;
   return (
     <ul>
-      {numbers.map((number) =>
-        <ListItem key={number.toString()}
-                  value={number} />
+      {numeros.map((numero) =>
+        <ElementDeLaLLista key={numero.toString()}
+                  valor={numero} />
       )}
     </ul>
   );
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
+[**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Sometimes this results in clearer code, but this style can also be abused. Like in JavaScript, it is up to you to decide whether it is worth extracting a variable for readability. Keep in mind that if the `map()` body is too nested, it might be a good time to [extract a component](/docs/components-and-props.html#extracting-components).
+ A vegades amb això queda en un codi més clar, però mira de no fer-ne un abús. Com a JavaScript, depèn de tu decidir si val la pena extreure una variable per a la llegibilitat del codi. Tingues en compte que si el cos de `map()` és massa imbricat, pot ser un bon moment per [extreure un component](/docs/components-and-props.html#extracting-components).
