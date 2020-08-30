@@ -1,6 +1,6 @@
 ---
 id: accessibility
-title: Accessibility
+title: Accessibilitat
 permalink: docs/accessibility.html
 ---
 
