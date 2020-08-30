@@ -8,8 +8,6 @@ next: forms.html
 
 Primer, revisem com es transformen les llistes a JavaScript.
 
-Donat el codi de sota, utilitzem la funció "mapa" per prendre una matriu de `nombres ` i duplicar els seus valors. S'assigna la nova matriu retornada per `map()` a la variable `doubled` i registreu-la:
-
 Donat el codi de sota, utilitzem la funció [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar els seus valors. S'assigna la nova matriu retornada per `map()` a la variable `doblat` i mostrar-la a la consola:
 
 ```javascript{2}
