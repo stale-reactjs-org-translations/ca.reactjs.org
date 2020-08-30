@@ -515,7 +515,7 @@ Mira les següents guies sobre com fer servir millor elJAWS:
 
 [ChromeVox](https://www.chromevox.com/) és un lector de pantalla integrat a Chromebooks i està disponible [com una extensió](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) per a Google Chrome.
 
-Mira les següents guies sobre com fer servir millor ChromeVox:
+Mira aquestes guies sobre com fer servir millor ChromeVox:
 
 - [Google Chromebook Help - Utilitza el lector de pantalla integrat (en anglès)](https://support.google.com/chromebook/answer/7031755?hl=en)
 - [ChromeVox Referència de dreceres de teclat clàssiques (en anglès)](https://www.chromevox.com/keyboard_shortcuts.html)
