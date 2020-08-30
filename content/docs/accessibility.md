@@ -237,15 +237,15 @@ Un gran exemple de gestió de l'enfocament és el [react-aria-modal](https://git
 >
 >Tot i que es tracta d'una característica d'accessibilitat molt important, també és una tècnica que s'ha d'utilitzar de manera assenyada. Feu-la servir per reparar el flux d'enfocament del teclat quan estigui malament, però no per mirar d'anticipar com els usuaris voldran fer servir les aplicacions.
 
-## Mouse and pointer events {#mouse-and-pointer-events}
+## Esdeveniments de ratolí i de punter {#mouse-and-pointer-events}
 
-Ensure that all functionality exposed through a mouse or pointer event can also be accessed using the keyboard alone. Depending only on the pointer device will lead to many cases where keyboard users cannot use your application.
+Assegura't que tota la funcionalitat exposada a través d'un esdeveniment de ratolí o punter també es pugui accedir utilitzant només el teclat. Depenent només del dispositiu del punter es produiran molts casos en què els usuaris del teclat no puguin utilitzar la vostra aplicació.
 
-To illustrate this, let's look at a prolific example of broken accessibility caused by click events. This is the outside click pattern, where a user can disable an opened popover by clicking outside the element.
+Per il·lustrar això, veiem un exemple prolífic de pèrdua d'accessibilitat causada per esdeveniments de clic. Aquí es mostra el patró de clic a fora, a on un usuari pot desactivar una finestra emergent fent clic fora de la finestra.
 
-<img src="../images/docs/outerclick-with-mouse.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with a mouse showing that the close action works." />
+<img src="../images/docs/outerclick-with-mouse.gif" alt="Un botó de commutació obre una llista de finestres emergents implementada amb el patró de clic a fora i que fent servir un ratolí mostra que l'acció de tancament funciona." />
 
-This is typically implemented by attaching a `click` event to the `window` object that closes the popover:
+Aquest patró s'implementa normalment afegint un esdeveniment de `click` a l'objecte `window` que tanca la finestra emergent:
 
 ```javascript{12-14,26-30}
 class OuterClickExample extends React.Component {
@@ -282,12 +282,12 @@ class OuterClickExample extends React.Component {
   render() {
     return (
       <div ref={this.toggleContainer}>
-        <button onClick={this.onClickHandler}>Select an option</button>
+        <button onClick={this.onClickHandler}>Selecciona una opció</button>
         {this.state.isOpen && (
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
+            <li>Opció 1</li>
+            <li>Opció 2</li>
+            <li>Opció 3</li>
           </ul>
         )}
       </div>
@@ -296,11 +296,11 @@ class OuterClickExample extends React.Component {
 }
 ```
 
-This may work fine for users with pointer devices, such as a mouse, but operating this with the keyboard alone leads to broken functionality when tabbing to the next element as the `window` object never receives a `click` event. This can lead to obscured functionality which blocks users from using your application.
+Aquest patró pot funcionar bé per als usuaris amb dispositius de punter, com ara un ratolí, però si només es fa servir el teclat es perd aquesta funcionalitat  perque amb la tecla tab el que es fa es passar al següent element, doncs l'objecte `window` no rep mai un esdeveniment `click`. Això pot portar a una funcionalitat no visible que impedeix als usuaris utilitzar la teva aplicació.
 
-<img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
+<img src="../images/docs/outerclick-with-keyboard.gif" alt="Un botó de commutació obrint una llista de finestres emergents implementada amb el patró del click a fora i operada amb el teclat mostrant que la finestra emergent no es tanca en difuminar i ocultar altres elements de la pantalla." />
 
-The same functionality can be achieved by using appropriate event handlers instead, such as `onBlur` and `onFocus`:
+La mateixa funcionalitat es pot aconseguir utilitzant gestors d'esdeveniments apropiats, com ara `onBlur` i `onFocus`:
 
 ```javascript{19-29,31-34,37-38,40-41}
 class BlurExample extends React.Component {
@@ -321,10 +321,13 @@ class BlurExample extends React.Component {
     }));
   }
 
-  // We close the popover on the next tick by using setTimeout.
-  // This is necessary because we need to first check if
-  // another child of the element has received focus as
-  // the blur event fires prior to the new focus event.
+  
+  //Tancarem la finestra emergent a la propera  marca de 
+  //temps fent servir setTimeout.
+  //S'ha de fer així perquè primer hem de comprovar si un
+  //altre fill de l'element ha rebut el focus perque 
+  //l'esdeveniment de desenfocament es dispara abans que 
+  //el nou esdeveniment de focus.
   onBlurHandler() {
     this.timeOutId = setTimeout(() => {
       this.setState({
@@ -333,14 +336,14 @@ class BlurExample extends React.Component {
     });
   }
 
-  // If a child receives focus, do not close the popover.
+  // Si un fill rep el focus, no tancar la finestra emergent
   onFocusHandler() {
     clearTimeout(this.timeOutId);
   }
 
   render() {
-    // React assists us by bubbling the blur and
-    // focus events to the parent.
+    //React ens ajuda encapsulant els esdeveniments de 
+    //difuminat i de focus cap al pare.
     return (
       <div onBlur={this.onBlurHandler}
            onFocus={this.onFocusHandler}>
@@ -362,15 +365,15 @@ class BlurExample extends React.Component {
 }
 ```
 
-This code exposes the functionality to both pointer device and keyboard users. Also note the added `aria-*` props to support screen-reader users. For simplicity's sake the keyboard events to enable `arrow key` interaction of the popover options have not been implemented.
+Aquest codi exposa la funcionalitat tant als usuaris que fan servir un dispositiu de punter com els de teclat. També tingues en compte els atributs `aria-*` afegits per permetre usuaris de lector de pantalla. Per simplicitat els esdeveniments del teclat per habilitar la interacció amb la `tecla de fletxa` de les opcions de finestra emergent no s'han implementat.
 
-<img src="../images/docs/blur-popover-close.gif" alt="A popover list correctly closing for both mouse and keyboard users." />
+<img src="../images/docs/blur-popover-close.gif" alt="Una llista de finestres emergents que es tancarà correctament tant per als usuaris del ratolí com del teclat." />
 
-This is one example of many cases where depending on only pointer and mouse events will break functionality for keyboard users. Always testing with the keyboard will immediately highlight the problem areas which can then be fixed by using keyboard aware event handlers.
+Aquest és un exemple del molts casos a on si es depén només dels esdeveniments del punter i ratolí es trencarà la funcionalitat per als usuaris de teclat. Sempre fent les proves amb el teclat es trobaran immediatament les àrees amb problemes que després es poden corregir utilitzant gestors d'esdeveniments compatibles amb el teclat.
 
-## More Complex Widgets {#more-complex-widgets}
+## Ginys més complexos {#more-complex-widgets}
 
-A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible, even the most complex widget can be coded accessibly.
+Una experiència d'usuari més complexa no hauria de significar una menor accessibilitat. Mentre que l'accessibilitat s'aconsegueix més fàcilment a través d'una codificació tan propera a HTML com sigui possible, fins i tot el giny més complex es pot codificar de forma accessible.
 
 Here we require knowledge of [ARIA Roles](https://www.w3.org/TR/wai-aria/#roles) as well as [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
 These are toolboxes filled with HTML attributes that are fully supported in JSX and enable us to construct fully accessible, highly functional React components.
