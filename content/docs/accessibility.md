@@ -4,19 +4,19 @@ title: Accessibilitat
 permalink: docs/accessibility.html
 ---
 
-## Why Accessibility? {#why-accessibility}
+## Per què l'Accessibilitat? {#why-accessibility}
 
-Web accessibility (also referred to as [**a11y**](https://en.wiktionary.org/wiki/a11y)) is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.
+L'accessibilitat del contingut web (també coneguda com  [**a11y**](https://en.wiktionary.org/wiki/a11y)) és el disseny i la creació de continguts web que tots poden utilitzar. El suport a l'accessibilitat és necessari per permetre que la tecnologia assistida interpreti bé les pàgines web.
 
-React fully supports building accessible websites, often by using standard HTML techniques.
+React suporta completament la construcció de llocs web amb continguts accessibles, sovint utilitzant tècniques HTML estàndard.
 
-## Standards and Guidelines {#standards-and-guidelines}
+## Estàndards i Guies d'orientació {#standards-and-guidelines}
 
 ### WCAG {#wcag}
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
+WCAG (del seu nom en anglès Web Content Accessibility Guidelines) són un conjunt de [directrius per a l'accessibilitat del contingut web](https://www.w3.org/Translations/WCAG20-ca/) compren un ampli ventall de recomanacions per fer el contingut web més accessible.
 
-The following WCAG checklists provide an overview:
+Les següents llistes de WCAG en proporcionen un resum (en anglès):
 
 - [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
 - [WCAG checklist from WebAIM](https://webaim.org/standards/wcag/checklist)
@@ -24,9 +24,9 @@ The following WCAG checklists provide an overview:
 
 ### WAI-ARIA {#wai-aria}
 
-The [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) document contains techniques for building fully accessible JavaScript widgets.
+WAI-ÀRIA - [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) està pensat per a fer més accessible el contingut dinàmic. Principalment Javascript i Ajax.
 
-Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be hyphen-cased (also known as kebab-case, lisp-case, etc) as they are in plain HTML:
+Fixa't que tots els atributs HTML `aria-*` són totalment compatibles amb JSX. Mentre que la majoria de les propietats i atributs de DOM a React són CamelCased, aquests atributs haurien de ser hyphen-cased (també conegut com a kebab-case, lisp-case, etc.) tal com són a l'HTML:
 
 ```javascript{3,4}
 <input
@@ -39,7 +39,7 @@ Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most 
 />
 ```
 
-## Semantic HTML {#semantic-html}
+## HTML semàntic {#semantic-html}
 Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information
 in our websites will often give us accessibility for free.
 
