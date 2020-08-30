@@ -40,24 +40,24 @@ Fixa't que tots els atributs HTML `aria-*` són totalment compatibles amb JSX. M
 ```
 
 ## HTML semàntic {#semantic-html}
-Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information
-in our websites will often give us accessibility for free.
+L'HTML semàntic és la base per l'accessibilitat en una aplicació web. Fer servir els diversos elements HTML per reforçar el significat de la informació en els nostres llocs web sovint ens donarà l'accessibilitat de franc.
 
-- [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [MDN Diccionari dels elements de l'HTML](https://developer.mozilla.org/ca/docs/Web/HTML/Element)
 
-Sometimes we break HTML semantics when we add `<div>` elements to our JSX to make our React code work, especially when working with lists (`<ol>`, `<ul>` and `<dl>`) and the HTML `<table>`.
-In these cases we should rather use [React Fragments](/docs/fragments.html) to group together multiple elements.
+De vegades trenquem la semàntica HTML quan afegim elements `<div>` al nostre JSX per fer que funcioni el codi de React, especialment quan es treballa amb llistes (`<ol>`, `<ul>` i `<dl>`) i amb l'element HTML `<table>`.
+En aquests casos hauríem d'utilitzar [React Fragments](/docs/fragments.html) per agrupar diversos elements.
 
-For example,
+
+Per exemple,
 
 ```javascript{1,5,8}
 import React, { Fragment } from 'react';
 
-function ListItem({ item }) {
+function LListaDElements({ element }) {
   return (
     <Fragment>
-      <dt>{item.term}</dt>
-      <dd>{item.description}</dd>
+      <dt>{element.terme}</dt>
+      <dd>{element.descripcio}</dd>
     </Fragment>
   );
 }
@@ -65,120 +65,122 @@ function ListItem({ item }) {
 function Glossary(props) {
   return (
     <dl>
-      {props.items.map(item => (
-        <ListItem item={item} key={item.id} />
+      {props.elements.map(element => (
+        <LListaDElements element={element} key={element.id} />
       ))}
     </dl>
   );
 }
 ```
 
-You can map a collection of items to an array of fragments as you would any other type of element as well:
+Podeu assignar una llista d'elements a una array de fragments de la mateixa manera que qualsevol altre tipus d'element:
 
 ```javascript{6,9}
 function Glossary(props) {
   return (
     <dl>
-      {props.items.map(item => (
+      {props.elements.map(element => (
         // Fragments should also have a `key` prop when mapping collections
-        <Fragment key={item.id}>
-          <dt>{item.term}</dt>
-          <dd>{item.description}</dd>
+        <Fragment key={element.id}>
+          <dt>{element.terme}</dt>
+          <dd>{element.descripcio}</dd>
         </Fragment>
       ))}
     </dl>
   );
 }
 ```
+Quan no necessitis cap 'props' a l'etiqueta Fragment pots utilitzar la [sintaxi curta](/docs/fragments.html#short-syntax), si la teva versió ho suporta:
 
-When you don't need any props on the Fragment tag you can use the [short syntax](/docs/fragments.html#short-syntax), if your tooling supports it:
 
 ```javascript{3,6}
-function ListItem({ item }) {
+function ListItem({ element }) {
   return (
     <>
-      <dt>{item.term}</dt>
-      <dd>{item.description}</dd>
+      <dt>{element.terme}</dt>
+      <dd>{element.descripcio}</dd>
     </>
   );
 }
 ```
 
-For more info, see [the Fragments documentation](/docs/fragments.html).
+Per a més informació, dirigeix-te a [la documentació de Fragments](/docs/fragments.html).
 
-## Accessible Forms {#accessible-forms}
+## Accessibilitat als Formularis {#accessible-forms}
 
-### Labeling {#labeling}
-Every HTML form control, such as `<input>` and `<textarea>`, needs to be labeled accessibly. We need to provide descriptive labels that are also exposed to screen readers.
+### Etiquetant {#labeling}
+Tot control de formularis HTML, com ara  `<input>` i `<textarea>`, ha de ser etiquetat de forma accessible. Hem de proporcionar etiquetes descriptives que també siguin reconeixibles pels lectors de pantalla.
 
-The following resources show us how to do this:
+Els següents recursus ensenyen com fer-ho:
 
-- [The W3C shows us how to label elements](https://www.w3.org/WAI/tutorials/forms/labels/)
-- [WebAIM shows us how to label elements](https://webaim.org/techniques/forms/controls)
-- [The Paciello Group explains accessible names](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
+- [El W3C ens ensenya com etiquetar elements (en anglès)](https://www.w3.org/WAI/tutorials/forms/labels/)
+- [WebAIM ens ensenya com etiquetar elements (en anglès)](https://webaim.org/techniques/forms/controls)
+- [El Grup Paciello ens explica que són els noms accessibles (en anglès)](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
-Although these standard HTML practices can be directly used in React, note that the `for` attribute is written as `htmlFor` in JSX:
+Tot i que aquestes pràctiques HTML estàndard es poden utilitzar directament a React, tingueu en compte que l'atribut `for` s'escriu com `htmlFor` a JSX:
 
 ```javascript{1}
-<label htmlFor="namedInput">Name:</label>
-<input id="namedInput" type="text" name="name"/>
+<label htmlFor="inputAmbNom">Name:</label>
+<input id="inputAmbNom" type="text" name="name"/>
 ```
 
-### Notifying the user of errors {#notifying-the-user-of-errors}
+### Notificant Els Errors A L'usuari {#notifying-the-user-of-errors}
 
-Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:
+Les situacions d'error han de ser compreses per tots els usuaris. L'enllaç següent ens mostra com fer reconeixibles els textos d'error als lectors de pantalla:
 
-- [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [WebAIM looks at form validation](https://webaim.org/techniques/formvalidation/)
+- [El W3C ensenya com fer les notificiacions a l'usuari](https://www.w3.org/WAI/tutorials/forms/notifications/)
+- [WebAIM ensenya com fer la validació d'un formulari](https://webaim.org/techniques/formvalidation/)
 
-## Focus Control {#focus-control}
+## Control del Focus {#focus-control}
 
-Ensure that your web application can be fully operated with the keyboard only:
+Assegura't que la teva aplicació web pugui funcionar si només fas servir el teclat:
 
-- [WebAIM talks about keyboard accessibility](https://webaim.org/techniques/keyboard/)
+- [WebAIM explica l'accessibilitat si només fas servir el teclat](https://webaim.org/techniques/keyboard/)
 
-### Keyboard focus and focus outline {#keyboard-focus-and-focus-outline}
+### Focus del Teclat i el Focus and focus outline {#keyboard-focus-and-focus-outline}
 
-Keyboard focus refers to the current element in the DOM that is selected to accept input from the keyboard. We see it everywhere as a focus outline similar to that shown in the following image:
+El focus del teclat es refereix a l'element actual del DOM que està seleccionat per acceptar l'entrada del teclat. Ho veiem a tot arreu com un esquema d'enfocament similar al que es mostra a la següent imatge:
 
-<img src="../images/docs/keyboard-focus.png" alt="Blue keyboard focus outline around a selected link." />
+<img src="../images/docs/keyboard-focus.png" alt="Vora blava del focus del teclat al voltant d'un enllaç seleccionat." />
 
-Only ever use CSS that removes this outline, for example by setting `outline: 0`, if you are replacing it with another focus outline implementation.
+Fes servir només un CSS que elimini aquest esquema, per exemple establint `outline: 0`, si l'estàs substituint per una altra implementació de la vora del focus.
 
-### Mechanisms to skip to desired content {#mechanisms-to-skip-to-desired-content}
 
-Provide a mechanism to allow users to skip past navigation sections in your application as this assists and speeds up keyboard navigation.
+### Mecanismes per ometre el contingut no desitjat{#mechanisms-to-skip-to-desired-content}
 
-Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:
+Proporciona un mecanisme que permeti als usuaris ometre les seccions de navegació ja passades de la teva aplicació perque això ajuda i accelera la navegació del teclat.
+
+"Skiplinks" o "Skip Navigation Links" són enllaços de navegació ocults que només es fan visibles quan els usuaris de teclat interaccionen amb la pàgina. Són molt fàcils d'implementar amb enllaços a pàgines internes i de donar-los estil:
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
-Also use landmark elements and roles, such as `<main>` and `<aside>`, to demarcate page regions as assistive technology allow the user to quickly navigate to these sections.
+També s'utilitzen elements i rols de referència, com `<main>` i `<aside>`, per a delimitar les regions de la pàgina com a tecnologia d'assistència que permeti a l'usuari navegar ràpidament fins aquestes seccions.
 
-Read more about the use of these elements to enhance accessibility here:
+Llegiu més sobre l'ús d'aquests elements per millorar l'accessibilitat aquí:
 
-- [Accessible Landmarks](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Punts de referència accessibles](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Programmatically managing focus {#programmatically-managing-focus}
+### Gestió de l'Enfocament pel propi programa  {#programmatically-managing-focus}
 
-Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this, we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.
+Les nostres aplicacions React modifiquen contínuament el DOM en temps d’execució, de vegades fent que el focus del teclat es perdi o s’estableixi a un element inesperat. Per tal d'arreglar-ho, hem de fer que el programa orienti el focus del teclat en la direcció correcta. Per exemple, restablint el focus de teclat a un botó que ha obert una finestra modal després que es tanqui aquesta finestra modal.
 
-MDN Web Docs takes a look at this and describes how we can build [keyboard-navigable JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
+MDN Web Docs takes a look at this and describes how we can build 
+Els Documents MDN Web descriuen com ho podem fer[keyboard-navigable JavaScript widgets (en anglès)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
-To set focus in React, we can use [Refs to DOM elements](/docs/refs-and-the-dom.html).
+Per establir l'enfocament a React, podem fer servir [Refs als elements del DOM](/docs/refs-and-the-dom.html).
 
-Using this, we first create a ref to an element in the JSX of a component class:
+Per fer-ho, primer creem una referència a un tipus de components de JSX:
 
 ```javascript{4-5,8-9,13}
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    // Create a ref to store the textInput DOM element
+    //Crea una referència per guardar l'element del DOM "textInput"
     this.textInput = React.createRef();
   }
   render() {
-  // Use the `ref` callback to store a reference to the text input DOM
-  // element in an instance field (for example, this.textInput).
+  // Utilitza la crida de retorn `ref` per guarda una referència  
+  // a l'element DOM d'entrada de text en un camp d'instància
     return (
       <input
         type="text"
@@ -189,17 +191,18 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-Then we can focus it elsewhere in our component when needed:
+Llavors hi podrem establir el focus quan ens convingui en altres parts del nostre component :
 
  ```javascript
  focus() {
-   // Explicitly focus the text input using the raw DOM API
-   // Note: we're accessing "current" to get the DOM node
+   //Enfoca explícitament l'entrada de text usant l'API DOM en brut
+   //Nota: estem accedint a "current" per obtenir el node DOM
    this.textInput.current.focus();
  }
  ```
+ [posant les referències DOM als components dels pares](/docs/refs-and-the-dom. html#exposing-dom-refs-to-parent-components) a través d'un suport especial sobre el component fill que reenvia la referència del pare al node DOM del fill.
 
-Sometimes a parent component needs to set focus to an element in a child component. We can do this by [exposing DOM refs to parent components](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) through a special prop on the child component that forwards the parent's ref to the child's DOM node.
+De vegades un component pare ha d'establir el focus a un element d'un component fill. Podem fer-ho [posant les referències DOM als components pare ](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) a través d'un suport especial al component fill que reenvia la referència del pare al node DOM del fill.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -222,19 +225,17 @@ class Parent extends React.Component {
   }
 }
 
-// Now you can set focus when required.
+// Ara podràs establir-hi el focus quan sigui necessari.
 this.inputElement.current.focus();
 ```
 
-When using a HOC to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+Quan s'utilitza un HOC per ampliar components, es recomana [reenviar la referència](/docs/endavanting-refs. html) al component ajustat usant la funció `forwardRef` de React. Si un tercer HOC no implementa el reenviament  de referència, el patró anterior encara es pot utilitzar com a alternativa.
 
-A great focus management example is the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on
-the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.
+Un gran exemple de gestió de l'enfocament és el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Aquest és un exemple relativament estrany d'una finestra modal completament accessible. No només estableix el focus inicial en el botó de cancel·lació (prevenint que l'usuari del teclat activi accidentalment l'acció d'aprovació) i conserva el focus del teclat dins de la mateixa finestra modal, sinó que també retorna el focus a l'element que inicialment va activar la finestra.
 
->Note:
+>Nota:
 >
->While this is a very important accessibility feature, it is also a technique that should be used judiciously. Use it to repair the keyboard focus flow when it is disturbed, not to try and anticipate how
->users want to use applications.
+>Tot i que es tracta d'una característica d'accessibilitat molt important, també és una tècnica que s'ha d'utilitzar de manera assenyada. Feu-la servir per reparar el flux d'enfocament del teclat quan estigui malament, però no per mirar d'anticipar com els usuaris voldran fer servir les aplicacions.
 
 ## Mouse and pointer events {#mouse-and-pointer-events}
 
