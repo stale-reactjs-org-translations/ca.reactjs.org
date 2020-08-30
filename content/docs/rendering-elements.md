@@ -34,7 +34,7 @@ En diem un node "arrel" perquè tot el que estigui dins d'ell serà gestionat pe
 
 Les aplicacions construïdes solament amb React normalment tenen un únic node arrel al DOM. Si estàs integrant React en una aplicació existent, pots tenir tants nodes arrel del DOM aïllats com vulguis.
 
-Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos a `ReactDOM.render()`:
+Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos a [`ReactDOM.render()`](/docs/react-dom.html#render):
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +46,7 @@ Això mostra "Hello, world" a la pàgina.
 
 Els elements de React són [immutables](https://en.wikipedia.org/wiki/Immutable_object). Un cop crees un element, no pots canviar els seus fills o atributs. Un element és com un fotograma solitari en una pel·lícula: aquest representa la interfície d'usuari en cert punt en el temps.
 
-Amb el nostre coneixement fins a aquest punt, l'única manera d'actualitzar la interfície d'usuari és creant un nou element, i passar-ho a `ReactDOM.render()`.
+Amb el nostre coneixement fins a aquest punt, l'única manera d'actualitzar la interfície d'usuari és creant un nou element, i passar-ho a [`ReactDOM.render()`](/docs/react-dom.html#render).
 
 Considera aquest exemple d'un rellotge en marxa:
 
@@ -54,11 +54,11 @@ Considera aquest exemple d'un rellotge en marxa:
 
 [](codepen://rendering-elements/update-rendered-element)
 
-Aquest crida a `ReactDOM.render()` cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+Aquest crida a [`ReactDOM.render()`](/docs/react-dom.html#render) cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
 > **Nota:**
 >
-> A la pràctica, a la majoria de les aplicacions de React només es crida 'ReactDOM.render()' una vegada. En les següents seccions aprendrem com el codi es pot encapsular en [components amb estat](/docs/state-and-lifecycle.html).
+> A la pràctica, a la majoria de les aplicacions de React només es crida [`ReactDOM.render()`](/docs/react-dom.html#render) una vegada. En les següents seccions aprendrem com el codi es pot encapsular en [components amb estat](/docs/state-and-lifecycle.html).
 >
 > Recomanem que no et saltis cap tema perquè aquests es relacionen entre ells.
 
