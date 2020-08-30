@@ -40,7 +40,7 @@ Fixa't que tots els atributs HTML `aria-*` són del tot compatibles amb JSX. Men
 ```
 
 ## HTML semàntic {#semantic-html}
-L'HTML semàntic és la base per l'accessibilitat d'una aplicació web. Fer servir els diversos elements HTML per reforçar el significat de la informació en els nostres llocs web sovint ens donarà l'accessibilitat de franc.
+L'HTML semàntic és la base per l'accessibilitat d'una aplicació web. Fer servir els diversos elements HTML per reforçar el significat de la informació en els nostres llocs web sovint en resultarà l'accessibilitat de franc.
 
 - [MDN Diccionari dels elements de l'HTML](https://developer.mozilla.org/ca/docs/Web/HTML/Element)
 
@@ -117,7 +117,7 @@ Els següents recursos ensenyen com fer-ho:
 - [WebAIM ens ensenya com etiquetar elements (en anglès)](https://webaim.org/techniques/forms/controls)
 - [El Grup Paciello ens explica que són els noms accessibles (en anglès)](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
-Tot i que aquestes pràctiques HTML estàndard es poden utilitzar directament a React, tingueu en compte que l'atribut `for` s'escriu com `htmlFor` a JSX:
+Tot i que aquestes pràctiques HTML estàndard es poden utilitzar directament a React, tingues en compte que l'atribut `for` s'escriu com `htmlFor` a JSX:
 
 ```javascript{1}
 <label htmlFor="inputAmbNom">Name:</label>
@@ -364,11 +364,11 @@ class BlurExample extends React.Component {
 }
 ```
 
-Aquest codi exposa la funcionalitat tant als usuaris que fan servir un dispositiu de punter com als de teclat. També fixa't amb els atributs `aria-*` afegits que permeten usuaris que fan servir un lector de pantalla. Per simplicitat els esdeveniments del teclat per habilitar la interacció amb la `tecla de fletxa` de les opcions de finestra emergent no s'han implementat.
+Aquest codi exposa la funcionalitat tant als usuaris que fan servir un dispositiu de punter com als de teclat. Fixa't també amb els atributs `aria-*` afegits que permet la funcionalitat als usuaris que fan servir un lector de pantalla. Per simplicitat els esdeveniments del teclat per habilitar la interacció amb la `tecla de fletxa` de les opcions de finestra emergent no s'han implementat.
 
 <img src="../images/docs/blur-popover-close.gif" alt="Una llista de finestres emergents que es tancarà correctament tant per als usuaris del ratolí com del teclat." />
 
-Aquest és un exemple del molts casos a on si es depèn només dels esdeveniments del punter i ratolí es trencarà la funcionalitat per als usuaris de teclat. Si sempre fas les proves amb un dispositu de teclat trobaràs immediatament les àrees amb problemes que després es pots corregir utilitzant gestors d'esdeveniments compatibles amb el teclat.
+Aquest és un exemple del molts casos a on si es depèn només dels esdeveniments del punter i ratolí es trencarà la funcionalitat per als usuaris de teclat. Si sempre fas les proves amb un dispositu de teclat trobaràs immediatament les àrees amb problemes que després pots corregir utilitzant gestors d'esdeveniments compatibles amb el teclat.
 
 ## Ginys més complexos {#more-complex-widgets}
 
@@ -423,7 +423,7 @@ Hi ha una sèrie d'eines que podem utilitzar que ens ajudaran en la creació d'a
 
 ### El teclat {#the-keyboard}
 
-De lluny fer servir només el teclat és el més fàcil i també un dels controls més importants per provar si es pot accedir a tot el lloc web. Fes això:
+Fr servir només el teclat, és de lluny, el més fàcil i també un dels controls més importants per provar si es pot accedir a tot el teu lloc web. Pots fer això:
 
 1. Desconecta el teu ratolí.
 1. Fes servir la tecla `Tab` i `Shift+Tab` per navegar.
@@ -449,15 +449,15 @@ El complement [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-
 
 ### Provant l'Accessibilitat al Navegador {#testing-accessibility-in-the-browser}
 
-Hi ha una sèrie d'eines que poden executar auditories d'accessibilitat a les pàgines web del vostre navegador. Utilitza-les en combinació amb altres comprovacions d'accessibilitat esmentades aquí ja que aquestes últimes només poden provar l'accessibilitat tècnica del vostre HTML.
+Hi ha una sèrie d'eines que poden executar auditories d'accessibilitat a les pàgines web del teu navegador. Utilitza-les en combinació amb altres comprovacions d'accessibilitat esmentades aquí ja que aquestes últimes només poden provar l'accessibilitat tècnica del teu HTML.
 
 #### aXe, aXe-core i react-axe {#axe-axe-core-and-react-axe}
 
-Deque Systems ofereix [aXe-core](https://github.com/dequelabs/axe-core) per a les proves d'accessibilitat automatitzades i d'extrem a extrem de les vostres aplicacions. Aquest mòdul inclou integracions per Selenium.
+Deque Systems ofereix [aXe-core](https://github.com/dequelabs/axe-core) per a les proves d'accessibilitat automatitzades i d'extrem a extrem de les teves aplicacions. Aquest mòdul inclou integracions per Selenium.
 
 [El Motor de l'Accessibilitat (en anglès)](https://www.deque.com/products/axe/) o aXe, és una extensió de l'inspector d'accessibilitat del navegador construïda sobre `aXe-core`.
 
-També pots fer servir el mòdul [react-axe](https://github.com/dylanb/react-axe) per a informar d'aquests resultats d'accessibilitat directament a la consola mentre es desenvolupa i es depura.
+També pots fer servir el mòdul [react-axe](https://github.com/dylanb/react-axe) per a informar d'aquests resultats d'accessibilitat directament a la consola mentre  desenvolupes i depures.
 
 #### WebAIM WAVE {#webaim-wave}
 
@@ -504,7 +504,7 @@ Mira les següents guies sobre com activar i fer servir millor el VoiceOver:
 
 [Accés a les tasques amb la veu (en anglès)](https://www.freedomscientific.com/Products/software/JAWS/) o JAWS, és un lector de pantalla molt utilitzat a Windows.
 
-Mira les següents guies sobre com fer servir millor elJAWS:
+Mira les següents guies sobre com fer servir millor el JAWS:
 
 - [WebAIM - Using JAWS to Evaluate Web Accessibility](https://webaim.org/articles/jaws/)
 - [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
