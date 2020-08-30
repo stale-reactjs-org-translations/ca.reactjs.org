@@ -7,10 +7,10 @@ Aquest repositori conté tant el codi font com la documentació necessària per 
 ### Requisits previs
 
 1. Git
-2. Node: qualsevol versió 8.x començant per 8.4.0 o superior
-3. Yarn: Veure [Lloc web de Yarn amb instruccions d'instal·lació](https://yarnpkg.com/lang/en/docs/install/)
-4. Un fork del repositori (per a contribucions)
-5. Un clon de [reactjs.org repo](https://github.com/reactjs/reactjs.org) a la teva màquina local
+1. Node: qualsevol versió 12.x començant per v12.0.0 o superior
+1. Yarn: Veure [Lloc web de Yarn amb instruccions d'instal·lació](https://yarnpkg.com/lang/en/docs/install/)
+1. Un fork del repositori (per a contribucions)
+1. Un clon de [reactjs.org repo](https://github.com/reactjs/reactjs.org) a la teva màquina local
 
 ### Instal·lació
 
@@ -36,11 +36,11 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 ### Fer canvis
 
-1. Seguir les instruccions "Executant localment"
-2. Guarda els fitxers i comprova el navegador
+1. Seguir les instruccions ["Executant localment"](#executant-localment)
+1. Guarda els fitxers i comprova el navegador
   1. Canvis de components de React dins del directori `src` s'aplicaran automàticament
-  2. Cavnis de fitxers de markdowndins el directori `content` s'aplicaran automàticament
-  3. Si treballa amb plugins, pot ser que hagi d'eliminar el directori `.cache` i reiniciar el servidor de desenvolupament
+  1. Canvis de fitxers de markdown dins el directori `content` s'aplicaran automàticament
+  1. Si treballa amb plugins, pot ser que hagi d'eliminar el directori `.cache` i reiniciar el servidor de desenvolupament
 
 ### Provar els canvis
 

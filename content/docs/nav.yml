@@ -100,8 +100,6 @@
       title: SyntheticEvent
     - id: test-utils
       title: Test Utilities
-    - id: shallow-renderer
-      title: Shallow Renderer
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
@@ -141,13 +139,13 @@
     - id: concurrent-mode-intro
       title: Introducció al mode concurrent
     - id: concurrent-mode-suspense
-      title: Suspense pel requeriment de dades
+      title: Suspensió pel mode concurrent
     - id: concurrent-mode-patterns
-      title: Patrons d'interfície concurrents
+      title: Patrons de la interfície en mode concurrent
     - id: concurrent-mode-adoption
-      title: Fent servir el mode concurrent
+      title: Adoptant el mode concurrent
     - id: concurrent-mode-reference
-      title: Referència de la API del mode concurrent
+      title: Referència de l'API del mode concurrent
 - title: Contribuïu
   items:
   - id: how-to-contribute
