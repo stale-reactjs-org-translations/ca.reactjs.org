@@ -118,7 +118,7 @@ Recomanem seguir [aquestes instruccions](https://babeljs.io/docs/editors/) per c
 
 ### Ajuda, estic encallat! {#help-im-stuck}
 
-Si t'encalles, revisa els [recursos de suport de la comunitat](/community/support.html). En particular, [xat de React i flux](https://discord.gg/0ZcbPKXt5bZjGY5n) és una gran manera d'obtenir ajuda ràpidament. Si no reps una resposta, o segueixes encallat, si us plau crea un issue, i t'ajudarem.
+Si t'encalles, revisa els [recursos de suport de la comunitat](/community/support.html). En particular, [Reactiflux Xat](https://discord.gg/reactiflux) és una gran manera d'obtenir ajuda ràpidament. Si no reps una resposta, o segueixes encallat, si us plau crea un issue, i t'ajudarem.
 
 ## Visió general {#overview}
 
@@ -290,7 +290,7 @@ class Square extends React.Component {
 
 > Nota
 >
-> A les [classes de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a ` super(props) `.
+> A les [classes de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necessites sempre cridar `super` quan defineixes el constructor d'una subclasse. Totes les classes de components de React que tenen un `constructor` han de començar amb una crida a `super(props)`.
 
 Ara canviarem el mètode `render` de Square per mostrar el valor de l'estat actual quan és clicat:
 
@@ -336,7 +336,7 @@ L'extensió de React DevTools Library per [Chrome](https://chrome.google.com/web
 
 React DevTools et permet revisar les props i l'estat dels teus components de React.
 
-Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanya de React apareixeràn les pestanyes ("⚛️ Components" i "⚛️ Profiler") al final a la dreta. Fes servir "⚛️ Components" per inspeccionar l'arbre de components.
+Després d'instal·lar React DevTools, pots fer clic dret a qualsevol element de la pàgina, clic a "Inspeccionar element" per obrir les eines de desenvolupament, i la pestanyes de React ("⚛️ Components" and "⚛️ Profiler") apareixeran com al final a la dreta. Utilitza "⚛️ Components" per inspeccionar components del arbre.
 
 **No obstant això, notar que hi ha uns quants passos extres per fer-lo funcionar amb CodePen:**
 

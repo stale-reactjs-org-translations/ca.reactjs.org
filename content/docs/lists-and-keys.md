@@ -153,9 +153,9 @@ function LListaDElemets(props) {
   );
 }
 
-function LListaDeNumeros(props) {
+function LlistaDeNumeros(props) {
   const numeros = props.numeros;
-  const LListaDElemets = numeros.map((numeros) =>
+  const LlistaDElemets = numeros.map((numeros) =>
     //Malament! La clau hauria d'haver sigut especificada aquí:
     <ElementDeLaLLista valor={numero} />
   );
@@ -168,7 +168,7 @@ function LListaDeNumeros(props) {
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <LListaDeNumeros numeros={numeros} />,
+  <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
 ```
@@ -176,27 +176,28 @@ ReactDOM.render(
 **Exemple: Ús correcte de 'key'**
 
 ```javascript{2,3,9,10}
-function ElementDeLaLLista(props) {
+function ElementDeLaLlista(props) {
   // Correcte! No cal especificar la clau aquí:
   return <li>{props.valor}</li>;
 }
 
-function LListaDeNumeros(props) {
+function LlistaDeNumeros(props) {
   const numeros = props.numeros;
-  const LListaDElemets = numeros.map((numeros) =>
+  const LlistadElemets = numeros.map((numeros) =>
     // Correcte! La clau ha de ser especificada dins de l'array.
-    <ElementDeLaLLista key={numero.toString()} valor={numero} />
+    <ElementDeLaLlista key={numero.toString()} valor={numero} />
+
   );
   return (
     <ul>
-      {LListaDElemets}
+      {LlistadElemets}
     </ul>
   );
 }
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <LListaDeNumeros numeros={numeros} />,
+  <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
 ```
@@ -266,15 +267,15 @@ A l'exemple anterior, el component `Post` pot llegir `props.id`, però no `props
 En els exemples anteriors hem declarat una variable `listItems` separada i l'hem inclòs dins el JSX:
 
 ```js{3-6}
-function LListaDeNumeros(props) {
+function LlistaDeNumeros(props) {
   const numeros = props.numeros;
-  const llistaDElements = numeros.map((numero) =>
+  const llistadElements = numeros.map((numero) =>
     <ElementDeLaLLista key={numero.toString()}
               valor={numero} />
   );
   return (
     <ul>
-      {llistaDElements}
+      {llistadElements}
     </ul>
   );
 }
@@ -283,7 +284,7 @@ function LListaDeNumeros(props) {
 JSX permet [incrustar expressions](/docs/introducing-jsx.html#embedding-expressions-in-jsx) tancades dins claus de manera que podem tenir-hi el resultat de `map()`:
 
 ```js{5-8}
-function LListaDeNumeros(props) {
+function LlistaDeNumeros(props) {
   const numeros = props.numeros;
   return (
     <ul>
