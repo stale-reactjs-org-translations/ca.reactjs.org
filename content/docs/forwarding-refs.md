@@ -1,19 +1,19 @@
 ---
 id: forwarding-refs
-title: Forwarding Refs
+title: Reenviament de Refs
 permalink: docs/forwarding-refs.html
 ---
 
-Ref forwarding is a technique for automatically passing a [ref](/docs/refs-and-the-dom.html) through a component to one of its children. This is typically not necessary for most components in the application. However, it can be useful for some kinds of components, especially in reusable component libraries. The most common scenarios are described below.
+El reenviament de referències és una tècnica per passar automàticament una [ref](/docs/refs-and-the-dom.html) a través d'un component a un dels seus fills. Això normalment no és necessari per a la majoria dels components de l'aplicació. Tanmateix, pot ser útil per a alguns tipus de components, especialment en biblioteques de components reutilitzables. Els escenaris més comuns es descriuen a continuació.
 
-## Forwarding refs to DOM components {#forwarding-refs-to-dom-components}
+## Reenviament de referències als components del DOM {#forwarding-refs-to-dom-components}
 
-Consider a `FancyButton` component that renders the native `button` DOM element:
+Considera un component `ButoElegant` que renderitza l'element `button` nadiu del  DOM:
 `embed:forwarding-refs/fancy-button-simple.js`
 
-React components hide their implementation details, including their rendered output. Other components using `FancyButton` **usually will not need to** [obtain a ref](/docs/refs-and-the-dom.html) to the inner `button` DOM element. This is good because it prevents components from relying on each other's DOM structure too much.
+Els components de React amaguen els seus detalls d'implementació, incloent la seva sortida renderitzada. Altres components que fan servir el `FancyButton` **normalment no caldrà** [obtenen una ref](/docs/refs-and-the-dom.html) a l'element intern `button` del DOM. Això és bo perquè evita que els components es basin massa en l'estructura DOM dels altres.
 
-Although such encapsulation is desirable for application-level components like `FeedStory` or `Comment`, it can be inconvenient for highly reusable "leaf" components like `FancyButton` or `MyTextInput`. These components tend to be used throughout the application in a similar manner as a regular DOM `button` and `input`, and accessing their DOM nodes may be unavoidable for managing focus, selection, or animations.
+Encara que aquesta encapsulació és desitjable per a components de nivell d'aplicació com `ElMeuTema` o `Comentaris`, pot ser inconvenient per a components molt reutilitzables com `ButoElegant` o `ElMeuInputDeText`. Aquests components tendeixen a ser utilitzats en tota l'aplicació d'una manera similar a un `button` i `input` DOM, i accedir als seus nodes DOM pot ser inevitable per gestionar el focus, la selecció o les animacions.
 
 **Ref forwarding is an opt-in feature that lets some components take a `ref` they receive, and pass it further down (in other words, "forward" it) to a child.**
 
