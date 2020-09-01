@@ -45,32 +45,37 @@ Aplicar condicionadament `React.forwardRef` quan existeix no es recomana per les
 
 ## Reenviament de Referències en Components d'Ordre Superior {#forwarding-refs-in-higher-order-components}
 
-This technique can also be particularly useful with [higher-order components](/docs/higher-order-components.html) (also known as HOCs). Let's start with an example HOC that logs component props to the console:
+Aquesta tècnica també pot ser particularment útil amb [components d'ordre superior](/docs/higher-order-components.html) (també coneguts com a HOCs). Comencem amb un exemple HOC que mostra a console les `props` dels components que embolica :
+
 `embed:forwarding-refs/log-props-before.js`
 
-The "logProps" HOC passes all `props` through to the component it wraps, so the rendered output will be the same. For example, we can use this HOC to log all props that get passed to our "fancy button" component:
+L'HOC "logProps" mostra totes les `props` del component que embolica, de manera que la sortida renderitzada serà la mateixa. Per exemple, podem utilitzar aquest HOC per mostrar totes les `props` que es passen al nostre component de "botó elegant":
+
 `embed:forwarding-refs/fancy-button.js`
 
-There is one caveat to the above example: refs will not get passed through. That's because `ref` is not a prop. Like `key`, it's handled differently by React. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component.
+Hi ha, però,  un problema a l'exemple anterior: les referències no es passaran. Això és perquè `ref` no és una `prop`. Igual que `key`, és gestionat de manera diferent per React. Si afegiu una referència a un HOC, la referència es refereix al component de contenidor més extern, no al component embolicat.
 
-This means that refs intended for our `FancyButton` component will actually be attached to the `LogProps` component:
+Això significa que les referències destinades al nostre component `FancyButton` s'afegiran al component `LogProps`:
+
 `embed:forwarding-refs/fancy-button-ref.js`
 
-Fortunately, we can explicitly forward refs to the inner `FancyButton` component using the `React.forwardRef` API. `React.forwardRef` accepts a render function that receives `props` and `ref` parameters and returns a React node. For example:
+Per sort, però, podem reenviar explícitament les referències al component interior `FancyButton` utilitzant l'API `React.forwardRef`. `React.forwardRef` accepta una funció de renderització que rep els paràmetres `props` i `ref` i retorna un node React. Per exemple:
+
 `embed:forwarding-refs/log-props-after.js`
 
-## Displaying a custom name in DevTools {#displaying-a-custom-name-in-devtools}
+## Mostrar un Nom Personalitzat a DevTools {#displaying-a-custom-name-in-devtools}
 
-`React.forwardRef` accepts a render function. React DevTools uses this function to determine what to display for the ref forwarding component.
+`React.forwardRef` accepta una funció de renderitzat. React DevTools utilitza aquesta funció per saber què ha de mostrar del component que fa el reenviament.
 
-For example, the following component will appear as "*ForwardRef*" in the DevTools:
+Per exemple, el component següent apareixerà com a "*ForwardRef*" en les DevTools:
 
 `embed:forwarding-refs/wrapped-component.js`
 
-If you name the render function, DevTools will also include its name (e.g. "*ForwardRef(myFunction)*"):
+
+Si dones nom a la funció de renderització, DevTools també n'inclourà el seu nom (e.g. "*ForwardRef(myFunction)*"):
 
 `embed:forwarding-refs/wrapped-component-with-function-name.js`
 
-You can even set the function's `displayName` property to include the component you're wrapping:
+Fins i tot pots establir la propietat `displayName` de la funció per incloure el component que està embolicat:
 
 `embed:forwarding-refs/customized-display-name.js`
