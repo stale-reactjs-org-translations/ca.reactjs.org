@@ -8,42 +8,42 @@ El reenviament de referències és una tècnica per passar automàticament una [
 
 ## Reenviament de referències als components del DOM {#forwarding-refs-to-dom-components}
 
-Considera un component `ButoElegant` que renderitza l'element `button` nadiu del  DOM:
+Considera un component (ButoElegant)`FancyButton` que renderitza l'element `button` nadiu del  DOM:
 `embed:forwarding-refs/fancy-button-simple.js`
 
 Els components de React amaguen els seus detalls d'implementació, incloent la seva sortida renderitzada. Altres components que fan servir el `FancyButton` **normalment no caldrà** [obtenen una ref](/docs/refs-and-the-dom.html) a l'element intern `button` del DOM. Això és bo perquè evita que els components es basin massa en l'estructura DOM dels altres.
 
-Encara que aquesta encapsulació és desitjable per a components de nivell d'aplicació com `ElMeuTema` o `Comentaris`, pot ser inconvenient per a components molt reutilitzables com `ButoElegant` o `ElMeuInputDeText`. Aquests components tendeixen a ser utilitzats en tota l'aplicació d'una manera similar a un `button` i `input` DOM, i accedir als seus nodes DOM pot ser inevitable per gestionar el focus, la selecció o les animacions.
+Encara que aquesta encapsulació és desitjable per a components de nivell d'aplicació com `ElMeuTema` o `Comentari`, pot ser inconvenient per a components molt reutilitzables com `ButoElegant` o `ElMeuInputDeText`. Aquests components tendeixen a ser utilitzats en tota l'aplicació d'una manera similar a un `button` i `input` DOM, i accedir als seus nodes DOM pot ser inevitable per gestionar el focus, la selecció o les animacions.
 
-**Ref forwarding is an opt-in feature that lets some components take a `ref` they receive, and pass it further down (in other words, "forward" it) to a child.**
+**El reenviament de ref és una característica opcional que permet a alguns components prendre una `ref` que reben, i passar-la més avall (en altres paraules, "reenviant" a un component fill.**
 
-In the example below, `FancyButton` uses `React.forwardRef` to obtain the `ref` passed to it, and then forward it to the DOM `button` that it renders:
+A l'exemple de sota el component (ButoElegant) `FancyButton` utilitza `React.forwardRef` per obtenir la `ref` que se li ha passat, i després es dirigeix al `button` del DOM que el renderitza:
 
 `embed:forwarding-refs/fancy-button-simple-ref.js`
 
-This way, components using `FancyButton` can get a ref to the underlying `button` DOM node and access it if necessary—just like if they used a DOM `button` directly.
+D'aquesta manera, els components que utilitzen `FancyButton` poden obtenir una referència al node subjacent `button` del DOM i accedir-hi si és necessari, igual que si utilitzen un `button` del DOM directament.
 
-Here is a step-by-step explanation of what happens in the above example:
+A continuació hi trobaràs una explicació pas a pas del que passa a l'exemple anterior:
 
-1. We create a [React ref](/docs/refs-and-the-dom.html) by calling `React.createRef` and assign it to a `ref` variable.
-1. We pass our `ref` down to `<FancyButton ref={ref}>` by specifying it as a JSX attribute.
-1. React passes the `ref` to the `(props, ref) => ...` function inside `forwardRef` as a second argument.
-1. We forward this `ref` argument down to `<button ref={ref}>` by specifying it as a JSX attribute.
-1. When the ref is attached, `ref.current` will point to the `<button>` DOM node.
+1. Creem una [ref de React](/docs/refs-and-the-dom.html) cridant `React.createRef` i assignant-la a una variable `ref`.
+2. Passa la  nostra `ref` a `<FancyButton ref={ref}>` especificant-la com un atribut JSX.
+3. React passa el `ref` a la funció `(props, ref) => ...` dins de `forwardRef` com a segon argument.
+4. Reenviem aquest argument `ref` avall fins a `<button ref={ref}>` lligant-la com un atribut JSX.
+5. Quan la referència està lligada , `ref.current` apuntarà al node `<button>` del DOM.
 
->Note
+>Nota
 >
->The second `ref` argument only exists when you define a component with `React.forwardRef` call. Regular function or class components don't receive the `ref` argument, and ref is not available in props either.
+>El segon argument `ref` només existeix quan definiu un component amb la crida `React.forwardRef`. Ni les funcions normals ni els components de classe reben l'argument `ref`, i la referència tampoc està disponible en les `props`.
 >
->Ref forwarding is not limited to DOM components. You can forward refs to class component instances, too.
+>El reenviament de referències no està limitat als components del DOM. També podeu reenviar referències a instàncies de components de classe.
 
-## Note for component library maintainers {#note-for-component-library-maintainers}
+## Nota pels mantenidors de biblioteques de components {#note-for-component-library-maintainers}
 
-**When you start using `forwardRef` in a component library, you should treat it as a breaking change and release a new major version of your library.** This is because your library likely has an observably different behavior (such as what refs get assigned to, and what types are exported), and this can break apps and other libraries that depend on the old behavior.
+**Quan comencis a fer servir `forwardRef` en una biblioteca de components hauries de tractar-la com un canvi incompatible i publicar una nova versió major de la teva biblioteca.** Això es deu al fet que la teva biblioteca probablement tindrà un comportament molt diferent (com ara a quins elements s'assignen les refs i a quins tipus s'exporten), i això pot fer incompatibles altres aplicacions i biblioteques que depenen del comportament antic.
 
-Conditionally applying `React.forwardRef` when it exists is also not recommended for the same reasons: it changes how your library behaves and can break your users' apps when they upgrade React itself.
+Aplicar condicionadament `React.forwardRef` quan existeix no es recomana per les mateixes raons: canvia el comportament de la biblioteca i pot fer incompatibles les aplicacions dels usuaris quan actualitzin el mateix React.
 
-## Forwarding refs in higher-order components {#forwarding-refs-in-higher-order-components}
+## Reenviament de Referències en Components d'Ordre Superior {#forwarding-refs-in-higher-order-components}
 
 This technique can also be particularly useful with [higher-order components](/docs/higher-order-components.html) (also known as HOCs). Let's start with an example HOC that logs component props to the console:
 `embed:forwarding-refs/log-props-before.js`
