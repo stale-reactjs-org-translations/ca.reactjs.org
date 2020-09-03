@@ -8,7 +8,7 @@ next: forms.html
 
 Primer, revisem com es transformen les llistes a JavaScript.
 
-En el codi que segueix a sota, utilitzem la funció [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar-ne els seus valors. Assignem la nova array retornada per `map()` a la variable `doblat` i la mostrem a la consola:
+En el codi que segueix a sota, utilitzem la funció [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar-ne els seus valors. Assignem la nova array retornada per `map()` a la variable `doblat` i la mostrem a la consola:
 
 ```javascript{2}
 const numeros = [1, 2, 3, 4, 5];
@@ -24,11 +24,11 @@ A React, transformar arrays en llistes d'[elements](/docs/rendering-elements.htm
 
 Podem construir col·leccions d'elements i [incloure-les a JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) fent servir claus `{}`.
 
-A continuació, farem servir el mètode de Javascript [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) a l'array `numeros`. Aquest ens retornarà un element `<li>` per a cada element de l'array. Després, assignarem l'array resultant a la variable `llistadElements`
+A continuació, farem servir el mètode de Javascript [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) a l'array `numeros`. Aquest ens retornarà un element `<li>` per a cada element de l'array. Després, assignarem l'array resultant a la variable `llistaDElements`
 
 ```javascript{2-4}
 const numeros = [1, 2, 3, 4, 5];
-const llistadElements = numeros.map((numero) =>
+const llistaDElements = numeros.map((numero) =>
   <li>{numero}</li>
 );
 ```
@@ -37,7 +37,7 @@ Finalment, incloem tota la llista sencera dins un element `<ul>`, i [la renderit
 
 ```javascript{2}
 ReactDOM.render(
-  <ul>{llistadElements}</ul>,
+  <ul>{llistaDElements}</ul>,
   document.getElementById('root')
 );
 ```
@@ -55,11 +55,11 @@ Podem refer l'exemple anterior fent un component que accepti una array de `numer
 ```javascript{3-5,7,13}
 function LlistaNumeros(props) {
   const numeros = props.numeros;
-  const llistadElements = numeros.map((numero) =>
+  const llistaDElements = numeros.map((numero) =>
     <li>{numero}</li>
   );
   return (
-    <ul>{llistadElements}</ul>
+    <ul>{llistaDElements}</ul>
   );
 }
 
@@ -69,7 +69,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-Quan executis aquest codi rebràs un avís que diu que s'ha de donar una clau(`key`) a cada elements de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
+
+Quan executis aquest codi rebràs un avís que diu que s'ha de donar una clau (`key`) a cada element de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
 
 Assignem doncs, una clau (`key`) als elements de la nostra llista dins de `numeros.map()` que corregeixi el problema de la clau que falta.
 
@@ -82,7 +83,7 @@ function LlistaNumeros(props) {
     </li>
   );
   return (
-    <ul>{llistadElements}</ul>
+    <ul>{llistaDElements}</ul>
   );
 }
 
@@ -97,11 +98,11 @@ ReactDOM.render(
 
 ## Claus {#keys}
 
-Les claus ajuden React a identificar quins elements han canviat, afegit o eliminat. Les claus s'han de donar als elements de dins de la matriu per donar-los una identitat estable:
+Les claus ajuden React a identificar quins elements han canviat, afegit o eliminat. Les claus s'han de donar als elements de dins de l'array per donar-los una identitat estable:
 
 ```js{3}
 const numeros = [1, 2, 3, 4, 5];
-const llistadElements = numeros.map((numero) =>
+const llistaDElements = numeros.map((numero) =>
   <li key={numero.toString()}>
     {numero}
   </li>
@@ -118,7 +119,7 @@ const todoItems = todos.map((todo) =>
 );
 ```
 
-Quan no tinguis més remei perquè no tens una ID estable per a cada elements de la llista, pots fer servir l'índex de l'element com a clau :
+Quan no tinguis més remei perquè no tens una ID estable per a cada elements de la llista, pots fer servir l'índex de l'element com a clau:
 
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
@@ -129,7 +130,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-No et recomanem que facis servir els índexs per a les claus si l'ordre dels elements pot canviar. Això pot afectar negativament el rendiment i pot causar problemes amb l'estat del component. Llegeix l'article de Robin Pokorny que dona una [explicació en profunditat sobre els impactes negatius d'utilitzar un índex com a clau](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si tries no assignar una clau explícita als elements de la llista, React farà servir els índexs com a claus per defecte.
+No et recomanem que facis servir els índexs per a les claus si l'ordre dels elements pot canviar. Això pot afectar negativament el rendiment i pot causar problemes amb l'estat del component. Llegeix l'article de Robin Pokorny que dóna una [explicació en profunditat sobre els impactes negatius d'utilitzar un índex com a clau](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si tries no assignar una clau explícita als elements de la llista, React farà servir els índexs com a claus per defecte.
 
 Aquí hi trobaràs una [explicació en profunditat sobre per què les claus són necessàries](/docs/reconciliation.html#recursing-on-children) si estàs interessat en saber-ne més.
 
@@ -145,7 +146,7 @@ Per exemple, si [extreus](/docs/components-and-props.html#extracting-components)
 function LlistadElemets(props) {
   const valor = props.valor;
   return (
-    //Malament! No hi ha cap necessitat d'especificar una clau ('key') aquí:
+    // Malament! No hi ha cap necessitat d'especificar una clau ('key') aquí:
     <li key={valor.toString()}>
       {valor}
     </li>
@@ -155,7 +156,7 @@ function LlistadElemets(props) {
 function LlistaDeNumeros(props) {
   const numeros = props.numeros;
   const LlistadElemets = numeros.map((numeros) =>
-    //Malament! La clau hauria d'haver sigut especificada aquí:
+    // Malament! La clau hauria d'haver sigut especificada aquí:
     <ElementDeLaLlista valor={numero} />
   );
   return (
@@ -268,13 +269,13 @@ En els exemples anteriors hem declarat una variable `listItems` separada i l'hem
 ```js{3-6}
 function LlistaDeNumeros(props) {
   const numeros = props.numeros;
-  const llistadElements = numeros.map((numero) =>
+  const llistaDElements = numeros.map((numero) =>
     <ElementDeLaLlista key={numero.toString()}
               valor={numero} />
   );
   return (
     <ul>
-      {llistadElements}
+      {llistaDElements}
     </ul>
   );
 }
