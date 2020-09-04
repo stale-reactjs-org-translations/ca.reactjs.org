@@ -8,7 +8,7 @@ next: code-splitting.html
 
 ## Per què l'Accessibilitat? {#why-accessibility}
 
-L'accessibilitat del contingut web (també coneguda com  [**a11y**](https://en.wiktionary.org/wiki/a11y)) és el disseny i la creació de continguts web que tothom pot utilitzar. El suport a l'accessibilitat és necessari per permetre que la tecnologia assistida interpreti bé les pàgines web.
+L'accessibilitat del contingut web (també coneguda com  [**a11y**(en anglès)](https://en.wiktionary.org/wiki/a11y)) és el disseny i la creació de continguts web que tothom pot utilitzar. El suport a l'accessibilitat és necessari per permetre que la tecnologia assistida interpreti bé les pàgines web.
 
 React suporta completament la construcció de llocs web amb continguts accessibles, sovint utilitzant tècniques HTML estàndard.
 
@@ -16,7 +16,7 @@ React suporta completament la construcció de llocs web amb continguts accessibl
 
 ### WCAG {#wcag}
 
-WCAG (del seu nom en anglès Web Content Accessibility Guidelines) són un conjunt de [directrius per a l'accessibilitat del contingut web](https://www.w3.org/Translations/WCAG20-ca/) que compren un ampli ventall de recomanacions per fer el contingut web més accessible.
+WCAG (del seu nom en anglès Web Content Accessibility Guidelines) són un conjunt de [directrius per a l'accessibilitat del contingut web (en anglès)](https://www.w3.org/WAI/intro/wcag) que compren un ampli ventall de recomanacions per fer el contingut web més accessible.
 
 Les següents llistes de WCAG en proporcionen un resum (en anglès):
 
@@ -28,7 +28,7 @@ Les següents llistes de WCAG en proporcionen un resum (en anglès):
 
 WAI-ÀRIA - [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) està pensada per a fer més accessible el contingut dinàmic. Principalment amb Javascript i Ajax.
 
-Fixa't que tots els atributs HTML `aria-*` són del tot compatibles amb JSX. Mentre que la majoria de les propietats i atributs del DOM a React són CamelCased, aquests atributs haurien de ser hyphen-cased (també conegut com a kebab-case, lisp-case, etc.) tal com són a l'HTML:
+Fixa't que tots els atributs HTML `aria-*` són del tot compatibles amb JSX. Mentre que la majoria de les propietats i atributs del DOM a React són CamelCased, aquests atributs haun de ser hyphen-cased (també conegut com a kebab-case, lisp-case, etc.) tal com són a l'HTML:
 
 ```javascript{3,4}
 <input
@@ -55,7 +55,7 @@ Per exemple,
 ```javascript{1,5,8}
 import React, { Fragment } from 'react';
 
-function LListaDElements({ element }) {
+function LlistaDElements({ element }) {
   return (
     <Fragment>
       <dt>{element.terme}</dt>
@@ -203,7 +203,7 @@ Llavors hi podrem establir el focus quan ens convingui en altres parts del nostr
  ```
  [posant les referències DOM als components dels pares](/docs/refs-and-the-dom. html#exposing-dom-refs-to-parent-components) a través d'un suport especial sobre el component fill que reenvia la referència del pare al node DOM del fill.
 
-De vegades un component pare ha d'establir el focus a un element d'un component fill. Podem fer-ho [posant les referències DOM als components pare ](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) i a través d'un suport especial reenviar la referència del pare al node DOM del component fill.
+De vegades un component pare ha d'establir el focus a un element d'un component fill. Podem fer-ho [posant les referències DOM als components pare](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) i a través d'un suport especial reenviar la referència del pare al node DOM del component fill.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -230,7 +230,7 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
-Quan s'utilitza un HOC per ampliar components, es recomana [reenviar la referència](/docs/forwarding-refs.html) al component envoltat fent servir la funció `forwardRef` de React. Si un HOC d'un tercer no implementa el reenviament de ref , el patró anterior es pot utilitzar com a alternativa.
+Quan s'utilitza un HOC per ampliar components, es recomana [reenviar la referència](/docs/forwarding-refs.html) al component envoltat fent servir la funció `forwardRef` de React. Si un HOC d'un tercer no implementa el reenviament de ref, el patró anterior es pot utilitzar com a alternativa.
 
 Un gran exemple de gestió de l'enfocament és el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Aquest és un exemple relativament estrany d'una finestra modal completament accessible. No només estableix el focus inicial en el botó de cancel·lació (prevenint que l'usuari del teclat activi accidentalment l'acció d'aprovació) i conserva el focus del teclat dins de la mateixa finestra modal, sinó que també retorna el focus a l'element que inicialment va activar la finestra.
 
@@ -429,18 +429,18 @@ Fr servir només el teclat, és de lluny, el més fàcil i també un dels contro
 
 1. Desconecta el teu ratolí.
 1. Fes servir la tecla `Tab` i `Shift+Tab` per navegar.
-1. Fes servir l' `Enter` per activar elements.
+1. Fes servir l'`Enter` per activar elements.
 1. A on sigui necessari, fes servir les tecles de fletxa per interacturar amb els element que ho requereixin, com ara menus i desplegables.
 
 ### Ajuda al desenvolupament {#development-assistance}
 
-Podem comprovar algunes funcions d'accessibilitat directament en el nostre codi JSX. Sovint, els controls intel·ligents per als rols , estats i propietats de l'ARIA ja ens són proporcionats en IDE's preparats per a JSX. També tenim accés a la següent eina:
+Podem comprovar algunes funcions d'accessibilitat directament en el nostre codi JSX. Sovint, els controls intel·ligents per als rols, estats i propietats de l'ARIA ja ens són proporcionats en IDE's preparats per a JSX. També tenim accés a la següent eina:
 
 #### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
 
-El complement [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) per ESLint proporciona informació de retorn "AST linting"  sobre els problemes d'accessibilitat en el teu JSX. Molts IDE's et permeten integrar aquests troballes directament a l'anàlisis del codi i a les finestres del codi font.
+El complement [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) per ESLint proporciona informació de retorn "AST linting" sobre els problemes d'accessibilitat en el teu JSX. Molts IDE's et permeten integrar aquests troballes directament a l'anàlisis del codi i a les finestres del codi font.
 
-[Create React App](https://github.com/facebookincubator/create-react-app) té activat aquest connector amb un subconjunt de regles. Si voleu habilitar encara més regles d'accessibilitat podeu crear un fitxer `. eslintrc` a l'arrel del vostre projecte amb aquest contingut:
+[Create React App](https://github.com/facebookincubator/create-react-app) té activat aquest connector amb un subconjunt de regles. Si voleu habilitar encara més regles d'accessibilitat podeu crear un fitxer `.eslintrc` a l'arrel del vostre projecte amb aquest contingut:
 
   ```json
   {
@@ -459,7 +459,7 @@ Deque Systems ofereix [aXe-core](https://github.com/dequelabs/axe-core) per a le
 
 [El Motor de l'Accessibilitat (en anglès)](https://www.deque.com/products/axe/) o aXe, és una extensió de l'inspector d'accessibilitat del navegador construïda sobre `aXe-core`.
 
-També pots fer servir el mòdul [react-axe](https://github.com/dylanb/react-axe) per a informar d'aquests resultats d'accessibilitat directament a la consola mentre  desenvolupes i depures.
+També pots fer servir el mòdul [react-axe](https://github.com/dylanb/react-axe) per a informar d'aquests resultats d'accessibilitat directament a la consola mentre desenvolupes i depures.
 
 #### WebAIM WAVE {#webaim-wave}
 
