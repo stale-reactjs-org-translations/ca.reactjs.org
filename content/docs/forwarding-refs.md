@@ -8,16 +8,16 @@ El reenviament de referències és una tècnica per passar automàticament una [
 
 ## Reenviament de referències als components del DOM {#forwarding-refs-to-dom-components}
 
-Considera un component (ButoElegant)`FancyButton` que renderitza l'element `button` nadiu del  DOM:
+Considera un component (BotoElegant)`FancyButton` que renderitza l'element `button` nadiu del DOM:
 `embed:forwarding-refs/fancy-button-simple.js`
 
-Els components de React amaguen els seus detalls d'implementació, incloent la seva sortida renderitzada. Altres components que fan servir el `FancyButton` **normalment no caldrà** [obtenen una ref](/docs/refs-and-the-dom.html) a l'element intern `button` del DOM. Això és bo perquè evita que els components es basin massa en l'estructura DOM dels altres.
+Els components de React amaguen els seus detalls d'implementació, incloent la seva sortida renderitzada. Altres components que fan servir el `FancyButton` **normalment no caldrà** [que obtenguin una ref](/docs/refs-and-the-dom.html) a l'element intern `button` del DOM. Això és bo perquè evita que els components es basin massa en l'estructura DOM dels altres.
 
-Encara que aquesta encapsulació és desitjable per a components de nivell d'aplicació com `ElMeuTema` o `Comentari`, pot ser inconvenient per a components molt reutilitzables com `ButoElegant` o `ElMeuInputDeText`. Aquests components tendeixen a ser utilitzats en tota l'aplicació d'una manera similar a un `button` i `input` DOM, i accedir als seus nodes DOM pot ser inevitable per gestionar el focus, la selecció o les animacions.
+Encara que aquesta encapsulació és desitjable per a components de nivell d'aplicació com `ElMeuTema` o `Comentari`, pot ser inconvenient per a components molt reutilitzables com `BotoElegant` o `ElMeuInputDeText`. Aquests components tendeixen a ser utilitzats en tota l'aplicació d'una manera similar a un `button` i `input` DOM, i accedir als seus nodes DOM pot ser inevitable per gestionar el focus, la selecció o les animacions.
 
 **El reenviament de ref és una característica opcional que permet a alguns components prendre una `ref` que reben, i passar-la més avall (en altres paraules, "reenviant" a un component fill.**
 
-A l'exemple de sota el component (ButoElegant) `FancyButton` utilitza `React.forwardRef` per obtenir la `ref` que se li ha passat, i després es dirigeix al `button` del DOM que el renderitza:
+A l'exemple de sota el component (BotoElegant) `FancyButton` utilitza `React.forwardRef` per obtenir la `ref` que se li ha passat, i després es dirigeix al `button` del DOM que el renderitza:
 
 `embed:forwarding-refs/fancy-button-simple-ref.js`
 
@@ -26,10 +26,10 @@ D'aquesta manera, els components que utilitzen `FancyButton` poden obtenir una r
 A continuació hi trobaràs una explicació pas a pas del que passa a l'exemple anterior:
 
 1. Creem una [ref de React](/docs/refs-and-the-dom.html) cridant `React.createRef` i assignant-la a una variable `ref`.
-2. Passa la  nostra `ref` a `<FancyButton ref={ref}>` especificant-la com un atribut JSX.
-3. React passa el `ref` a la funció `(props, ref) => ...` dins de `forwardRef` com a segon argument.
-4. Reenviem aquest argument `ref` avall fins a `<button ref={ref}>` lligant-la com un atribut JSX.
-5. Quan la referència està lligada , `ref.current` apuntarà al node `<button>` del DOM.
+1. Passem la  nostra `ref` a `<FancyButton ref={ref}>` especificant-la com un atribut JSX.
+1. React passa la `ref` a la funció `(props, ref) => ...` dins de `forwardRef` com a segon argument.
+1. Reenviem aquest argument `ref` avall fins a `<button ref={ref}>` lligant-lo com un atribut JSX.
+1. Quan la referència estigui lligada , `ref.current` apuntarà al node `<button>` del DOM.
 
 >Nota
 >
@@ -43,15 +43,15 @@ A continuació hi trobaràs una explicació pas a pas del que passa a l'exemple 
 
 Aplicar condicionadament `React.forwardRef` quan existeix no es recomana per les mateixes raons: canvia el comportament de la biblioteca i pot fer incompatibles les aplicacions dels usuaris quan actualitzin el mateix React.
 
-## Reenviament de Referències en Components d'Ordre Superior {#forwarding-refs-in-higher-order-components}
+## Reenviament de Referències en components d'ordre superior {#forwarding-refs-in-higher-order-components}
 
-Aquesta tècnica també pot ser particularment útil amb [components d'ordre superior](/docs/higher-order-components.html) (també coneguts com a HOCs). Comencem amb un exemple HOC que mostra a console les `props` dels components que embolica :
+Aquesta tècnica també pot ser particularment útil amb [components d'ordre superior](/docs/higher-order-components.html) (també coneguts com a HOCs). Comencem amb un exemple HOC que mostra a console les `props` dels components que embolica:
 `embed:forwarding-refs/log-props-before.js`
 
 L'HOC "logProps" mostra totes les `props` del component que embolica, de manera que la sortida renderitzada serà la mateixa. Per exemple, podem utilitzar aquest HOC per mostrar totes les `props` que es passen al nostre component de "botó elegant":
 `embed:forwarding-refs/fancy-button.js`
 
-Hi ha, però,  un problema a l'exemple anterior: les referències no es passaran. Això és perquè `ref` no és una `prop`. Igual que `key`, és gestionat de manera diferent per React. Si afegiu una referència a un HOC, la referència es refereix al component de contenidor més extern, no al component embolicat.
+Hi ha, però, un problema a l'exemple anterior: les referències no es passaran. Això és perquè `ref` no és una `prop`. Igual que `key`, és gestionat de manera diferent per React. Si afegiu una referència a un HOC, la referència es refereix al component de contenidor més extern, no al component embolicat.
 
 Això significa que les referències destinades al nostre component `FancyButton` s'afegiran al component `LogProps`:
 `embed:forwarding-refs/fancy-button-ref.js`
