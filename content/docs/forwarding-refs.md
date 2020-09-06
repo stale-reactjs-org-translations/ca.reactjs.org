@@ -46,7 +46,6 @@ Aplicar condicionadament `React.forwardRef` quan existeix no es recomana per les
 ## Reenviament de Referències en Components d'Ordre Superior {#forwarding-refs-in-higher-order-components}
 
 Aquesta tècnica també pot ser particularment útil amb [components d'ordre superior](/docs/higher-order-components.html) (també coneguts com a HOCs). Comencem amb un exemple HOC que mostra a console les `props` dels components que embolica :
-
 `embed:forwarding-refs/log-props-before.js`
 
 L'HOC "logProps" mostra totes les `props` del component que embolica, de manera que la sortida renderitzada serà la mateixa. Per exemple, podem utilitzar aquest HOC per mostrar totes les `props` que es passen al nostre component de "botó elegant":
