@@ -67,7 +67,6 @@ Per exemple, el component següent apareixerà com a "*ForwardRef*" en les DevTo
 
 `embed:forwarding-refs/wrapped-component.js`
 
-
 Si dones nom a la funció de renderització, DevTools també n'inclourà el seu nom (e.g. "*ForwardRef(myFunction)*"):
 
 `embed:forwarding-refs/wrapped-component-with-function-name.js`
