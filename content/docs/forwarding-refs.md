@@ -57,7 +57,6 @@ Això significa que les referències destinades al nostre component `FancyButton
 `embed:forwarding-refs/fancy-button-ref.js`
 
 Per sort, però, podem reenviar explícitament les referències al component interior `FancyButton` utilitzant l'API `React.forwardRef`. `React.forwardRef` accepta una funció de renderització que rep els paràmetres `props` i `ref` i retorna un node React. Per exemple:
-
 `embed:forwarding-refs/log-props-after.js`
 
 ## Mostrar un Nom Personalitzat a DevTools {#displaying-a-custom-name-in-devtools}
