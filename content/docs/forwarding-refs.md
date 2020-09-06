@@ -54,7 +54,6 @@ L'HOC "logProps" mostra totes les `props` del component que embolica, de manera 
 Hi ha, però,  un problema a l'exemple anterior: les referències no es passaran. Això és perquè `ref` no és una `prop`. Igual que `key`, és gestionat de manera diferent per React. Si afegiu una referència a un HOC, la referència es refereix al component de contenidor més extern, no al component embolicat.
 
 Això significa que les referències destinades al nostre component `FancyButton` s'afegiran al component `LogProps`:
-
 `embed:forwarding-refs/fancy-button-ref.js`
 
 Per sort, però, podem reenviar explícitament les referències al component interior `FancyButton` utilitzant l'API `React.forwardRef`. `React.forwardRef` accepta una funció de renderització que rep els paràmetres `props` i `ref` i retorna un node React. Per exemple:
