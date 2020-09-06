@@ -186,7 +186,6 @@ function LlistaDeNumeros(props) {
   const LlistadElemets = numeros.map((numeros) =>
     // Correcte! La clau ha de ser especificada dins de l'array.
     <ElementDeLaLlista key={numero.toString()} valor={numero} />
-
   );
   return (
     <ul>
