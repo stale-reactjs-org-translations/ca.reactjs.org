@@ -18,13 +18,13 @@ El paquet `react-dom` proporciona mètodes específics del DOM que pots fer serv
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Suport del Navegador {#browser-support}
+### Navegadors Compatibles {#browser-support}
 
-React suporta tots els navegadors populars, incloent Internet Explorer 9 i superiors, tot i que que [fan falta alguns 'polyfills'](/docs/javascript-environment-requirements.html) per als navegadors més antics com ara l'IE 9 i l'IE 10.
+React es compatible amb tots els navegadors populars, incloent Internet Explorer 9 i superiors, tot i que [fan falta alguns 'polyfills'](/docs/javascript-environment-requirements.html) per als navegadors més antics com ara l'IE 9 i l'IE 10.
 
 > Nota
 >
-> No donem suport als navegadors més antics que no suporten els mètodes ES5, però pot passar que les teves aplicacions funcionin en navegadors més antics si els polifills com ara [es5-shim i es5-sham](https://github.com/es-shims/es5-shim) s'inclouen a la pàgina. Si decideixes prendre aquest camí recorda que ho fas pel teu compte.
+> No garantim la compatibilitat amb els navegadors més antics que no suporten els mètodes ES5, però és possible que les teves aplicacions funcionin en navegadors més antics si els polifills com ara [es5-shim i es5-sham](https://github.com/es-shims/es5-shim) s'inclouen a la pàgina. Si decideixes prendre aquest camí recorda que és sota la teva responsabilitat.
 
 * * *
 
