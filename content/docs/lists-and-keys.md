@@ -260,7 +260,6 @@ const contingut = posts.map((post) =>
 
 A l'exemple anterior, el component `Post` pot llegir `props.id`, però no `props.key`.
 
-
 ### Incrustant map() dins de JSX {#embedding-map-in-jsx}
 
 En els exemples anteriors hem declarat una variable `listItems` separada i l'hem inclòs dins el JSX:
