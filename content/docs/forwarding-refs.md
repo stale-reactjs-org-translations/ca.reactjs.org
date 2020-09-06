@@ -49,7 +49,6 @@ Aquesta tècnica també pot ser particularment útil amb [components d'ordre sup
 `embed:forwarding-refs/log-props-before.js`
 
 L'HOC "logProps" mostra totes les `props` del component que embolica, de manera que la sortida renderitzada serà la mateixa. Per exemple, podem utilitzar aquest HOC per mostrar totes les `props` que es passen al nostre component de "botó elegant":
-
 `embed:forwarding-refs/fancy-button.js`
 
 Hi ha, però,  un problema a l'exemple anterior: les referències no es passaran. Això és perquè `ref` no és una `prop`. Igual que `key`, és gestionat de manera diferent per React. Si afegiu una referència a un HOC, la referència es refereix al component de contenidor més extern, no al component embolicat.
