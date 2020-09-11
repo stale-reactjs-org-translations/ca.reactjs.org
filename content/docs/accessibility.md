@@ -1,24 +1,24 @@
 ---
 id: accessibility
-title: Accessibility
+title: Accessibilitat
 permalink: docs/accessibility.html
 prev: integrating-with-other-libraries.html
 next: code-splitting.html
 ---
 
-## Why Accessibility? {#why-accessibility}
+## Per què l'Accessibilitat? {#why-accessibility}
 
-Web accessibility (also referred to as [**a11y**](https://en.wiktionary.org/wiki/a11y)) is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.
+L'accessibilitat del contingut web (també coneguda com  [**a11y**(en anglès)](https://en.wiktionary.org/wiki/a11y)) és el disseny i la creació de continguts web que tothom pot utilitzar. El suport a l'accessibilitat és necessari per permetre que la tecnologia assistida interpreti bé les pàgines web.
 
-React fully supports building accessible websites, often by using standard HTML techniques.
+React suporta completament la construcció de llocs web amb continguts accessibles, sovint utilitzant tècniques HTML estàndard.
 
-## Standards and Guidelines {#standards-and-guidelines}
+## Estàndards i Guies d'orientació {#standards-and-guidelines}
 
 ### WCAG {#wcag}
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
+WCAG (del seu nom en anglès Web Content Accessibility Guidelines) són un conjunt de [directrius per a l'accessibilitat del contingut web (en anglès)](https://www.w3.org/WAI/intro/wcag) que compren un ampli ventall de recomanacions per fer el contingut web més accessible.
 
-The following WCAG checklists provide an overview:
+Les següents llistes de WCAG en proporcionen un resum (en anglès):
 
 - [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
 - [WCAG checklist from WebAIM](https://webaim.org/standards/wcag/checklist)
@@ -26,9 +26,9 @@ The following WCAG checklists provide an overview:
 
 ### WAI-ARIA {#wai-aria}
 
-The [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) document contains techniques for building fully accessible JavaScript widgets.
+WAI-ÀRIA - [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) està pensada per a fer més accessible el contingut dinàmic. Principalment amb Javascript i Ajax.
 
-Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be hyphen-cased (also known as kebab-case, lisp-case, etc) as they are in plain HTML:
+Fixa't que tots els atributs HTML `aria-*` són del tot compatibles amb JSX. Mentre que la majoria de les propietats i atributs del DOM a React són CamelCased, aquests atributs haun de ser hyphen-cased (també conegut com a kebab-case, lisp-case, etc.) tal com són a l'HTML:
 
 ```javascript{3,4}
 <input
@@ -41,25 +41,25 @@ Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most 
 />
 ```
 
-## Semantic HTML {#semantic-html}
-Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information
-in our websites will often give us accessibility for free.
+## HTML semàntic {#semantic-html}
+L'HTML semàntic és la base per l'accessibilitat d'una aplicació web. Fer servir els diversos elements HTML per reforçar el significat de la informació en els nostres llocs web sovint en resultarà l'accessibilitat de franc.
 
-- [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [MDN Diccionari dels elements de l'HTML](https://developer.mozilla.org/ca/docs/Web/HTML/Element)
 
-Sometimes we break HTML semantics when we add `<div>` elements to our JSX to make our React code work, especially when working with lists (`<ol>`, `<ul>` and `<dl>`) and the HTML `<table>`.
-In these cases we should rather use [React Fragments](/docs/fragments.html) to group together multiple elements.
+De vegades trenquem la semàntica HTML quan afegim elements `<div>` al nostre JSX per fer que funcioni el codi React, especialment quan es treballa amb llistes (`<ol>`, `<ul>` i `<dl>`) i amb l'element HTML `<table>`.
+En aquests casos hauríem d'utilitzar [React Fragments](/docs/fragments.html) per agrupar-ne els diversos elements.
 
-For example,
+
+Per exemple,
 
 ```javascript{1,5,8}
 import React, { Fragment } from 'react';
 
-function ListItem({ item }) {
+function LlistaDElements({ element }) {
   return (
     <Fragment>
-      <dt>{item.term}</dt>
-      <dd>{item.description}</dd>
+      <dt>{element.terme}</dt>
+      <dd>{element.descripcio}</dd>
     </Fragment>
   );
 }
@@ -67,120 +67,121 @@ function ListItem({ item }) {
 function Glossary(props) {
   return (
     <dl>
-      {props.items.map(item => (
-        <ListItem item={item} key={item.id} />
+      {props.elements.map(element => (
+        <LListaDElements element={element} key={element.id} />
       ))}
     </dl>
   );
 }
 ```
 
-You can map a collection of items to an array of fragments as you would any other type of element as well:
+Pots assignar a cada element d'una array  una llista de fragments de la mateixa manera que qualsevol altre tipus d'element:
 
 ```javascript{6,9}
 function Glossary(props) {
   return (
     <dl>
-      {props.items.map(item => (
+      {props.elements.map(element => (
         // Fragments should also have a `key` prop when mapping collections
-        <Fragment key={item.id}>
-          <dt>{item.term}</dt>
-          <dd>{item.description}</dd>
+        <Fragment key={element.id}>
+          <dt>{element.terme}</dt>
+          <dd>{element.descripcio}</dd>
         </Fragment>
       ))}
     </dl>
   );
 }
 ```
+Quan no necessitis afegir cap atribut a l'etiqueta Fragment pots utilitzar la [sintaxi curta](/docs/fragments.html#short-syntax), si fas servir una versió de React que ho suporti:
 
-When you don't need any props on the Fragment tag you can use the [short syntax](/docs/fragments.html#short-syntax), if your tooling supports it:
 
 ```javascript{3,6}
-function ListItem({ item }) {
+function ListItem({ element }) {
   return (
     <>
-      <dt>{item.term}</dt>
-      <dd>{item.description}</dd>
+      <dt>{element.terme}</dt>
+      <dd>{element.descripcio}</dd>
     </>
   );
 }
 ```
 
-For more info, see [the Fragments documentation](/docs/fragments.html).
+Per a més informació, ves a [la documentació de Fragments](/docs/fragments.html).
 
-## Accessible Forms {#accessible-forms}
+## L'Accessibilitat als Formularis {#accessible-forms}
 
-### Labeling {#labeling}
-Every HTML form control, such as `<input>` and `<textarea>`, needs to be labeled accessibly. We need to provide descriptive labels that are also exposed to screen readers.
+### Etiquetant {#labeling}
+Qualsevol control de formulari de l'HTML, com ara  `<input>` i `<textarea>`, ha de ser etiquetat de forma accessible. Hem de proporcionar etiquetes descriptives que també siguin reconeixibles pels lectors de pantalla.
 
-The following resources show us how to do this:
+Els següents recursos ensenyen com fer-ho:
 
-- [The W3C shows us how to label elements](https://www.w3.org/WAI/tutorials/forms/labels/)
-- [WebAIM shows us how to label elements](https://webaim.org/techniques/forms/controls)
-- [The Paciello Group explains accessible names](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
+- [El W3C ens ensenya com etiquetar elements (en anglès)](https://www.w3.org/WAI/tutorials/forms/labels/)
+- [WebAIM ens ensenya com etiquetar elements (en anglès)](https://webaim.org/techniques/forms/controls)
+- [El Grup Paciello ens explica que són els noms accessibles (en anglès)](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
-Although these standard HTML practices can be directly used in React, note that the `for` attribute is written as `htmlFor` in JSX:
+Tot i que aquestes pràctiques HTML estàndard es poden utilitzar directament a React, tingues en compte que l'atribut `for` s'escriu com `htmlFor` a JSX:
 
 ```javascript{1}
-<label htmlFor="namedInput">Name:</label>
-<input id="namedInput" type="text" name="name"/>
+<label htmlFor="inputAmbNom">Name:</label>
+<input id="inputAmbNom" type="text" name="name"/>
 ```
 
-### Notifying the user of errors {#notifying-the-user-of-errors}
+### Notificant Els Errors A L'usuari {#notifying-the-user-of-errors}
 
-Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:
+Les situacions d'error han de poder ser compreses per tots els usuaris. L'enllaç següent ens mostra com fer reconeixibles els textos d'error als lectors de pantalla:
 
-- [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [WebAIM looks at form validation](https://webaim.org/techniques/formvalidation/)
+- [El W3C ensenya com fer les notificiacions a l'usuari (en anglès)](https://www.w3.org/WAI/tutorials/forms/notifications/)
+- [WebAIM ensenya com fer la validació d'un formulari (en anglès)](https://webaim.org/techniques/formvalidation/)
 
-## Focus Control {#focus-control}
+## Control del Focus {#focus-control}
 
-Ensure that your web application can be fully operated with the keyboard only:
+Assegura't que la teva aplicació web pugui funcionar bé si fas servir només el teclat:
 
-- [WebAIM talks about keyboard accessibility](https://webaim.org/techniques/keyboard/)
+- [WebAIM explica l'accessibilitat si fas servir només el teclat (en anglès)](https://webaim.org/techniques/keyboard/)
 
-### Keyboard focus and focus outline {#keyboard-focus-and-focus-outline}
+### Focus del Teclat i la línia de vora del Focus{#keyboard-focus-and-focus-outline}
 
-Keyboard focus refers to the current element in the DOM that is selected to accept input from the keyboard. We see it everywhere as a focus outline similar to that shown in the following image:
+El focus del teclat es refereix a l'element del DOM que està preparat per acceptar l'entrada del teclat. Ho veiem a tot arreu seguint un esquema d'enfocament similar al que es mostra a la següent imatge:
 
-<img src="../images/docs/keyboard-focus.png" alt="Blue keyboard focus outline around a selected link." />
+<img src="../images/docs/keyboard-focus.png" alt="Línia de vora blava del focus del teclat al voltant d'un enllaç seleccionat." />
 
-Only ever use CSS that removes this outline, for example by setting `outline: 0`, if you are replacing it with another focus outline implementation.
+Fes servir només el CSS que elimina aquest esquema, per exemple establint `outline: 0`, si l'estàs substituint per una altra implementació de la línia de vora del focus.
 
-### Mechanisms to skip to desired content {#mechanisms-to-skip-to-desired-content}
 
-Provide a mechanism to allow users to skip past navigation sections in your application as this assists and speeds up keyboard navigation.
+### Mecanismes per ometre el contingut no desitjat{#mechanisms-to-skip-to-desired-content}
 
-Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:
+Proporciona un mecanisme que permeti als usuaris ometre les seccions de navegació ja passades de la teva aplicació perque això ajuda i accelera la navegació amb el teclat.
+
+"Skiplinks" o "Skip Navigation Links" són enllaços de navegació ocults que només es fan visibles quan els usuaris de teclat interaccionen amb la pàgina. Són molt fàcils d'implementar amb enllaços a pàgines internes i de donar-los estil:
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
-Also use landmark elements and roles, such as `<main>` and `<aside>`, to demarcate page regions as assistive technology allow the user to quickly navigate to these sections.
+També s'utilitzen elements i rols de referència, com `<main>` i `<aside>`, per a delimitar les regions de la pàgina i que permeti a l'usuari navegar ràpidament fins aquestes seccions.
 
-Read more about the use of these elements to enhance accessibility here:
+Llegiu més sobre l'ús d'aquests elements per millorar l'accessibilitat aquí:
 
-- [Accessible Landmarks](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Punts de referència accessibles (en anglès)](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Programmatically managing focus {#programmatically-managing-focus}
+### Gestió de l'Enfocament per codi  {#programmatically-managing-focus}
 
-Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this, we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.
+Les nostres aplicacions React modifiquen contínuament el DOM en temps d’execució, de vegades fent que el focus del teclat es perdi o s’estableixi a un element inesperat. Per tal d'arreglar-ho, hem de fer que el programa orienti el focus del teclat en la direcció correcta. Per exemple, restablint el focus de teclat al botó que ha obert una finestra modal després que es tanqui aquesta.
 
-MDN Web Docs takes a look at this and describes how we can build [keyboard-navigable JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
+Els Documents MDN Web descriuen com ho podem fer [keyboard-navigable JavaScript widgets (en anglès)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
-To set focus in React, we can use [Refs to DOM elements](/docs/refs-and-the-dom.html).
+Per establir l'enfocament al codi React, podem fer servir [Refs als elements del DOM](/docs/refs-and-the-dom.html).
 
-Using this, we first create a ref to an element in the JSX of a component class:
+Per fer-ho, primer creem una referència a un tipus de component de JSX:
 
 ```javascript{4-5,8-9,13}
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    // Create a ref to store the textInput DOM element
+    //Crea una referència per guardar l'element del DOM "textInput"
     this.textInput = React.createRef();
   }
   render() {
-  // Use the `ref` callback to store a reference to the text input DOM
-  // element in an instance field (for example, this.textInput).
+  // Utilitza la crida de retorn `ref` per guardar una referència  
+  // a l'element DOM d'entrada de text en un camp d'instància
     return (
       <input
         type="text"
@@ -191,17 +192,18 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-Then we can focus it elsewhere in our component when needed:
+Llavors hi podrem establir el focus quan ens convingui en altres parts del nostre codi :
 
  ```javascript
  focus() {
-   // Explicitly focus the text input using the raw DOM API
-   // Note: we're accessing "current" to get the DOM node
+   //Enfoca explícitament l'entrada de text usant l'API DOM en brut
+   //Nota: estem accedint a "current" per obtenir el node DOM
    this.textInput.current.focus();
  }
  ```
+ [posant les referències DOM als components dels pares](/docs/refs-and-the-dom. html#exposing-dom-refs-to-parent-components) a través d'un suport especial sobre el component fill que reenvia la referència del pare al node DOM del fill.
 
-Sometimes a parent component needs to set focus to an element in a child component. We can do this by [exposing DOM refs to parent components](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) through a special prop on the child component that forwards the parent's ref to the child's DOM node.
+De vegades un component pare ha d'establir el focus a un element d'un component fill. Podem fer-ho [posant les referències DOM als components pare](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) i a través d'un suport especial reenviar la referència del pare al node DOM del component fill.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -224,29 +226,27 @@ class Parent extends React.Component {
   }
 }
 
-// Now you can set focus when required.
+// Ara podràs establir-hi el focus quan sigui necessari.
 this.inputElement.current.focus();
 ```
 
-When using a HOC to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+Quan s'utilitza un HOC per ampliar components, es recomana [reenviar la referència](/docs/forwarding-refs.html) al component envoltat fent servir la funció `forwardRef` de React. Si un HOC d'un tercer no implementa el reenviament de ref, el patró anterior es pot utilitzar com a alternativa.
 
-A great focus management example is the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on
-the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.
+Un gran exemple de gestió de l'enfocament és el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Aquest és un exemple relativament estrany d'una finestra modal completament accessible. No només estableix el focus inicial en el botó de cancel·lació (prevenint que l'usuari del teclat activi accidentalment l'acció d'aprovació) i conserva el focus del teclat dins de la mateixa finestra modal, sinó que també retorna el focus a l'element que inicialment va activar la finestra.
 
->Note:
+>Nota:
 >
->While this is a very important accessibility feature, it is also a technique that should be used judiciously. Use it to repair the keyboard focus flow when it is disturbed, not to try and anticipate how
->users want to use applications.
+>Tot i que es tracta d'una característica d'accessibilitat molt important, també és una tècnica que s'ha d'utilitzar de manera assenyada. Feu-la servir per reparar el flux d'enfocament del teclat quan estigui malament, però no per mirar d'anticipar com els usuaris voldran fer servir les aplicacions.
 
-## Mouse and pointer events {#mouse-and-pointer-events}
+## Esdeveniments de ratolí i de punter {#mouse-and-pointer-events}
 
-Ensure that all functionality exposed through a mouse or pointer event can also be accessed using the keyboard alone. Depending only on the pointer device will lead to many cases where keyboard users cannot use your application.
+Assegura't que tota la funcionalitat exposada a través d'un esdeveniment de ratolí o punter també es pugui accedir utilitzant només el teclat. Si es depèn només d'un dispositiu de punter es produiran molts casos en què els usuaris de teclat no podran utilitzar la teva aplicació.
 
-To illustrate this, let's look at a prolific example of broken accessibility caused by click events. This is the outside click pattern, where a user can disable an opened popover by clicking outside the element.
+Per il·lustrar això, veiem un exemple prolífic de pèrdua d'accessibilitat causada per esdeveniments de clic. Aquí es mostra el patró de clic a fora, a on un usuari pot desactivar una finestra emergent fent clic fora de la finestra.
 
-<img src="../images/docs/outerclick-with-mouse.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with a mouse showing that the close action works." />
+<img src="../images/docs/outerclick-with-mouse.gif" alt="Un botó de commutació obre una llista de finestres emergents implementada amb el patró de clic a fora i mostra que fent servir un ratolí l'acció de tancament funciona." />
 
-This is typically implemented by attaching a `click` event to the `window` object that closes the popover:
+Aquest patró s'implementa normalment afegint un esdeveniment de `click` a l'objecte `window` que tanca la finestra emergent:
 
 ```javascript{12-14,26-30}
 class OuterClickExample extends React.Component {
@@ -283,12 +283,12 @@ class OuterClickExample extends React.Component {
   render() {
     return (
       <div ref={this.toggleContainer}>
-        <button onClick={this.onClickHandler}>Select an option</button>
+        <button onClick={this.onClickHandler}>Selecciona una opció</button>
         {this.state.isOpen && (
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
+            <li>Opció 1</li>
+            <li>Opció 2</li>
+            <li>Opció 3</li>
           </ul>
         )}
       </div>
@@ -297,11 +297,11 @@ class OuterClickExample extends React.Component {
 }
 ```
 
-This may work fine for users with pointer devices, such as a mouse, but operating this with the keyboard alone leads to broken functionality when tabbing to the next element as the `window` object never receives a `click` event. This can lead to obscured functionality which blocks users from using your application.
+Aquest patró pot funcionar bé per als usuaris amb dispositius de punter, com ara un ratolí, però si només es fa servir el teclat es perd aquesta funcionalitat  perque amb la tecla tab el que es fa és passar al següent element, ja que l'objecte `window` no rep mai un esdeveniment `click`. Això portarà a una funcionalitat ofuscada que impedirà a alguns usuaris utilitzar la teva aplicació.
 
-<img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
+<img src="../images/docs/outerclick-with-keyboard.gif" alt="Un botó de commutació obrint una llista de finestres emergents implementada amb el patró del click a fora i que operada amb el teclat mostra que la finestra emergent no es tanca en difuminar i ocultar altres elements de la pantalla." />
 
-The same functionality can be achieved by using appropriate event handlers instead, such as `onBlur` and `onFocus`:
+La mateixa funcionalitat es pot aconseguir utilitzant gestors d'esdeveniments apropiats, com ara `onBlur` i `onFocus`:
 
 ```javascript{19-29,31-34,37-38,40-41}
 class BlurExample extends React.Component {
@@ -322,10 +322,13 @@ class BlurExample extends React.Component {
     }));
   }
 
-  // We close the popover on the next tick by using setTimeout.
-  // This is necessary because we need to first check if
-  // another child of the element has received focus as
-  // the blur event fires prior to the new focus event.
+  
+  //Tancarem la finestra emergent a la propera  marca de 
+  //temps fent servir setTimeout.
+  //S'ha de fer així perquè primer hem de comprovar si un
+  //altre fill de l'element ha rebut el focus perque 
+  //l'esdeveniment de desenfocament es dispara abans que 
+  //el nou esdeveniment de focus.
   onBlurHandler() {
     this.timeOutId = setTimeout(() => {
       this.setState({
@@ -334,14 +337,14 @@ class BlurExample extends React.Component {
     });
   }
 
-  // If a child receives focus, do not close the popover.
+  // Si un fill rep el focus, no tancar la finestra emergent
   onFocusHandler() {
     clearTimeout(this.timeOutId);
   }
 
   render() {
-    // React assists us by bubbling the blur and
-    // focus events to the parent.
+    //React ens ajuda encapsulant els esdeveniments de 
+    //difuminat i de focus cap al pare.
     return (
       <div onBlur={this.onBlurHandler}
            onFocus={this.onFocusHandler}>
@@ -363,80 +366,81 @@ class BlurExample extends React.Component {
 }
 ```
 
-This code exposes the functionality to both pointer device and keyboard users. Also note the added `aria-*` props to support screen-reader users. For simplicity's sake the keyboard events to enable `arrow key` interaction of the popover options have not been implemented.
+Aquest codi exposa la funcionalitat tant als usuaris que fan servir un dispositiu de punter com als de teclat. Fixa't també amb els atributs `aria-*` afegits que permet la funcionalitat als usuaris que fan servir un lector de pantalla. Per simplicitat els esdeveniments del teclat per habilitar la interacció amb la `tecla de fletxa` de les opcions de finestra emergent no s'han implementat.
 
-<img src="../images/docs/blur-popover-close.gif" alt="A popover list correctly closing for both mouse and keyboard users." />
+<img src="../images/docs/blur-popover-close.gif" alt="Una llista de finestres emergents que es tancarà correctament tant per als usuaris del ratolí com del teclat." />
 
-This is one example of many cases where depending on only pointer and mouse events will break functionality for keyboard users. Always testing with the keyboard will immediately highlight the problem areas which can then be fixed by using keyboard aware event handlers.
+Aquest és un exemple del molts casos a on si es depèn només dels esdeveniments del punter i ratolí es trencarà la funcionalitat per als usuaris de teclat. Si sempre fas les proves amb un dispositu de teclat trobaràs immediatament les àrees amb problemes que després pots corregir utilitzant gestors d'esdeveniments compatibles amb el teclat.
 
-## More Complex Widgets {#more-complex-widgets}
+## Ginys més complexos {#more-complex-widgets}
 
-A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible, even the most complex widget can be coded accessibly.
+Una experiència d'usuari més complexa no hauria de significar una menor accessibilitat. Tot i que l'accessibilitat s'aconsegueix més fàcilment com més propera sigui la  codificació a l'HTML , fins i tot el giny més complex es poden codificar de forma accessible.
 
-Here we require knowledge of [ARIA Roles](https://www.w3.org/TR/wai-aria/#roles) as well as [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
-These are toolboxes filled with HTML attributes that are fully supported in JSX and enable us to construct fully accessible, highly functional React components.
+Per això necessitarem coneixement sobre els [rols d'ARIA (en anglès)](https://www.w3.org/TR/wai-aria/#roles) així com de les [propietats i estats d'ARIA (en anglès)](https://www.w3.org/TR/wai-aria/#states_and_properties).
+Els enllaços que venen a continuació són caixes d'eines plenes d'atributs HTML totalment compatibles amb JSX i que ens permeten construir components React completament accessibles i altament funcionals.
 
-Each type of widget has a specific design pattern and is expected to function in a certain way by users and user agents alike:
+Cada tipus d'eina té un patró de disseny específic i s'espera que funcioni d'una manera determinada tant pels usuaris com pels agents d'usuari:
 
-- [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
-- [Inclusive Components](https://inclusive-components.design/)
+- [WAI-ARIA Authoring Practices - Disseny de patrons i ginys (en anglès)](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [Heydon Pickering - ARIA Exemples (en anglès)](https://heydonworks.com/practical_aria_examples/)
+- [Components Inclussius (en anglès)](https://inclusive-components.design/)
 
-## Other Points for Consideration {#other-points-for-consideration}
+## Altres Punts a Considerar {#other-points-for-consideration}
 
-### Setting the language {#setting-the-language}
+### Establir l'Idioma {#setting-the-language}
 
-Indicate the human language of page texts as screen reader software uses this to select the correct voice settings:
+Indicar l'idioma humà dels textos de les pàgines és el que li dirà el programari de lectura de pantalla quina configuració de veu ha de seleccionar:
 
-- [WebAIM - Document Language](https://webaim.org/techniques/screenreader/#language)
+- [WebAIM - Idioma del Document (en anglès)](https://webaim.org/techniques/screenreader/#language)
 
-### Setting the document title {#setting-the-document-title}
+### Posar Títol al Document {#setting-the-document-title}
 
-Set the document `<title>` to correctly describe the current page content as this ensures that the user remains aware of the current page context:
+Posa un títol `<title>` al document que descrigui correctament el contingut de la pàgina, ja que això garanteix que l'usuari conegui el context en el que es troba la pàgina que té al davant:
 
-- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
+- [WCAG - Entendre per a que serveix posar un títol al document (en anglès)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
 
-We can set this in React using the [React Document Title Component](https://github.com/gaearon/react-document-title).
+A React el podem posar amb el [Component del Títol (en anglès)](https://github.com/gaearon/react-document-title).
 
-### Color contrast {#color-contrast}
+### Contrast del color {#color-contrast}
 
-Ensure that all readable text on your website has sufficient color contrast to remain maximally readable by users with low vision:
+Assegura't que tot el text llegible del teu lloc web té suficient contrast de color per a ser el màxim de llegible pels usuaris amb poca visió:
 
-- [WCAG - Understanding the Color Contrast Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-- [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
-- [A11yProject - What is Color Contrast](https://a11yproject.com/posts/what-is-color-contrast/)
+- [WCAG - Comprendre el requeriment del contrast de color (en anglès)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [Tot sobre el contrast del color i per què has de repensar-t'ho (en anglès)](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
+- [A11yProject - Què és el contrast de color (en anglès)](https://a11yproject.com/posts/what-is-color-contrast/)
 
-It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://jxnblk.com/colorable/).
+Pot ser feixuc calcular manualment les combinacions de colors adequades per a tots els casos del teu lloc web de manera que pots fer-ho amb [ Colorable. Calcular una paleta de colors accessible completa ](https://jxnblk.com/colorable/).
 
-Both the aXe and WAVE tools mentioned below also include color contrast tests and will report on contrast errors.
+Tant les eines aXe com WAVE esmentades a continuació també inclouen proves de contrast de color i t'informaran sobre errors de contrast.
 
-If you want to extend your contrast testing abilities you can use these tools:
+Si vols ampliar la teva capacitat per provar el contrast pots utilitzar també aquestes eines:
 
-- [WebAIM - Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [The Paciello Group - Color Contrast Analyzer](https://www.paciellogroup.com/resources/contrastanalyser/)
 
-## Development and Testing Tools {#development-and-testing-tools}
+- [WebAIM - Test de Contrast de Color (en anglès)](https://webaim.org/resources/contrastchecker/)
+- [The Paciello Group - Analitzador de Contrast de Color (en anglès)](https://www.paciellogroup.com/resources/contrastanalyser/)
 
-There are a number of tools we can use to assist in the creation of accessible web applications.
+## Eines de Desenvolupament i Prova {#development-and-testing-tools}
 
-### The keyboard {#the-keyboard}
+Hi ha una sèrie d'eines que podem utilitzar que ens ajudaran en la creació d'aplicacions web accessibles.
 
-By far the easiest and also one of the most important checks is to test if your entire website can be reached and used with the keyboard alone. Do this by:
+### El teclat {#the-keyboard}
 
-1. Disconnecting your mouse.
-1. Using `Tab` and `Shift+Tab` to browse.
-1. Using `Enter` to activate elements.
-1. Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.
+Fr servir només el teclat, és de lluny, el més fàcil i també un dels controls més importants per provar si es pot accedir a tot el teu lloc web. Pots fer això:
 
-### Development assistance {#development-assistance}
+1. Desconecta el teu ratolí.
+1. Fes servir la tecla `Tab` i `Shift+Tab` per navegar.
+1. Fes servir l'`Enter` per activar elements.
+1. A on sigui necessari, fes servir les tecles de fletxa per interacturar amb els element que ho requereixin, com ara menus i desplegables.
 
-We can check some accessibility features directly in our JSX code. Often intellisense checks are already provided in JSX aware IDE's for the ARIA roles, states and properties. We also have access to the following tool:
+### Ajuda al desenvolupament {#development-assistance}
+
+Podem comprovar algunes funcions d'accessibilitat directament en el nostre codi JSX. Sovint, els controls intel·ligents per als rols, estats i propietats de l'ARIA ja ens són proporcionats en IDE's preparats per a JSX. També tenim accés a la següent eina:
 
 #### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
 
-The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin for ESLint provides AST linting feedback regarding accessibility issues in your JSX. Many IDE's allow you to integrate these findings directly into code analysis and source code windows.
+El complement [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) per ESLint proporciona informació de retorn "AST linting" sobre els problemes d'accessibilitat en el teu JSX. Molts IDE's et permeten integrar aquests troballes directament a l'anàlisis del codi i a les finestres del codi font.
 
-[Create React App](https://github.com/facebookincubator/create-react-app) has this plugin with a subset of rules activated. If you want to enable even more accessibility rules, you can create an `.eslintrc` file in the root of your project with this content:
+[Create React App](https://github.com/facebookincubator/create-react-app) té activat aquest connector amb un subconjunt de regles. Si voleu habilitar encara més regles d'accessibilitat podeu crear un fitxer `.eslintrc` a l'arrel del vostre projecte amb aquest contingut:
 
   ```json
   {
@@ -445,77 +449,75 @@ The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) 
   }
   ```
 
-### Testing accessibility in the browser {#testing-accessibility-in-the-browser}
+### Provant l'Accessibilitat al Navegador {#testing-accessibility-in-the-browser}
 
-A number of tools exist that can run accessibility audits on web pages in your browser. Please use them in combination with other accessibility checks mentioned here as they can only
-test the technical accessibility of your HTML.
+Hi ha una sèrie d'eines que poden executar auditories d'accessibilitat a les pàgines web del teu navegador. Utilitza-les en combinació amb altres comprovacions d'accessibilitat esmentades aquí ja que aquestes últimes només poden provar l'accessibilitat tècnica del teu HTML.
 
-#### aXe, aXe-core and react-axe {#axe-axe-core-and-react-axe}
+#### aXe, aXe-core i react-axe {#axe-axe-core-and-react-axe}
 
-Deque Systems offers [aXe-core](https://github.com/dequelabs/axe-core) for automated and end-to-end accessibility tests of your applications. This module includes integrations for Selenium.
+Deque Systems ofereix [aXe-core](https://github.com/dequelabs/axe-core) per a les proves d'accessibilitat automatitzades i d'extrem a extrem de les teves aplicacions. Aquest mòdul inclou integracions per Selenium.
 
-[The Accessibility Engine](https://www.deque.com/products/axe/) or aXe, is an accessibility inspector browser extension built on `aXe-core`.
+[El Motor de l'Accessibilitat (en anglès)](https://www.deque.com/products/axe/) o aXe, és una extensió de l'inspector d'accessibilitat del navegador construïda sobre `aXe-core`.
 
-You can also use the [react-axe](https://github.com/dylanb/react-axe) module to report these accessibility findings directly to the console while developing and debugging.
+També pots fer servir el mòdul [react-axe](https://github.com/dylanb/react-axe) per a informar d'aquests resultats d'accessibilitat directament a la consola mentre desenvolupes i depures.
 
 #### WebAIM WAVE {#webaim-wave}
 
-The [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) is another accessibility browser extension.
+L'[Eina per Avaluar L'Accessibilitat de la Web (en anglès) ](https://wave.webaim.org/extension/) és una altra extensió del navegador per comprovar l'accessibilitat  .
 
-#### Accessibility inspectors and the Accessibility Tree {#accessibility-inspectors-and-the-accessibility-tree}
+#### Inspectors d'Accessibilitat I l'Arbre d'Accessibilitat {#accessibility-inspectors-and-the-accessibility-tree}
 
-[The Accessibility Tree](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) is a subset of the DOM tree that contains accessible objects for every DOM element that should be exposed
-to assistive technology, such as screen readers.
+[L'Arbre de l'Accessibilitat (en anglès)](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) és un subconjunt de l'arbre DOM que conté objectes accessibles per a cada element del DOM que s'ha d'exposar per a la tecnologia d'assistència, com ara els lectors de pantalla.
 
-In some browsers we can easily view the accessibility information for each element in the accessibility tree:
+En alguns navegadors podem veure fàcilment la informació d'accessibilitat per a cada element a l'arbre d'accessibilitat:
 
-- [Using the Accessibility Inspector in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Using the Accessibility Inspector in Chrome](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
-- [Using the Accessibility Inspector in OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
+- [Fent servir l'inspector d'accessibilitat al Firefox (en anglès)](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
+- [Fent servir l'inspector d'accessibilitat al Chrome (en anglès)](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
+- [Fent servir l'inspector d'accessibilitat al OS X Safari (en anglès)](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
-### Screen readers {#screen-readers}
+### Lectors de Pantalla {#screen-readers}
 
-Testing with a screen reader should form part of your accessibility tests.
+Les proves amb un lector de pantalla haurien de formar part de les teves proves d'accessibilitat.
 
-Please note that browser / screen reader combinations matter. It is recommended that you test your application in the browser best suited to your screen reader of choice.
+Tingues en compte que les combinacions del navegador / lector de pantalla són importants. Es recomana que provis la teva aplicació en el navegador més adequat per al lector de pantalla que hagis escollit.
 
-### Commonly Used Screen Readers {#commonly-used-screen-readers}
+### Lectors de Pantalla d'Ús Comú {#commonly-used-screen-readers}
 
-#### NVDA in Firefox {#nvda-in-firefox}
+#### NVDA a Firefox {#nvda-in-firefox}
 
-[NonVisual Desktop Access](https://www.nvaccess.org/) or NVDA is an open source Windows screen reader that is widely used.
+[Accés a l'escriptori no visual](https://www.nvaccess.org/) o NVDA és un lector de pantalla de Windows de codi obert que s'utilitza àmpliament.
 
-Refer to the following guides on how to best use NVDA:
+Mira les següents guies sobre com fer servir millor el NVDA:
 
-- [WebAIM - Using NVDA to Evaluate Web Accessibility](https://webaim.org/articles/nvda/)
-- [Deque - NVDA Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
+- [WebAIM - Ús de NVDA per avaluar l'accessibilitat web (en anglès)](https://webaim.org/articles/nvda/)
+- [Deque - NVDA Dreceres de Teclat (en anglès)](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
-#### VoiceOver in Safari {#voiceover-in-safari}
+#### VoiceOver a Safari {#voiceover-in-safari}
 
-VoiceOver is an integrated screen reader on Apple devices.
+VoiceOver és un lector de pantalla integrat en dispositius Apple.
 
-Refer to the following guides on how to activate and use VoiceOver:
+Mira les següents guies sobre com activar i fer servir millor el VoiceOver:
 
-- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](https://webaim.org/articles/voiceover/)
-- [Deque - VoiceOver for OS X Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
-- [Deque - VoiceOver for iOS Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
+- [WebAIM - Fer Servir VoiceOver per avaluar l’accessibilitat web](https://webaim.org/articles/voiceover/)
+- [Deque - Dreceres de Teclat per a VoiceOver de OS X (en anglès)](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
+- [Deque - Dreceres per a VoiceOver de iOS (en anglès)](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
-#### JAWS in Internet Explorer {#jaws-in-internet-explorer}
+#### JAWS a l'Internet Explorer {#jaws-in-internet-explorer}
 
-[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) or JAWS, is a prolifically used screen reader on Windows.
+[Accés a les tasques amb la veu (en anglès)](https://www.freedomscientific.com/Products/software/JAWS/) o JAWS, és un lector de pantalla molt utilitzat a Windows.
 
-Refer to the following guides on how to best use JAWS:
+Mira les següents guies sobre com fer servir millor el JAWS:
 
 - [WebAIM - Using JAWS to Evaluate Web Accessibility](https://webaim.org/articles/jaws/)
 - [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
-### Other Screen Readers {#other-screen-readers}
+### Altres Lectors de Pantalles {#other-screen-readers}
 
-#### ChromeVox in Google Chrome {#chromevox-in-google-chrome}
+#### ChromeVox a Google Chrome {#chromevox-in-google-chrome}
 
-[ChromeVox](https://www.chromevox.com/) is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
+[ChromeVox](https://www.chromevox.com/) és un lector de pantalla integrat a Chromebooks i està disponible [com una extensió](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) per a Google Chrome.
 
-Refer to the following guides on how best to use ChromeVox:
+Mira aquestes guies sobre com fer servir millor ChromeVox:
 
-- [Google Chromebook Help - Use the Built-in Screen Reader](https://support.google.com/chromebook/answer/7031755?hl=en)
-- [ChromeVox Classic Keyboard Shortcuts Reference](https://www.chromevox.com/keyboard_shortcuts.html)
+- [Google Chromebook Help - Utilitza el lector de pantalla integrat (en anglès)](https://support.google.com/chromebook/answer/7031755?hl=en)
+- [ChromeVox Referència de dreceres de teclat clàssiques (en anglès)](https://www.chromevox.com/keyboard_shortcuts.html)
