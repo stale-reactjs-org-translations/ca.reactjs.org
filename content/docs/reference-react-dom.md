@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-Si carregas React des d'una etiqueta `<script>`, aquestes APIs de nivell superior estan disponibles en el `ReactDOM` global. Si fas servir ES6 amb npm, pots escriure `import ReactDOM from 'react-dom'`. Si utilitzes ES5 amb npm, pots escriure `var ReactDOM = require('react-dom')`.
+Si carregues React des d'una etiqueta `<script>`, aquestes APIs de nivell superior estan disponibles en el `ReactDOM` global. Si fas servir ES6 amb npm, pots escriure `import ReactDOM from 'react-dom'`. Si utilitzes ES5 amb npm, pots escriure `var ReactDOM = require('react-dom')`.
 
 ## Resum {#overview}
 
@@ -20,11 +20,11 @@ El paquet `react-dom` proporciona mètodes específics del DOM que pots fer serv
 
 ### Navegadors Compatibles {#browser-support}
 
-React es compatible amb tots els navegadors populars, incloent Internet Explorer 9 i superiors, tot i que [fan falta alguns 'polyfills'](/docs/javascript-environment-requirements.html) per als navegadors més antics com ara l'IE 9 i l'IE 10.
+React és compatible amb tots els navegadors populars, incloent-hi Internet Explorer 9 i superiors, tot i que [fan falta alguns *polyfills*](/docs/javascript-environment-requirements.html) per als navegadors més antics com ara l'IE 9 i l'IE 10.
 
 > Nota
 >
-> No garantim la compatibilitat amb els navegadors més antics que no suporten els mètodes ES5, però és possible que les teves aplicacions funcionin en navegadors més antics si els polifills com ara [es5-shim i es5-sham](https://github.com/es-shims/es5-shim) s'inclouen a la pàgina. Si decideixes prendre aquest camí recorda que és sota la teva responsabilitat.
+> No garantim la compatibilitat amb els navegadors més antics que no suporten els mètodes ES5, però és possible que les teves aplicacions funcionin en navegadors més antics si els *polyfills* com ara [es5-shim i es5-sham](https://github.com/es-shims/es5-shim) s'inclouen a la pàgina. Si decideixes prendre aquest camí recorda que és sota la teva responsabilitat.
 
 * * *
 
@@ -33,18 +33,18 @@ React es compatible amb tots els navegadors populars, incloent Internet Explorer
 ### `render()` {#render}
 
 ```javascript
-ReactDOM.render(element, container[, callback])
+ReactDOM.render(element, callback[, callback])
 ```
 
-Renderitza un element React al DOM en el `container` subministrat i retorna un [referència](/docs/more-about-refs.html) al component (o retorna `null` per a [components sense estat](/docs/components-and-props.html#function-and-class-components)).
+Renderitza un element React al DOM en el *callback* subministrat i retorna un [referència](/docs/more-about-refs.html) al component (o retorna `null` per a [components sense estat](/docs/components-and-props.html#function-and-class-components)).
 
-Si l'element React s'ha renderitzat prèviament en el `container`, en farà la seva actualització i només canviarà del DOM allò necessari per reflectir l'últim element de React.
+Si l'element React s'ha renderitzat prèviament en el *callback*, en farà la seva actualització i només canviarà del DOM el que sigui necessari per reflectir l'últim element de React.
 
-Si es proporciona la crida de retorn ('callback') opcional, s'executarà després que el component es renderitzi o s'actualitzi.
+Si es proporciona la *callback* opcional, s'executarà després que el component es renderitzi o s'actualitzi.
 
 > Nota:
 >
-> `ReactDOM.render()` controla el contingut del node 'container' que s'hi passi. Qualsevol altre element DOM que sigui al seu interior es substituieix quan es crida per primer cop. Les crides posteriors fan servir l'algoritme de comparació del DOM de React per fer actualitzacions eficients.
+> `ReactDOM.render()` controla el contingut del node *callback* que s'hi passi. Qualsevol altre element DOM que sigui al seu interior es substitueix quan es crida per primer cop. Les crides posteriors fan servir l'algoritme de comparació del DOM de React per fer actualitzacions eficients.
 >
 > `ReactDOM.render()` no modifica el node contenidor (només modifica els fills del contenidor). És possible inserir un component a un node DOM que ja existeix sense sobreescriure els fills existents.
 >
@@ -59,14 +59,14 @@ Si es proporciona la crida de retorn ('callback') opcional, s'executarà despré
 ### `hydrate()` {#hydrate}
 
 ```javascript
-ReactDOM.hydrate(element, container[, callback])
+ReactDOM.hydrate(element, callback[, callback])
 ```
 
 El mateix que [`render()`](#render), però s'utilitza per 'hidratar' un contenidor el contingut HTML del qual ha sigut renderitzat per [`ReactDOMServer`](/docs/react-dom-server.html). React provarà d'adjuntar detectors d'esdeveniments al marcador existent.
 
 React espera que el contingut renderitzat sigui idèntic entre el servidor i el client. Pot corregir les diferències del contingut de text, però hauràs de tractar les discordances com errors i solucionar-les. En el mode de desenvolupament, React adverteix sobre les discordances durant la hidratació. No hi ha garantia que les diferències d'atribut siguin arreglades en cas de discordança. Això és important per raons de rendiment perquè a la majoria d'aplicacions són rares les discordances, i per tant, validar tots els marcadors tindria un cost massa alt.
 
-Si l'atribut d'un sol element o el contingut del text és inevitablement diferent entre el servidor i el client (per exemple, una marca de temps), pots silenciar l'avís afegint `suppressHydrationWarning={true}` a l'element. Només funciona amb un nivell de profunditat, i està destinat a ser una via de escapatoria. No n'abusis. Tret que sigui contingut de text, React no intentarà corregir-ho, de manera que pot ser que no sigui coherent fins a futures actualitzacions.
+Si l'atribut d'un sol element o el contingut del text és inevitablement diferent entre el servidor i el client (per exemple, una marca de temps), pots silenciar l'avís afegint `suppressHydrationWarning={true}` a l'element. Només funciona amb un nivell de profunditat, i està destinat a ser una via de escapatòria. No n'abusis. Tret que sigui contingut de text, React no intentarà corregir-ho, de manera que pot ser que no sigui coherent fins a futures actualitzacions.
 
 Si has de representar intencionadament quelcom diferent al servidor i al client, pots fer-la en dos passos. Els components que renderitzen quelcom diferent al client poden llegir una variable d'estat com ara `this.state.isClient`, que pots establir a `true` dins de `componentDidMount()`. D'aquesta manera, en el pas inicial es renderitzarà el mateix contingut que en el servidor, evitant discordances i just després de la hidratació es renderitzarà síncronament un segon pas addicional. Tingues en compte que aquest enfocament farà que els teus components siguin més lents perquè s'han de renderitzar dues vegades, per tant fes-lo servir amb cura.
 
@@ -77,7 +77,7 @@ Recorda tenir en compte l'experiència d'usuari en connexions lentes. El codi Ja
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
 ```javascript
-ReactDOM.unmountComponentAtNode(container)
+ReactDOM.unmountComponentAtNode(callback)
 ```
 
 Elimina un component de React muntat des del DOM i neteja els seus gestors d’esdeveniments i estat. Si no s'ha muntat cap component al contenidor, la crida a aquesta funció no fa res. Retorna `true` si un component s'ha desmuntat i `false` si no hi ha cap component per desmuntar.
@@ -108,7 +108,7 @@ Quan un component es renderitza a `null` o `false`, `findDOMNode` retorna `null`
 ### `createPortal()` {#createportal}
 
 ```javascript
-ReactDOM.createPortal(child, container)
+ReactDOM.createPortal(child, callback)
 ```
 
 Crea un portal. Els portals proporcionen una manera de [renderitzar els fills en un node DOM que existeix fora de la jerarquia del component DOM](/docs/portals.html).
