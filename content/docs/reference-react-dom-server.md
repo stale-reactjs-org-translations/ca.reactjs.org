@@ -37,9 +37,9 @@ Els mètodes addicionals que venen a continuació depenen d'un paquet (`stream`)
 ReactDOMServer.renderToString(element)
 ```
 
-Renderitza un element de React al seu HTML inicial. React tornarà una cadena HTML. Pots fer servir aquest mètode per generar l'HTML en el servidor i enviar-lo en la sol·licitud inicial per tal que la pàgina carregui més ràpidament i també per permetre als motors de cerca rastrejar les teves pàgines pel seu posicionament *SEO*.
+Renderitza un element React al seu HTML inicial. React tornarà una cadena HTML. Pots fer servir aquest mètode per generar l'HTML en el servidor i enviar-lo en la sol·licitud inicial per tal que la pàgina carregui més ràpidament i també per permetre als motors de cerca rastrejar les teves pàgines pel seu posicionament *SEO*.
 
-Si apliques el mètode [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en un node que ja ve renderitzat des del servirdor, React el preservarà i només hi afegirà els gestors d'esdeveniments, cosa que et permetrà tenir una primera càrrega molt ràpida.
+Si apliques el mètode [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en un node que ja ve renderitzat des del servirdor, React el preservarà i només hi afegirà els gestors d'esdeveniments, cosa que et permetrà tenir una primera càrrega molt eficient.
 
 * * *
 
@@ -61,15 +61,15 @@ En canvi si planeges fer servir React a la part del client per fer que el marcat
 ReactDOMServer.renderToNodeStream(element)
 ```
 
-Representa un element React al seu HTML inicial. Retorna un [seqüència de lectura](https://nodejs.org/api/doll#stream.html_dolls_llegibles) que genera una cadena HTML. La sortida d'HTML per aquesta seqüència és exactament igual a la que [`Reactdomserver.rendertostring`](#rendertostring) retornaria. Pots utilitzar aquest mètode per generar HTML en el servidor i envia el marcatge en la sol·licitud inicial per càrregues de pàgina més ràpida i per facilitat que els motors de cerca rastregin les teves pàgines per al poscicionament SEO.
+Representa un element React al seu HTML inicial. Retorna un [seqüència de lectura](https://nodejs.org/api/doll#stream.html_dolls_llegibles) que genera una cadena HTML. La sortida d'HTML per aquesta seqüència és exactament igual a la que [`Reactdomserver.rendertostring`](#rendertostring) retornaria. Pots utilitzar aquest mètode per generar HTML en el servidor i enviar el marcatge en la sol·licitud inicial per a càrregues de pàgina més ràpida i per facilitar que els motors de cerca rastregin les teves pàgines per al posicionament SEO.
 
-Si apliques el mètode [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en un node que ja ve renderitzat des del servirdor, React el preservarà i només hi afegirà els gestors d'esdeveniments, cosa que et permetrà tenir una primera càrrega molt ràpida.
+Si apliques el mètode [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en un node que ja ve renderitzat des del servirdor, React el preservarà i només hi afegirà els gestors d'esdeveniments, cosa que et permetrà tenir una primera càrrega molt eficient.
 
 > Nota:
 >
 > Nomes-al-Servidor. Aquesta API no està disponible en els navegadors.
 >
-> La seqüència retornada des d'aquest mètode serà un flux de bytes codificats en utf-8. Si necessites una seqüència codificada d'una manera específica, fes una ullada al projecte [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona fluxs de transformació per a la transcodificació de text.
+> La seqüència retornada des d'aquest mètode serà un flux de bytes codificats en format utf-8. Si necessites una seqüència codificada en un altre format, fes una ullada al projecte [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona fluxs de transformació per a la transcodificació de text.
 
 * * *
 
@@ -81,12 +81,12 @@ ReactDOMServer.renderToStaticNodeStream(element)
 
 Semblant a [`renderToNodeStream`](#rendertonodestream), excepte que aquest no crea els atributs DOM extres que React fa servir internament, com per exemple `data-reactroot`. Aquest mètode és útil si vols fer servir React com un simple generador de pàgines estàtiques, ja que eliminar els atributs extres et permetrà estalviar alguns bytes.
 
-La sortida HTML d'aquest flux es exactament igual a la que obtindries amb [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
+La sortida HTML d'aquest flux és exactament igual a la que obtindries amb [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
 
-Si el que vols es fer servir React al client per fer que el marcatge sigui interactiu, no facis servir aquest mètode. Fes servir, en el seu lloc [`renderToNodeStream`](#rendertonodestream) a la part dels servidro i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) a la part del client.
+Si el que vols és fer servir React a la banda del client per fer que el marcatge sigui interactiu, no facis servir aquest mètode. Fes servir, en el seu lloc [`renderToNodeStream`](#rendertonodestream) a la part dels servidor i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) a la part del client.
 
 > Nota:
 >
-> Nomes-al-Servidor. Aquesta API no està disponible en els navegadors.
+> Només-al-Servidor. Aquesta API no està disponible en els navegadors.
 >
-> La seqüència retornada des d'aquest mètode serà un flux de bytes codificats en utf-8. Si necessites una seqüència codificada d'una manera específica, fes una ullada al projecte [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona fluxs de transformació per a la transcodificació de text.
+> La seqüència retornada des d'aquest mètode serà un flux de bytes codificats en format utf-8. Si necessites una seqüència codificada en un altre format, fes una ullada al projecte [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona fluxs de transformació per a la transcodificació de text.
