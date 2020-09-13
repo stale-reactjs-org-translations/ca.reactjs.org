@@ -14,27 +14,27 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-React implementa un sistema DOM independent del navegador per una qüestió de rendiment  i de compatibilitat entre navegadors. Vam aprofitar l'oportunitat per polir algunes arestes en les implementacions DOM del navegadors.
+React implementa un sistema DOM independent del navegador per una qüestió de rendiment i de compatibilitat entre navegadors. Vam aprofitar l'oportunitat per polir algunes arestes en les implementacions DOM del navegadors.
 
-En React, totes les propietats i atributs del DOM (inclosos els gestors d'esdeveniments) han de ser *camelCased*. Per exemple, l'atribut HTML `tabindex` correspon a l'atribut `tabIndex` a React. L'excepció a aquesta norma són els atributs `aria-*` i `data-*`, que s'han d'escriure tot en minúscules. Per exemple, podeu mantenir `aria-label` com `aria-label`.
+A React, totes les propietats i atributs del DOM (inclosos els gestors d'esdeveniments) han de ser *camelCased*. Per exemple, l'atribut HTML `tabindex` es correspon amb l'atribut `tabIndex` a React. L'excepció a aquesta norma són els atributs `aria-*` i `data-*`, que s'han d'escriure del tot en minúscules. Per exemple, has de mantenir `aria-label` com `aria-label`.
 
-## Diferències als Atributs {#differences-in-attributes}
+## Atributs diferents {#differences-in-attributes}
 
-Hi ha una sèrie d'atributs que funcionen de manera diferent entre React i l'HTML:
+Hi ha una sèrie d'atributs que funcionen de manera diferent entre React i HTML:
 
 ### checked {#checked}
 
-L'atribut `checked` és compatible amb els components `<input>` del tipus `checkbox` o `radio`. Pots fer-lo servir per establir si el component està marcat. Aquest atribut és útil per construir components controlats. `defaultChecked` és l'equivalent no controlat, i estableix si el component es marca quan es munta per primera vegada.
+L'atribut `checked` és compatible amb els components `<input>` del tipus `checkbox` o `radio`. El pots fer servir per establir si el component està marcat o no. Aquest atribut és útil per construir components controlats. `defaultChecked` és l'equivalent per a no controlat, i estableix si el component es marca quan es munta per primera vegada.
 
 ### className {#classname}
 
-Per especificar una classe CSS, utilitza l'atribut `className`. Aquest atribut s'aplica a tots els elements regulars DOM i SVG com ara `<div>`, `<a>`, i d'altres.
+Per especificar una classe CSS, s'utilitza l'atribut `className`. Aquest s'aplica a tots els elements regulars DOM i SVG com ara `<div>`, `<a>`, i d'altres.
 
-Si fas servir React amb *Web Components* (que és poc comú), llavors fes servir l'atribut `class`.
+Si fas servir React amb *Web Components* (que és poc habitual), llavors has de fer servir l'atribut `class`.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` és la substitució de React per fer servir `innerHTML` al DOM del navegador . En general, l'establiment d'HTML a partir del codi és arriscat perquè és fàcil d'exposar inadvertidament els usuaris a un atac [XSS](https://ca.wikipedia.org/wiki/Cross_Site_Scripting). Així que pots establir HTML directament des de React, però has d'escriure `dangerouslySetInnerHTML` i passar un objecte amb una clau `__html`, per recordar-te que és perillós. Per exemple:
+`dangerouslySetInnerHTML` és la substitució de React per a `innerHTML` del DOM del navegador . En general, l'establiment d'HTML a partir del codi és arriscat perquè és fàcil exposar inadvertidament els usuaris a un atac [XSS](https://ca.wikipedia.org/wiki/Cross_Site_Scripting). Així que pots establir HTML directament des de React, però has d'escriure `dangerouslySetInnerHTML` i passar un objecte amb una clau `__html`, per recordar-te que és perillós. Per exemple:
 
 ```js
 function createMarkup() {
@@ -52,7 +52,7 @@ Com que `for` és una paraula reservada a JavaScript, els elements de React fan 
 
 ### onChange {#onchange}
 
-L'esdeveniment `onChange` es comporta tal i com s'esperaria: quan es canvia un camp de formulari, aquest esdeveniment es dispara. No fem servir el comportament propi del navegador intencionadament perquè `onChange` és un nom poc apropiat pel seu comportament i React confia en aquest esdeveniment per gestionar l'entrada de l'usuari en temps real.
+L'esdeveniment `onChange` es comporta tal i com s'esperaria: quan es canvia un camp de formulari, aquest esdeveniment es dispara. No fem servir el comportament propi del navegador intencionadament perquè `onChange` és un nom poc apropiat pel comportament que té i React confia en aquest esdeveniment per gestionar l'entrada de l'usuari en temps real.
 
 ### selected {#selected}
 
@@ -64,9 +64,9 @@ Consulta ["L'etiqueta seleccionada"](/docs/forms.html#the-select-tag) si busques
 
 >Nota
 >
->Alguns exemples de la documentació utilitzen `style` per comoditat, però **en general no es recomana fer servir l'atribut `style` com a mitjà principal per donar estil als elements.** En la majoria de casos, es farà servir [`className`](#classname) per a fer referència a classes definides en un full d'estil CSS extern. La manera més comuna d'emprar `style` a les aplicacions React és quan es vol afegir estils generats dinàmicament en el moment de la renderització. Consulta també [FAQ: Estils i CSS](/docs/faq-styling.html).
+>Alguns exemples de la documentació utilitzen `style` per comoditat, però **en general no es recomana fer servir l'atribut `style` com a mitjà principal per donar estil als elements.** En la majoria de casos, faràs servir [`className`](#classname) per a fer referència a classes definides en un full d'estil CSS extern. La manera més comuna d'emprar `style` a les aplicacions React és quan vols afegir estils generats dinàmicament en el moment de la renderització. Consulta també [FAQ: Estils i CSS](/docs/faq-styling.html).
 
-L'atribut `style` accepta un objecte JavaScript amb les propietats escrites en forma *camelCased* en lloc de la forma del CSS. Això no només és coherent amb la propietat DOM `style` de JavaScript, sinó que és més eficient i també evita els forats de seguretat XSS. Per exemple:
+L'atribut `style` accepta un objecte JavaScript amb les propietats escrites en forma *camelCased* en lloc de la forma CSS. Això no només és coherent amb la propietat JavaScript `style` del DOM, sinó que és més eficient i també evita els forats de seguretat XSS. Per exemple:
 
 ```js
 const divStyle = {
@@ -79,7 +79,7 @@ function HelloWorldComponent() {
 }
 ```
 
-Tingues en compte que els estils no estan prefixats automàticament. Per donar suport als navegadors més antics, cal afegir les propietats d'estil corresponents:
+Tingues en compte que els estils no estan prefixats automàticament. Perque sigui compatible amb els navegadors més antics, cal afegir les propietats d'estil corresponents:
 
 ```js
 const divStyle = {
@@ -92,19 +92,19 @@ function ComponentWithTransition() {
 }
 ```
 
-Les claus d'estil s'escriuen en la forma *camelCased* per tal de ser coherents amb la manera d'accedir a les propietats dels nodes DOM de JS (p. ex. `node.style.backgroundImage`). Els prefixos del proveïdor [excepte `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) començaran amb una lletra majúscula. Aquesta és la raó per la qual `WebkitTransition` té una «W» majúscula.
+Les claus d'estil s'escriuen en la forma *camelCased* per ser coherents amb la manera d'accedir a les propietats dels nodes DOM de JS (p. ex. `node.style.backgroundImage`). Els prefixos del proveïdor [excepte `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) començaran amb una lletra majúscula. Aquesta és la raó per la qual `WebkitTransition` té una «W» majúscula.
 
 React afegirà automàticament un sufix «px» a certes propietats numèriques de `style`. Si vols fer servir unitats diferents de "px", especifica el valor com una cadena amb la unitat desitjada. Per exemple:
 
 ```js
 // Result style: '10px'
 <div style={{ height: 10 }}>
-  Hello World!
+  Hola Món!
 </div>
 
 // Result style: '10%'
 <div style={{ height: '10%' }}>
-  Hello World!
+  Hola Món!
 </div>
 ```
 
@@ -116,9 +116,9 @@ Normalment, salta un avís quan un element amb fills ha sigut marcat també com 
 
 ### suppressHydrationWarning {#suppresshydrationwarning}
 
-Si fas servir la renderització React a l'entorn del servidor, normalment salta un avís quan el servidor i el client renderitzen contingut diferent. De totes maneres, en alguns casos rars, és molt difícil o gairebé impossible garantir una coincidència exacta. Per exemple, s'espera que els codis de temps difereixin entre el servidor i el client. 
+Si fas servir la renderització de React a l'entorn del servidor, normalment salta un avís quan el servidor i el client renderitzen contingut diferent. De totes maneres, en alguns casos rars, és molt difícil o gairebé impossible garantir una coincidència exacta. Per exemple, s'espera que els codis de temps difereixin entre el servidor i el client. 
 
-Si estableixes `suppressHydrationWarning` a `true`, React no t'avisarà de les diferències ni en els atributs ni en el contingut d'aquest element. Només funciona amb un nivell de profunditat, i es pretén que es faci servir com una escotilla de sortida. No el facis servir en excès. Pots llegir més sobre la hidratació a [Documentació sobre `ReactDOM.hydrate()`](/docs/react-dom.html#hidrat).
+Si estableixes `suppressHydrationWarning` a `true`, React no t'avisarà de les diferències ni en els atributs ni en el contingut d'aquests elements. Només funciona amb un nivell de profunditat, i es pretén que es faci servir com una escotilla de sortida. No el facis servir en excès. Pots llegir més sobre la hidratació a [Documentació sobre `ReactDOM.hydrate()`](/docs/react-dom.html#hidrat).
 
 ### value {#value}
 
@@ -126,9 +126,9 @@ L'atribut `value` és compatible amb els components `<input>`, `<select>` and `<
 
 ## Tots els atributs HTML compatibles {#all-supported-html-attributes}
 
-A partir de React 16, qualsevol atributs DOM [estàndard o personalitzat](/blog/2017/09/08/attributes-in-react-16.html) és totalment compatible.
+A partir de React 16, qualsevol atribut DOM [estàndard o personalitzat](/blog/2017/09/08/attributes-in-react-16.html) és totalment compatible.
 
-React sempre ha proporcionat una API centrada a JavaScript al DOM. Com que els components de React sovint prenen tant *props* personalitzades com relacionades amb el DOM, React utilitza la convenció `camelCase` tal com ho fan les APIs del DOM:
+React sempre ha proporcionat una API JavaScript del DOM. Com que els components de React sovint prenen tant *props* personalitzades com relacionades amb el DOM, React utilitza la convenció `camelCase` tal com ho fan les APIs del DOM:
 
 ```js
 <div tabIndex="-1" />      // Igual que node.tabIndex de la API del DOM
