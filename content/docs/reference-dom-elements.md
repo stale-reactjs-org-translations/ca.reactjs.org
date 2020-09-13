@@ -1,6 +1,6 @@
 ---
 id: dom-elements
-title: DOM Elements
+title: Elements DOM
 layout: docs
 category: Reference
 permalink: docs/dom-elements.html
@@ -14,27 +14,27 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+React implementa un sistema DOM independent del navegador per una qüestió de rendiment  i de compatibilitat entre navegadors. Vam aprofitar l'oportunitat per polir algunes arestes en les implementacions DOM del navegadors.
 
-In React, all DOM properties and attributes (including event handlers) should be camelCased. For example, the HTML attribute `tabindex` corresponds to the attribute `tabIndex` in React. The exception is `aria-*` and `data-*` attributes, which should be lowercased. For example, you can keep `aria-label` as `aria-label`.
+En React, totes les propietats i atributs del DOM (inclosos els gestors d'esdeveniments) han de ser *camelCased*. Per exemple, l'atribut HTML `tabindex` correspon a l'atribut `tabIndex` a React. L'excepció a aquesta norma són els atributs `aria-*` i `data-*`, que s'han d'escriure tot en minúscules. Per exemple, podeu mantenir `aria-label` com `aria-label`.
 
-## Differences In Attributes {#differences-in-attributes}
+## Diferències als Atributs {#differences-in-attributes}
 
-There are a number of attributes that work differently between React and HTML:
+Hi ha una sèrie d'atributs que funcionen de manera diferent entre React i l'HTML:
 
 ### checked {#checked}
 
-The `checked` attribute is supported by `<input>` components of type `checkbox` or `radio`. You can use it to set whether the component is checked. This is useful for building controlled components. `defaultChecked` is the uncontrolled equivalent, which sets whether the component is checked when it is first mounted.
+L'atribut `checked` és compatible amb els components `<input>` del tipus `checkbox` o `radio`. Pots fer-lo servir per establir si el component està marcat. Aquest atribut és útil per construir components controlats. `defaultChecked` és l'equivalent no controlat, i estableix si el component es marca quan es munta per primera vegada.
 
 ### className {#classname}
 
-To specify a CSS class, use the `className` attribute. This applies to all regular DOM and SVG elements like `<div>`, `<a>`, and others.
+Per especificar una classe CSS, utilitza l'atribut `className`. Aquest atribut s'aplica a tots els elements regulars DOM i SVG com ara `<div>`, `<a>`, i d'altres.
 
-If you use React with Web Components (which is uncommon), use the `class` attribute instead.
+Si fas servir React amb *Web Components* (que és poc comú), llavors fes servir l'atribut `class`.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` is React's replacement for using `innerHTML` in the browser DOM. In general, setting HTML from code is risky because it's easy to inadvertently expose your users to a [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) attack. So, you can set HTML directly from React, but you have to type out `dangerouslySetInnerHTML` and pass an object with a `__html` key, to remind yourself that it's dangerous. For example:
+`dangerouslySetInnerHTML` és la substitució de React per fer servir `innerHTML` al DOM del navegador . En general, l'establiment d'HTML a partir del codi és arriscat perquè és fàcil d'exposar inadvertidament els usuaris a un atac [XSS](https://ca.wikipedia.org/wiki/Cross_Site_Scripting). Així que pots establir HTML directament des de React, però has d'escriure `dangerouslySetInnerHTML` i passar un objecte amb una clau `__html`, per recordar-te que és perillós. Per exemple:
 
 ```js
 function createMarkup() {
@@ -48,11 +48,11 @@ function MyComponent() {
 
 ### htmlFor {#htmlfor}
 
-Since `for` is a reserved word in JavaScript, React elements use `htmlFor` instead.
+Com que `for` és una paraula reservada a JavaScript, els elements de React fan servir `htmlFor`.
 
 ### onChange {#onchange}
 
-The `onChange` event behaves as you would expect it to: whenever a form field is changed, this event is fired. We intentionally do not use the existing browser behavior because `onChange` is a misnomer for its behavior and React relies on this event to handle user input in real time.
+L'esdeveniment `onChange` es comporta tal i com s'esperaria: quan es canvia un camp de formulari, aquest esdeveniment es dispara. No fem servir el comportament propi del navegador intencionadament perquè `onChange` és un nom poc apropiat pel seu comportament i React confia en aquest esdeveniment per gestionar l'entrada de l'usuari en temps real.
 
 ### selected {#selected}
 
