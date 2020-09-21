@@ -56,7 +56,7 @@ function onClick(event) {
   // No funciona. this.state.clickEvent només contindrà valors null.
   this.setState({clickEvent: event});
 
-  // Segueixes poden exportar les propietats de l'event.
+  // Segueixes poden exportar les propietats de l'esdeveniment.
   this.setState({eventType: event.type});
 }
 ```
@@ -67,24 +67,24 @@ function onClick(event) {
 
 ## Esdeveniments suportats {#supported-events}
 
-React normalitza els esdeveniments per que les propietats siguin coherents entre els diferents tipus de navegadors.
+React normalitza els esdeveniments per que les seves propietats siguin coherents entre els diferents tipus de navegadors.
 
-Els gestors d'esdeveniments que segueixen a continuació són desencadenats per un esdeveniment en la fase de propagació. Per registrar un gestor d'esdeveniments que es desencadeni a la fase de captura, cal afegir `Capture` al nom de l'esdeveniment; per exemple, en lloc d'utilitzar `onClick`, utilitzaríem `onClickCapture` per gestionar l'esdeveniment de clic en la fase de captura.
+Els gestors d'esdeveniments que segueixen a continuació els desencadena un esdeveniment en la seva fase de propagació. Per registrar un gestor d'esdeveniments que es desencadeni a la fase de captura, cal afegir `Capture` al nom de l'esdeveniment; per exemple, en lloc d'utilitzar `onClick`, utilitzaríem `onClickCapture` per gestionar l'esdeveniment de clic a la fase de captura.
 
-- [Esdeveniments de porta-retalls](#clipboard-events)
+- [Esdeveniments de Porta-retalls](#clipboard-events)
 - [Esdeveniments de Composició](#composition-events)
 - [Esdeveniments de Teclat](#keyboard-events)
-- [Esdeveniments del focus](#focus-events)
+- [Esdeveniments d'Enfocament](#focus-events)
 - [Esdeveniments de formulari](#form-events)
-- [Esdeveniments genèrics](#generic-events)
-- [Esdeveniments de ratolí](#mouse-events)
-- [Esdeveniments de punter](#pointer-events)
+- [Esdeveniments Genèrics](#generic-events)
+- [Esdeveniments de Ratolí](#mouse-events)
+- [Esdeveniments de Punter](#pointer-events)
 - [Esdeveniments de Selecció](#selection-events)
-- [Esdeveniments tàctils](#touch-events)
+- [Esdeveniments Tàctils](#touch-events)
 - [Esdeveniments de UI](#ui-events)
 - [Esdeveniments de Roda del Ratolí](#wheel-events)
 - [Esdeveniments de Media](#media-events)
-- [Esdeveniments de Imatge](#image-events)
+- [Esdeveniments d'Imatge](#image-events)
 - [Esdeveniments d'Animació](#animation-events)
 - [Esdeveniments de Transició](#transition-events)
 - [Altres Esdeveniments](#other-events)
@@ -151,7 +151,7 @@ boolean shiftKey
 number which
 ```
 
-La propietat `key` pot prendre qualsevol dels valors documentats en l'especificació [Esdeveniments del DOM de nivell 3](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+La propietat `key` pot prendre qualsevol dels valors documentats en l'especificació [Esdeveniments del DOM de nivell 3 (en anglès)](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
@@ -258,9 +258,9 @@ boolean isPrimary
 
 Una nota sobre la compatibilitat amb els diversos navegador:
 
-Els esdeveniments de punter encara no són compatibles en tots els navegadors (en el moment d'escriure aquest article, els navegadors compatibles són: Chrome, Firefox, Edge i Internet Explorer). React deliberadament no és compatible amb els altres navegadors perquè un *polyfill* estàndard augmentaria significativament la mida del paquet `react-dom`.
+Els esdeveniments de punter encara no són compatibles en tots els navegadors (en el moment d'escriure aquest article, els navegadors compatibles són: Chrome, Firefox, Edge i Internet Explorer). React deliberadament no és compatible amb la resta de navegadors perquè un *polyfill* estàndard augmentaria significativament la mida del paquet `react-dom`.
 
-Si la vostra aplicació requereix esdeveniments de punter, recomanem afegir un *polyfill* d'esdeveniments d'un altre proveidors.
+Si la vostra aplicació requereix esdeveniments de punter, recomanem afegir un *polyfill* d'esdeveniments d'un altre proveïdors.
 
 * * *
 
@@ -346,7 +346,7 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Esdeveniments de Imatge {#image-events}
+### Esdeveniments d'Imatge {#image-events}
 
 Nom dels esdeveniments:
 
