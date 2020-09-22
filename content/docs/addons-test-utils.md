@@ -322,11 +322,11 @@ Simulate.{eventName}(
 )
 ```
 
-Simulate an event dispatch on a DOM node with optional `eventData` event data.
+Simula un enviament d'esdeveniments en un node DOM amb dades d'esdeveniments opcionals `eventData`.
 
-`Simulate` has a method for [every event that React understands](/docs/events.html#supported-events).
+`Simulate` té un mètode per a [cada esdeveniment que React entén](/docs/events.html#supported-events).
 
-**Clicking an element**
+**Clicant un element**
 
 ```javascript
 // <button ref={(node) => this.button = node}>...</button>
@@ -334,7 +334,7 @@ const node = this.button;
 ReactTestUtils.Simulate.click(node);
 ```
 
-**Changing the value of an input field and then pressing ENTER.**
+**Canviar el valor d'un camp d'entrada i després prémer RETORN.**
 
 ```javascript
 // <input ref={(node) => this.textInput = node} />
@@ -344,8 +344,8 @@ ReactTestUtils.Simulate.change(node);
 ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 ```
 
-> Note
+> Nota
 >
-> You will have to provide any event property that you're using in your component (e.g. keyCode, which, etc...) as React is not creating any of these for you.
+> Hauràs de proporcionar qualsevol propietat d'esdeveniments que estigui utilitzant en el teu component (p. ex. *keyCode*, *which*, etc.) perque React no en crearà cap d'aquests per tu.
 
 * * *
