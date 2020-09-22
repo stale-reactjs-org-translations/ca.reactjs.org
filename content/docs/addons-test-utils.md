@@ -15,13 +15,13 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 ## Resum {#overview}
 
-`ReactTestUtils` facilita provar els components React en el marc de test que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript sense gaire esforç . Apren com començar amb *Jest* a través de la web de *Jest* [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react).
+`ReactTestUtils` facilita provar els components React en el marc de proves que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript sense gaire maldecaps . Aprèn com començar amb *Jest* a través de la seva web [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react).
 
 > Nota:
 >
-> Recomanem utilitzar la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per habilitar i animar-te a escriure tests pels teus components i que siguin provats de la mateixa manera com els faran servir els usuaris finals.
+> Recomanem utilitzar la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per habilitar i per animar-te a escriure tests pels teus components i que aquest siguin provats de la mateixa manera com els faran servir els usuaris finals.
 >
-> Com a alternativa, Airbnb ha llançat una utilitat de test anomenada [Enzyme](https:airbnb.io/enzim/), que fa que sigui fàcil de fer els test d'afirmació, de manipulació i que travessin la sortida dels components de React.
+> Com a alternativa, Airbnb ha llançat una utilitat de test anomenada [Enzyme](https:airbnb.io/enzim/), que fa que sigui fàcil de fer els test amb sortida d'afirmació, de manipulació i atravessant els components de React.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -44,7 +44,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 ### `act()` {#act}
 
-Es fa servir per preparar un component per als test d'afirmacions. S'embolcalla el codi dins d'una crida `act()` que el renderitzarà i actualitzarà dins seu. Això fa que el test s'ajusti a la manera com funciona React al navegador.
+Es fa servir per preparar un component per als test amb sortida d'afirmacions. S'embolcalla el codi dins d'una crida `act()` i aquesta el renderitzarà i actualitzarà dins seu. Això fa que el test s'ajusti a la manera com funciona React en el navegador.
 
 >Nota
 >
@@ -83,7 +83,7 @@ class Counter extends React.Component {
 }
 ```
 
-Així és com pots testejar-lo:
+Així és com pots provar-lo:
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -137,11 +137,11 @@ mockComponent(
 )
 ```
 
-Passa un mòdul de prova d'aquest mètode per afegir-li mètodes útils que li permeten ser utilitzat com a component fictici de React. En lloc de ser renderitzat com és habitual, el component es convertirà en un simple div (o en una altra etiqueta si es passa `mocktagName`) que contindrà qualsevol fill proporcionat.
+Passa un mòdul de prova d'aquest mètode per afegir-li mètodes útils que li permeten ser utilitzat com a component fictici de React. En lloc de ser renderitzat com és habitual, el component es convertirà en un simple div (o en una altra etiqueta si es passa `mocktagName`) que contindrà tots els fills proporcionats.
 
 > Nota:
 >
-> `mockComponent()` és una API antiga. En el seu lloc, recomanem fer servir [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> `mockComponent()` és una API antiga. En lloc seu, recomanem fer servir [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 
@@ -311,7 +311,7 @@ ReactDOM.render(element, domContainer);
 
 * * *
 
-## Other Utilities {#other-utilities}
+## Altres Utilitats {#other-utilities}
 
 ### `Simulate` {#simulate}
 
