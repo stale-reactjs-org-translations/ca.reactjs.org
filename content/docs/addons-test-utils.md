@@ -15,13 +15,13 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 ## Resum {#overview}
 
-`ReactTestUtils` facilita provar els components React en el marc de proves que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript sense gaire maldecaps . Aprèn com començar amb *Jest* a través de la seva web [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react).
+`ReactTestUtils` facilita provar els components React en el marc de proves que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript sense gaire maldecaps . Consulta a la web de *Jest* les [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react) per començar a aprendre'n.
 
 > Nota:
 >
-> Recomanem utilitzar la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per habilitar i per animar-te a escriure tests pels teus components i que aquest siguin provats de la mateixa manera com els faran servir els usuaris finals.
+> Et recomanem que facis servir la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per habilitar i per animar-te a escriure tests pels teus components i que aquest siguin provats de la mateixa manera que els faran servir els usuaris finals.
 >
-> Com a alternativa, Airbnb ha llançat una utilitat de test anomenada [Enzyme](https:airbnb.io/enzim/), que fa que sigui fàcil de fer els test amb sortida d'afirmació, de manipulació i atravessant els components de React.
+> Com a alternativa, *Airbnb* ha llançat una utilitat de test anomenada [Enzyme](https:airbnb.io/enzim/), que fa que sigui fàcil de fer els test amb sortida d'afirmació, de manipulació i atravessant els components de React.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -44,7 +44,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 ### `act()` {#act}
 
-Es fa servir per preparar un component per als test amb sortida d'afirmacions. S'embolcalla el codi dins d'una crida `act()` i aquesta el renderitzarà i actualitzarà dins seu. Això fa que el test s'ajusti a la manera com funciona React en el navegador.
+Es fa servir per preparar un component per als test amb sortida d'afirmacions. S'embolcalla el codi dins d'una crida `act()` i aquesta renderitzarà i actualitzarà el component dins seu. Això fa que el test s'ajusti a la manera com funciona React en el navegador.
 
 >Nota
 >
@@ -141,7 +141,7 @@ Passa un mòdul de prova d'aquest mètode per afegir-li mètodes útils que li p
 
 > Nota:
 >
-> `mockComponent()` és una API antiga. En lloc seu, recomanem fer servir [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> `mockComponent()` és una API antiga. En lloc seu, et recomanem fer servir [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 
@@ -210,7 +210,7 @@ findAllInRenderedTree(
 )
 ```
 
-Travessa tots els components d'un `tree` i acumula tots els components on `test(component)` és `true`. Això no és gaire útil per si mateix, però es fa servir com a primitiva per altres utilitats de test.
+Travessa tots els components del `tree` i acumula tots els components a on `test(component)` és `true`. Això no és gaire útil per si mateix, però es fa servir com a primitiva per altres utilitats de test.
 
 * * *
 
@@ -249,7 +249,7 @@ scryRenderedDOMComponentsWithTag(
 )
 ```
 
-Cerca tots els elements DOM dels components de l'arbre renderitzat que són components DOM i que tinguin el nom de l'etiqueta `tagName`.
+Cerca tots els elements DOM dels components del `tree` renderitzat que siguin components DOM i que tinguin el nom de l'etiqueta `tagName`.
 
 * * *
 
@@ -322,7 +322,7 @@ Simulate.{eventName}(
 )
 ```
 
-Simula un enviament d'esdeveniments en un node DOM amb dades d'esdeveniments opcionals `eventData`.
+Simula un enviament d'esdeveniments en un node DOM amb dades d'esdeveniments `eventData`, que són opcionals.
 
 `Simulate` té un mètode per a [cada esdeveniment que React entén](/docs/events.html#supported-events).
 
