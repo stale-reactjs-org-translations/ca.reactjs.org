@@ -1,25 +1,25 @@
 ---
 id: test-renderer
-title: Test Renderer
+title: Test de Renderitzat
 permalink: docs/test-renderer.html
 layout: docs
 category: Reference
 ---
 
-**Importing**
+**Fent la Importació**
 
 ```javascript
 import TestRenderer from 'react-test-renderer'; // ES6
-const TestRenderer = require('react-test-renderer'); // ES5 with npm
+const TestRenderer = require('react-test-renderer'); // ES5 amb npm
 ```
 
-## Overview {#overview}
+## Resum {#overview}
 
-This package provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
+Aquest paquet proporciona un renderitzador de React que es pot fer servir per representar els components de React a objectes JavaScript purs, sense dependre del DOM o d'un entorn mòbil natiu.
 
-Essentially, this package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a React DOM or React Native component without using a browser or [jsdom](https://github.com/tmpvar/jsdom).
+Essencialment, aquest paquet facilita la captura de la jerarquia de visualització de la plataforma (similar a un DOM) renderitzada per a un DOM o un component natiu de React sense fer servir un navegador o [jsdom](https://github.com/tmpvar/jsdom).
 
-Example:
+Exemple:
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
@@ -38,9 +38,9 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-You can use Jest's snapshot testing feature to automatically save a copy of the JSON tree to a file and check in your tests that it hasn't changed: [Learn more about it](https://jestjs.io/docs/en/snapshot-testing).
+Pots fer servir la funció de prova d'instantània de Jest per desar automàticament una còpia de l'arbre JSON a un fitxer i comprovar als teus test que no ha canviat: [Aprèn més sobre això](https://jestjs.io/docs/en/snapshot-testing).
 
-You can also traverse the output to find specific nodes and make assertions about them.
+També pots recórrer el resultat per trobar nodes específics i fer-hi afirmacions.
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
@@ -72,7 +72,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 * [`TestRenderer.create()`](#testrenderercreate)
 * [`TestRenderer.act()`](#testrendereract)
 
-### TestRenderer instance {#testrenderer-instance}
+### Instàncies de TestRenderer {#testrenderer-instance}
 
 * [`testRenderer.toJSON()`](#testrenderertojson)
 * [`testRenderer.toTree()`](#testrenderertotree)
@@ -95,7 +95,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 * [`testInstance.parent`](#testinstanceparent)
 * [`testInstance.children`](#testinstancechildren)
 
-## Reference {#reference}
+## Referència {#reference}
 
 ### `TestRenderer.create()` {#testrenderercreate}
 
@@ -103,7 +103,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 TestRenderer.create(element, options);
 ```
 
-Create a `TestRenderer` instance with the passed React element. It doesn't use the real DOM, but it still fully renders the component tree into memory so you can make assertions about it. Returns a [TestRenderer instance](#testrenderer-instance).
+Crea una instància `TestRenderer` amb l'element React passat. No fa servir el DOM real, però encara fa que l'arbre del component sigui a la memòria perquè puguis fer afirmacions sobre aquest. Retorna una instància [TestRenderer](#testrenderer-instance).
 
 ### `TestRenderer.act()` {#testrendereract}
 
@@ -111,27 +111,27 @@ Create a `TestRenderer` instance with the passed React element. It doesn't use t
 TestRenderer.act(callback);
 ```
 
-Similar to the [`act()` helper from `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepares a component for assertions. Use this version of `act()` to wrap calls to `TestRenderer.create` and `testRenderer.update`.
+Semblant a l'assistent [`act()` de `react-dom/test-utils`(/docs/test-utils.html#act), `TestRenderer.act` prepara un component per a les afirmacions. Utilitza aquesta versió de `act()` per envoltar les crides a `TestRenderer.create` i `testRenderer.update`.
 
 ```javascript
 import {create, act} from 'react-test-renderer';
-import App from './app.js'; // The component being tested
+import App from './app.js'; // El component sobre el que es fa el test
 
-// render the component
+// renderitza el component
 let root; 
 act(() => {
   root = create(<App value={1}/>)
 });
 
-// make assertions on root 
+// fer afirmacions al root 
 expect(root.toJSON()).toMatchSnapshot();
 
-// update with some different props
+// actualitzar-lo amb algun atribut diferent
 act(() => {
   root.update(<App value={2}/>);
 })
 
-// make assertions on root 
+// fer afirmacions al root 
 expect(root.toJSON()).toMatchSnapshot();
 ```
 
@@ -141,7 +141,7 @@ expect(root.toJSON()).toMatchSnapshot();
 testRenderer.toJSON()
 ```
 
-Return an object representing the rendered tree. This tree only contains the platform-specific nodes like `<div>` or `<View>` and their props, but doesn't contain any user-written components. This is handy for [snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Retorna un objecte que representa l'arbre renderitzat. Aquest arbre només conté els nodes específics de la plataforma com `<div>` o `<View>` i els seus atributs, però no conté cap component escrit per l'usuari. És útil per a les proves d'[instantània](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
@@ -149,7 +149,7 @@ Return an object representing the rendered tree. This tree only contains the pla
 testRenderer.toTree()
 ```
 
-Return an object representing the rendered tree. The representation is more detailed than the one provided by `toJSON()`, and includes the user-written components. You probably don't need this method unless you're writing your own assertion library on top of the test renderer.
+Retorna un objecte que representa l'arbre renderitzat. La representació és més detallada que la proporcionada per `toJSON()`, i inclou els components escrits per l'usuari. Probablement no necessitaràs aquest mètode excepte que estiguis escrivint la teva pròpia biblioteca d'assercions a la part superior del renderitzador de test. 
 
 ### `testRenderer.update()` {#testrendererupdate}
 
@@ -157,7 +157,7 @@ Return an object representing the rendered tree. The representation is more deta
 testRenderer.update(element)
 ```
 
-Re-render the in-memory tree with a new root element. This simulates a React update at the root. If the new element has the same type and key as the previous element, the tree will be updated; otherwise, it will re-mount a new tree.
+Torna a renderitzar l'arbre en memòria amb un nou element arrel. Això simula una actualització de React a l'arrel. Si el nou element té el mateix tipus i clau que l'element anterior, l'arbre s'actualitzarà; en cas contrari, es tornarà a muntar un nou arbre.
 
 ### `testRenderer.unmount()` {#testrendererunmount}
 
@@ -165,7 +165,7 @@ Re-render the in-memory tree with a new root element. This simulates a React upd
 testRenderer.unmount()
 ```
 
-Unmount the in-memory tree, triggering the appropriate lifecycle events.
+Desmunta l'arbre en memòria, desencadenant els esdeveniments de cicle de vida apropiats.
 
 ### `testRenderer.getInstance()` {#testrenderergetinstance}
 
@@ -173,7 +173,7 @@ Unmount the in-memory tree, triggering the appropriate lifecycle events.
 testRenderer.getInstance()
 ```
 
-Return the instance corresponding to the root element, if available. This will not work if the root element is a function component because they don't have instances.
+Retorna la instància corresponent a l'element arrel, si està disponible. No funcionarà si l'element arrel és un component de funció perquè aquests no tenen instàncies.
 
 ### `testRenderer.root` {#testrendererroot}
 
@@ -181,7 +181,7 @@ Return the instance corresponding to the root element, if available. This will n
 testRenderer.root
 ```
 
-Returns the root "test instance" object that is useful for making assertions about specific nodes in the tree. You can use it to find other "test instances" deeper below.
+Retorna l'objecte arrel «instància de prova» que és útil per fer afirmacions sobre nodes específics de l'arbre. Pots utilitzar-lo per trobar altres "instàncies de prova" a nivells inferiors.
 
 ### `testInstance.find()` {#testinstancefind}
 
