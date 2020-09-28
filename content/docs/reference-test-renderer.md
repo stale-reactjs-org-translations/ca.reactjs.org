@@ -189,7 +189,7 @@ Retorna l'objecte arrel «instància de prova» que és útil per fer afirmacion
 testInstance.find(test)
 ```
 
-Find a single descendant test instance for which `test(testInstance)` returns `true`. If `test(testInstance)` does not return `true` for exactly one test instance, it will throw an error.
+Cerca una única instància de text aigües avall per a la qual `test(testInstance)` retorna `true`. Si `test(testInstance)` no retorna `true` exactament per a una instància de test, es llançarà un error.
 
 ### `testInstance.findByType()` {#testinstancefindbytype}
 
@@ -197,7 +197,7 @@ Find a single descendant test instance for which `test(testInstance)` returns `t
 testInstance.findByType(type)
 ```
 
-Find a single descendant test instance with the provided `type`. If there is not exactly one test instance with the provided `type`, it will throw an error.
+Cerca una única instància de prova aigües avall amb el tipus `type` proporcionat. Si no hi ha exactament una instància de prova amb el `type` proporcionat, es llançarà un error.
 
 ### `testInstance.findByProps()` {#testinstancefindbyprops}
 
@@ -205,7 +205,7 @@ Find a single descendant test instance with the provided `type`. If there is not
 testInstance.findByProps(props)
 ```
 
-Find a single descendant test instance with the provided `props`. If there is not exactly one test instance with the provided `props`, it will throw an error.
+Cerca una única instància de prova aigües avall amb les `props` proporcionades. Si no hi ha exactament una instància de prova amb la `props` proporcionada, es produirà un error.
 
 ### `testInstance.findAll()` {#testinstancefindall}
 
@@ -213,7 +213,7 @@ Find a single descendant test instance with the provided `props`. If there is no
 testInstance.findAll(test)
 ```
 
-Find all descendant test instances for which `test(testInstance)` returns `true`.
+Cerca totes les instàncies de prova aigües avall per a les quals `test(testInstance)` retorna `true`.
 
 ### `testInstance.findAllByType()` {#testinstancefindallbytype}
 
@@ -221,7 +221,7 @@ Find all descendant test instances for which `test(testInstance)` returns `true`
 testInstance.findAllByType(type)
 ```
 
-Find all descendant test instances with the provided `type`.
+Cerca totes les instàncies de prova aigües avall amb el `type` proporcionat.
 
 ### `testInstance.findAllByProps()` {#testinstancefindallbyprops}
 
@@ -229,7 +229,7 @@ Find all descendant test instances with the provided `type`.
 testInstance.findAllByProps(props)
 ```
 
-Find all descendant test instances with the provided `props`.
+Cerca totes les instàncies de prova aigües avall amb el `props` proporcionat..
 
 ### `testInstance.instance` {#testinstanceinstance}
 
@@ -237,7 +237,7 @@ Find all descendant test instances with the provided `props`.
 testInstance.instance
 ```
 
-The component instance corresponding to this test instance. It is only available for class components, as function components don't have instances. It matches the `this` value inside the given component.
+La instància del component corresponent a aquesta instància de test. Només està disponible per als components de classe, ja que els components de la funció no tenen instàncies. Coincideix amb el valor  `this` dins del component indicat.
 
 ### `testInstance.type` {#testinstancetype}
 
@@ -245,7 +245,7 @@ The component instance corresponding to this test instance. It is only available
 testInstance.type
 ```
 
-The component type corresponding to this test instance. For example, a `<Button />` component has a type of `Button`.
+El tipus de component que corresponent a aquesta instància de test. Per exemple, un `<Button />`  té un tipus de `Button`.
 
 ### `testInstance.props` {#testinstanceprops}
 
@@ -253,7 +253,7 @@ The component type corresponding to this test instance. For example, a `<Button 
 testInstance.props
 ```
 
-The props corresponding to this test instance. For example, a `<Button size="small" />` component has `{size: 'small'}` as props.
+Les *props* corresponents a aquesta instància de test. Per exemple, un component `<Button size="small" />` té  com a *props* `{size: 'small'}`.
 
 ### `testInstance.parent` {#testinstanceparent}
 
@@ -261,7 +261,7 @@ The props corresponding to this test instance. For example, a `<Button size="sma
 testInstance.parent
 ```
 
-The parent test instance of this test instance.
+La instància de test pare d'aquesta instància de test.
 
 ### `testInstance.children` {#testinstancechildren}
 
@@ -269,13 +269,13 @@ The parent test instance of this test instance.
 testInstance.children
 ```
 
-The children test instances of this test instance.
+La instàncies de test filles d'aquesta instància de test.
 
 ## Ideas {#ideas}
 
-You can pass `createNodeMock` function to `TestRenderer.create` as the option, which allows for custom mock refs.
-`createNodeMock` accepts the current element and should return a mock ref object.
-This is useful when you test a component that relies on refs.
+Pots passar la funció `createNodeMock` a `TestRenderer.create` com a opció, que permet fer referències simulades personalitzades.
+`createNodeMock` accepta l'element actual i ha de retornar un objecte ref simulat.
+Això és útil quan proves un component que es basa en referències.s
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
