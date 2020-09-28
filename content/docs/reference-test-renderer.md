@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Pots fer servir la funció de prova d'instantània de Jest per desar automàticament una còpia de l'arbre JSON a un fitxer i comprovar als teus test que no ha canviat: [Aprèn més sobre això](https://jestjs.io/docs/en/snapshot-testing).
+Pots fer servir la funció d'instantània de test de Jest per desar automàticament una còpia de l'arbre JSON a un fitxer i comprovar als teus test que no ha canviat: [Aprèn més sobre això](https://jestjs.io/docs/en/snapshot-testing).
 
 També pots recórrer el resultat per trobar nodes específics i fer-hi afirmacions.
 
@@ -103,7 +103,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 TestRenderer.create(element, options);
 ```
 
-Crea una instància `TestRenderer` amb l'element React passat. No fa servir el DOM real, però encara fa que l'arbre del component sigui a la memòria perquè puguis fer afirmacions sobre aquest. Retorna una instància [TestRenderer](#testrenderer-instance).
+Crea una instància `TestRenderer` amb l'element React passat. No fa servir el DOM real, però tot i així renderitza completament l'arbre del component a la memòria perquè puguis fer afirmacions sobre aquest. Retorna una instància [TestRenderer](#testrenderer-instance).
 
 ### `TestRenderer.act()` {#testrendereract}
 
@@ -149,7 +149,7 @@ Retorna un objecte que representa l'arbre renderitzat. Aquest arbre només cont�
 testRenderer.toTree()
 ```
 
-Retorna un objecte que representa l'arbre renderitzat. La representació és més detallada que la proporcionada per `toJSON()`, i inclou els components escrits per l'usuari. Probablement no necessitaràs aquest mètode excepte que estiguis escrivint la teva pròpia biblioteca d'assercions a la part superior del renderitzador de test. 
+Retorna un objecte que representa l'arbre renderitzat. La representació és més detallada que la proporcionada per `toJSON()`, i inclou els components escrits per l'usuari. Probablement no necessitaràs aquest mètode excepte que estiguis escrivint la teva pròpia biblioteca d'afirmacions sobre el renderitzador de test. 
 
 ### `testRenderer.update()` {#testrendererupdate}
 
@@ -181,7 +181,7 @@ Retorna la instància corresponent a l'element arrel, si està disponible. No fu
 testRenderer.root
 ```
 
-Retorna l'objecte arrel «instància de prova» que és útil per fer afirmacions sobre nodes específics de l'arbre. Pots utilitzar-lo per trobar altres "instàncies de prova" a nivells inferiors.
+Retorna l'objecte arrel «instància de test» que és útil per fer afirmacions sobre nodes específics de l'arbre. Pots utilitzar-lo per trobar altres "instàncies de test" aigües avall.
 
 ### `testInstance.find()` {#testinstancefind}
 
@@ -189,7 +189,7 @@ Retorna l'objecte arrel «instància de prova» que és útil per fer afirmacion
 testInstance.find(test)
 ```
 
-Cerca una única instància de text aigües avall per a la qual `test(testInstance)` retorna `true`. Si `test(testInstance)` no retorna `true` exactament per a una instància de test, es llançarà un error.
+Cerca una única instància de test aigües avall per a la qual `test(testInstance)` retorna `true`. Si `test(testInstance)` no retorna `true` per a una i només una instància de test, es llançarà un error.
 
 ### `testInstance.findByType()` {#testinstancefindbytype}
 
@@ -197,7 +197,7 @@ Cerca una única instància de text aigües avall per a la qual `test(testInstan
 testInstance.findByType(type)
 ```
 
-Cerca una única instància de prova aigües avall amb el tipus `type` proporcionat. Si no hi ha exactament una instància de prova amb el `type` proporcionat, es llançarà un error.
+Cerca una única instància de test aigües avall amb el tipus `type` proporcionat. Si no hi ha exactament una instància de test amb el `type` proporcionat, es llançarà un error.
 
 ### `testInstance.findByProps()` {#testinstancefindbyprops}
 
@@ -205,7 +205,7 @@ Cerca una única instància de prova aigües avall amb el tipus `type` proporcio
 testInstance.findByProps(props)
 ```
 
-Cerca una única instància de prova aigües avall amb les `props` proporcionades. Si no hi ha exactament una instància de prova amb la `props` proporcionada, es produirà un error.
+Cerca una única instància de test aigües avall amb les `props` proporcionades. Si no hi ha exactament una i només una instància de test amb les `props` proporcionades, es produirà un error.
 
 ### `testInstance.findAll()` {#testinstancefindall}
 
@@ -213,7 +213,7 @@ Cerca una única instància de prova aigües avall amb les `props` proporcionade
 testInstance.findAll(test)
 ```
 
-Cerca totes les instàncies de prova aigües avall per a les quals `test(testInstance)` retorna `true`.
+Cerca totes les instàncies de test aigües avall per a les quals `test(testInstance)` retorna `true`.
 
 ### `testInstance.findAllByType()` {#testinstancefindallbytype}
 
@@ -221,7 +221,7 @@ Cerca totes les instàncies de prova aigües avall per a les quals `test(testIns
 testInstance.findAllByType(type)
 ```
 
-Cerca totes les instàncies de prova aigües avall amb el `type` proporcionat.
+Cerca totes les instàncies de test aigües avall amb el `type` proporcionat.
 
 ### `testInstance.findAllByProps()` {#testinstancefindallbyprops}
 
@@ -229,7 +229,7 @@ Cerca totes les instàncies de prova aigües avall amb el `type` proporcionat.
 testInstance.findAllByProps(props)
 ```
 
-Cerca totes les instàncies de prova aigües avall amb el `props` proporcionat..
+Cerca totes les instàncies de test aigües avall amb les `props` proporcionades..
 
 ### `testInstance.instance` {#testinstanceinstance}
 
@@ -245,7 +245,7 @@ La instància del component corresponent a aquesta instància de test. Només es
 testInstance.type
 ```
 
-El tipus de component que corresponent a aquesta instància de test. Per exemple, un `<Button />`  té un tipus de `Button`.
+El tipus de component que corresponent a aquesta instància de test. Per exemple, un component `<Button />`  té un tipus de `Button`.
 
 ### `testInstance.props` {#testinstanceprops}
 
@@ -269,13 +269,13 @@ La instància de test pare d'aquesta instància de test.
 testInstance.children
 ```
 
-La instàncies de test filles d'aquesta instància de test.
+Les instàncies de test filles d'aquesta instància de test.
 
 ## Ideas {#ideas}
 
 Pots passar la funció `createNodeMock` a `TestRenderer.create` com a opció, que permet fer referències simulades personalitzades.
 `createNodeMock` accepta l'element actual i ha de retornar un objecte ref simulat.
-Això és útil quan proves un component que es basa en referències.s
+Això és útil quan proves un component que es basa en referències.
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
@@ -299,7 +299,7 @@ TestRenderer.create(
   {
     createNodeMock: (element) => {
       if (element.type === 'input') {
-        // mock a focus function
+        // simula una funció d'enfocament
         return {
           focus: () => {
             focused = true;
