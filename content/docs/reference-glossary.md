@@ -1,83 +1,83 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: Glosari de Termes de React
 layout: docs
 category: Reference
 permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Applicació de pàgina única {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Una aplicació d'una sola pàgina és una aplicació que carrega una única pàgina HTML i totes les parts necessaries (com JavaScript i CSS) per a l'aplicació a executar. Qualsevol interacció amb la pàgina o pàgines posteriors no requereix una sol·licitud al servidor cosa que vol dir que la pàgina no s'ha de tornar a carregar.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+Encara que pots construir una sol·licitud d'una sola pàgina a React, no és un requisit. React també es pot utilitzar per millorar petites parts dels llocs web existents amb interactivitat addicional. El codi escrit en React pot coexistir perfectament amb pàgines renderitzades al servidor per llenguatges com PHP, o amb altres biblioteques del costat del client. De fet, així és exactament com s'està fent servir React a *Facebook*.
 
 ## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Aquestes sigles es refereixen a les versions més recents de l'estàndard *ECMAScript Language Specification*, del qual el llenguatge JavaScript és una implementació. La versió ES6 (també coneguda com a ES2015) inclou moltes addicions a les versions anteriors com: funcions *arrow*, classes, plantilles de cadena de text, expressions `let` i `const`. Pots aprendre més sobre versions específiques [aquí](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
-## Compilers {#compilers}
+## Compiladors {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+Un compilador de JavaScript pren codi JavaScript, el transforma i retorna codi JavaScript en un format diferent. El cas d'ús més comú és prendre la sintaxi ES6 i transformar-la en sintaxi que els navegadors més antics són capaços d'interpretar. [Babel](https://babeljs.io/) és el compilador més utilitzat amb React.
 
 ## Bundlers {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Els *bundlers* prenen el codi JavaScript i CSS escrit com a mòduls separats (sovint centenars d'ells), i els combinen junts en uns pocs fitxers més optimitzats per als navegadors. Alguns paquets que es fan servir habitualment en aplicacions de React inclouen [Webpack](https:webpack.js.org/) i [Browserify](http://browserify.org/).
 
-## Package Managers {#package-managers}
+## Gestors de Paquets {#package-managers}
 
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
+Els gestors de paquets són eines que et permeten gestionar les dependències del teu projecte. [npm](https://www.npmjs.com/) i [Yarn](https://yarnpkg.com/) són dos gestors de paquets que s'utilitzen habitualment en aplicacions de React. Ambdós són clients del mateix registre de paquets npm.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+*CDN* vol dir *Content Delivery Network*. Els *CDN* proporcionen contingut en memòria cau i estàtic d'una xarxa de servidors de tot el món. 
 
 ## JSX {#jsx}
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
+JSX és una extensió de sintaxi per al JavaScript. És similar a un llenguatge de plantilla, però té tot el poder de JavaScript. JSX es compila a les crides `React.createElement()` que retornen objectes en JavaScript pla anomenats "Elements de React". Per aconseguir una introducció bàsica a JSX [vegeu els documents aquí](/docs/introduint-jsx.html) i per trobar una guia d'aprenentatge més en profunditat sobre JSX [aquí](/docs/jsx-in-depth.html).
 
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
+El Dom de React escriu els noms seguint la convenció anomenada *camelCase* en lloc dels noms d'atribut HTML. Per exemple, `tabindex` es converteix en `tabIndex` a JSX. L'atribut `class` es converteix en `className` ja que `class` és una paraula reservada de JavaScript:
 
 ```js
-const name = 'Clementine';
+const nom = 'Clementine';
 ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
+  <h1 className="hola">El meu nom és {nom}!</h1>,
   document.getElementById('root')
 );
 ```  
 
 ## [Elements](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+Els elements de React són els blocs de construcció de les aplicacions de React. Es fàcil confondre'ls amb un concepte més àmpliament conegut de "components". Un element descriu el que vols veure a la pantalla. Els elements React són immutables.
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Hola, mon</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Típicament, els elements no s'utilitzen directament, sinó que són el que retorna un component.
 
 ## [Components](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+Els components React són peces de codi petites i reutilitzables que retornen un element React que es renderitzarà a la pàgina. La versió més simple del component React és una funció JavaScript senzilla que retorna un element React:
 
 ```js
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+function Benvinguda(props) {
+  return <h1>Hola, {props.nom}</h1>;
 }
 ```
 
-Components can also be ES6 classes:
+Els components poden ser també classes ES6:
 
 ```js
-class Welcome extends React.Component {
+class Benvinguda extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Hola, {this.props.nom}</h1>;
   }
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Els components es poden descompondre en diferents peces de funcionalitat i utilitzar-se dins d'altres components. Els components poden retornar altres components, matrius, cadenes i números. Una bona regla d'or és que si una part de la interfície d'usuari s'utilitza diverses vegades (Botó, Plafó, Avatar), o és prou complexa per si sola (App, FeedStory, Comment), és un bon candidat per ser un component reutilitzable. Els noms dels components també han de començar sempre amb una lletra majúscula (`<Wrapper/>` **no** `<wrapper/>`). Consulta [aquesta documentació](/docs/components-and-props.html#rendering-a-component) per obtenir més informació sobre la renderització dels components.
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
