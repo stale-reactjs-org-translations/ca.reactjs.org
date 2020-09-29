@@ -111,7 +111,7 @@ Crea una instància `TestRenderer` amb l'element React passat. No fa servir el D
 TestRenderer.act(callback);
 ```
 
-Semblant a l'assistent [`act()` de `react-dom/test-utils`(/docs/test-utils.html#act), `TestRenderer.act` prepara un component per a les afirmacions. Utilitza aquesta versió de `act()` per envoltar les crides a `TestRenderer.create` i `testRenderer.update`.
+Semblant a l'assistent [`act()` de `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepara un component per a fer-hi afirmacions. Utilitza aquesta versió de `act()` per envoltar les crides a `TestRenderer.create` i `testRenderer.update`.
 
 ```javascript
 import {create, act} from 'react-test-renderer';
@@ -141,7 +141,7 @@ expect(root.toJSON()).toMatchSnapshot();
 testRenderer.toJSON()
 ```
 
-Retorna un objecte que representa l'arbre renderitzat. Aquest arbre només conté els nodes específics de la plataforma com `<div>` o `<View>` i els seus atributs, però no conté cap component escrit per l'usuari. És útil per a les proves d'[instantània](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Retorna un objecte que representa l'arbre renderitzat. Aquest arbre només conté els nodes específics de la plataforma com `<div>` o `<View>` i els seus atributs, però no conté cap component escrit per l'usuari. És útil per a les [proves d'instantània](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
@@ -271,11 +271,11 @@ testInstance.children
 
 Les instàncies de test filles d'aquesta instància de test.
 
-## Ideas {#ideas}
+## Idees {#ideas}
 
-Pots passar la funció `createNodeMock` a `TestRenderer.create` com a opció, que permet fer referències simulades personalitzades.
-`createNodeMock` accepta l'element actual i ha de retornar un objecte ref simulat.
-Això és útil quan proves un component que es basa en referències.
+Pots passar la funció `createNodeMock` a `TestRenderer.create` com a opció, que permet fer simulacions de referències personalitzades.
+`createNodeMock` accepta l'element actual i retornarà un objecte ref simulat.
+És útil quan proves un component que es té referències.
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
