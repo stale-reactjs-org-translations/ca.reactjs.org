@@ -1,6 +1,6 @@
 ---
 id: glossary
-title: Glosari de Termes de React
+title: Glossari de Termes de React
 layout: docs
 category: Reference
 permalink: docs/glossary.html
@@ -9,17 +9,17 @@ permalink: docs/glossary.html
 
 ## Applicació de pàgina única {#single-page-application}
 
-Una aplicació d'una sola pàgina és una aplicació que carrega una única pàgina HTML i totes les parts necessaries (com JavaScript i CSS) per a l'aplicació a executar. Qualsevol interacció amb la pàgina o pàgines posteriors no requereix una sol·licitud al servidor cosa que vol dir que la pàgina no s'ha de tornar a carregar.
+Una aplicació d'una sola pàgina és una aplicació que carrega una única pàgina HTML i tot el que porta associat (com JavaScript i CSS) per a la seva execució. Qualsevol interacció amb la pàgina o pàgines posteriors no requereix fer sol·licituds al servidor i per tant la pàgina no s'ha de tornar a carregar.
 
-Encara que pots construir una sol·licitud d'una sola pàgina a React, no és un requisit. React també es pot utilitzar per millorar petites parts dels llocs web existents amb interactivitat addicional. El codi escrit en React pot coexistir perfectament amb pàgines renderitzades al servidor per llenguatges com PHP, o amb altres biblioteques del costat del client. De fet, així és exactament com s'està fent servir React a *Facebook*.
+Tot i que pots construir una aplicació d'una sola pàgina a React, no és un requisit. React també es pot utilitzar per millorar petites parts dels llocs web existents amb interactivitat addicional. El codi escrit a React pot coexistir perfectament amb pàgines renderitzades al servidor per llenguatges com PHP, o amb altres biblioteques del costat del client. De fet, així és exactament com s'està fent servir React a *Facebook*.
 
 ## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
-Aquestes sigles es refereixen a les versions més recents de l'estàndard *ECMAScript Language Specification*, del qual el llenguatge JavaScript és una implementació. La versió ES6 (també coneguda com a ES2015) inclou moltes addicions a les versions anteriors com: funcions *arrow*, classes, plantilles de cadena de text, expressions `let` i `const`. Pots aprendre més sobre versions específiques [aquí](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Aquestes sigles es refereixen a les versions més recents de l'estàndard *ECMAScript Language Specification*, del qual el llenguatge JavaScript és una implementació. La versió ES6 (també coneguda com a ES2015) inclou molts afegits a les versions anteriors com ara: funcions *arrow*, classes, plantilles de cadena de text, expressions `let` i `const`. Pots aprendre més sobre versions específiques [aquí](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
 ## Compiladors {#compilers}
 
-Un compilador de JavaScript pren codi JavaScript, el transforma i retorna codi JavaScript en un format diferent. El cas d'ús més comú és prendre la sintaxi ES6 i transformar-la en sintaxi que els navegadors més antics són capaços d'interpretar. [Babel](https://babeljs.io/) és el compilador més utilitzat amb React.
+Un compilador de JavaScript pren codi JavaScript, el transforma i retorna codi JavaScript en un format diferent. El cas d'ús més comú és prendre la sintaxi ES6 i transformar-la en una sintaxi que els navegadors més antics són capaços d'interpretar. [Babel](https://babeljs.io/) és el compilador més utilitzat amb React.
 
 ## Bundlers {#bundlers}
 
@@ -31,11 +31,11 @@ Els gestors de paquets són eines que et permeten gestionar les dependències de
 
 ## CDN {#cdn}
 
-*CDN* vol dir *Content Delivery Network*. Els *CDN* proporcionen contingut en memòria cau i estàtic d'una xarxa de servidors de tot el món. 
+*CDN* (de  l'anglès *Content Delivery Network* ) vol dir xarxa de lliurament de continguts. Els *CDN* proporcionen el contingut estàtic i en memòria cau d'una xarxa de servidors de tot el món. 
 
 ## JSX {#jsx}
 
-JSX és una extensió de sintaxi per al JavaScript. És similar a un llenguatge de plantilla, però té tot el poder de JavaScript. JSX es compila a les crides `React.createElement()` que retornen objectes en JavaScript pla anomenats "Elements de React". Per aconseguir una introducció bàsica a JSX [vegeu els documents aquí](/docs/introduint-jsx.html) i per trobar una guia d'aprenentatge més en profunditat sobre JSX [aquí](/docs/jsx-in-depth.html).
+JSX és una extensió de sintaxi pel JavaScript. És similar a un llenguatge de plantilla, però té tot el poder de JavaScript. JSX es compila a les crides `React.createElement()` que retornen objectes en JavaScript pla anomenats "Elements de React". Per aconseguir una introducció bàsica a JSX [vegeu els documents aquí](/docs/introduint-jsx.html) i per trobar una guia d'aprenentatge més en profunditat sobre JSX [aquí](/docs/jsx-in-depth.html).
 
 El Dom de React escriu els noms seguint la convenció anomenada *camelCase* en lloc dels noms d'atribut HTML. Per exemple, `tabindex` es converteix en `tabIndex` a JSX. L'atribut `class` es converteix en `className` ja que `class` és una paraula reservada de JavaScript:
 
@@ -49,7 +49,7 @@ ReactDOM.render(
 
 ## [Elements](/docs/rendering-elements.html) {#elements}
 
-Els elements de React són els blocs de construcció de les aplicacions de React. Es fàcil confondre'ls amb un concepte més àmpliament conegut de "components". Un element descriu el que vols veure a la pantalla. Els elements React són immutables.
+Els elements de React són els blocs de construcció de les aplicacions de React. Es fàcil confondre'ls amb el concepte més àmpliament conegut de "components". Un element descriu el que vols veure a la pantalla. Els elements React són immutables.
 
 ```js
 const element = <h1>Hola, mon</h1>;
@@ -77,41 +77,41 @@ class Benvinguda extends React.Component {
 }
 ```
 
-Els components es poden descompondre en diferents peces de funcionalitat i utilitzar-se dins d'altres components. Els components poden retornar altres components, matrius, cadenes i números. Una bona regla d'or és que si una part de la interfície d'usuari s'utilitza diverses vegades (Botó, Plafó, Avatar), o és prou complexa per si sola (App, FeedStory, Comment), és un bon candidat per ser un component reutilitzable. Els noms dels components també han de començar sempre amb una lletra majúscula (`<Wrapper/>` **no** `<wrapper/>`). Consulta [aquesta documentació](/docs/components-and-props.html#rendering-a-component) per obtenir més informació sobre la renderització dels components.
+Els components es poden descompondre en peces amb diferents funcionalitats i utilitzar-se dins d'altres components. Els components poden retornar altres components, matrius, cadenes i números. Una bona regla d'or per saber si un tros de codi és un bon candidat per ser un component és veure si una part de la interfície d'usuari s'utilitza diverses vegades (Botó, Plafó, Avatar), o bé és prou complexa per si sola (App, FeedStory, Comment). Els noms dels components han de començar sempre amb una lletra majúscula (`<Wrapper/>` **no** `<wrapper/>`). Consulta [aquesta documentació](/docs/components-and-props.html#rendering-a-component) per obtenir més informació sobre la renderització dels components.
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+`props` són les entrades a un component de React. Són les dades transmeses d'un component pare a un component fill.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Recorda que les `props` són només de lectura. No s'han de modificar de cap manera:
 
 ```js
-// Wrong!
+// Malament!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Si necessites modificar algun dels seus valors en resposta a l'entrada de l'usuari o a una resposta de xarxa, has de fer servir `state`.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+`props.children` està disponible en tots els components. Conté el contingut entre les etiquetes d'obertura i tancament d'un component. Per exemple:
 
 ```js
-<Welcome>Hello world!</Welcome>
+<Benvinguda>Hola món!</Benvinguda>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+La cadena `Hola món!` està disponible a `props.children` al component `Benvinguda`:
 
 ```js
-function Welcome(props) {
+function Benvinguda(props) {
   return <p>{props.children}</p>;
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+Per als components definits com a classes, has de fer servir `this.props.children`:
 
 ```js
-class Welcome extends React.Component {
+class Benvinguda extends React.Component {
   render() {
     return <p>{this.props.children}</p>;
   }
