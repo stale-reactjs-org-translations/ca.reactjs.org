@@ -19,7 +19,7 @@ Aquestes sigles es refereixen a les versions més recents de l'estàndard *ECMAS
 
 ## Compiladors {#compilers}
 
-Un compilador de JavaScript pren codi JavaScript, el transforma i retorna codi JavaScript en un format diferent. El cas d'ús més comú és prendre la sintaxi ES6 i transformar-la en una sintaxi que els navegadors més antics són capaços d'interpretar. [Babel](https://babeljs.io/) és el compilador més utilitzat amb React.
+Un compilador de JavaScript pren el codi JavaScript, el transforma i retorna aquest codi JavaScript en un format diferent. El cas d'ús més comú és prendre la sintaxi ES6 i transformar-la en una sintaxi que els navegadors més antics són capaços d'interpretar. [Babel](https://babeljs.io/) és el compilador més utilitzat amb React.
 
 ## Bundlers {#bundlers}
 
@@ -120,47 +120,47 @@ class Benvinguda extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Un component necessita `state` quan algunes de les seves dades associades canvien amb el temps. Per exemple, un component `Checkbox` podria necessitar `isChecked` en el seu `state`, i un component `NewsFeed` podria voler seguir `fetchedPosts` en el seu `state`.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`.
+La diferència més important entre `state` i `props` és que les `props` es passen des d'un component pare, però l'`state` és gestionat pel mateix component. Un component no pot canviar les seves `props`, però pot canviar el seu `state`.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+Per a cada peça concreta de dades modificables, hi hauria d'haver només un component que en fos "propietari" en el seu estat. No intentis sincronitzar els estats de dos components diferents. En lloc d'això, [puja-les](/docs/lifting-state-up.html) al seu ancestre comú més proper, i passa-les com a `props` d'ambdós.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Mètodes de Cicle de Vida](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Els mètodes de cicle de vida són funcionalitats personalitzades que s'executen durant les diferents fases d'un component. Hi ha mètodes disponibles quan el component es crea i s'insereix al DOM ([montatge](/docs/react-component.html#mounting)), quan el component s'actualitza, i quan el component es desmunta o s'elimina del DOM. 
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Components Controlats](/docs/forms.html#controlled-components) vs. [ No controlats](/docs/uncontrolled-components.html)
 
-React has two different approaches to dealing with form inputs. 
+React té dos enfocaments diferents per tractar les entrades de formulari.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Un element del formulari d'entrada el valor del qual és controlat per React s'anomena un component *controlat*. Quan un usuari introdueix dades en un component controlat s'activa un gestor d'esdeveniments de canvi i el codi decideix si l'entrada és vàlida (rerenderitzant amb el valor actualitzat). Si no re-renderitzes l'element del formulari aquest romandrà sense canvis.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+Un component *no controlat* es comporta com ho fan els elements de formulari fora de React. Quan un usuari introdueix dades en un camp de formulari (una casella d'entrada, un menú desplegable, etc) la informació actualitzada es reflecteix sense necessitat que React hagi de fer res. Tanmateix, això també significa que no es pot forçar el camp a tenir un cert valor.
 
-In most cases you should use controlled components.
+En la majoria dels casos hauràs de fer servir components controlats.
 
-## [Keys](/docs/lists-and-keys.html) {#keys}
+## [keys](/docs/lists-and-keys.html) {#keys}
 
-A "key" is a special string attribute you need to include when creating arrays of elements. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside an array to give the elements a stable identity.
+Una *"key"* és un atribut de cadena especial que has d'incloure quan creis *arrays* d'elements. Les *keys* ajuden a React a identificar quins elements han canviat , quins s'afegeixen o quins s'eliminen. Cal donar *keys* als elements dins d'una *array* per donar als elements una identitat estable.
 
-Keys only need to be unique among sibling elements in the same array. They don't need to be unique across the whole application or even a single component.
+Les *keys* només han de ser úniques entre els elements germans de la mateixa *array*. No han de ser únics en tota l'aplicació o fins i tot en un mateix component.
 
-Don't pass something like `Math.random()` to keys. It is important that keys have a "stable identity" across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as `post.id`.
+No passis res semblant a `Matth.random()` a les *keys*. És important que les *keys* tinguin una "identitat estable" a través de les re-renderitzacions de manera que React pugui determinar quan els elements s'afegeixen, s'eliminen o es reordenen. Idealment, les claus han de correspondre a identificadors únics i estables que provenen de les vostres dades, com `post.id`.
 
 ## [Refs](/docs/refs-and-the-dom.html) {#refs}
 
-React supports a special attribute that you can attach to any component. The `ref` attribute can be an object created by [`React.createRef()` function](/docs/react-api.html#reactcreateref) or a callback function, or a string (in legacy API). When the `ref` attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+React suporta un atribut especial que pots adjuntar a qualsevol component. L'atribut `ref` pot ser un objecte creat per la [funció `React.createRef()`](/docs/react-api.html#reactcreateref) o una funció de crida de retorn, o una cadena (a l'API anterior). Quan l'atribut `ref` és una funció de crida de retorn, la funció rep l'element DOM subjacent o la instància de classe (depenent del tipus d'element) com a argument. Això et permet tenir accés directe a l'element DOM o a la instància del component.
 
-Use refs sparingly. If you find yourself often using refs to "make things happen" in your app, consider getting more familiar with [top-down data flow](/docs/lifting-state-up.html).
+Utilitza *refs* amb moderació. Si et trobes sovint amb referències per "fer que les coses passin" a la teva aplicació, pensa a familiaritzar-te amb el [flux de dades de dalt a baix](/docs/lifting-state-up.html).
 
-## [Events](/docs/handling-events.html) {#events}
+## [Esdeveniments](/docs/handling-events.html) {#events}
 
-Handling events with React elements has some syntactic differences:
+El tractament d’esdeveniments amb elements React té algunes diferències sintàctiques:
 
-* React event handlers are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* Els gestors d’esdeveniments React s’escriuen seguint la convenció *camelCase* en lloc de fer-ho en minúscules.
+* Amb JSX es passa una funció com a gestor d'esdeveniments, en lloc d'una cadena.
 
-## [Reconciliation](/docs/reconciliation.html) {#reconciliation}
+## [Reconciliació](/docs/reconciliation.html) {#reconciliation}
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
+Quan les *props* o l'*state* d'un component canvien, React decideix si és necessària una actualització real de DOM comparant l'element recentment retornat amb el renderitzat anteriorment. Quan no siguin iguals, React actualitzarà el DOM. Aquest procés s’anomena “reconciliació”.
