@@ -170,7 +170,7 @@ JSX ve amb tot el poder de JavaScript. Pots posar *qualsevol* expressió de Java
 
 El component anterior `ShoppingList` només renderitza components preconstruïts del DOM com `<div />` i `<li />`. Però, també pots compondre i renderitzar components personalitzats de React. Per exemple, ara podem referir-nos al llistat complet de compres escrivint `<ShoppingList />`. Cada compoent de React està encapsulat i pot operar independentment; això et permet construir interfícies complexes des de components simples.
 
-## Inspeccionant el codi inicial {#inspecting-the-starter-code}
+### Inspeccionant el codi inicial {#inspecting-the-starter-code}
 
 Si treballes amb el tutorial **al navegador,** obre aquest codi en una nova pestanya: **[Codi inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Si treballes **localment**, obre `src/index.js` a la carpeta del teu projecte (ja has tocat aquest arxiu durant la [configuració](#setup-option-2-local-development-environment)).
 
