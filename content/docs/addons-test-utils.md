@@ -174,7 +174,7 @@ Retorna `true` si `element` és un element de React del tipus `componentClass`.
 isDOMComponent(instance)
 ```
 
-Retorna `true` si `instance` és un component DOM (com ara `<div>` or `<span>`).
+Retorna `true` si `instance` és un component del DOM (com ara `<div>` or `<span>`).
 
 * * *
 
