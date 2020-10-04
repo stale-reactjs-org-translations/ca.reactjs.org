@@ -22,7 +22,7 @@ Els mètodes següents es poden fer servir tant en entorns de servidor com de na
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-Els mètodes addicionals que venen a continuació depenen d'un paquet (`stream`) que *només està disponible per a entorns de servidor*, i no funcionarà en els de navegador.
+Els mètodes addicionals que venen a continuació depenen d'un paquet (`stream`) que **només està disponible per a entorns de servidor**, i no funcionarà en els de navegador.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
@@ -37,7 +37,7 @@ Els mètodes addicionals que venen a continuació depenen d'un paquet (`stream`)
 ReactDOMServer.renderToString(element)
 ```
 
-Renderitza un element React al seu HTML inicial. React retornarà una cadena HTML. Pots fer servir aquest mètode per generar l'HTML en el servidor i enviar-lo en la sol·licitud inicial i així la pàgina carregui més ràpidament i permetrà als motors de cerca rastrejar les teves pàgines pel seu posicionament *SEO*.
+Renderitza un element React al seu HTML inicial. React retornarà una cadena HTML. Pots utilitzar-lo per generar l'HTML en el servidor i enviar el marcatge en la sol·licitud inicial per a càrregues de pàgina més eficients i facilitar que els motors de cerca rastregin les teves pàgines pel posicionament SEO.
 
 Si apliques el mètode [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en un node que ja ve renderitzat des del servirdor, React el preservarà i només hi afegirà els gestors d'esdeveniments, cosa que permetrà tenir una primera càrrega molt eficient.
 
