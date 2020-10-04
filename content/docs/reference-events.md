@@ -10,9 +10,9 @@ Aquesta guia de referència documenta el contenidor `SyntheticEvent` que forma p
 
 ## Resum {#overview}
 
-Als teus gestors d'esdeveniments se li passaran instàncies de `SyntheticEvent`, un contenidor compatible amb diversos navegadors que conté l'esdeveniment natiu del navegador. Té la mateixa interfície que l'esdeveniment natiu del navegador, incloent `stopPropagation()` i `preventionDefault()`, excepte que els esdeveniments funcionen de forma idèntica a tots els navegadors.
+Als teus gestors d'esdeveniments se li passaran instàncies de `SyntheticEvent`, un contenidor compatible amb diversos navegadors que conté l'esdeveniment natiu del navegador. Té la mateixa interfície que l'esdeveniment natiu del navegador, incloent `stopPropagation()` i `preventDefault()`, excepte que els esdeveniments funcionen de forma idèntica a tots els navegadors.
 
-Si creus que necessites l'esdeveniment natiu del navegador per alguna raó, només cal que facis servir l'atribut `nativeEvent` per obtenir-lo. Els esdeveniments sintètics són diferents dels esdeveniments natius del navegador i no s'assignen directament. Per exemple a `onMouseLeave` `event.nativeEvent` apuntarà a un esdeveniment `mouseout`. El mapatge específic no és part de l'API pública i pot canviar en qualsevol moment. Cada objecte `SyntheticEvent` té els següents atributs:
+Si creus que necessites l'esdeveniment natiu del navegador per alguna raó, només cal que facis servir l'atribut `nativeEvent` per obtenir-lo. Els esdeveniments sintètics són diferents dels esdeveniments natius del navegador i no es corresponen directament. Per exemple a `onMouseLeave` `event.nativeEvent` apuntarà a un esdeveniment `mouseout`. La relació específica no és part de l'API pública i pot canviar en qualsevol moment. Cada objecte `SyntheticEvent` té els següents atributs:
 
 ```javascript
 boolean bubbles
@@ -34,7 +34,7 @@ string type
 
 > Nota:
 >
-> A partir de la v0.14, el retorn de `false` d'un gestor d'esdeveniments ja no atura la propagació d'esdeveniments. Per tant, `e.stopPropagation()` o `e.preventionDefault()` s'han d'activar manualment, segons correspongui.
+> A partir de la v0.14, retornar `false` des d'un gestor d'esdeveniments ja no atura la propagació d'esdeveniments. Per tant, `e.stopPropagation()` o `e.preventionDefault()` s'han d'activar manualment, segons correspongui.
 
 ### Agrupació d'esdeveniments {#event-pooling}
 
@@ -56,7 +56,7 @@ function onClick(event) {
   // No funciona. this.state.clickEvent només contindrà valors null.
   this.setState({clickEvent: event});
 
-  // Segueixes poden exportar les propietats de l'esdeveniment.
+  // Encara pots exportar les propietats de l'esdeveniment.
   this.setState({eventType: event.type});
 }
 ```
@@ -67,7 +67,7 @@ function onClick(event) {
 
 ## Esdeveniments suportats {#supported-events}
 
-React normalitza els esdeveniments per que les seves propietats siguin coherents entre els diferents tipus de navegadors.
+React normalitza els esdeveniments perquè les seves propietats siguin coherents entre els diferents tipus de navegadors.
 
 Els gestors d'esdeveniments que segueixen a continuació els desencadena un esdeveniment en la seva fase de propagació. Per registrar un gestor d'esdeveniments que es desencadeni a la fase de captura, cal afegir `Capture` al nom de l'esdeveniment; per exemple, en lloc d'utilitzar `onClick`, utilitzaríem `onClickCapture` per gestionar l'esdeveniment de clic a la fase de captura.
 
@@ -75,7 +75,7 @@ Els gestors d'esdeveniments que segueixen a continuació els desencadena un esde
 - [Esdeveniments de Composició](#composition-events)
 - [Esdeveniments de Teclat](#keyboard-events)
 - [Esdeveniments d'Enfocament](#focus-events)
-- [Esdeveniments de formulari](#form-events)
+- [Esdeveniments de Formulari](#form-events)
 - [Esdeveniments Genèrics](#generic-events)
 - [Esdeveniments de Ratolí](#mouse-events)
 - [Esdeveniments de Punter](#pointer-events)
@@ -83,7 +83,7 @@ Els gestors d'esdeveniments que segueixen a continuació els desencadena un esde
 - [Esdeveniments Tàctils](#touch-events)
 - [Esdeveniments de UI](#ui-events)
 - [Esdeveniments de Roda del Ratolí](#wheel-events)
-- [Esdeveniments de Media](#media-events)
+- [Esdeveniments de Multimèdia](#media-events)
 - [Esdeveniments d'Imatge](#image-events)
 - [Esdeveniments d'Animació](#animation-events)
 - [Esdeveniments de Transició](#transition-events)
@@ -91,7 +91,7 @@ Els gestors d'esdeveniments que segueixen a continuació els desencadena un esde
 
 * * *
 
-## Referencia {#reference}
+## Referència {#reference}
 
 ### Esdeveniments de Porta-retalls {#clipboard-events}
 
@@ -205,7 +205,7 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-Els esdeveniments `onMouseEnter` i `onMouseLeave` es propaguen des de l'element que es deixa fins a l'element al qual s'entra en lloc de fer la propagació normal i no tenen fase de captura.
+Els esdeveniments `onMouseEnter` i `onMouseLeave` es propaguen des de l'element que es deixa fins a l'element on s'entra en lloc de fer la propagació normal i no tenen fase de captura.
 
 Propietats:
 
@@ -237,7 +237,7 @@ onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-Els esdeveniments `onPointerIntro` i `onPointerLeave` es propaguen des de l'element que es deixa fins a l'element al qual s'entra en lloc de fer la propagació normal i no tenen una fase de captura. 
+Els esdeveniments `onPointerEnter` i `onPointerLeave` es propaguen des de l'element que es deixa fins a l'element on s'entra en lloc de fer la propagació normal i no tenen una fase de captura. 
 
 Propietats:
 
@@ -256,11 +256,11 @@ string pointerType
 boolean isPrimary
 ```
 
-Una nota sobre la compatibilitat amb els diversos navegador:
+Una nota sobre la compatibilitat amb els diversos navegadors:
 
 Els esdeveniments de punter encara no són compatibles en tots els navegadors (en el moment d'escriure aquest article, els navegadors compatibles són: Chrome, Firefox, Edge i Internet Explorer). React deliberadament no és compatible amb la resta de navegadors perquè un *polyfill* estàndard augmentaria significativament la mida del paquet `react-dom`.
 
-Si la vostra aplicació requereix esdeveniments de punter, recomanem afegir un *polyfill* d'esdeveniments d'un altre proveïdors.
+Si la vostra aplicació requereix esdeveniments de punter, recomanem afegir un *polyfill* d'esdeveniments d'un altre proveïdor.
 
 * * *
 
@@ -274,7 +274,7 @@ onSelect
 
 * * *
 
-### Esdeveniments tàctils {#touch-events}
+### Esdeveniments Tàctils {#touch-events}
 
 Nom dels esdeveniments:
 
@@ -333,7 +333,7 @@ number deltaZ
 
 * * *
 
-### Esdeveniments de Media {#media-events}
+### Esdeveniments de Multimèdia {#media-events}
 
 Nom dels esdeveniments:
 
