@@ -6,7 +6,7 @@ layout: docs
 category: Reference
 ---
 
-**Fent la Importació**
+**Importació**
 
 ```javascript
 import ReactTestUtils from 'react-dom/test-utils'; // ES6
@@ -15,13 +15,13 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 ## Resum {#overview}
 
-`ReactTestUtils` facilita provar els components React en el marc de proves que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript sense gaire maldecaps . Consulta a la web de *Jest* les [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react) per començar a aprendre'n.
+`ReactTestUtils` facilita provar els components React en el marc de proves que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript. Consulta a la web de *Jest* les [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react) per començar a aprendre'n.
 
 > Nota:
 >
-> Et recomanem que facis servir la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per habilitar i per animar-te a escriure tests pels teus components i que aquest siguin provats de la mateixa manera que els faran servir els usuaris finals.
+> Et recomanem que facis servir la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per escriure tests pels teus components i que aquests siguin provats de la mateixa manera que els faran servir els usuaris finals.
 >
-> Com a alternativa, *Airbnb* ha llançat una utilitat de test anomenada [Enzyme](https:airbnb.io/enzim/), que fa que sigui fàcil de fer els test amb sortida d'afirmació, de manipulació i atravessant els components de React.
+> Com a alternativa, *Airbnb* ha llançat una utilitat de test anomenada [Enzyme](https://airbnb.io/enzyme/), que fa que sigui fàcil afirmar, manipular i recórrer la sortida dels components de React.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -44,7 +44,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 ### `act()` {#act}
 
-Es fa servir per preparar un component per als test amb sortida d'afirmacions. S'embolcalla el codi dins d'una crida `act()` i aquesta renderitzarà i actualitzarà el component dins seu. Això fa que el test s'ajusti a la manera com funciona React en el navegador.
+Es fa servir per preparar un component per afirmacions. S'embolcalla el codi dins d'una crida `act()` que renderitzarà i actualitzarà el component que porta dins seu. Això fa que el test s'ajusti a la manera com funciona React en el navegador.
 
 >Nota
 >
@@ -122,9 +122,9 @@ it('can render and update a counter', () => {
 });
 ```
 
-- No oblidis que l'enviament d'esdeveniments DOM només funciona quan el contenidor DOM s'afegeix al `document`. Pots utilitzar una biblioteca com ara la [Biblioteca de Test React](https://testing-library.com/react) per reduir el codi redundant. 
+- No oblidis que l'enviament d'esdeveniments DOM només funciona quan el contenidor DOM s'afegeix al `document`. Pots utilitzar una biblioteca com ara la [Biblioteca de Test React](https://testing-library.com/react) per reduir el codi redundant.
 
-- El document [`receptes`](/docs/test-recipes.html) conté més detalls sobre com es comporta `act()`, amb exemples i formes de com utilitzar-lo.
+- El document [`receptes`](/docs/testing-recipes.html) conté més detalls sobre com es comporta `act()`, amb exemples i formes de com utilitzar-lo.
 
 * * *
 
@@ -137,7 +137,7 @@ mockComponent(
 )
 ```
 
-Passa un mòdul de prova d'aquest mètode per afegir-li mètodes útils que li permeten ser utilitzat com a component fictici de React. En lloc de ser renderitzat com és habitual, el component es convertirà en un simple div (o en una altra etiqueta si es passa `mocktagName`) que contindrà tots els fills proporcionats.
+Passa un mòdul de prova a aquest mètode per afegir-li mètodes útils que li permetin ser utilitzat com a component fictici de React. En lloc de ser renderitzat com és habitual, el component es convertirà en un simple `<div>` (o en una altra etiqueta si es passa `mockTagName`) que contindrà tots els fills proporcionats.
 
 > Nota:
 >
@@ -151,7 +151,7 @@ Passa un mòdul de prova d'aquest mètode per afegir-li mètodes útils que li p
 isElement(element)
 ```
 
-Retorna `true` si `element` és qualsevol tipus d'element React.
+Retorna `true` si `element` és qualsevol tipus d'element de React.
 
 * * *
 
@@ -164,7 +164,7 @@ isElementOfType(
 )
 ```
 
-Retorna `true` si `element` és un element React del tipus `componentClass`.
+Retorna `true` si `element` és un element de React del tipus `componentClass`.
 
 * * *
 
@@ -210,7 +210,7 @@ findAllInRenderedTree(
 )
 ```
 
-Travessa tots els components del `tree` i acumula tots els components a on `test(component)` és `true`. Això no és gaire útil per si mateix, però es fa servir com a primitiva per altres utilitats de test.
+Recorre tots els components del `tree` i acumula tots els components a on `test(component)` és `true`. Això no és gaire útil per si mateix, però es fa servir com a primitiva per a altres utilitats de test.
 
 * * *
 
@@ -223,7 +223,7 @@ scryRenderedDOMComponentsWithClass(
 )
 ```
 
-Cerca tots els elements DOM dels components de l'arbre renderitzat que són components DOM i tenen el nom de classe `className`.
+Troba tots els elements DOM dels components de l'arbre renderitzat que són components DOM i tenen el nom de classe `className`.
 
 * * *
 
@@ -236,7 +236,7 @@ findRenderedDOMComponentWithClass(
 )
 ```
 
-Igual que [scrryRenderedDOMComponentsWithClass()](#scrirendereddomcomponentswithclass) però espera que hi hagi un resultat, i retorna aquest resultat, o bé llança una excepció si hi ha un nombre de coincidències diferent d'un.
+Igual que [`scryRenderedDOMComponentsWithClass()`](#scryrendereddomcomponentswithclass) però espera que hi hagi un resultat, i retorna aquest resultat, o bé llança una excepció si hi ha un nombre de coincidències diferent a u.
 
 * * *
 
@@ -262,7 +262,7 @@ findRenderedDOMComponentWithTag(
 )
 ```
 
-Igual que [scrryRenderedDOMComponentsWithTag()](#scrirendereddomcomponentswithtag) però espera que hi hagi un resultat, i retorna aquest resultat, o llança una excepció si hi ha un nombre de coincidències diferent d'un.
+Igual que [`scryRenderedDOMComponentsWithTag()`](#scryrendereddomcomponentswithtag) però espera que hi hagi un resultat, i retorna aquest resultat, o llança una excepció si hi ha un nombre de coincidències diferent a u.
 
 * * *
 
@@ -275,7 +275,7 @@ scryRenderedComponentsWithType(
 )
 ```
 
-Cerca totes les instàncies de components del tipus `componentClass`.
+Troba totes les instàncies de components del tipus `componentClass`.
 
 * * *
 
@@ -288,7 +288,7 @@ findRenderedComponentWithType(
 )
 ```
 
-Igual que [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) però espera que hi hagi un resultat, i retorna aquest resultat, o llança una excepció si hi ha un nombre de coincidències diferent d'un.
+Igual que [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) però espera que hi hagi un resultat, i retorna aquest resultat, o llança una excepció si hi ha un nombre de coincidències diferent a u.
 
 ***
 
@@ -334,7 +334,7 @@ const node = this.button;
 ReactTestUtils.Simulate.click(node);
 ```
 
-**Canviar el valor d'un camp d'entrada i després prémer RETORN.**
+**Canviant el valor d'un camp d'entrada i després prement RETORN.**
 
 ```javascript
 // <input ref={(node) => this.textInput = node} />
@@ -346,6 +346,6 @@ ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 
 > Nota
 >
-> Hauràs de proporcionar qualsevol propietat d'esdeveniments que estiguis utilitzant en el component (p. ex. *keyCode*, *which*, etc.) perque React no en crearà cap d'aquestes per tu.
+> Hauràs de proporcionar qualsevol propietat d'esdeveniments que estiguis utilitzant en el component (p. ex. *keyCode*, *which*, etc.) perquè React no en crearà cap d'aquestes per tu.
 
 * * *
