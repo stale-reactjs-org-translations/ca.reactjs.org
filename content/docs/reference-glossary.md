@@ -163,4 +163,4 @@ El tractament d’esdeveniments en els elements de React té algunes diferèncie
 
 ## [Reconciliació](/docs/reconciliation.html) {#reconciliation}
 
-Quan les *props* o l'*state* d'un component canvien, React decideix si és necessària una actualització real del DOM comparant l'element recentment retornat amb el renderitzat anteriorment. Si no són iguals, React actualitzarà el DOM. Aquest procés s’anomena “reconciliació”.
+Quan les *props* o l'*state* d'un component canvien, React comprovarà si fa falta realment una actualització del DOM. Ho fa, comparant l'element retornat més recent amb el renderitzat anteriorment. Si troba que no són iguals, React actualitzarà el DOM. Aquest procés s’anomena “reconciliació”.
