@@ -88,69 +88,69 @@ Suspense permet als components "esperar" alguna cosa abans de renderitzar. Actua
 
 ### `React.Component` {#reactcomponent}
 
-`React.Component` is the base class for React components when they are defined using [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+`React.Component` és la classe base dels components React quan es defineixen utilitzant [classes ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
-class Greeting extends React.Component {
+class Salutacions extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Hola, {this.props.nom}</h1>;
   }
 }
 ```
 
-See the [React.Component API Reference](/docs/react-component.html) for a list of methods and properties related to the base `React.Component` class.
+Consulta [React.Component a la Referència de l'API](/docs/react-component.html) per a una llista de mètodes i propietats relacionades amb la calsse base `React.Component`.
 
 * * *
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-`React.PureComponent` is similar to [`React.Component`](#reactcomponent). The difference between them is that [`React.Component`](#reactcomponent) doesn't implement [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), but `React.PureComponent` implements it with a shallow prop and state comparison.
+`React.PureComponent` és semblant a [`React.Component`](#reactcomponent). La diferència entre ells és que [`React.Component`](#reactcomponent) no implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), i `React.PureComponent` la implementa amb unacomparació superficial dels valors de l'state i les props.
 
-If your React component's `render()` function renders the same result given the same props and state, you can use `React.PureComponent` for a performance boost in some cases.
+Si la funció `render()` del component de React dóna el mateix resultat amb les mateixes props i state, llavors pots utilitzar `React. PureComponent` i aconseguir un augment del rendiment en alguns casos.
 
-> Note
+> Nota
 >
-> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use [`forceUpdate()`](/docs/react-component.html#forceupdate) when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
+>  `shouldComponentUpdate()` del `React.PureComponent` només compara superficialment els objectes. Si contenen estructures de dades complexes, pot donar falsos negatius per a diferències més profundes. Usa només `PureComponent` quan tinguis props i state senzills, o fes servir [forceUpdate()`](/docs/react-component.html#forceupdate) quan sàpigues que les estructures de dades profundes han canviat. O considereu utilitzar objectes [immutables](https://facebook.github.io/immutable-js/) per facilitar les comparacions ràpides de les dades imbricaddes.
 >
-> Furthermore, `React.PureComponent`'s `shouldComponentUpdate()` skips prop updates for the whole component subtree. Make sure all the children components are also "pure".
+> A més, `shouldComponentUpdate()` del `React.PureComponent` omet les actualitzacions de props per a tot el subarbre del component. Assegura't que tots els components fills també són "pure".
 
 * * *
 
 ### `React.memo` {#reactmemo}
 
 ```javascript
-const MyComponent = React.memo(function MyComponent(props) {
+const ElMeuComponent = React.memo(function ElMeuComponent(props) {
   /* render using props */
 });
 ```
 
-`React.memo` is a [higher order component](/docs/higher-order-components.html).
+`React.memo` és un [component d'ordre superior](/docs/higher-order-components.html).
 
-If your component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+Si el teu component genera el mateix resultat si té les mateix props i state, llavors pots embolcallar-lo en una crida a `React.memo` que augmentarà el seu rendiment en alguns casos memoritzant-ne el resultat. Això vol dir que React ometrà la renderització del component, i reutilitzarà l'últim resultat renderitzat.
 
-`React.memo` only checks for prop changes. If your function component wrapped in `React.memo` has a [`useState`](/docs/hooks-state.html) or [`useContext`](/docs/hooks-reference.html#usecontext) Hook in its implementation, it will still rerender when state or context change.
+`React.memo` només comprova els canvis de les props. Si el component de la teva funció embolcallat per `React.memo` té un Hook [`useState`](/docs/hooks-state.html) o [`usContext`](/docs/hooks-reference.html#usecontext) en la seva implementació, encara es seguirà re-renderitzant quan l'state o el context canviïn.
 
-By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
+Per defecte només compararà superficialment els objectes complexos en l'objecte de props. Si vols controlar la comparació, també pots proporcionar una funció de comparació personalitzada com a segon argument.
 
 ```javascript
-function MyComponent(props) {
-  /* render using props */
+function ElMeuComponent(props) {
+  /* renderitza fent servir props */
 }
-function areEqual(prevProps, nextProps) {
+function esIgual(prevProps, nextProps) {
   /*
-  return true if passing nextProps to render would return
-  the same result as passing prevProps to render,
-  otherwise return false
+  retorna true si quan es passa «nextProps» a «render»
+  retorna el mateix resultat que passant prevProps a render,
+  en cas contrari retorna false
   */
 }
-export default React.memo(MyComponent, areEqual);
+export default React.memo(ElMeuComponent, esIgual);
 ```
 
-This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a render, as this can lead to bugs.
+ Aquest mètode només existeix per a **[optimitzar el rendiment](/docs/optimizació-rendiment.html).** No hi confiis per "prevenir" un renderitzat, ja que això pot provocar errors.
 
-> Note
+> Nota
 >
-> Unlike the [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
+> A diferència del mètode [shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) dels components de classe, la funció `areEqual` retorna `true` si les props són iguals i `false` si les props no són iguals. Aquesta és la inversa de `shouldComponentUpdate`.
 
 * * *
 
