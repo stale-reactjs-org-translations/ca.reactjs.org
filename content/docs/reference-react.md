@@ -1,6 +1,6 @@
 ---
 id: react-api
-title: React Top-Level API
+title: API d'Alt Nivell de React
 layout: docs
 category: Reference
 permalink: docs/react-api.html
@@ -13,35 +13,35 @@ redirect_from:
   - "docs/top-level-api-zh-CN.html"
 ---
 
-`React` is the entry point to the React library. If you load React from a `<script>` tag, these top-level APIs are available on the `React` global. If you use ES6 with npm, you can write `import React from 'react'`. If you use ES5 with npm, you can write `var React = require('react')`.
+`React` és el punt d'entrada de la biblioteca React. Si carregues React des d'una etiqueta `<script>`, aquestes APIs d'alt nivell estan disponibles a la `React` global. Si utilitzes ES6 amb npm, pots carregar-la escrivint `import React from 'react'`. Si fas servir ES5 amb npm, pots fer-ho escrivint `var React = require('react')`.
 
-## Overview {#overview}
+## Resum {#overview}
 
 ### Components {#components}
 
-React components let you split the UI into independent, reusable pieces, and think about each piece in isolation. React components can be defined by subclassing `React.Component` or `React.PureComponent`.
+Els components React permeten dividir la interfície d'usuari en peces independents i reutilitzables, i pensar en cada peça de forma aïllada. Els components de React es poden definir per les subclasse `React. Component` o `React. PureComponent`.
 
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
 
-If you don't use ES6 classes, you may use the `create-react-class` module instead. See [Using React without ES6](/docs/react-without-es6.html) for more information.
+Si no fas servir classes ES6, pots fer servir el mòdul `create-react-class`. Consulta [Utilitzant React sense ES6](/docs/react-without-es6.html) per a més informació.
 
-React components can also be defined as functions which can be wrapped:
+Els components de react també es poden definir com funcions que es poden embolcallar:
 
 - [`React.memo`](#reactmemo)
 
-### Creating React Elements {#creating-react-elements}
+### Crear Elements de React {#creating-react-elements}
 
-We recommend [using JSX](/docs/introducing-jsx.html) to describe what your UI should look like. Each JSX element is just syntactic sugar for calling [`React.createElement()`](#createelement). You will not typically invoke the following methods directly if you are using JSX.
+Et recomanem [usant JSX](/docs/introduint-jsx.html) que descriu quina forma ha de tenir la teva interfície d'usuari. Cada element JSX és només sucre sintàctic per cridar [`React.createElement()`(#createelement). Els següents mètodes no els invocaràs normalment de forma directa si fas servir JSX.
 
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)
 
-See [Using React without JSX](/docs/react-without-jsx.html) for more information.
+Consulta [Fent servir React sense JSX](/docs/react-without-jsx.html) per a més informació.
 
-### Transforming Elements {#transforming-elements}
+### Transformant Elements {#transforming-elements}
 
-`React` provides several APIs for manipulating elements:
+`React` proporciona diverses APIs per manipular elements:
 
 - [`cloneElement()`](#cloneelement)
 - [`isValidElement()`](#isvalidelement)
@@ -49,7 +49,7 @@ See [Using React without JSX](/docs/react-without-jsx.html) for more information
 
 ### Fragments {#fragments}
 
-`React` also provides a component for rendering multiple elements without a wrapper.
+`React` també et proporciona un component per renderitzar multiples elements sense un embolcall.
 
 - [`React.Fragment`](#reactfragment)
 
