@@ -60,20 +60,20 @@ Consulta [Fent servir React sense JSX](/docs/react-without-jsx.html) per a més 
 
 ### Suspense {#suspense}
 
-Suspense lets components "wait" for something before rendering. Today, Suspense only supports one use case: [loading components dynamically with `React.lazy`](/docs/code-splitting.html#reactlazy). In the future, it will support other use cases like data fetching.
+Suspense permet als components "esperar" alguna cosa abans de renderitzar. Actualment, Suspense només suporta un cas d'ús: [carregant els components dinàmicament amb `React.lazy`](/docs/code-splitting.html#reactlazy). En el futur, donarà suport a altres casos d'ús com la recollida de dades.
 
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
 
 ### Hooks {#hooks}
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class. Hooks have a [dedicated docs section](/docs/hooks-intro.html) and a separate API reference:
+*Hooks* van ser afegits a la versió 16.8 de React. Et permeten utilitzar l'estat i altres funcions de React sense escriure una classe. Els hooks tenen aquesta [secció dedicada als documents](/docs/hooks-intro.html) i una referència de la API separada:
 
-- [Basic Hooks](/docs/hooks-reference.html#basic-hooks)
+- [Hooks bàsics](/docs/hooks-reference.html#basic-hooks)
   - [`useState`](/docs/hooks-reference.html#usestate)
   - [`useEffect`](/docs/hooks-reference.html#useeffect)
   - [`useContext`](/docs/hooks-reference.html#usecontext)
-- [Additional Hooks](/docs/hooks-reference.html#additional-hooks)
+- [Hooks Addicionals](/docs/hooks-reference.html#additional-hooks)
   - [`useReducer`](/docs/hooks-reference.html#usereducer)
   - [`useCallback`](/docs/hooks-reference.html#usecallback)
   - [`useMemo`](/docs/hooks-reference.html#usememo)
@@ -84,7 +84,7 @@ Suspense lets components "wait" for something before rendering. Today, Suspense 
 
 * * *
 
-## Reference {#reference}
+## Referència {#reference}
 
 ### `React.Component` {#reactcomponent}
 
