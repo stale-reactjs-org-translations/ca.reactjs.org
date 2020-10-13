@@ -150,7 +150,7 @@ export default React.memo(ElMeuComponent, esIgual);
 
 > Nota
 >
-> A diferència del mètode [shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) dels components de classe, la funció `areEqual` retorna `true` si les props són iguals i `false` si les props no són iguals. Aquesta és la inversa de `shouldComponentUpdate`.
+> A diferència del mètode [shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) dels components de classe, la funció `areEqual` retorna `true` si les props són iguals i `false` si les props no ho són. Aquesta és la inversa de `shouldComponentUpdate`.
 
 * * *
 
@@ -164,9 +164,9 @@ React.createElement(
 )
 ```
 
-Create and return a new [React element](/docs/rendering-elements.html) of the given type. The type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
+Crea i retorna un nou [element React](/docs/rendering-elements.html) del tipus indicat. L'argument `'type'` pot ser una etiqueta (com `'div'` o `'span'`), un [component de React](/docs/components-i-props.html) (de classe o bé de funció), o un [fragment de React](#reactfragment).
 
-Code written with [JSX](/docs/introducing-jsx.html) will be converted to use `React.createElement()`. You will not typically invoke `React.createElement()` directly if you are using JSX. See [React Without JSX](/docs/react-without-jsx.html) to learn more.
+El codi escrit amb [JSX](/docs/introduint-jsx.html) es convertirà quan es faci servir `React.createElement()`. Normalment no faràs una crida a `React.createElement()` directament si utilitzes JSX. Consulta [React sense JSX](/docs/react-without-jsx.html) per aprendre'n més.
 
 * * *
 
@@ -180,17 +180,17 @@ React.cloneElement(
 )
 ```
 
-Clone and return a new React element using `element` as the starting point. The resulting element will have the original element's props with the new props merged in shallowly. New children will replace existing children. `key` and `ref` from the original element will be preserved.
+Clona i retorna un nou element de React usant `element` com a punt de partida. L'element resultant tindrà les `props` de l'element original amb les noves `props` fusionades. Els nous fills substituiran els fills existents. Es conservaran la `key` i les `ref` de l'element original.
 
-`React.cloneElement()` is almost equivalent to:
+`React.cloneElement()` és gairebé equivalent a:
 
 ```js
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-However, it also preserves `ref`s. This means that if you get a child with a `ref` on it, you won't accidentally steal it from your ancestor. You will get the same `ref` attached to your new element.
+Tanmateix, també conserva les `ref`s. Això vol dir que si hi ha un fill amb una `ref`, no el robareu accidentalment del seu ancestre. S'adjuntarà la mateixa `ref` a l'element nou.
 
-This API was introduced as a replacement of the deprecated `React.addons.cloneWithProps()`.
+Aquesta API s'ha introduït com a substitut de l'obsolet `React.addons.cloneWithProps()`.
 
 * * *
 
@@ -200,11 +200,11 @@ This API was introduced as a replacement of the deprecated `React.addons.cloneWi
 React.createFactory(type)
 ```
 
-Return a function that produces React elements of a given type. Like [`React.createElement()`](#createelement), the type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
+Retorna una funció que produeix elements React d'un tipus consignat a `type`. Com [`React.createElement()`](#createelement), l'argument `type` pot ser una etiqueta (com `'div'` o `'span'`), un [component de React](/docs/components-i-props.html) (de classe o bé de funció), o un [fragment de React](#reactfragment).
 
-This helper is considered legacy, and we encourage you to either use JSX or use `React.createElement()` directly instead.
+Aquest ajudant es considera antiquat, i us animem a utilitzar JSX o bé `React.createElement()` directament.
 
-You will not typically invoke `React.createFactory()` directly if you are using JSX. See [React Without JSX](/docs/react-without-jsx.html) to learn more.
+Normalment no faràs una crida a `React.createElement()` directament si utilitzes JSX. Consulta [React sense JSX](/docs/react-without-jsx.html) per aprendre'n més.
 
 * * *
 
@@ -214,13 +214,13 @@ You will not typically invoke `React.createFactory()` directly if you are using 
 React.isValidElement(object)
 ```
 
-Verifies the object is a React element. Returns `true` or `false`.
+Verifica que l'objecte és un element React. Retorna `true` o `false`.
 
 * * *
 
 ### `React.Children` {#reactchildren}
 
-`React.Children` provides utilities for dealing with the `this.props.children` opaque data structure.
+`React.Children` proporciona eines per tractar amb l'estructura de dades opaques `this.props.children`.
 
 #### `React.Children.map` {#reactchildrenmap}
 
@@ -228,11 +228,11 @@ Verifies the object is a React element. Returns `true` or `false`.
 React.Children.map(children, function[(thisArg)])
 ```
 
-Invokes a function on every immediate child contained within `children` with `this` set to `thisArg`. If `children` is an array it will be traversed and the function will be called for each child in the array. If children is `null` or `undefined`, this method will return `null` or `undefined` rather than an array.
+Invoca una funció a cada fill immediat contingut dins dels `children`amb `this` establert a `thisArg`. Si `children` és una *array* es recorrerà i la funció es cridarà per a cada fill de l'*array*. Si els fills són `null` o `undefined`, aquest mètode retornarà `null` o `undefined` en lloc d'una *array*.
 
-> Note
+> Nota
 >
-> If `children` is a `Fragment` it will be treated as a single child and not traversed.
+> Si `children` és un `Fragment` serà tractat com un sol fill i no es recorrerà.
 
 #### `React.Children.forEach` {#reactchildrenforeach}
 
@@ -240,7 +240,7 @@ Invokes a function on every immediate child contained within `children` with `th
 React.Children.forEach(children, function[(thisArg)])
 ```
 
-Like [`React.Children.map()`](#reactchildrenmap) but does not return an array.
+Igual que [`React.Children.map()`](#reactchildrenmap) però no retorna una *array*.
 
 #### `React.Children.count` {#reactchildrencount}
 
