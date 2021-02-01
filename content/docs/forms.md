@@ -31,7 +31,7 @@ Podem combinar-los tots dos fent que l'estat de React sigui l'única "font de ve
 
 Per exemple, si volem fer que l'exemple anterior mostri el nom que està contingut a l'estat, podem escriure el formulari com un component controlat:
 
-```javascript{4,10-12,24}
+```javascript{4,10-12,21,24}
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
