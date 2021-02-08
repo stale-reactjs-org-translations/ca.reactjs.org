@@ -181,4 +181,8 @@ Explorem el renderitzat d'elements de React en el DOM a la [següent secció](/d
 
 >**Consell:**
 >
+<<<<<<< HEAD
 >Recomanem usar la [definició del llenguatge "Babel"](https://babeljs.io/docs/editors) pel teu editor de preferència perquè tant el codi en ES6 com JSX sigui emfatitzat correctament.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
