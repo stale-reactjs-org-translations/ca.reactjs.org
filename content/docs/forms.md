@@ -9,7 +9,11 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 Els elements de formularis HTML funcionen una mica diferent d'altres elements del DOM a React, ja que els elements de formulari intrínsecament conserven algun estat intern. Per exemple, aquest formulari només en HTML, accepta un sol nom.
+=======
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 ```html
 <form>
@@ -31,7 +35,7 @@ Podem combinar-los tots dos fent que l'estat de React sigui l'única "font de ve
 
 Per exemple, si volem fer que l'exemple anterior mostri el nom que està contingut a l'estat, podem escriure el formulari com un component controlat:
 
-```javascript{4,10-12,24}
+```javascript{4,10-12,21,24}
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
