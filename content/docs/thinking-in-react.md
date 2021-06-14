@@ -84,7 +84,11 @@ Per fer que la teva UI sigui interactiva, has de poder activar els canvis al mod
 
 Per crear la teva aplicació correctament, primer has de pensar en la mínima quantitat d'estat mutable que necessita l'aplicació. La clau aquí és que [*no et repeteixis*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (DRY: Don't Repeat Yourself). Esbrina la mínima representació absoluta de l'estat que necessita la teva aplicació i calcula tot el que necessitis sota demanda. Per exemple, si estàs construint una llista de tasques, només mantingues un array de les tasques; no mantinguis una variable d'estat separada per al contador. En canvi, quan vulgues renderitzar el compte de tasques, agafa la llargada de l'array de tasques.
 
+<<<<<<< HEAD
 Pensa en totes les peces de dades en el nostre exemple d'aplicació. Disposem de:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
 
   * La llista original de productes
   * El text de cerca que l'usuari ha introduït
