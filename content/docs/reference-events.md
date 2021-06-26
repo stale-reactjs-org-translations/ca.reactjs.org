@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Aquesta guia de referència documenta el contenidor `SyntheticEvent` que forma part del sistema d'esdeveniments de React. Consulta la guia [Controlant esdeveniments](/docs/manage-events.html) per aprendre'n més.
 
-## Overview {#overview}
+## Resum {#overview}
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers. 
+Als teus gestors d'esdeveniments se li passaran instàncies de `SyntheticEvent`, un contenidor compatible amb diversos navegadors que conté l'esdeveniment natiu del navegador. Té la mateixa interfície que l'esdeveniment natiu del navegador, incloent `stopPropagation()` i `preventDefault()`, excepte que els esdeveniments funcionen de forma idèntica a tots els navegadors.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. The synthetic events are different from, and do not map directly to, the browser's native events. For example in `onMouseLeave` `event.nativeEvent` will point to a `mouseout` event. The specific mapping is not part of the public API and may change at any time. Every `SyntheticEvent` object has the following attributes:
+Si creus que necessites l'esdeveniment natiu del navegador per alguna raó, només cal que facis servir l'atribut `nativeEvent` per obtenir-lo. Els esdeveniments sintètics són diferents dels esdeveniments natius del navegador i no es corresponen directament. Per exemple a `onMouseLeave` `event.nativeEvent` apuntarà a un esdeveniment `mouseout`. La relació específica no és part de l'API pública i pot canviar en qualsevol moment. Cada objecte `SyntheticEvent` té els següents atributs:
 
 ```javascript
 boolean bubbles
@@ -32,15 +32,15 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Nota:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> A partir de la v0.14, retornar `false` des d'un gestor d'esdeveniments ja no atura la propagació d'esdeveniments. Per tant, `e.stopPropagation()` o `e.preventionDefault()` s'han d'activar manualment, segons correspongui.
 
-### Event Pooling {#event-pooling}
+### Agrupació d'esdeveniments {#event-pooling}
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+`SyntheticEvent` està agrupat. Això significa que l'objecte `SyntheticEvent` serà reutilitzat i totes les propietats seran anul·lades després que s'hagi invocat la *callback* de l'esdeveniment.
+Això es fa per una qüestió de rendiment.
+Com a tal, no es pot accedir a l'esdeveniment de manera asíncrona.
 
 ```javascript
 function onClick(event) {
@@ -53,55 +53,55 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // No funciona. this.state.clickEvent només contindrà valors null.
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // Encara pots exportar les propietats de l'esdeveniment.
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> Nota:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> Si vols accedir a les propietats de l'esdeveniment de forma asíncrona, hauries de cridar `event.persist()` sobre l'esdeveniment, que eliminarà l'esdeveniment sintètic de l'agrupació i permetrà que les referències a l'esdeveniment es conservin amb el codi d'usuari.
 
-## Supported Events {#supported-events}
+## Esdeveniments suportats {#supported-events}
 
-React normalizes events so that they have consistent properties across different browsers.
+React normalitza els esdeveniments perquè les seves propietats siguin coherents entre els diferents tipus de navegadors.
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+Els gestors d'esdeveniments que segueixen a continuació els desencadena un esdeveniment en la seva fase de propagació. Per registrar un gestor d'esdeveniments que es desencadeni a la fase de captura, cal afegir `Capture` al nom de l'esdeveniment; per exemple, en lloc d'utilitzar `onClick`, utilitzaríem `onClickCapture` per gestionar l'esdeveniment de clic a la fase de captura.
 
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Generic Events](#generic-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
+- [Esdeveniments de Porta-retalls](#clipboard-events)
+- [Esdeveniments de Composició](#composition-events)
+- [Esdeveniments de Teclat](#keyboard-events)
+- [Esdeveniments d'Enfocament](#focus-events)
+- [Esdeveniments de Formulari](#form-events)
+- [Esdeveniments Genèrics](#generic-events)
+- [Esdeveniments de Ratolí](#mouse-events)
+- [Esdeveniments de Punter](#pointer-events)
+- [Esdeveniments de Selecció](#selection-events)
+- [Esdeveniments Tàctils](#touch-events)
+- [Esdeveniments de UI](#ui-events)
+- [Esdeveniments de Roda del Ratolí](#wheel-events)
+- [Esdeveniments de Multimèdia](#media-events)
+- [Esdeveniments d'Imatge](#image-events)
+- [Esdeveniments d'Animació](#animation-events)
+- [Esdeveniments de Transició](#transition-events)
+- [Altres Esdeveniments](#other-events)
 
 * * *
 
-## Reference {#reference}
+## Referència {#reference}
 
-### Clipboard Events {#clipboard-events}
+### Esdeveniments de Porta-retalls {#clipboard-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -109,15 +109,15 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composition Events {#composition-events}
+### Esdeveniments de Composició {#composition-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 string data
@@ -126,15 +126,15 @@ string data
 
 * * *
 
-### Keyboard Events {#keyboard-events}
+### Esdeveniments de Teclat {#keyboard-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 boolean altKey
@@ -151,21 +151,21 @@ boolean shiftKey
 number which
 ```
 
-The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+La propietat `key` pot prendre qualsevol dels valors documentats en l'especificació [Esdeveniments del DOM de nivell 3 (en anglès)](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
-### Focus Events {#focus-events}
+### Esdeveniments d'Enfocament {#focus-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+Aquests esdeveniments d'enfocament funcionen a tots els elements del DOM de React, no només als elements de formulari.
 
-Properties:
+Propietats:
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -173,21 +173,21 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Form Events {#form-events}
+### Esdeveniments de Formulari {#form-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onChange onInput onInvalid onReset onSubmit 
 ```
 
-For more information about the onChange event, see [Forms](/docs/forms.html).
+Per a més informació sobre l'esdeveniment onChange, consulta els [Formularis](/docs/forms.html).
 
 * * *
 
-### Generic Events {#generic-events}
+### Esdeveniments Genèrics {#generic-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onError onLoad
@@ -195,9 +195,9 @@ onError onLoad
 
 * * *
 
-### Mouse Events {#mouse-events}
+### Esdeveniments de Ratolí {#mouse-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -205,9 +205,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Els esdeveniments `onMouseEnter` i `onMouseLeave` es propaguen des de l'element que es deixa fins a l'element on s'entra en lloc de fer la propagació normal i no tenen fase de captura.
 
-Properties:
+Propietats:
 
 ```javascript
 boolean altKey
@@ -228,20 +228,20 @@ boolean shiftKey
 
 * * *
 
-### Pointer Events {#pointer-events}
+### Esdeveniments de Punter  {#pointer-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-The `onPointerEnter` and `onPointerLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Els esdeveniments `onPointerEnter` i `onPointerLeave` es propaguen des de l'element que es deixa fins a l'element on s'entra en lloc de fer la propagació normal i no tenen una fase de captura. 
 
-Properties:
+Propietats:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following properties:
+Tal com es defineix a [W3 spec (en anglès)](https://www.w3.org/TR/pointerevents/), els esdeveniments del punter amplien els [Esdeveniments de Ratolí](#mouse-events) amb les següents propietats:
 
 ```javascript
 number pointerId
@@ -256,17 +256,17 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Una nota sobre la compatibilitat amb els diversos navegadors:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Els esdeveniments de punter encara no són compatibles en tots els navegadors (en el moment d'escriure aquest article, els navegadors compatibles són: Chrome, Firefox, Edge i Internet Explorer). React deliberadament no és compatible amb la resta de navegadors perquè un *polyfill* estàndard augmentaria significativament la mida del paquet `react-dom`.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Si la vostra aplicació requereix esdeveniments de punter, recomanem afegir un *polyfill* d'esdeveniments d'un altre proveïdor.
 
 * * *
 
-### Selection Events {#selection-events}
+### Esdeveniments de Selecció {#selection-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onSelect
@@ -274,15 +274,15 @@ onSelect
 
 * * *
 
-### Touch Events {#touch-events}
+### Esdeveniments Tàctils {#touch-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 boolean altKey
@@ -297,15 +297,15 @@ DOMTouchList touches
 
 * * *
 
-### UI Events {#ui-events}
+### Esdeveniments de UI {#ui-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onScroll
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 number detail
@@ -314,15 +314,15 @@ DOMAbstractView view
 
 * * *
 
-### Wheel Events {#wheel-events}
+### Esdeveniments de Roda de Ratolí {#wheel-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onWheel
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 number deltaMode
@@ -333,9 +333,9 @@ number deltaZ
 
 * * *
 
-### Media Events {#media-events}
+### Esdeveniments de Multimèdia {#media-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -346,9 +346,9 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Image Events {#image-events}
+### Esdeveniments d'Imatge {#image-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onLoad onError
@@ -356,15 +356,15 @@ onLoad onError
 
 * * *
 
-### Animation Events {#animation-events}
+### Esdeveniments d'Animació {#animation-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 string animationName
@@ -374,15 +374,15 @@ float elapsedTime
 
 * * *
 
-### Transition Events {#transition-events}
+### Esdeveniments de Transició {#transition-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+Propietats:
 
 ```javascript
 string propertyName
@@ -392,9 +392,9 @@ float elapsedTime
 
 * * *
 
-### Other Events {#other-events}
+### Altres Esdeveniments {#other-events}
 
-Event names:
+Nom dels esdeveniments:
 
 ```
 onToggle
