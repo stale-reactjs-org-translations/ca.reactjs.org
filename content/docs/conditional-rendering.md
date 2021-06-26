@@ -152,6 +152,19 @@ Funciona perquè a JavaScript, `true && expressió` sempre s'avalua a `expressi�
 
 Així que, si la condició és `true`, l'element just després de `&&` apareixerà al resultat. Si és `false`, React l'ignorarà.
 
+Nota que retornar una expressió falsa seguirà causant que l'element de després de `&&`  sigui saltat però retornarà l'expressió falsa. A l'exemple de sota, `<div>0</div>`  serà retornat pel mètode de renderitzat.
+
+```javascript{2,5}
+render() {
+  const count = 0;
+  return (
+    <div>
+      { count && <h1>Messages: {count}</h1>}
+    </div>
+  );
+}
+```
+
 ### If-Else en una línia amb operador condicional {#inline-if-else-with-conditional-operator}
 
 Un altre mètode per renderitzar condicionalment elements en línia és usar l'operador condicional de JavaScript [`condició ? true : false`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
