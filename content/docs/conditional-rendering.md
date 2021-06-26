@@ -163,6 +163,9 @@ render() {
     </div>
   );
 }
+```
+
+### If-Else en una línia amb operador condicional {#inline-if-else-with-conditional-operator}
 
 Un altre mètode per renderitzar condicionalment elements en línia és usar l'operador condicional de JavaScript [`condició ? true : false`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
 
