@@ -87,6 +87,6 @@ Si el que vols és fer servir React a la banda del client per fer que el marcatg
 
 > Nota:
 >
-> Només-al-Servidor. Aquesta API no està disponible en els navegadors.
+> Només al servidor. Aquesta API no està disponible en els navegadors.
 >
 > La seqüència retornada des d'aquest mètode serà un flux de bytes codificats en format utf-8. Si la necessites codificada en un altre format, fes una ullada al projecte [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona fluxs de transformació per a la transcodificació de text.
