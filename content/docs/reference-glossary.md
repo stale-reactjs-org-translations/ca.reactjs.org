@@ -146,7 +146,7 @@ Una *key* és un atribut de cadena especial que has d'incloure quan crees *array
 
 Les *keys* només han de ser úniques entre els elements germans de la mateixa *array*. No han de ser úniques ni en tota l'aplicació ni tampoc han de ser-ho dins un mateix component.
 
-Com a valor de les *keys* no hi passis res semblant a `Matth.random()`. És important que les *keys* tinguin una "identitat estable" durant les diverses renderitzacions de manera que React pugui determinar quan els elements s'afegeixen, s'eliminen o es reordenen. Allò ideal seria que les claus es corresponguessin amb identificadors únics i estables que provinguessin de les teves dades, com ara `post.id`.
+Com a valor de les *keys* no hi passis res semblant a `Math.random()`. És important que les *keys* tinguin una "identitat estable" durant les diverses renderitzacions de manera que React pugui determinar quan els elements s'afegeixen, s'eliminen o es reordenen. Allò ideal seria que les claus es corresponguessin amb identificadors únics i estables que provinguessin de les teves dades, com ara `post.id`.
 
 ## [Refs](/docs/refs-and-the-dom.html) {#refs}
 
