@@ -131,7 +131,7 @@ A partir de React 16, qualsevol atribut DOM [estàndard o personalitzat](/blog/2
 React sempre ha proporcionat una API JavaScript del DOM. Com que els components de React sovint prenen tant *props* personalitzades com relacionades amb el DOM, React utilitza la convenció `camelCase` tal com ho fan les APIs del DOM:
 
 ```js
-<div tabIndex="-1" />      // Igual que node.tabIndex de la API del DOM
+<div tabIndex={-1} />      // Igual que node.tabIndex de la API del DOM
 <div className="Button" /> // Igual que node.className de la API del DOM
 <input readOnly={true} />  // Igual que node.readOnly de la API del DOM
 ```

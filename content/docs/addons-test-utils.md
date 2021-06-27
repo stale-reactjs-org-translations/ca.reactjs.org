@@ -19,9 +19,9 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 
 > Nota:
 >
-> Et recomanem que facis servir la [Biblioteca de Test de React](https://testing-library.com/react) que està dissenyada per escriure tests pels teus components i que aquests siguin provats de la mateixa manera que els faran servir els usuaris finals.
+> Et recomanem que facis servir la [React Testing Library](https://testing-library.com/react) que està dissenyada per escriure tests pels teus components i que aquests siguin provats de la mateixa manera que els faran servir els usuaris finals.
 >
-> Com a alternativa, *Airbnb* ha llançat una utilitat de test anomenada [Enzyme](https://airbnb.io/enzyme/), que fa que sigui fàcil afirmar, manipular i recórrer la sortida dels components de React.
+> Per versions de React <= 16, la llibreria [Enzyme](https://airbnb.io/enzyme/) fa que sigui fàcil afirmar, manipular i recórrer la sortida dels components de React.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)

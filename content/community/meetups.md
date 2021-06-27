@@ -12,6 +12,7 @@ Do you have a local React.js meetup? Add it here! (Please keep the list alphabet
 * [Tirana](https://www.meetup.com/React-User-Group-Albania/)
 
 ## Argentina {#argentina}
+* [Buenos Aires](https://www.meetup.com/es/React-en-Buenos-Aires)
 * [Rosario](https://www.meetup.com/es/reactrosario)
 
 ## Australia {#australia}
@@ -43,9 +44,14 @@ Do you have a local React.js meetup? Add it here! (Please keep the list alphabet
 * [Bolivia](https://www.meetup.com/ReactBolivia/)
 
 ## Canada {#canada}
+* [Halifax, NS](https://www.meetup.com/Halifax-ReactJS-Meetup/)
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
+* [Toronto, ON](https://www.meetup.com/Toronto-React-Native/events/)
+
+## Chile {#chile}
+* [Santiago](https://www.meetup.com/es-ES/react-santiago/)
 
 ## China {#china}
 * [Beijing](https://www.meetup.com/Beijing-ReactJS-Meetup/)
@@ -101,6 +107,9 @@ Do you have a local React.js meetup? Add it here! (Please keep the list alphabet
 
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
+
+## Italy {#italy}
+* [Milan](https://www.meetup.com/React-JS-Milano/)
 
 ## Malaysia {#malaysia}
 * [Kuala Lumpur](https://www.kl-react.com/)

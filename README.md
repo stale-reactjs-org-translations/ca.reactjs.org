@@ -49,11 +49,11 @@ La documentació està dividida en diferents seccions amb diferent to i propòsi
 
 ### Afegeix els canvis
 
-1. `git add -A && git commit -m "El meu missatge"` (canviï `El meu missatge` amb un missatge de commit, tal com `Solucionat logotip en Android`) per a afegir i actualitzar el repositori
+1. `git add -A && git commit -m "El meu missatge"` (canviï `El meu missatge` amb un missatge de commit, tal com `Solucionar logotip en Android`) per a afegir i actualitzar el repositori
 1. `git push el-meu-fork nom-de-la-meva-branca`
 1. Vagi a [reactjs.org repo](https://github.com/reactjs/reactjs.org) i podrà veure els canvis mes recents a qualsevol de les branques actualitzades.
 1. Segueixi les instruccions de GitHub.
-1. A ser possible, inclogui captures de pantalla dels canvis visuals. Una build de Netlify es crearà automàticament quan enviï la PR per tal que altra gent pugui visualitzar els canvis.
+1. A ser possible, inclogui captures de pantalla dels canvis visuals. Una build de [Netlify](https://www.netlify.com/) es crearà automàticament quan enviï la PR per tal que altra gent pugui visualitzar els canvis.
 
 ## Traduccions
 

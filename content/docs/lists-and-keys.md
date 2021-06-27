@@ -207,7 +207,7 @@ Una bona regla d'or, que pots fer servir, és saber que els elements inclosos di
 
 ### Les claus han de ser úniques només entre els elements de la mateixa array (germans) {#keys-must-only-be-unique-among-siblings}
 
-Les claus que es fan servir dins de les matrius han de ser úniques entre els seus germans. No necessiten ser globalment úniques. Podem fer servir les mateixes claus quan produïm dos arrays diferents:
+Les claus que es fan servir dins de les matrius han de ser úniques entre els seus germans. No obstant, no necessiten ser globalment úniques. Podem fer servir les mateixes claus quan produïm dos arrays diferents:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {

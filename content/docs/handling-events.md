@@ -29,27 +29,27 @@ Per exemple, en HTML:
 </button>
 ```
 
-Una altra diferència és que no pots retornar `false` per prevenir el comportament per defecte a React. Has de cridar `preventDefault` explícitament. Per exemple, amb HTML pur, per prevenir el comportament per defecte dels links quan s'obre una pàgina nova, pots escriure:
+Una altra diferència és que no pots retornar `false` per prevenir el comportament per defecte a React. Has de cridar `preventDefault` explícitament. Per exemple, amb HTML pur, per prevenir el comportament per defecte dels formularis quan s'envien, pots escriure:
 
 ```html
-<a href="#" onclick="console.log('The link was clicked.'); return false">
-  Click me
-</a>
+<form onsubmit="console.log('You clicked submit.'); return false">
+  <button type="submit">Submit</button>
+</form>
 ```
 
 Però a React, això seria:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log('The link was clicked.');
+    console.log('You clicked submit.');
   }
 
   return (
-    <a href="#" onClick={handleClick}>
-      Click me
-    </a>
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 ```
@@ -71,8 +71,8 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
     }));
   }
 
