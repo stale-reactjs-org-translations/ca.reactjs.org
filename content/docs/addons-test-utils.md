@@ -23,6 +23,8 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 >
 > Per versions de React <= 16, la llibreria [Enzyme](https://airbnb.io/enzyme/) fa que sigui fàcil afirmar, manipular i recórrer la sortida dels components de React.
 
+
+
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
  - [`isElement()`](#iselement)
