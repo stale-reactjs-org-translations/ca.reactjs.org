@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
-React 16 depèn dels tipus de col·lecció [Map](https://developer.mozilla.org/ca/docs/Web/JavaScript/Referencia/Objectes_globals/Map) i [Set](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Set). Si vols compatibilitat amb els navegadors i dispositius més antics que no poden proporcionar aquests productes de forma nativa (per exemple, IE < 11) o que tenen implementacions no compatibles (per exemple IE 11), considera incloure un *polyfill* global a la teva aplicació, com ara [core-js](https:github.com/zloirock/core-js) o [babel-polyfill](https:babeljs.io/docs/age).
+React 16 depèn dels tipus de col·lecció [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) i [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). Si vols compatibilitat amb els navegadors i dispositius més antics que no poden proporcionar aquests productes de forma nativa (per exemple, IE < 11) o que tenen implementacions no compatibles (per exemple IE 11), considera incloure un *polyfill* global a la teva aplicació, com ara [core-js](https:github.com/zloirock/core-js).
 
 Un entorn *polyfilled* de React 16 que faci servir *core-js* per fer-lo compatible amb els navegadors més antics es podria semblar a:
 
