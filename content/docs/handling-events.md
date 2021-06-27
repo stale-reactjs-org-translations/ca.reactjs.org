@@ -29,11 +29,7 @@ Per exemple, en HTML:
 </button>
 ```
 
-<<<<<<< HEAD
-Una altra diferència és que no pots retornar `false` per prevenir el comportament per defecte a React. Has de cridar `preventDefault` explícitament. Per exemple, amb HTML pur, per prevenir el comportament per defecte dels links quan s'obre una pàgina nova, pots escriure:
-=======
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
->>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
+Una altra diferència és que no pots retornar `false` per prevenir el comportament per defecte a React. Has de cridar `preventDefault` explícitament. Per exemple, amb HTML pur, per prevenir el comportament per defecte dels formularis quan s'envien, pots escriure:
 
 ```html
 <form onsubmit="console.log('You clicked submit.'); return false">
