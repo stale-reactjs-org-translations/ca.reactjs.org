@@ -133,24 +133,7 @@
       title: Testing Recipes
     - id: testing-environments
       title: Testing Environments
-<<<<<<< HEAD
-- title: Mode Concurrent (Experimental)
-  isOrdered: true
-  items:
-    - id: concurrent-mode-intro
-      title: Introducció al mode concurrent
-    - id: concurrent-mode-suspense
-      title: Suspensió pel mode concurrent
-    - id: concurrent-mode-patterns
-      title: Patrons de la interfície en mode concurrent
-    - id: concurrent-mode-adoption
-      title: Adoptant el mode concurrent
-    - id: concurrent-mode-reference
-      title: Referència de l'API del mode concurrent
-- title: Contribuïu
-=======
-- title: Contributing
->>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
+- title: Contribuint
   items:
   - id: how-to-contribute
     title: How to Contribute
