@@ -9,11 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-<<<<<<< HEAD
-Els elements de formularis HTML funcionen una mica diferent d'altres elements del DOM a React, ja que els elements de formulari intrínsecament conserven algun estat intern. Per exemple, aquest formulari només en HTML, accepta un sol nom.
-=======
-HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
->>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
+Els elements de formularis HTML funcionen una mica diferent d'altres elements del DOM a React, ja que els elements de formulari intrínsecament conserven algun estat intern. Per exemple, aquest formulari només en HTML, accepta un sol nom:
 
 ```html
 <form>
