@@ -15,7 +15,8 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 ### render(ATL) 2021 {#render-atlanta-2021} 
 September 13-15, 2021. Atlanta, GA, USA
 
-[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
+### React Advanced 2021 {#react-advanced-2021}
+October 22-23, 2021. In-person in London, UK + remote (hybrid event)
 
 ### React Conference Live 2021 {#react-conference-live-2021} 
 October 7-8, 2021. In-person in Amsterdam, Netherlands + remote (hybrid event)
@@ -32,7 +33,8 @@ November 12-13, 2021 in Mumbai, India
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-## Past Conferences {#past-conferences}
+### React Summit - Remote Edition 2021 {#react-summit-remote-2021}
+April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 
 ### React Case Study Festival 2021 {#react-case-study-festival-2021}
 April 27-28, 2021 - remote event
@@ -212,7 +214,7 @@ May 3, 2019 in London, UK
 ### React Finland 2019 {#react-finland-2019}
 April 24-26 in Helsinki, Finland
 
-[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+[Website](https://www.reactathon.com/) - [Twitter](https://twitter.com/reactathon)
 
 ### React Amsterdam 2019 {#react-amsterdam-2019}
 April 12, 2019 in Amsterdam, The Netherlands
@@ -264,10 +266,10 @@ September 29-30 in Boston, Massachusetts USA
 
 [Website](http://www.reactboston.com/) - [Twitter](https://twitter.com/ReactBoston)
 
-### React Alicante 2018 {#react-alicante-2018}
-September 13-15 in Alicante, Spain
+### Byteconf React 2018 {#byteconf-react-2018}
+August 31 streamed online, via Twitch
 
-[Website](http://reactalicante.es) - [Twitter](https://twitter.com/ReactAlicante)
+[Website](https://byteconf.com) - [Twitch](https://twitch.tv/byteconf) - [Twitter](https://twitter.com/byteconf)
 
 ### React Native EU 2018 {#react-native-eu-2018}
 September 5-6 in Wrocław, Poland
@@ -318,7 +320,8 @@ April 28 in Sofia, Bulgaria
 ### React Finland 2018 {#react-finland-2018}
 April 24-26 in Helsinki, Finland
 
-[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+### Reactathon 2018 {#reactathon-2018}
+March 20-22 in San Francisco, USA
 
 ### React Amsterdam 2018 {#react-amsterdam-2018}
 April 13 in Amsterdam, The Netherlands

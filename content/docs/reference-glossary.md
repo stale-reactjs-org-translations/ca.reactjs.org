@@ -1,117 +1,117 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: Glossari de Termes de React
 layout: docs
 category: Reference
 permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Aplicació de pàgina única {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Una aplicació de pàgina única és una aplicació que carrega una única pàgina HTML i tot el que porta associat (com ara JavaScript i CSS) per executar-se. Qualsevol interacció posterior amb la pàgina no requereix fer noves sol·licituds al servidor i per tant la pàgina no s'ha de tornar a carregar.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+Tot i que pots construir una aplicació de pàgina única amb React, no és un requisit per fer-lo servir. React també es pot utilitzar per millorar petites parts dels llocs web existents amb interactivitat addicional. El codi escrit amb React pot coexistir perfectament amb pàgines renderitzades des del servidor per llenguatges com PHP, o amb altres biblioteques del costat del client. De fet, així és exactament com s'està fent servir React a Facebook.
 
 ## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Aquestes sigles es refereixen a les versions més recents del llenguatge de programació estàndard  *ECMAScript*, del qual el llenguatge JavaScript n'és una implementació. La versió ES6 (també coneguda com a ES2015) inclou moltes novetats respecte les versions anteriors com ara: funcions *arrow*, classes, plantilles de cadena de text, expressions `let` i `const`. Per aprendre'n més sobre les versions específiques consulta [aquí](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
-## Compilers {#compilers}
+## Compiladors {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+Els compiladors de JavaScript agafen el codi JavaScript, el transformen i el retornen en un format diferent. L'ús més extés és utilitzar-los per transformar la sintaxi ES6 en una altra d'anterior perque els navegadors més antics la puguin interpretar. [Babel](https://babeljs.io/) és el compilador més utilitzat amb React.
 
 ## Bundlers {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Els *bundlers* agafen el codi JavaScript i el codi CSS que s'han escrits per separat (i sovint centenars d'ells), i els combinen tots junts en uns pocs fitxers optimitzats pels navegadors. Alguns *bundlers* que es fan servir habitualment en aplicacions de React són [Webpack](https:webpack.js.org/) i [Browserify](http://browserify.org/).
 
-## Package Managers {#package-managers}
+## Gestors de Paquets {#package-managers}
 
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
+Els gestors de paquets són eines que et permeten gestionar les dependències del teu projecte. [npm](https://www.npmjs.com/) i [Yarn](https://yarnpkg.com/) són dos gestors de paquets que s'utilitzen habitualment en aplicacions amb React. Ambdós són clients del mateix registre de paquets npm.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+*CDN* (de  l'anglès *Content Delivery Network* ) vol dir xarxa de lliurament de continguts. Els *CDN* proporcionen el contingut estàtic guardat en la memòria cau d'una xarxa de servidors de tot el món. 
 
 ## JSX {#jsx}
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
+JSX és una extensió de sintaxi per a JavaScript. És similar a un llenguatge de plantilla, però té tot el poder de JavaScript. JSX es compila a les crides `React.createElement()` que retornen objectes JavaScript que s'anomenen "Elements de React". Per a una introducció bàsica a JSX [consulta aquests documents](/docs/introduint-jsx.html) i per a un aprenentatge més a fons de JSX consulta [aquests altres](/docs/jsx-in-depth.html).
 
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
+El Dom de React escriu els noms seguint la convenció *camelCase* en lloc dels noms d'atributs HTML. Per exemple, `tabindex` és `tabIndex` a JSX. L'atribut `class` es converteix en `className` ja que `class` és una paraula reservada de JavaScript:
 
 ```js
-const name = 'Clementine';
+const nom = 'Clementine';
 ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
+  <h1 className="hola">El meu nom és {nom}!</h1>,
   document.getElementById('root')
 );
 ```  
 
 ## [Elements](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+Els elements de React són els blocs de construcció de les aplicacions de React. És fàcil confondre'ls amb un concepte més àmpliament conegut com és el de "components". Un element descriu el que es veurà a la pantalla. Els elements de React són immutables.
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Hola, mon</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Normalment, els elements, no s'utilitzen directament sinó que són les peces que retorna un component.
 
 ## [Components](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+Els components de React són peces de codi petites i reutilitzables que retornen un element de React que és el que es renderitzarà a la pàgina. La versió més simple d'un component de React és una funció JavaScript que retorna un element de React:
 
 ```js
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+function Benvinguda(props) {
+  return <h1>Hola, {props.nom}</h1>;
 }
 ```
 
-Components can also be ES6 classes:
+Els components poden ser també una classe ES6:
 
 ```js
-class Welcome extends React.Component {
+class Benvinguda extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Hola, {this.props.nom}</h1>;
   }
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Els components es poden descomposar en peces amb diferents funcionalitats i també poden utilitzar-se dins d'altres components. Els components poden retornar altres components, *arrays*, cadenes i números. Una bona manera de saber si un tros de codi és un bon candidat per ser un component és comprobar si és una part de la interfície d'usuari que s'utilitza diverses vegades (Botó, Plafó, Avatar), o bé si és prou complexa per si sola (App, FeedStory, Comment). Els noms dels components han de començar sempre amb una lletra majúscula (`<Wrapper/>` **no** `<wrapper/>`). Consulta [aquesta documentació](/docs/components-and-props.html#rendering-a-component) per tenir més informació sobre la renderització dels components.
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+Les `props` són les entrades a un component de React. Són les dades transmeses d'un component pare a un component fill.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Recorda que les `props` són només de lectura. No es poden modificar de cap manera:
 
 ```js
-// Wrong!
+// Malament!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Si has de modificar algun dels seus valors com a resposta a l'entrada que fa un usuari o a una resposta que ve de la xarxa, has de fer servir l'`state`.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+La `props.children` està disponible en tots els components. Conté el contingut entre les etiquetes d'obertura i tancament d'aquest mateix component. Per exemple:
 
 ```js
-<Welcome>Hello world!</Welcome>
+<Benvinguda>Hola món!</Benvinguda>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+La cadena `Hola món!` està disponible a la `props.children` del component `Benvinguda`:
 
 ```js
-function Welcome(props) {
+function Benvinguda(props) {
   return <p>{props.children}</p>;
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+Per als components definits com a classes, has de fer servir `this.props.children`:
 
 ```js
-class Welcome extends React.Component {
+class Benvinguda extends React.Component {
   render() {
     return <p>{this.props.children}</p>;
   }
@@ -120,47 +120,47 @@ class Welcome extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Un component necessita l'`state` quan alguna de les seves dades associades canvien amb el temps. Per exemple, un component `Checkbox` podria necessitar `isChecked` en el seu `state`, i un component `NewsFeed` podria voler seguir `fetchedPosts` en el seu.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`.
+La diferència més important entre l'`state` i les `props` és que les `props` es passen des d'un component pare i que l'`state` és gestionat pel mateix component. Un component no pot canviar les seves `props`, però si que pot canviar el seu `state`.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+Per a cada peça concreta de dades modificables, hi hauria d'haver només un component que la tingués com a "propietat" en el seu `state`. No intentis sincronitzar els `state` de dos components diferents. En lloc d'això, [puja-les](/docs/lifting-state-up.html) al seu ancestre comú més proper, i passa-les com a `props` d'ambdós.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Mètodes de Cicle de Vida](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Els mètodes de cicle de vida són funcionalitats personalitzades que s'executen durant les diferents fases de vida d'un component. Hi ha mètodes que estan disponibles quan el component es crea i s'inserta al DOM ([montatge](/docs/react-component.html#mounting)), quan el component s'actualitza, i quan el component es desmunta o s'elimina del DOM. 
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Components Controlats](/docs/forms.html#controlled-components) vs. [ No controlats](/docs/uncontrolled-components.html)
 
-React has two different approaches to dealing with form inputs. 
+React té dos maneres diferents de tractar les entrades de formulari.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Quan el valor d'entrada d'un element del formulari és controlat per React, aquest component es diu que és *controlat*. Quan un usuari introdueix dades en un component controlat s'activa un gestor d'esdeveniments de canvi i el codi decideix si l'entrada és vàlida (tornant a renderitzar el component però ara amb el valor actualitzat). Si no es torna a renderitzar l'element del formulari aquest es quedarà sense canvis.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+Un component *no controlat* es comporta igual que els elements d'un formulari que no és de React. Quan un usuari introdueix dades en un camp d'un formulari d'aquest tipus (una casella d'entrada, un menú desplegable, etc), la informació actualitzada es reflecteix sense necessitat que React intervingui. Tanmateix, això també vol dir que no es pot forçar aquest camp per a donar-li un valor determinat.
 
-In most cases you should use controlled components.
+La majoria de vegades faràs servir components controlats.
 
-## [Keys](/docs/lists-and-keys.html) {#keys}
+## [keys](/docs/lists-and-keys.html) {#keys}
 
-A "key" is a special string attribute you need to include when creating arrays of elements. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside an array to give the elements a stable identity.
+Una *key* és un atribut de cadena especial que has d'incloure quan crees *arrays* d'elements. Les *keys* ajuden a React a identificar quins elements han canviat, quins s'han afegit o quins s'han eliminat. Cal donar *keys* als elements dins d'una *array* perque aquesta els hi dona una identitat estable.
 
-Keys only need to be unique among sibling elements in the same array. They don't need to be unique across the whole application or even a single component.
+Les *keys* només han de ser úniques entre els elements germans de la mateixa *array*. No han de ser úniques ni en tota l'aplicació ni tampoc han de ser-ho dins un mateix component.
 
-Don't pass something like `Math.random()` to keys. It is important that keys have a "stable identity" across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as `post.id`.
+Com a valor de les *keys* no hi passis res semblant a `Math.random()`. És important que les *keys* tinguin una "identitat estable" durant les diverses renderitzacions de manera que React pugui determinar quan els elements s'afegeixen, s'eliminen o es reordenen. Allò ideal seria que les claus es corresponguessin amb identificadors únics i estables que provinguessin de les teves dades, com ara `post.id`.
 
 ## [Refs](/docs/refs-and-the-dom.html) {#refs}
 
-React supports a special attribute that you can attach to any component. The `ref` attribute can be an object created by [`React.createRef()` function](/docs/react-api.html#reactcreateref) or a callback function, or a string (in legacy API). When the `ref` attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+React té un atribut especial que pots afegir a qualsevol component. L'atribut `ref` pot ser un objecte creat per la [funció `React.createRef()`](/docs/react-api.html#reactcreateref) o una funció de crida de retorn, o bé una cadena (a l'API anterior). Quan l'atribut `ref` és una funció de crida de retorn, la funció rep l'element del DOM subjacent o la instància de classe (depenent del tipus d'element) com a argument. Això et permet tenir accés directe a l'element del DOM o a la instància del component.
 
-Use refs sparingly. If you find yourself often using refs to "make things happen" in your app, consider getting more familiar with [top-down data flow](/docs/lifting-state-up.html).
+Utilitza les *refs* amb moderació. Si et trobes que les fas servir sovint per "fer que les coses passin" a la teva aplicació, pensa a familiaritzar-te amb el [flux de dades de dalt cap a baix](/docs/lifting-state-up.html).
 
-## [Events](/docs/handling-events.html) {#events}
+## [Esdeveniments](/docs/handling-events.html) {#events}
 
-Handling events with React elements has some syntactic differences:
+El tractament d’esdeveniments en els elements de React té algunes diferències sintàctiques:
 
-* React event handlers are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* Els gestors d’esdeveniments de React s’escriuen seguint la convenció *camelCase* en lloc de fer-ho en minúscules.
+* Amb JSX es passa una funció com a gestor d'esdeveniments, en lloc d'una cadena.
 
-## [Reconciliation](/docs/reconciliation.html) {#reconciliation}
+## [Reconciliació](/docs/reconciliation.html) {#reconciliation}
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
+Quan les *props* o l'*state* d'un component canvien, React comprovarà si fa falta realment una actualització del DOM. Ho fa, comparant l'element retornat més recent amb el renderitzat anteriorment. Si troba que no són iguals, React actualitzarà el DOM. Aquest procés s’anomena “reconciliació”.
