@@ -15,7 +15,8 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 ### render(ATL) 2021 {#render-atlanta-2021} 
 September 13-15, 2021. Atlanta, GA, USA
 
-[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
+### React Next 2020 {#react-next-2020}
+December 1-2, 2020 - remote event
 
 ### React Advanced 2021 {#react-advanced-2021}
 October 22-23, 2021. In-person in London, UK + remote (hybrid event)

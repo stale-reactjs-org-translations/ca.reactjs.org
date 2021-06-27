@@ -1,29 +1,27 @@
 ---
 id: test-utils
-title: Test Utilities
+title: Utilitats de Test 
 permalink: docs/test-utils.html
 layout: docs
 category: Reference
 ---
 
-**Importing**
+**Importació**
 
 ```javascript
 import ReactTestUtils from 'react-dom/test-utils'; // ES6
-var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
+var ReactTestUtils = require('react-dom/test-utils'); // ES5 amb npm
 ```
 
-## Overview {#overview}
+## Resum {#overview}
 
-`ReactTestUtils` makes it easy to test React components in the testing framework of your choice. At Facebook we use [Jest](https://facebook.github.io/jest/) for painless JavaScript testing. Learn how to get started with Jest through the Jest website's [React Tutorial](https://jestjs.io/docs/tutorial-react).
+`ReactTestUtils` facilita provar els components React en el marc de proves que escullis. A Facebook utilitzem [Jest](https://facebook.github.io/jest/) per als test de JavaScript. Consulta a la web de *Jest* les [guies d'aprenentatge de Jest per React](https://jestjs.io/docs/tutorial-react) per començar a aprendre'n.
 
-> Note:
+> Nota:
 >
-> We recommend using [React Testing Library](https://testing-library.com/react) which is designed to enable and encourage writing tests that use your components as the end users do.
-> 
-> For React versions <= 16, the [Enzyme](https://airbnb.io/enzyme/) library makes it easy to assert, manipulate, and traverse your React Components' output.
-
-
+> Et recomanem que facis servir la [React Testing Library](https://testing-library.com/react) que està dissenyada per escriure tests pels teus components i que aquests siguin provats de la mateixa manera que els faran servir els usuaris finals.
+>
+> Per versions de React <= 16, la llibreria [Enzyme](https://airbnb.io/enzyme/) fa que sigui fàcil afirmar, manipular i recórrer la sortida dels components de React.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -42,17 +40,17 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
  - [`renderIntoDocument()`](#renderintodocument)
  - [`Simulate`](#simulate)
 
-## Reference {#reference}
+## Referència {#reference}
 
 ### `act()` {#act}
 
-To prepare a component for assertions, wrap the code rendering it and performing updates inside an `act()` call. This makes your test run closer to how React works in the browser.
+Es fa servir per preparar un component per afirmacions. S'embolcalla el codi dins d'una crida `act()` que renderitzarà i actualitzarà el component que porta dins seu. Això fa que el test s'ajusti a la manera com funciona React en el navegador.
 
->Note
+>Nota
 >
->If you use `react-test-renderer`, it also provides an `act` export that behaves the same way.
+>Si utilitzes `react-test-renderer`, també et proporciona una exportació `act` que es comporta de la mateixa manera.
 
-For example, let's say we have this `Counter` component:
+Per exemple, diguem que tenim aquest component `Counter`:
 
 ```js
 class Counter extends React.Component {
@@ -85,7 +83,7 @@ class Counter extends React.Component {
 }
 ```
 
-Here is how we can test it:
+Així és com pots provar-lo:
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -106,7 +104,7 @@ afterEach(() => {
 });
 
 it('can render and update a counter', () => {
-  // Test first render and componentDidMount
+  // Test del primer render i componentDidMount
   act(() => {
     ReactDOM.render(<Counter />, container);
   });
@@ -115,7 +113,7 @@ it('can render and update a counter', () => {
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
 
-  // Test second render and componentDidUpdate
+  // Test del segon  render i componentDidUpdate
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
@@ -124,9 +122,9 @@ it('can render and update a counter', () => {
 });
 ```
 
-- Don't forget that dispatching DOM events only works when the DOM container is added to the `document`. You can use a library like [React Testing Library](https://testing-library.com/react) to reduce the boilerplate code.
+- No oblidis que l'enviament d'esdeveniments DOM només funciona quan el contenidor DOM s'afegeix al `document`. Pots utilitzar una biblioteca com ara la [Biblioteca de Test React](https://testing-library.com/react) per reduir el codi redundant.
 
-- The [`recipes`](/docs/testing-recipes.html) document contains more details on how `act()` behaves, with examples and usage.
+- El document [`receptes`](/docs/testing-recipes.html) conté més detalls sobre com es comporta `act()`, amb exemples i formes de com utilitzar-lo.
 
 * * *
 
@@ -139,11 +137,11 @@ mockComponent(
 )
 ```
 
-Pass a mocked component module to this method to augment it with useful methods that allow it to be used as a dummy React component. Instead of rendering as usual, the component will become a simple `<div>` (or other tag if `mockTagName` is provided) containing any provided children.
+Passa un mòdul de prova a aquest mètode per afegir-li mètodes útils que li permetin ser utilitzat com a component fictici de React. En lloc de ser renderitzat com és habitual, el component es convertirà en un simple `<div>` (o en una altra etiqueta si es passa `mockTagName`) que contindrà tots els fills proporcionats.
 
-> Note:
+> Nota:
 >
-> `mockComponent()` is a legacy API. We recommend using [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) instead.
+> `mockComponent()` és una API antiga. En lloc seu, et recomanem fer servir [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 
@@ -153,7 +151,7 @@ Pass a mocked component module to this method to augment it with useful methods 
 isElement(element)
 ```
 
-Returns `true` if `element` is any React element.
+Retorna `true` si `element` és qualsevol tipus d'element de React.
 
 * * *
 
@@ -166,7 +164,7 @@ isElementOfType(
 )
 ```
 
-Returns `true` if `element` is a React element whose type is of a React `componentClass`.
+Retorna `true` si `element` és un element de React del tipus `componentClass`.
 
 * * *
 
@@ -176,7 +174,7 @@ Returns `true` if `element` is a React element whose type is of a React `compone
 isDOMComponent(instance)
 ```
 
-Returns `true` if `instance` is a DOM component (such as a `<div>` or `<span>`).
+Retorna `true` si `instance` és un component del DOM (com ara `<div>` or `<span>`).
 
 * * *
 
@@ -186,7 +184,7 @@ Returns `true` if `instance` is a DOM component (such as a `<div>` or `<span>`).
 isCompositeComponent(instance)
 ```
 
-Returns `true` if `instance` is a user-defined component, such as a class or a function.
+Retorna `true` si `instance` és un component definit per l'usuari, com ara una classe o una funció.
 
 * * *
 
@@ -199,7 +197,7 @@ isCompositeComponentWithType(
 )
 ```
 
-Returns `true` if `instance` is a component whose type is of a React `componentClass`.
+Retorna `true` si `instance` és un component del tipus `componentClass`.
 
 * * *
 
@@ -212,7 +210,7 @@ findAllInRenderedTree(
 )
 ```
 
-Traverse all components in `tree` and accumulate all components where `test(component)` is `true`. This is not that useful on its own, but it's used as a primitive for other test utils.
+Recorre tots els components del `tree` i acumula tots els components a on `test(component)` és `true`. Això no és gaire útil per si mateix, però es fa servir com a primitiva per a altres utilitats de test.
 
 * * *
 
@@ -225,7 +223,7 @@ scryRenderedDOMComponentsWithClass(
 )
 ```
 
-Finds all DOM elements of components in the rendered tree that are DOM components with the class name matching `className`.
+Troba tots els elements DOM dels components de l'arbre renderitzat que són components DOM i tenen el nom de classe `className`.
 
 * * *
 
@@ -238,7 +236,7 @@ findRenderedDOMComponentWithClass(
 )
 ```
 
-Like [`scryRenderedDOMComponentsWithClass()`](#scryrendereddomcomponentswithclass) but expects there to be one result, and returns that one result, or throws exception if there is any other number of matches besides one.
+Igual que [`scryRenderedDOMComponentsWithClass()`](#scryrendereddomcomponentswithclass) però espera que hi hagi un resultat, i retorna aquest resultat, o bé llança una excepció si hi ha un nombre de coincidències diferent a u.
 
 * * *
 
@@ -251,7 +249,7 @@ scryRenderedDOMComponentsWithTag(
 )
 ```
 
-Finds all DOM elements of components in the rendered tree that are DOM components with the tag name matching `tagName`.
+Cerca tots els elements DOM dels components del `tree` renderitzat que siguin components DOM i que tinguin el nom de l'etiqueta `tagName`.
 
 * * *
 
@@ -264,7 +262,7 @@ findRenderedDOMComponentWithTag(
 )
 ```
 
-Like [`scryRenderedDOMComponentsWithTag()`](#scryrendereddomcomponentswithtag) but expects there to be one result, and returns that one result, or throws exception if there is any other number of matches besides one.
+Igual que [`scryRenderedDOMComponentsWithTag()`](#scryrendereddomcomponentswithtag) però espera que hi hagi un resultat, i retorna aquest resultat, o llança una excepció si hi ha un nombre de coincidències diferent a u.
 
 * * *
 
@@ -277,7 +275,7 @@ scryRenderedComponentsWithType(
 )
 ```
 
-Finds all instances of components with type equal to `componentClass`.
+Troba totes les instàncies de components del tipus `componentClass`.
 
 * * *
 
@@ -290,7 +288,7 @@ findRenderedComponentWithType(
 )
 ```
 
-Same as [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) but expects there to be one result and returns that one result, or throws exception if there is any other number of matches besides one.
+Igual que [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) però espera que hi hagi un resultat, i retorna aquest resultat, o llança una excepció si hi ha un nombre de coincidències diferent a u.
 
 ***
 
@@ -300,20 +298,20 @@ Same as [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) bu
 renderIntoDocument(element)
 ```
 
-Render a React element into a detached DOM node in the document. **This function requires a DOM.** It is effectively equivalent to:
+Renderitza un element React en un node DOM separat del document. **Aquesta funció requereix un DOM.** És equivalent a:
 
 ```js
 const domContainer = document.createElement('div');
 ReactDOM.render(element, domContainer);
 ```
 
-> Note:
+> Nota:
 >
-> You will need to have `window`, `window.document` and `window.document.createElement` globally available **before** you import `React`. Otherwise React will think it can't access the DOM and methods like `setState` won't work.
+> Hauràs de tenir `window`, `window.document` i `window.document.createElement` disponible globalment **abans** que importis `React`. Si no és així, React creurà que no pot accedir al DOM i els mètodes com `setState` no funcionaran.
 
 * * *
 
-## Other Utilities {#other-utilities}
+## Altres Utilitats {#other-utilities}
 
 ### `Simulate` {#simulate}
 
@@ -324,11 +322,11 @@ Simulate.{eventName}(
 )
 ```
 
-Simulate an event dispatch on a DOM node with optional `eventData` event data.
+Simula un enviament d'esdeveniments en un node DOM amb dades d'esdeveniments `eventData`, que són opcionals.
 
-`Simulate` has a method for [every event that React understands](/docs/events.html#supported-events).
+`Simulate` té un mètode per a [cada esdeveniment que React entén](/docs/events.html#supported-events).
 
-**Clicking an element**
+**Clicant un element**
 
 ```javascript
 // <button ref={(node) => this.button = node}>...</button>
@@ -336,7 +334,7 @@ const node = this.button;
 ReactTestUtils.Simulate.click(node);
 ```
 
-**Changing the value of an input field and then pressing ENTER.**
+**Canviant el valor d'un camp d'entrada i després prement RETORN.**
 
 ```javascript
 // <input ref={(node) => this.textInput = node} />
@@ -346,8 +344,8 @@ ReactTestUtils.Simulate.change(node);
 ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 ```
 
-> Note
+> Nota
 >
-> You will have to provide any event property that you're using in your component (e.g. keyCode, which, etc...) as React is not creating any of these for you.
+> Hauràs de proporcionar qualsevol propietat d'esdeveniments que estiguis utilitzant en el component (p. ex. *keyCode*, *which*, etc.) perquè React no en crearà cap d'aquestes per tu.
 
 * * *
