@@ -34,36 +34,11 @@ string type
 
 > Nota:
 >
-> A partir de la v0.14, retornar `false` des d'un gestor d'esdeveniments ja no atura la propagació d'esdeveniments. Per tant, `e.stopPropagation()` o `e.preventionDefault()` s'han d'activar manualment, segons correspongui.
-
-### Agrupació d'esdeveniments {#event-pooling}
-
-`SyntheticEvent` està agrupat. Això significa que l'objecte `SyntheticEvent` serà reutilitzat i totes les propietats seran anul·lades després que s'hagi invocat la *callback* de l'esdeveniment.
-Això es fa per una qüestió de rendiment.
-Com a tal, no es pot accedir a l'esdeveniment de manera asíncrona.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => nullified object.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // No funciona. this.state.clickEvent només contindrà valors null.
-  this.setState({clickEvent: event});
-
-  // Encara pots exportar les propietats de l'esdeveniment.
-  this.setState({eventType: event.type});
-}
-```
+> A partir de la v17, `e.persist()` no fa res perquè `SyntheticEvent` ja no està [pooled](/docs/legacy-event-pooling.html).
 
 > Nota:
 >
-> Si vols accedir a les propietats de l'esdeveniment de forma asíncrona, hauries de cridar `event.persist()` sobre l'esdeveniment, que eliminarà l'esdeveniment sintètic de l'agrupació i permetrà que les referències a l'esdeveniment es conservin amb el codi d'usuari.
+> A partir de la v0.14, retornar `false` des d'un gestor d'esdeveniments ja no atura la propagació d'esdeveniments. Per tant, `e.stopPropagation()` o `e.preventionDefault()` s'han d'activar manualment, segons correspongui.
 
 ## Esdeveniments suportats {#supported-events}
 
@@ -167,9 +142,83 @@ Aquests esdeveniments d'enfocament funcionen a tots els elements del DOM de Reac
 
 Propietats:
 
-```javascript
+```js
 DOMEventTarget relatedTarget
 ```
+
+#### onFocus
+
+The `onFocus` event is called when the element (or some element inside of it) receives focus. For example, it's called when the user clicks on a text input.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onFocus={(e) => {
+        console.log('Focused on input');
+      }}
+      placeholder="onFocus is triggered when you click this input."
+    />
+  )
+}
+```
+
+#### onBlur
+
+The `onBlur` event handler is called when focus has left the element (or left some element inside of it). For example, it's called when the user clicks outside of a focused text input.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onBlur={(e) => {
+        console.log('Triggered because this input lost focus');
+      }}
+      placeholder="onBlur is triggered when you click this input and then you click outside of it."
+    />
+  )
+}
+```
+
+#### Detecting Focus Entering and Leaving
+
+You can use the `currentTarget` and `relatedTarget` to differentiate if the focusing or blurring events originated from _outside_ of the parent element. Here is a demo you can copy and paste that shows how to detect focusing a child, focusing the element itself, and focus entering or leaving the whole subtree.
+
+```javascript
+function Example() {
+  return (
+    <div
+      tabIndex={1}
+      onFocus={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('focused self');
+        } else {
+          console.log('focused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus entered self');
+        }
+      }}
+      onBlur={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('unfocused self');
+        } else {
+          console.log('unfocused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus left self');
+        }
+      }}
+    >
+      <input id="1" />
+      <input id="2" />
+    </div>
+  );
+}
+```
+
 
 * * *
 
@@ -304,6 +353,10 @@ Nom dels esdeveniments:
 ```
 onScroll
 ```
+
+>Nota
+>
+>Començant amb React 17, l'esdveniment `onScroll` **no es propaga** a React. Això funciona igual que en navegador i evita la confusió quan elements embolcallats inicien esdveniments a un parent distant.
 
 Propietats:
 
