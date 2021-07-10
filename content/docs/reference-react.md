@@ -312,7 +312,7 @@ També el pots fer servir amb la sintaxi més curta `<></>` . Per a més informa
 
 En l'exemple anterior, React passa una `ref` donada a l'element `<FancyButton ref={ref}>` com a segon argument a la funció de renderització dins de la crida `React.forwardRef`. Aquesta funció de renderització passa la `ref` a l'element <button ref={ref}>..
 
-Com a resultat, després que React adjunti la referència,  `ref.current` apuntarà directament a la .instància de l'element del  DOM `<button>`.
+Com a resultat, després que React adjunti la referència,  `ref.current` apuntarà directament a la instància de l'element del  DOM `<button>`.
 
 Per a més informació, mira [Reenviament de refs](/docs/forwarding-refs.html).
 
@@ -323,19 +323,19 @@ Per a més informació, mira [Reenviament de refs](/docs/forwarding-refs.html).
 Pots aprendre com utilitzar-ho de la nostra [documentació de divisió de codi](/docs/code-splitting.html#reactlazy). Potser també voldràs llegir [aquest article](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) que explica com fer-la servir amb més detall.
 
 ```js
-// Aquest components es carrega dinàmicament
+// Aquest component es carrega dinàmicament
 const SomeComponent = React.lazy(() => import('./SomeComponent'));
 ```
 
-Note that rendering `lazy` components requires that there's a `<React.Suspense>` component higher in the rendering tree. This is how you specify a loading indicator.Tingues en compte que la renderització dels components «lazy» requereix que hi hagi un component `<React.Suspense>` aigües amunt en l'arbre que es renderitza.Així és como s'especifica un indicador de càrrega.
+Tingues en compte que la renderització dels components «lazy» requereix que hi hagi un component `<React.Suspense>` aigües amunt en l'arbre que es renderitza. Així és com s'especifica un indicador de càrrega.
 
 > **Nota**
 >
-> Using `React.lazy`with dynamic import requires Promises to be available in the JS environment. This requires a polyfill on IE11 and below. L'ús de «React.lazy» amb importació dinàmica requereix que les *Promises* estiguin disponibles a l'entorn JS. Això requereix un *polyfill* a IE11 i anteriors.
+> L'ús de «React.lazy» amb importació dinàmica requereix que les *Promises* estiguin disponibles a l'entorn JS. Això requereix un *polyfill* a IE11 i anteriors.
 
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` permet especificar l'indicador de càrrega en cas que alguns components aigües avall de l'arbre encara no estiguin preparats per ser renderitzats. Avui, els components `lazy` són els *únics**  admesos per `<React.Suspense>`:
+`React.Suspense` permet especificar l'indicador de càrrega en cas que alguns components aigües avall de l'arbre encara no estiguin preparats per ser renderitzats. Avui, els components `lazy` són els **únics**  admesos per `<React.Suspense>`:
 
 ```js
 // Aquest components es carrega dinàmicament
@@ -343,7 +343,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
   return (
-    // Mostra l'<Spinner> fins que es carregui <OtherComponent />
+    // Mostra l'<Spinner> fins que es carregui OtherComponent
     <React.Suspense fallback={<Spinner />}>
       <div>
         <OtherComponent />
@@ -353,9 +353,9 @@ function MyComponent() {
 }
 ```
 
-Està documentat a la nostra [documentació de divisió de codi](/docs/code-splitting.html#reactlazy). Tingues en compte que els components `lazy` poden estar molt aigües avall dins de l'arbre `Suspense`. No cal que els envoltis tots. La millor pràctica és posar `<Suspense>` on volguis veure un indicador de càrrega, i fer servir  `lazy()` on vulguis fer la divisió de codi.
+Està explicat a la nostra [documentació de divisió de codi](/docs/code-splitting.html#reactlazy). Tingues en compte que els components `lazy` poden estar molt aigües avall dins de l'arbre `Suspense`. No cal que els envoltis un a un. La millor pràctica és posar `<Suspense>` on volguis veure un indicador de càrrega, i fer servir  `lazy()` on vulguis fer la divisió de codi.
 
-While this is not supported today, in the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html). Encara que avui no està suportat, en el futur tenim previst deixar que el `Suspense` gestioni més escenaris com ara la recollida de dades. Pots llegir sobre això a [el nostre full de ruta](/blog/2018/11/27/react-16-roadmap.html).
+Encara que avui no està suportat, en el futur tenim previst deixar que el `Suspense` gestioni més escenaris com ara la recollida de dades. Pots llegir sobre això a [el nostre full de ruta](/blog/2018/11/27/react-16-roadmap.html).
 
 >Nota:
 >
