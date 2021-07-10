@@ -211,7 +211,7 @@ Normalment no faràs una crida a `React.createElement()` directament si utilitze
 ### `isValidElement()` {#isvalidelement}
 
 ```javascript
-React.isValidElement(object)
+React.isValidElement(objecte)
 ```
 
 Verifica que l'objecte és un element React. Retorna `true` o `false`.
@@ -248,7 +248,7 @@ Igual que [`React.Children.map()`](#reactchildrenmap) però no retorna una *arra
 React.Children.count(children)
 ```
 
-Returns the total number of components in `children`, equal to the number of times that a callback passed to `map` or `forEach` would be invoked.
+Retorna el nombre total de components a `children`, igual al nombre de vegades que s'invocarà una crida de retorn a `map` o a `forEach`.
 
 #### `React.Children.only` {#reactchildrenonly}
 
@@ -256,11 +256,11 @@ Returns the total number of components in `children`, equal to the number of tim
 React.Children.only(children)
 ```
 
-Verifies that `children` has only one child (a React element) and returns it. Otherwise this method throws an error.
+Verifica que `children` només té un fill (un element de React) i el retorna. Si no és així, aquest mètode llança un error.
 
-> Note:
+> Nota:
 >
->`React.Children.only()` does not accept the return value of [`React.Children.map()`](#reactchildrenmap) because it is an array rather than a React element.
+>`React.Children.only()` no accepta el valor que retorna [`React.Children.map()`](#reactchildrenmap) perquè és una *array* enlloc d'un element de React.
 
 #### `React.Children.toArray` {#reactchildrentoarray}
 
@@ -268,82 +268,82 @@ Verifies that `children` has only one child (a React element) and returns it. Ot
 React.Children.toArray(children)
 ```
 
-Returns the `children` opaque data structure as a flat array with keys assigned to each child. Useful if you want to manipulate collections of children in your render methods, especially if you want to reorder or slice `this.props.children` before passing it down.
+Retorna l'estructura de dades opaca `children` com una *array* plana amb les claus assignades a cada fill. És útil si voleu manipular col·leccions de fills en els vostres mètodes de renderització, especialment si voleu reordenar o tallar `this.props.children` abans de passar-lo avall.
 
-> Note:
+> Nota:
 >
-> `React.Children.toArray()` changes keys to preserve the semantics of nested arrays when flattening lists of children. That is, `toArray` prefixes each key in the returned array so that each element's key is scoped to the input array containing it.
+> `React.Children.toArray()` canvia les claus per preservar la semàntica de *arrays* imbricades quan s'aplana les llistes de fills. És a dir, «toArray» prefixa cada clau de la matriu retornada de manera que cada clau de cada element s'amplia a la matriu d'entrada que la conté.
 
 * * *
 
 ### `React.Fragment` {#reactfragment}
 
-The `React.Fragment` component lets you return multiple elements in a `render()` method without creating an additional DOM element:
+El component `React.Fragment` permet retornar múltiples elements en un mètode `render()` sense crear un element del DOM addicional: 
 
 ```javascript
 render() {
   return (
     <React.Fragment>
-      Some text.
-      <h2>A heading</h2>
+      text.
+      <h2>Encapçalament</h2>
     </React.Fragment>
   );
 }
 ```
 
-You can also use it with the shorthand `<></>` syntax. For more information, see [React v16.2.0: Improved Support for Fragments](/blog/2017/11/28/react-v16.2.0-fragment-support.html).
+També el pots fer servir amb la sintaxi més curta `<></>` . Per a més informació, mira [React v16.2.0: Implementació millorada dels Fragments](/blog/2017/11/28/react-v16.2.0-fragment-support.html).
 
 
 ### `React.createRef` {#reactcreateref}
 
-`React.createRef` creates a [ref](/docs/refs-and-the-dom.html) that can be attached to React elements via the ref attribute.
+`React.createRef` crea una [ref](/docs/refs-and-the-dom.html) que es pot adjuntar als elements de React a través de l'atribut ref.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
 
-`React.forwardRef` creates a React component that forwards the [ref](/docs/refs-and-the-dom.html) attribute it receives to another component below in the tree. This technique is not very common but is particularly useful in two scenarios:
+`React.forwardRef` crea un component de React que reenvia l'atribut  [ref](/docs/refs-and-the-dom.html) que rep d'un altre component que es troba situat aigües avall dins l'arbre. Aquesta tècnica no és molt comuna, però és particularment útil en dos escenaris:
 
-* [Forwarding refs to DOM components](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
-* [Forwarding refs in higher-order-components](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
+* [Reenviament de refs a components del DOM](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
+* [Reenviament de refs en un component d'ordre superior](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
 
-`React.forwardRef` accepts a rendering function as an argument. React will call this function with `props` and `ref` as two arguments. This function should return a React node.
+`React.forwardRef` accepta una funció de renderització com a argument. React cridarà aquesta funció amb `props` i `ref` com a dos arguments. Aquesta funció ha de retornar un node de React.
 
 `embed:reference-react-forward-ref.js`
 
-In the above example, React passes a `ref` given to `<FancyButton ref={ref}>` element as a second argument to the rendering function inside the `React.forwardRef` call. This rendering function passes the `ref` to the `<button ref={ref}>` element.
+En l'exemple anterior, React passa una `ref` donada a l'element `<FancyButton ref={ref}>` com a segon argument a la funció de renderització dins de la crida `React.forwardRef`. Aquesta funció de renderització passa la `ref` a l'element <button ref={ref}>..
 
-As a result, after React attaches the ref, `ref.current` will point directly to the `<button>` DOM element instance.
+Com a resultat, després que React adjunti la referència,  `ref.current` apuntarà directament a la .instància de l'element del  DOM `<button>`.
 
-For more information, see [forwarding refs](/docs/forwarding-refs.html).
+Per a més informació, mira [Reenviament de refs](/docs/forwarding-refs.html).
 
 ### `React.lazy` {#reactlazy}
 
-`React.lazy()` lets you define a component that is loaded dynamically. This helps reduce the bundle size to delay loading components that aren't used during the initial render.
+`React.lazy()` permet definir un component que es carrega dinàmicament. Això ajuda a reduir la mida del paquet per retardar la càrrega dels components que no es fan servir durant la renderització inicial.
 
-You can learn how to use it from our [code splitting documentation](/docs/code-splitting.html#reactlazy). You might also want to check out [this article](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) explaining how to use it in more detail.
+Pots aprendre com utilitzar-ho de la nostra [documentació de divisió de codi](/docs/code-splitting.html#reactlazy). Potser també voldràs llegir [aquest article](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) que explica com fer-la servir amb més detall.
 
 ```js
-// This component is loaded dynamically
+// Aquest components es carrega dinàmicament
 const SomeComponent = React.lazy(() => import('./SomeComponent'));
 ```
 
-Note that rendering `lazy` components requires that there's a `<React.Suspense>` component higher in the rendering tree. This is how you specify a loading indicator.
+Note that rendering `lazy` components requires that there's a `<React.Suspense>` component higher in the rendering tree. This is how you specify a loading indicator.Tingues en compte que la renderització dels components «lazy» requereix que hi hagi un component `<React.Suspense>` aigües amunt en l'arbre que es renderitza.Així és como s'especifica un indicador de càrrega.
 
-> **Note**
+> **Nota**
 >
-> Using `React.lazy`with dynamic import requires Promises to be available in the JS environment. This requires a polyfill on IE11 and below.
+> Using `React.lazy`with dynamic import requires Promises to be available in the JS environment. This requires a polyfill on IE11 and below. L'ús de «React.lazy» amb importació dinàmica requereix que les *Promises* estiguin disponibles a l'entorn JS. Això requereix un *polyfill* a IE11 i anteriors.
 
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
+`React.Suspense` permet especificar l'indicador de càrrega en cas que alguns components aigües avall de l'arbre encara no estiguin preparats per ser renderitzats. Avui, els components `lazy` són els *únics**  admesos per `<React.Suspense>`:
 
 ```js
-// This component is loaded dynamically
+// Aquest components es carrega dinàmicament
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
   return (
-    // Displays <Spinner> until OtherComponent loads
+    // Mostra l'<Spinner> fins que es carregui <OtherComponent />
     <React.Suspense fallback={<Spinner />}>
       <div>
         <OtherComponent />
@@ -353,10 +353,10 @@ function MyComponent() {
 }
 ```
 
-It is documented in our [code splitting guide](/docs/code-splitting.html#reactlazy). Note that `lazy` components can be deep inside the `Suspense` tree -- it doesn't have to wrap every one of them. The best practice is to place `<Suspense>` where you want to see a loading indicator, but to use `lazy()` wherever you want to do code splitting.
+Està documentat a la nostra [documentació de divisió de codi](/docs/code-splitting.html#reactlazy). Tingues en compte que els components `lazy` poden estar molt aigües avall dins de l'arbre `Suspense`. No cal que els envoltis tots. La millor pràctica és posar `<Suspense>` on volguis veure un indicador de càrrega, i fer servir  `lazy()` on vulguis fer la divisió de codi.
 
-While this is not supported today, in the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html).
+While this is not supported today, in the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html). Encara que avui no està suportat, en el futur tenim previst deixar que el `Suspense` gestioni més escenaris com ara la recollida de dades. Pots llegir sobre això a [el nostre full de ruta](/blog/2018/11/27/react-16-roadmap.html).
 
->Note:
+>Nota:
 >
->`React.lazy()` and `<React.Suspense>` are not yet supported by `ReactDOMServer`. This is a known limitation that will be resolved in the future.
+>`React.lazy()` i `<React.Suspense>` encara no són compatibles amb `ReactDOMServer`. Aquesta és una limitació coneguda que es resoldrà en el futur.
