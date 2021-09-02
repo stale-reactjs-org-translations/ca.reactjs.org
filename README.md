@@ -26,13 +26,23 @@ Aquest repositori conté tant el codi font com la documentació necessària per 
 
 ### Directrius
 
+<<<<<<< HEAD
 La documentació està dividida en diferents seccions amb diferent to i propòsit. Si planeja en fer una traducció extensa, pot trobar útil estar familiaritzat amb les directrius de contribució [contributing guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) per a la secció apropiada.
+=======
+The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/reactjs.org/blob/main/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 ### Crear una branca
 
+<<<<<<< HEAD
 1. `git checkout master` des de qualsevol directori dins del teu repositori local de `reactjs.org`
 2. `git pull origin master` per a assegurar que el codi està actualitzat amb els canvis més recents
 3. `git checkout -b nom-de-la-meva-branca` (reemplaça `nom-de-la-meva-branca` amb el nom adient) per a crear una nova branca
+=======
+1. `git checkout main` from any folder in your local `reactjs.org` repository
+1. `git pull origin main` to ensure you have the latest main code
+1. `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 ### Fer canvis
 
