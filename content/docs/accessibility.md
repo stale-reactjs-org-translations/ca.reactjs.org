@@ -228,7 +228,11 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Quan s'utilitza un HOC per ampliar components, es recomana [reenviar la referència](/docs/forwarding-refs.html) al component envoltat fent servir la funció `forwardRef` de React. Si un HOC d'un tercer no implementa el reenviament de ref, el patró anterior es pot utilitzar com a alternativa.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 Un gran exemple de gestió de l'enfocament és el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Aquest és un exemple relativament estrany d'una finestra modal completament accessible. No només estableix el focus inicial en el botó de cancel·lació (prevenint que l'usuari del teclat activi accidentalment l'acció d'aprovació) i conserva el focus del teclat dins de la mateixa finestra modal, sinó que també retorna el focus a l'element que inicialment va activar la finestra.
 
