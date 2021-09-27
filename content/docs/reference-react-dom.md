@@ -48,9 +48,15 @@ Si es proporciona la *callback* opcional, s'executarà després que el component
 >
 > `ReactDOM.render()` no modifica el node contenidor (només modifica els fills del contenidor). És possible inserir un component a un node DOM que ja existeix sense sobreescriure els fills existents.
 >
+<<<<<<< HEAD
 > `ReactDOM.render()` actualment retorna una referència a la instància arrel `ReactComponent`. No obstant això, fer servir aquest valor de retorn és obsolet
 > i s'ha d'evitar perquè les versions futures de React podran representar els components de forma asíncrona en alguns casos. Si necessites una referència a la instància arrel `ReactComponent`, la solució idònia és adjuntar una
 > [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) a l'element arrel.
+=======
+> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
+> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
+> [callback ref](/docs/refs-and-the-dom.html#callback-refs) to the root element.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 >
 > Fer servir `ReactDOM.render()` per hidratar un contenidor amb renderització des del servidor és obsolet i s'eliminarà a la versió 17 de React. Fes servir en el seu lloc [`hydrate()`](#hydrate).
 
