@@ -39,9 +39,13 @@ Però com saps què hauria de ser el seu propi component? Usa la mateixa tècnic
 
 Com que normalment mostres un model de dades JSON a l'usuari, veuràs que si el teu model ha estat construit de manera adequada, la teva interfície d'usuari (i llavors la teva estructura de components) encaixarà perfectament. Això passa perquè les interfícies d'usuari i els models de dades tendeixen a seguir la mateixa *arquitectura d'informació*. Separa la teva interfície d'usuari en components, on cada component representa una part del teu model de dades.
 
-![Component diagram](../images/blog/thinking-in-react-components.png)
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
 
+<<<<<<< HEAD
 Veuràs aquí que tenim cinc components a la nostra aplicació. Hem escrit en itàlica les dades que cada component representa.
+=======
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
   1. **`FilterableProductTable` (taronja):** conté tot l'exemple
   2. **`SearchBar` (blau):** rep totes *les entrades de l'usuari*
@@ -137,7 +141,11 @@ Fins ara, hem construït una aplicació que renderitza correctament com una func
 
 React fa que aquest flux de dades explícit per ajudar a entendre com funciona el teu programa, però requereix una mica més d'escriptura que el tradicional flux en dos sentits.
 
+<<<<<<< HEAD
 Si intentes escriure o marques la checkbox en la versió actual de l'exemple, veuràs que React ignora la teva entrada. Això és intencional, com que hem fixat la prop `value` de l'`input` perquè sempre sigui igual a l'`estat` passat de `FilterableProductTable`.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Anem a pensar en el que volem que succeeixi. Volem assegurar-nos que cada vegada que l'usuari canviï el formulari, actualitzem l'estat per reflectir l'entrada de l'usuari. Ja que els components només haurien d'actualitzar el seu propi estat, `FilterableProductTable` passarà callbacks a `SearchBar` que es cridaran quan l'estat s'hagi d'actualitzar. Podem utilitzar l'esdeveniment `onChange` en les entrades per això. Les callbacks passades per `FilterableProductTable` cridaran `setState()`, i l'aplicació s'actualitzarà.
 

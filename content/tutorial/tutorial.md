@@ -235,7 +235,11 @@ Primer, canviarem l'etiqueta button que és retornada del mètode `render()` del
 class Square extends React.Component {
   render() {
     return (
+<<<<<<< HEAD
       <button className="square" onClick={function() {alert('clic'); }}>
+=======
+      <button className="square" onClick={function() { console.log('click'); }}>
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
         {this.props.value}
       </button>
     );
@@ -243,7 +247,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Si fas clic a un quadrat ara, hauries de veure un avís al teu navegador.
+=======
+If you click on a Square now, you should see 'click' in your browser's devtools console.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 > Nota
 >
@@ -253,7 +261,11 @@ Si fas clic a un quadrat ara, hauries de veure un avís al teu navegador.
 >class Square extends React.Component {
 >  render() {
 >    return (
+<<<<<<< HEAD
 >      <button className="square" onClick={() => alert('clic')}>
+=======
+>      <button className="square" onClick={() => console.log('click')}>
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 >        {this.props.value}
 >      </button>
 >    );
@@ -261,7 +273,11 @@ Si fas clic a un quadrat ara, hauries de veure un avís al teu navegador.
 >}
 >```
 >
+<<<<<<< HEAD
 > Tingues en compte com amb `onClick={() => alert('clic')}`, estem passant *una funció* com a valor de la prop `onClick`. React només cridarà aquesta funció després d'un clic. Oblidar `() =>` i escriure `onClick={alert('clic')}` és un error comú, i executaria l'alerta cada vegada que el component es rerenderitzi.
+=======
+>Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Com un següent pas, volem que el component Square "recordi" que va ser clicat, i s'ompli amb una "X". Per "recordar" coses, els components fan servir l'**estat**.
 
@@ -280,7 +296,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );
@@ -451,11 +467,19 @@ class Square extends React.Component {
 
 Quan un quadrat és clicat, la funció `onClick` proveïda pel component Board és cridada. Fem un repàs de com hem aconseguit això:
 
+<<<<<<< HEAD
 1. El prop `onClick` al component preconstruït del DOM `<button>` li diu a React per establir un escoltador de l'esdeveniment clic.
 2. Quan el botó és clicat, React trucarà al gestor d'esdeveniment `onClick` que està definit al mètode `render()` de Square.
 3. Aquest gestor d'esdeveniment crida a `this.props.onClick()`. El prop `onClick` del component Square va ser especificat pel component Board.
 4. Com que el Board va passar `onClick={() => this.handleClick(i)}` a Square, el component Square crida a `this.handleClick(i)` quan és clicat.
 5. No tenim definit el mètode `handleClick()`, així que el nostre codi falla. Si fas clic ara veuràs una pantalla vermella d'error que diu alguna cosa com *"this.handleClick is not a function"* (this.handleClick no és una funció).
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 > Nota
 >
@@ -524,7 +548,11 @@ Notar com a `handleClick`, cridem `.slice()` per crear una còpia de l'array de 
 
 ### Per què és important la immutabilitat? {#why-immutability-is-important}
 
+<<<<<<< HEAD
 A l'exemple de codi anterior, hem suggerit que usessis el mètode `.slice()` per crear una còpia de l'array de `squares` per copiar-lo en comptes de modificar l'array existent. Ara discutirem la immutabilitat i per què és important aprendre-la.
+=======
+In the previous code example, we suggested that you create a copy of the `squares` array using the `slice()` method instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Hi ha generalment dos enfocaments per canviar dades. El primer enfocament és *mutar* les dades directament canviant els seus valors. El segon enfocament és reemplaçar les dades amb una nova còpia que té els canvis desitjats.
 
@@ -1045,7 +1073,13 @@ Usant el mètode `map`, podem mapejar el nostre historial de moviments a element
 
 **[Veure el codi complet en aquest punt](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 Per cada moviment de l'historial del joc de tres en ratlla, hem creat un element de llista `<li>` que conté un botó `<button>`. El botó té un gestor `onClick` que invoca un mètode anomenat `this.jumpTo()`. No hem implementat el mètode `jumpTo()` encara. Per ara, hem de veure una llista dels moviments que han ocorregut en el joc i un avís a la consola de les eines de desenvolupador que diu:
+=======
+As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We only interested in `move` here, hence `step` is not getting assigned to anything.
+
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 > Warning:
 > Each child in an array or Iterator should have a unique "key" prop. Check the render method of "Game".
