@@ -270,7 +270,11 @@ Ja que `setState()` automàticament [combina un estat parcial a l'estat actual](
 
 ## Valor nul en un input controlat {#controlled-input-null-value}
 
+<<<<<<< HEAD
 Especificar la propietat `value` en un [component controlat](/docs/forms.html#controlled-components) evita que l'usuari canviï l'entrada a no ser que així ho vulguis. Si has especificat un `value` però l'entrada encara és editable, potser has assignat accidentalment al `value` un valor `undefined` o `null`.
+=======
+Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+>>>>>>> 014f4890dc30a3946c63f83b06883241ddc9bc75
 
 El codi a continuació demostra això. (L'input està inicialment bloquejat, però es torna editable després d'un curt retard).
 
