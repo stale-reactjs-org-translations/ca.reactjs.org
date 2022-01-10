@@ -143,7 +143,11 @@ Passa un mòdul de prova a aquest mètode per afegir-li mètodes útils que li p
 
 > Nota:
 >
+<<<<<<< HEAD
 > `mockComponent()` és una API antiga. En lloc seu, et recomanem fer servir [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+=======
+> `mockComponent()` is a legacy API. We recommend using [`jest.mock()`](https://jestjs.io/docs/tutorial-react-native#mock-native-modules-using-jestmock) instead.
+>>>>>>> 569949e266f5724a04821d6c4f211286238616dc
 
 * * *
 

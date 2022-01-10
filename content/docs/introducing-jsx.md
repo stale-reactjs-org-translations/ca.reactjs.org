@@ -92,7 +92,7 @@ function getGreeting(user) {
 Pots usar cometes per especificar strings literals com atributs:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 També pots usar claus per inserir una expressió JavaScript en un atribut:
