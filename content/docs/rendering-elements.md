@@ -38,7 +38,7 @@ Per renderitzar un element de React en un node arrel del DOM, passa'ls tots dos 
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Això mostra "Hello, world" a la pàgina.
 
@@ -52,7 +52,7 @@ Considera aquest exemple d'un rellotge en marxa:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 Aquest crida a [`ReactDOM.render()`](/docs/react-dom.html#render) cada segon des d'un callback del ['setInterval()'](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
@@ -66,7 +66,11 @@ Aquest crida a [`ReactDOM.render()`](/docs/react-dom.html#render) cada segon des
 
 React DOM compara l'element i els seus fills amb l'element anterior, i només aplica les actualitzacions del DOM que són necessàries perquè el DOM estigui en l'estat desitjat.
 
+<<<<<<< HEAD
 Pots fer això inspeccionant l'[últim exemple](codepen://rendering-elements/update-rendered-element) amb les eines del navegador:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 
 ![Inspector del DOM mostrant actualitzacions diminutes](../images/docs/granular-dom-updates.gif)
 
