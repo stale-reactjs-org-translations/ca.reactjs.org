@@ -17,7 +17,7 @@ ReactDOM.render(
 
 L'exemple mostra una capçalera amb el text "Hola, món!" a la pàgina.
 
-[](codepen://hello-world)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Fes clic a l'enllaç de dalt per obrir un editor en línia. Pren-te la llibertat de fer canvis, i mira com afecten el resultat. La majoria de pàgines en aquesta guia tindran exemples que pots editar en viu com aquest.
 
