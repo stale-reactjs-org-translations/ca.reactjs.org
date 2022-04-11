@@ -118,7 +118,11 @@ Normalment, salta un avís quan un element amb fills ha sigut marcat també com 
 
 Si fas servir la renderització de React a l'entorn del servidor, normalment salta un avís quan el servidor i el client renderitzen contingut diferent. De totes maneres, en alguns casos rars, és molt difícil o gairebé impossible garantir una coincidència exacta. Per exemple, s'espera que els codis de temps difereixin entre el servidor i el client. 
 
+<<<<<<< HEAD
 Si estableixes `suppressHydrationWarning` a `true`, React no t'avisarà de les diferències ni en els atributs ni en el contingut d'aquests elements. Només funciona amb un nivell de profunditat, i es pretén que es faci servir com una escotilla de sortida. No el facis servir en excès. Pots llegir més sobre la hidratació a [Documentació sobre `ReactDOM.hydrate()`](/docs/react-dom.html#hidrat).
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 ### value {#value}
 

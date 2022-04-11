@@ -33,6 +33,7 @@ const llistaDElements = numeros.map((numero) =>
 );
 ```
 
+<<<<<<< HEAD
 Finalment, incloem tota la llista sencera dins un element `<ul>`, i [la renderitzem al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
@@ -40,6 +41,12 @@ ReactDOM.render(
   <ul>{llistaDElements}</ul>,
   document.getElementById('root')
 );
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+
+```javascript{2}
+<ul>{listItems}</ul>
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -63,11 +70,17 @@ function LlistaNumeros(props) {
   );
 }
 
+<<<<<<< HEAD
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+const numbers = [1, 2, 3, 4, 5];
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 ```
 
 Quan executis aquest codi rebràs un avís que diu que s'ha de donar una clau (`key`) a cada element de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
@@ -86,12 +99,15 @@ function LlistaNumeros(props) {
     <ul>{llistaDElements}</ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -165,12 +181,15 @@ function LlistaDeNumeros(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 ```
 
 **Exemple: Ús correcte de 'key'**
@@ -193,12 +212,15 @@ function LlistaDeNumeros(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -239,10 +261,9 @@ const posts = [
   {id: 1, titol: 'Hola Món', contingut: "Benvinguts a l'aprenentatge de React!"},
   {id: 2, titol: 'Instal·lació', contingut: 'Pots instal·lar React des de npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
