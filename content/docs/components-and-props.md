@@ -70,20 +70,25 @@ function Welcome(props) {
 }
 
 const element = <Welcome name="Sara" />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(element);
 ```
 
-[](codepen://components-and-props/rendering-a-component)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Recapitulem el que succeeix en aquest exemple:
 
+<<<<<<< HEAD
 1. Fem una crida a `ReactDOM.render()` amb l'element `<Welcome name="Sara"/>`.
 2. React crida al component `Welcome` amb `{name: 'Sara'}` com "props".
 3. El nostre component `Welcome` retorna un element `<h1>Hola, Sara</h1>` com a resultat.
 4. React DOM actualitza eficientment el DOM perquè coincideixi amb `<h1>Hola, Sara</h1>`.
+=======
+1. We call `root.render()` with the `<Welcome name="Sara" />` element.
+2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
+3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
+4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 > **Nota:** Comença sempre els noms de components amb una lletra majúscula.
 >
@@ -111,14 +116,9 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://components-and-props/composing-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
 En general, les aplicacions de React noves tenen un únic component `App` al capdamunt. No obstant això, si s'integra React en una aplicació existent, es podria començar de baix cap a dalt amb un petit component com `Button` i a poc a poc fer camí cap al cim de la jerarquia de la vista.
 
@@ -152,7 +152,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
 
 Accepta `author` (un objecte), `text` (una cadena), i `date` (una data) com props, i descriu un comentari en una web de xarxes socials.
 
@@ -231,7 +231,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components-continued)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
 
 Extreure components pot semblar una feina pesada al principi, però tenir una paleta de components reutilitzables val la pena en aplicacions més grans. Una bona regla general és que si una part de la interfície d'usuari es fa servir diverses vegades (`Button`, `Panel` o `Avatar`), o és prou complexa per si mateixa (`App`, `FeedStory`, `Comment`), és bon candidat per ser un component reutilitzable.
 
