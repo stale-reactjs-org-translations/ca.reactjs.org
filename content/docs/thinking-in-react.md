@@ -39,9 +39,13 @@ Però com saps què hauria de ser el seu propi component? Usa la mateixa tècnic
 
 Com que normalment mostres un model de dades JSON a l'usuari, veuràs que si el teu model ha estat construit de manera adequada, la teva interfície d'usuari (i llavors la teva estructura de components) encaixarà perfectament. Això passa perquè les interfícies d'usuari i els models de dades tendeixen a seguir la mateixa *arquitectura d'informació*. Separa la teva interfície d'usuari en components, on cada component representa una part del teu model de dades.
 
-![Component diagram](../images/blog/thinking-in-react-components.png)
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
 
+<<<<<<< HEAD
 Veuràs aquí que tenim cinc components a la nostra aplicació. Hem escrit en itàlica les dades que cada component representa.
+=======
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
   1. **`FilterableProductTable` (taronja):** conté tot l'exemple
   2. **`SearchBar` (blau):** rep totes *les entrades de l'usuari*
@@ -70,9 +74,15 @@ Per construir una versió estàtica de la teva aplicació que renderitzi el teu 
 
 Pots construir de dalt a baix o de baix a dalt. És a dir, pots començar amb la construcció dels components més amunt en la jerarquia (per exemple començant amb `FilterableProductTable`) o amb els inferiors en ell (`ProductRow`). En exemples més senzills, en general és més fàcil anar de dalt a baix, i en projectes més grans, és més fàcil anar de baix a dalt i escriure proves a mesura que vas construint.
 
+<<<<<<< HEAD
 Al final d'aquest pas, tindràs una biblioteca de components reutilitzables que renderitzen el teu model de dades. Els components només tindran mètodes `render()` ja que es tracta d'una versió estàtica de l'aplicació. El component a la part superior de la jerarquia (`FilterableProductTable`) prendrà el teu model de dades com a prop. Si fas un canvi al model de dades subjacent i crides a `ReactDOM.render()`, s'actualitzarà la interfície d'usuari. Pots veure com està actualitzada la teva IU i on fer els canvis. **El flux de dades en un sentit** de React (també anomenat *one-way binding*) ho manté tot modular i ràpid.
 
 Revisa la [documentació de React](/docs/) si necessites ajuda amb aquest pas.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+
+Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 ### Una petita pausa: Props vs. estat {#a-brief-interlude-props-vs-state}
 
@@ -137,7 +147,11 @@ Fins ara, hem construït una aplicació que renderitza correctament com una func
 
 React fa que aquest flux de dades explícit per ajudar a entendre com funciona el teu programa, però requereix una mica més d'escriptura que el tradicional flux en dos sentits.
 
+<<<<<<< HEAD
 Si intentes escriure o marques la checkbox en la versió actual de l'exemple, veuràs que React ignora la teva entrada. Això és intencional, com que hem fixat la prop `value` de l'`input` perquè sempre sigui igual a l'`estat` passat de `FilterableProductTable`.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 Anem a pensar en el que volem que succeeixi. Volem assegurar-nos que cada vegada que l'usuari canviï el formulari, actualitzem l'estat per reflectir l'entrada de l'usuari. Ja que els components només haurien d'actualitzar el seu propi estat, `FilterableProductTable` passarà callbacks a `SearchBar` que es cridaran quan l'estat s'hagi d'actualitzar. Podem utilitzar l'esdeveniment `onChange` en les entrades per això. Les callbacks passades per `FilterableProductTable` cridaran `setState()`, i l'aplicació s'actualitzarà.
 
