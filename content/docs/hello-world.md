@@ -8,16 +8,22 @@ next: introducing-jsx.html
 
 El més curt dels exemples de React té aquesta pinta:
 
+<<<<<<< HEAD
 ```js
 ReactDOM.render(
   <h1>Hola, món!</h1>,
   document.getElementById('root')
 );
+=======
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<h1>Hello, world!</h1>);
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 ```
 
 L'exemple mostra una capçalera amb el text "Hola, món!" a la pàgina.
 
-[](codepen://hello-world)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Fes clic a l'enllaç de dalt per obrir un editor en línia. Pren-te la llibertat de fer canvis, i mira com afecten el resultat. La majoria de pàgines en aquesta guia tindran exemples que pots editar en viu com aquest.
 
