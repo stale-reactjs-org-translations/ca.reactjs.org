@@ -6,14 +6,22 @@ category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
+<<<<<<< HEAD
 React 16 depèn dels tipus de col·lecció [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) i [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). Si vols compatibilitat amb els navegadors i dispositius més antics que no poden proporcionar aquests productes de forma nativa (per exemple, IE < 11) o que tenen implementacions no compatibles (per exemple IE 11), considera incloure un *polyfill* global a la teva aplicació, com ara [core-js](https:github.com/zloirock/core-js).
 
 Un entorn *polyfilled* de React 16 que faci servir *core-js* per fer-lo compatible amb els navegadors més antics es podria semblar a:
+=======
+React 18 supports all modern browsers (Edge, Firefox, Chrome, Safari, etc).
 
-```js
-import 'core-js/es/map';
-import 'core-js/es/set';
+If you support older browsers and devices such as Internet Explorer which do not provide modern browser features natively or have non-compliant implementations, consider including a global polyfill in your bundled application.
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
 
+Here is a list of the modern features React 18 uses:
+- [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+- [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -29,3 +37,6 @@ Pots fer servir el paquet [raf](https://www.npmjs.com/package/raf) per a apedaç
 ```js
 import 'raf/polyfill';
 ```
+=======
+The correct polyfill for these features depend on your environment. For many users, you can configure your [Browserlist](https://github.com/browserslist/browserslist) settings. For others, you may need to import polyfills like [`core-js`](https://github.com/zloirock/core-js) directly.
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
