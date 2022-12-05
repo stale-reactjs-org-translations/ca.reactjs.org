@@ -169,4 +169,8 @@ A Facebook, usem React a mils de components, i no hem trobat cap cas on recomana
 
 Props i composició et donen tota la flexibilitat que necessites per personalitzar l'aparença d'un component i el comportament d'una forma explícita i segura. Recorda que els components poden acceptar props arbitràries, inclosos valors primitius, elements de React, o funcions.
 
+<<<<<<< HEAD
 Si vols reusar funcionalitat que no sigui d'interfície d'usuari entre components, suggerim extreure-la en un mòdul de JavaScript separat. Els components poden importar-lo i usar aquella funció, objecte, o classe, sense extendre'ls.
+=======
+If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or class, without extending it.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
