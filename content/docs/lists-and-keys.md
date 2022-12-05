@@ -33,6 +33,7 @@ const llistaDElements = numeros.map((numero) =>
 );
 ```
 
+<<<<<<< HEAD
 Finalment, incloem tota la llista sencera dins un element `<ul>`, i [la renderitzem al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
@@ -40,6 +41,12 @@ ReactDOM.render(
   <ul>{llistaDElements}</ul>,
   document.getElementById('root')
 );
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+
+```javascript{2}
+<ul>{listItems}</ul>
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -63,11 +70,17 @@ function LlistaNumeros(props) {
   );
 }
 
+<<<<<<< HEAD
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+const numbers = [1, 2, 3, 4, 5];
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 ```
 
 Quan executis aquest codi rebràs un avís que diu que s'ha de donar una clau (`key`) a cada element de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
@@ -86,12 +99,15 @@ function LlistaNumeros(props) {
     <ul>{llistaDElements}</ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -130,7 +146,11 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
+<<<<<<< HEAD
 No et recomanem que facis servir els índexs per a les claus si l'ordre dels elements pot canviar. Això pot afectar negativament el rendiment i pot causar problemes amb l'estat del component. Llegeix l'article de Robin Pokorny que dóna una [explicació en profunditat sobre els impactes negatius d'utilitzar un índex com a clau](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si tries no assignar una clau explícita als elements de la llista, React farà servir els índexs com a claus per defecte.
+=======
+We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 Aquí hi trobaràs una [explicació en profunditat sobre per què les claus són necessàries](/docs/reconciliation.html#recursing-on-children) si estàs interessat en saber-ne més.
 
@@ -165,12 +185,15 @@ function LlistaDeNumeros(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 ```
 
 **Exemple: Ús correcte de 'key'**
@@ -193,12 +216,15 @@ function LlistaDeNumeros(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -239,10 +265,9 @@ const posts = [
   {id: 1, titol: 'Hola Món', contingut: "Benvinguts a l'aprenentatge de React!"},
   {id: 2, titol: 'Instal·lació', contingut: 'Pots instal·lar React des de npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
