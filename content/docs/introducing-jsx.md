@@ -6,7 +6,20 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+<<<<<<< HEAD
 Considera la declaració d'aquesta variable:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Writing Markup with JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript in JSX with Curly Braces](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Consider this variable declaration:
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ```js
 const element = <h1>Hello, world!</h1>;
@@ -35,11 +48,6 @@ A l'exemple de sota, declarem una variable anomenada `name` i després l'usem a 
 ```js{1,2}
 const name = 'Josh Perez';
 const element = <h1>Hello, {name}</h1>;
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
 Pots posar qualsevol [expressió de JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) vàlida a dins les claus en JSX. Per exemple, `2 + 2`, `user.firstName`, o `formatName(user)` són tot expressions vàlides de JavaScript.
@@ -61,14 +69,9 @@ const element = (
     Hello, {formatName(user)}!
   </h1>
 );
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Dividim JSX en diverses línies per facilitar-ne la lectura. Tot i que no és necessari, quan es fa així també recomanem embolicar-lo entre parèntesis per evitar errors causats per la [inserció automàtica del punt i coma](https://stackoverflow.com/q/2846283).
 
@@ -92,7 +95,7 @@ function getGreeting(user) {
 Pots usar cometes per especificar strings literals com atributs:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 També pots usar claus per inserir una expressió JavaScript en un atribut:
