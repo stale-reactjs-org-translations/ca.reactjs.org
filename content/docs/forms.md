@@ -9,7 +9,21 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 Els elements de formularis HTML funcionen una mica diferent d'altres elements del DOM a React, ja que els elements de formulari intrínsecament conserven algun estat intern. Per exemple, aquest formulari només en HTML, accepta un sol nom:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ```html
 <form>
@@ -270,15 +284,19 @@ Ja que `setState()` automàticament [combina un estat parcial a l'estat actual](
 
 ## Valor nul en un input controlat {#controlled-input-null-value}
 
+<<<<<<< HEAD
 Especificar la propietat `value` en un [component controlat](/docs/forms.html#controlled-components) evita que l'usuari canviï l'entrada a no ser que així ho vulguis. Si has especificat un `value` però l'entrada encara és editable, potser has assignat accidentalment al `value` un valor `undefined` o `null`.
+=======
+Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 El codi a continuació demostra això. (L'input està inicialment bloquejat, però es torna editable després d'un curt retard).
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```
