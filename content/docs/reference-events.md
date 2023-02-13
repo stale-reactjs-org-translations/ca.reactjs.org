@@ -6,7 +6,19 @@ layout: docs
 category: Reference
 ---
 
+<<<<<<< HEAD
 Aquesta guia de referència documenta el contenidor `SyntheticEvent` que forma part del sistema d'esdeveniments de React. Consulta la guia [Controlant esdeveniments](/docs/manage-events.html) per aprendre'n més.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 ## Resum {#overview}
 
