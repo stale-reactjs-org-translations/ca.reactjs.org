@@ -6,7 +6,20 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
+<<<<<<< HEAD
 Primer, revisem com es transformen les llistes a JavaScript.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Rendering Lists](https://beta.reactjs.org/learn/rendering-lists)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
+First, let's review how you transform lists in JavaScript.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 En el codi que segueix a sota, utilitzem la funció [`map()`](https://developer.mozilla.org/ca/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendre una matriu de `numeros` i duplicar-ne els seus valors. Assignem la nova array retornada per `map()` a la variable `doblat` i la mostrem a la consola:
 
@@ -33,6 +46,7 @@ const llistaDElements = numeros.map((numero) =>
 );
 ```
 
+<<<<<<< HEAD
 Finalment, incloem tota la llista sencera dins un element `<ul>`, i [la renderitzem al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
@@ -40,6 +54,12 @@ ReactDOM.render(
   <ul>{llistaDElements}</ul>,
   document.getElementById('root')
 );
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+
+```javascript{2}
+<ul>{listItems}</ul>
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -63,11 +83,17 @@ function LlistaNumeros(props) {
   );
 }
 
+<<<<<<< HEAD
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+const numbers = [1, 2, 3, 4, 5];
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 Quan executis aquest codi rebràs un avís que diu que s'ha de donar una clau (`key`) a cada element de la llista. Una clau (`key`) és un atribut de cadena especial que has d'incloure en crear llistes d'elements. Parlarem de per què és important a la següent secció.
@@ -86,12 +112,15 @@ function LlistaNumeros(props) {
     <ul>{llistaDElements}</ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -130,7 +159,11 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
+<<<<<<< HEAD
 No et recomanem que facis servir els índexs per a les claus si l'ordre dels elements pot canviar. Això pot afectar negativament el rendiment i pot causar problemes amb l'estat del component. Llegeix l'article de Robin Pokorny que dóna una [explicació en profunditat sobre els impactes negatius d'utilitzar un índex com a clau](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si tries no assignar una clau explícita als elements de la llista, React farà servir els índexs com a claus per defecte.
+=======
+We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 Aquí hi trobaràs una [explicació en profunditat sobre per què les claus són necessàries](/docs/reconciliation.html#recursing-on-children) si estàs interessat en saber-ne més.
 
@@ -165,12 +198,15 @@ function LlistaDeNumeros(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 **Exemple: Ús correcte de 'key'**
@@ -193,12 +229,15 @@ function LlistaDeNumeros(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeros = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <LlistaDeNumeros numeros={numeros} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -239,10 +278,9 @@ const posts = [
   {id: 1, titol: 'Hola Món', contingut: "Benvinguts a l'aprenentatge de React!"},
   {id: 2, titol: 'Instal·lació', contingut: 'Pots instal·lar React des de npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
