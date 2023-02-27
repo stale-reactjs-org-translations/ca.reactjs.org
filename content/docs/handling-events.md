@@ -8,7 +8,20 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<<<<<<< HEAD
 Controlar esdeveniments amb elements de React és molt similar a controlar esdeveniments amb elements del DOM. Hi ha algunes diferències sintàctiques:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Responding to Events](https://beta.reactjs.org/learn/responding-to-events)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+>>>>>>> b0ccb47f33e52315b0ec65edb9a49dc4910dd99c
 
 * Els esdeveniments de React s'anomenen usant camelCase, en lloc de minúscules.
 * Amb JSX es passa una funció com el controlador de l'esdeveniment, en lloc d'un string.
@@ -84,11 +97,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
 ```
 
 [**Prova-ho a CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
@@ -97,15 +105,18 @@ Has d'anar amb compte amb el significat de `this` a callbacks de JSX. A JavaScri
 
 Aquest comportament no és específic de React; forma part de [com funcionen les funcions a JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalment, si refereixes un mètode sense `()` després d'ell, com `onClick={this.handleClick}`, hauries de lligar aquell mètode.
 
+<<<<<<< HEAD
 Si cridar `bind` et molesta, hi ha dues formes d'evitar-ho. Si uses la sintaxi experimental de [camps públics de classes](https://babeljs.io/docs/plugins/transform-class-properties/), pots usar els camps de classes per lligar els callbacks correctament:
+=======
+If calling `bind` annoys you, there are two ways you can get around this. You can use [public class fields syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) to correctly bind callbacks:
+>>>>>>> b0ccb47f33e52315b0ec65edb9a49dc4910dd99c
 
 ```js{2-6}
 class LoggingButton extends React.Component {
   // This syntax ensures `this` is bound within handleClick.
-  // Warning: this is *experimental* syntax.
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (
