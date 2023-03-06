@@ -9,7 +9,19 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
+<<<<<<< HEAD
 Alguns cops, diversos components necessiten reflectir les mateixes dades canviants. Recomanem pujar l'estat cap a l'avantpassat comú més proper. Anem a veure com funciona.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Sharing State Between Components](https://beta.reactjs.org/learn/sharing-state-between-components)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. Let's see how this works in action.
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 En aquesta secció, crearem una calculadora de temperatura que calcularà si l'aigua bullirà a una certa temperatura.
 
@@ -324,7 +336,11 @@ Pujar l'estat suposa escriure més codi que en casos "two-way binding", però co
 
 Si alguna cosa podria estar derivada tan de props com d'estat, probablement no hauria de trobar-se a l'estat. Per exemple, en lloc de guardar `celsiusValue` i `fahrenheitValue`, només guardem la darrera `temperature` i la seva `scale`. Amb això, el valor de l'altra entrada sempre es pot calcular en el mètode `render()`. Això ens permet no perdre cap precisió en els decimals de les entrades de l'usuari.
 
+<<<<<<< HEAD
 Quan vegis alguna cosa incorrecta en la interfície d'usuari, pots usar [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) per inspeccionar les props i l'arbre fins que trobis el component responsable d'actualitzar l'estat. Això permet seguir error fins a la seva font:
+=======
+When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 

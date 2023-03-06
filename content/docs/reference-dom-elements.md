@@ -14,7 +14,24 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<<<<<<< HEAD
 React implementa un sistema DOM independent del navegador per una qüestió de rendiment i de compatibilitat entre navegadors. Vam aprofitar l'oportunitat per polir algunes arestes en les implementacions DOM del navegadors.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 A React, totes les propietats i atributs del DOM (inclosos els gestors d'esdeveniments) han de ser *camelCased*. Per exemple, l'atribut HTML `tabindex` es correspon amb l'atribut `tabIndex` a React. L'excepció a aquesta norma són els atributs `aria-*` i `data-*`, que s'han d'escriure del tot en minúscules. Per exemple, has de mantenir `aria-label` com `aria-label`.
 
@@ -118,7 +135,11 @@ Normalment, salta un avís quan un element amb fills ha sigut marcat també com 
 
 Si fas servir la renderització de React a l'entorn del servidor, normalment salta un avís quan el servidor i el client renderitzen contingut diferent. De totes maneres, en alguns casos rars, és molt difícil o gairebé impossible garantir una coincidència exacta. Per exemple, s'espera que els codis de temps difereixin entre el servidor i el client. 
 
+<<<<<<< HEAD
 Si estableixes `suppressHydrationWarning` a `true`, React no t'avisarà de les diferències ni en els atributs ni en el contingut d'aquests elements. Només funciona amb un nivell de profunditat, i es pretén que es faci servir com una escotilla de sortida. No el facis servir en excès. Pots llegir més sobre la hidratació a [Documentació sobre `ReactDOM.hydrate()`](/docs/react-dom.html#hidrat).
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 ### value {#value}
 
