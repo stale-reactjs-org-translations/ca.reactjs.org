@@ -2,22 +2,28 @@
 id: hello-world
 title: Hola món
 permalink: docs/hello-world.html
-prev: cdn-links.html
+prev: release-channels.html
 next: introducing-jsx.html
 ---
 
 El més curt dels exemples de React té aquesta pinta:
 
+<<<<<<< HEAD
 ```js
 ReactDOM.render(
   <h1>Hola, món!</h1>,
   document.getElementById('root')
 );
+=======
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<h1>Hello, world!</h1>);
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 ```
 
 L'exemple mostra una capçalera amb el text "Hola, món!" a la pàgina.
 
-[](codepen://hello-world)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Fes clic a l'enllaç de dalt per obrir un editor en línia. Pren-te la llibertat de fer canvis, i mira com afecten el resultat. La majoria de pàgines en aquesta guia tindran exemples que pots editar en viu com aquest.
 

@@ -228,7 +228,11 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Quan s'utilitza un HOC per ampliar components, es recomana [reenviar la referència](/docs/forwarding-refs.html) al component envoltat fent servir la funció `forwardRef` de React. Si un HOC d'un tercer no implementa el reenviament de ref, el patró anterior es pot utilitzar com a alternativa.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 Un gran exemple de gestió de l'enfocament és el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Aquest és un exemple relativament estrany d'una finestra modal completament accessible. No només estableix el focus inicial en el botó de cancel·lació (prevenint que l'usuari del teclat activi accidentalment l'acció d'aprovació) i conserva el focus del teclat dins de la mateixa finestra modal, sinó que també retorna el focus a l'element que inicialment va activar la finestra.
 
@@ -379,9 +383,15 @@ Els enllaços que venen a continuació són caixes d'eines plenes d'atributs HTM
 
 Cada tipus d'eina té un patró de disseny específic i s'espera que funcioni d'una manera determinada tant pels usuaris com pels agents d'usuari:
 
+<<<<<<< HEAD
 - [WAI-ARIA Authoring Practices - Disseny de patrons i ginys (en anglès)](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
 - [Heydon Pickering - ARIA Exemples (en anglès)](https://heydonworks.com/practical_aria_examples/)
 - [Components Inclussius (en anglès)](https://inclusive-components.design/)
+=======
+- [ARIA Authoring Practices Guide (APG) - Design Patterns and Examples](https://www.w3.org/WAI/ARIA/apg/patterns/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
+- [Inclusive Components](https://inclusive-components.design/)
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 ## Altres Punts a Considerar {#other-points-for-consideration}
 
@@ -407,7 +417,11 @@ Assegura't que tot el text llegible del teu lloc web té suficient contrast de c
 - [Tot sobre el contrast del color i per què has de repensar-t'ho (en anglès)](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Què és el contrast de color (en anglès)](https://a11yproject.com/posts/what-is-color-contrast/)
 
+<<<<<<< HEAD
 Pot ser feixuc calcular manualment les combinacions de colors adequades per a tots els casos del teu lloc web de manera que pots fer-ho amb [ Colorable. Calcular una paleta de colors accessible completa ](https://jxnblk.com/colorable/).
+=======
+It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 Tant les eines aXe com WAVE esmentades a continuació també inclouen proves de contrast de color i t'informaran sobre errors de contrast.
 
@@ -457,7 +471,11 @@ Deque Systems ofereix [aXe-core](https://github.com/dequelabs/axe-core) per a le
 
 [El Motor de l'Accessibilitat (en anglès)](https://www.deque.com/products/axe/) o aXe, és una extensió de l'inspector d'accessibilitat del navegador construïda sobre `aXe-core`.
 
+<<<<<<< HEAD
 També pots fer servir el mòdul [react-axe](https://github.com/dylanb/react-axe) per a informar d'aquests resultats d'accessibilitat directament a la consola mentre desenvolupes i depures.
+=======
+You can also use the [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) module to report these accessibility findings directly to the console while developing and debugging.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 #### WebAIM WAVE {#webaim-wave}
 
